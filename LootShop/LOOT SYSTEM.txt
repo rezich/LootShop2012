@@ -1,0 +1,7 @@
+﻿Loot Colors
+  Gray
+  White
+  Blue
+  Yellow
+  Purple
+  Red
