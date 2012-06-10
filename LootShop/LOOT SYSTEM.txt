@@ -5,3 +5,12 @@
   Yellow
   Purple
   Red
+
+Item Attributes
+		Strength
+		Intelligence
+		Dexterity
+		Vitality
+		AttackSpeed
+		GoldFind,
+		MagicFind

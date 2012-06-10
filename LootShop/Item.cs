@@ -5,15 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LootShop {
-	public enum Attribute {
-		Strength,
-		Intelligence,
-		Dexterity,
-		Vitality,
-		AttackSpeed,
-		GoldFind,
-		MagicFind
-	}
 	public enum RarityLevel {
 		Garbage,
 		Normal,
@@ -22,19 +13,68 @@ namespace LootShop {
 		Legendary,
 		Unique
 	}
-	class Item {
-		public Dictionary<Attribute, int> Attributes = new Dictionary<Attribute, int>();
-		public RarityLevel Rarity;
-		public static Item Generate(Random r) {
-			Item i = new Item();
-			i.Rarity = (RarityLevel)r.Next(Enum.GetValues(typeof(RarityLevel)).Length);
-			List<Attribute> attrs = Enum.GetValues(typeof(Attribute)).Cast<Attribute>().ToList<Attribute>();
-			for (int a = 0; a < 1 + r.Next(attrs.Count - 1); a++) {
-				int n = r.Next(attrs.Count - 1);
-				Attribute attr = attrs[n];
-				i.Attributes.Add(attr, r.Next(32));
-				attrs.RemoveAt(n);
+	public class Item {
+
+		public class Attribute {
+
+			public enum Names {
+				Strength,
+				Dexterity,
+				Intelligence,
+				Vitality,
+				MagicFind,
+				GoldFind,
+				AttackSpeed
 			}
+
+			public Names Name;
+
+			public static List<Attribute> List {
+				get {
+					List<Attribute> l = new List<Attribute>();
+					l.Add(new Attribute(Names.Strength));
+					l.Add(new Attribute(Names.Dexterity));
+					l.Add(new Attribute(Names.Intelligence));
+					l.Add(new Attribute(Names.Vitality));
+					l.Add(new Attribute(Names.MagicFind));
+					l.Add(new Attribute(Names.GoldFind));
+					l.Add(new Attribute(Names.AttackSpeed));
+					return l;
+				}
+			}
+			public Attribute(Names name) {
+				Name = name;
+			}
+		}
+
+		public Dictionary<Attribute.Names, int> Attributes = new Dictionary<Attribute.Names, int>();
+		public RarityLevel Rarity;
+		public int Level;
+		public static Item Generate(int level, Random r) {
+			Item i = new Item();
+			i.Level = level;
+			i.Rarity = (RarityLevel)r.Next(Enum.GetValues(typeof(RarityLevel)).Length);
+
+			List<Item.Attribute> attrs = new List<Item.Attribute>();
+			int attrCount = 4;
+			List<Item.Attribute.Names> takenAttrs = new List<Attribute.Names>();
+			while (attrs.Count < attrCount) {
+				Item.Attribute.Names[] values = (Item.Attribute.Names[]) Enum.GetValues(typeof(Item.Attribute.Names));
+				Item.Attribute.Names selectedName = values[r.Next(0, values.Length)];
+				Item.Attribute newAttr =
+					(from t in Item.Attribute.List
+					where t.Name == selectedName && !takenAttrs.Contains(t.Name)
+					select t).FirstOrDefault<Item.Attribute>();
+				if (newAttr != null) {
+					attrs.Add(newAttr);
+					takenAttrs.Add(newAttr.Name);
+				}
+			}
+
+			foreach (Item.Attribute a in attrs) {
+				i.Attributes.Add(a.Name, r.Next(64));
+			}
+
 			return i;
 		}
 
@@ -64,6 +104,7 @@ namespace LootShop {
 		}
 
 		public void WriteStatBlock() {
+			Console.WriteLine("--------------------");
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
 			Console.WriteLine(Name);
 			switch (Rarity) {
@@ -83,10 +124,14 @@ namespace LootShop {
 					Console.WriteLine("(Unique item)");
 					break;
 			}
+			Console.WriteLine();
 			Console.ResetColor();
-			foreach (KeyValuePair<Attribute, int> kvp in Attributes) {
+			foreach (KeyValuePair<Attribute.Names, int> kvp in Attributes) {
 				Console.WriteLine(kvp.Key.ToString() + "\t" + kvp.Value.ToString());
 			}
+			Console.WriteLine();
+			Console.WriteLine("Required Level\t" + Level);
+			Console.WriteLine("--------------------");
 		}
 
 	}
