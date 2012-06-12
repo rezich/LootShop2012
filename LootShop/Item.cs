@@ -86,7 +86,7 @@ namespace LootShop {
 					"Helmet", "Hat", "Cap", "Crown", "Casque", "Basinet", "Sallet"
 				}));
 				List.Add(new Item.Kind(Type.Armor, Slot.Chest, armorAttr, new List<string> {
-					"Studded Armor", "Leather Armor", "Quilted Armor", "Ring Mail", "Scale Mail", "Chain Mail", "Breastplate", "Plate Mail", "Shirt", "Bodyshaft", "Sweater", "Rags", "Undershirt", "Robe", "Cloak"
+					"Studded Armor", "Leather Armor", "Quilted Armor", "Ring Mail", "Scale Mail", "Chain Mail", "Breastplate", "Plate Mail", "Shirt", "Bodyshaft", "Sweater", "Rags", "Undershirt", "Robe", "Cloak", "Goatskin"
 				}));
 				List.Add(new Item.Kind(Type.Pants, Slot.Legs, armorAttr, new List<string> {
 					"Pants", "Leggings", "Kneepads", "Chaps", "Leg-Wraps"
@@ -284,11 +284,11 @@ namespace LootShop {
 			}
 
 			// GENERATE THE NAME!!
-			int oddsOfOfX = 3;
+			int oddsOfOfX = 1;
 			string name = "";
 			name = i.Variety.Names[r.Next(i.Variety.Names.Count - 1)];
 			name = Item.PreAdjectives[r.Next(Item.PreAdjectives.Count - 1)] + " " + name;
-			if (r.Next(0, oddsOfOfX) == 1) name += " of " + Item.OfX[r.Next(Item.OfX.Count - 1)];
+			if (r.Next(0, oddsOfOfX) == 0) name += " of " + Item.OfX[r.Next(Item.OfX.Count - 1)];
 			i.Name = name;
 			return i;
 		}
@@ -318,7 +318,9 @@ namespace LootShop {
 			string line = new String('-', width);
 			Console.WriteLine(line);
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
-			Console.WriteLine(Name.ToUpper().PadCenter(width, ' '));
+			List<string> name = Name.ToUpper().Wrap(width);
+			foreach (string s in name) Console.WriteLine(s.PadCenter(width, ' '));
+			//Console.WriteLine(Name.ToUpper().PadCenter(width, ' '));
 			Console.ResetColor();
 			Console.WriteLine(line);
 
