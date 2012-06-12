@@ -91,7 +91,6 @@ Truly Feared
 Wicked Nasty
 Totally Ordinary
 Australian
-//lol tf2
 Glamorous
 Fabulous
 Stingy
@@ -232,7 +231,7 @@ Absolutely Essential
 Infinitely Complex
 Cheap Knock-Off
 Festive
-Money Laundering
+Money-Laundering
 Corrupt
 Incorigible
 Mathematically-Sound

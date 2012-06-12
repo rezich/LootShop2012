@@ -12,8 +12,9 @@ namespace LootShop {
 		public enum Type {
 			Greataxe,
 			Longsword,
-			//Staff,
-			//Bow,
+			Staff,
+			Bow,
+			Mace,
 
 			Helmet,
 			Pauldrons,
@@ -62,6 +63,15 @@ namespace LootShop {
 				}));
 				List.Add(new Item.Kind(Type.Greataxe, Slot.TwoHands, meleeAttr, new List<string> {
 					"Axe", "Hatchet", "Pick", "Broad Axe", "Battleaxe", "Great Axe", "Giant Axe", "Cleaver", "Pickaxe"
+				}));
+				List.Add(new Item.Kind(Type.Staff, Slot.OneHand, meleeAttr, new List<string> {
+					"Staff", "Rod", "Wand", "Implement", "Quarterstaff", "Walking Stick"
+				}));
+				List.Add(new Item.Kind(Type.Bow, Slot.TwoHands, meleeAttr, new List<string> {
+					"Bow", "Shortbow", "Longbow", "Composite Bow", "War Bow", "Siege Bow", "Great Bow"
+				}));
+				List.Add(new Item.Kind(Type.Mace, Slot.OneHand, meleeAttr, new List<string> {
+					"Mace", "Club", "Morningstar", "Flail", "War Hammer", "Maul", "Cudgel", "Truncheon", "Mallet", "Hammer"
 				}));
 
 				// Armor
@@ -314,7 +324,7 @@ namespace LootShop {
 		public string Name = "!!OSHIT NO NAME GENERATED!!";
 		public void WriteStatBlock() {
 			int width = 32;
-			int padding = 6;
+			int padding = 5;
 			string line = new String('-', width);
 			Console.WriteLine(line);
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
