@@ -23,7 +23,7 @@ namespace LootShop {
 			"Wild", "Advancing", "Intrusive", "Pretty Laid-Back", "Metal As Hell", "Absurdly Powerful", "Rather Weak", "Somewhat Lacking", "Burdensome", "Smashed", "Flagrant", "Disassembled", "Toe-Curling", "Impressive",
 			"Sour", "Gaudy", "Smelly", "Raunchy", "Flavorless", "Odorless", "Unexpectedly Awesome", "Careless", "Unsurprising", "Majestic", "Dwarven", "Spectacularly Worthless", "Shoplifted", "Respectable", "Daunting",
 			"Third-Best", "Curiously Weightless", "Ambiguous", "Sentient", "Well Thought-Out", "Absolutely Essential", "Infinitely Complex", "Cheap Knock-Off", "Festive", "Money Laundering", "Corrupt", "Incorigible",
-			"Mathematically-Sound", "Inoffensive"
+			"Mathematically-Sound", "Inoffensive", "Four-Stringed", "Elephantine", "Nerve-Wracking", "Cold And Heartless", "Lemon-Scented", "Slow-Burning", "Probably Waterproof", "Informative", "Entertaining", "Incredibly Aged"
 		};
 		public static List<string> OfX = new List<string> {
 			"The Boar", "Legend", "Lore", "Christmas Past", "Biblical Proportions", "China", "The Beast", "Reckoning", "The End Times", "Poverty", "The Jews", "Unbelievable Power", "Ridicule", "Greed", "Extra Shininess", "Shit",
@@ -36,7 +36,8 @@ namespace LootShop {
 			"The Void", "The End", "The Wretch", "The Spider-Queen's Great Aunt", "Caressing", "Fraternization", "Communal Living", "Not Having Legs Anymore", "Horseriding", "Adventure", "Malice", "Thorns", "Scorn", "Hatred",
 			"Sundering", "Sweet Dance Moves", "Explosions", "Exploding", "Deforestation", "Sublimation", "Naval Alacrity", "Acceleration", "Friction", "Slow Motion", "Dodging", "The Ancients", "Farsight", "Redemption", "Finality",
 			"Fluid Secretion", "Exhaustion", "Sleep Deprivation", "Jackie Chan", "Unmatched Power", "Fate", "Reforging", "Excitement", "The Bees", "Neglecting Gravity", "Respect", "Low, Low Prices", "Bursting", "Mental Anguish",
-			"Despair"
+			"Despair", "The Child", "The Astral Plane", "The Collective Unconscious", "Refactoring Primes", "Limitless Potential", "Wasted Potential", "Jest", "Upholding Grudges", "Cannibalism", "Master Craftsdwarfship",
+			"The Human Psyche", "The Status Quo", "Downfall", "Lounging About", "Sporadic Breathing", "Spontaneous Combustion", "Finality", "Retrospect", "Temptation", "Gluttony", "Coitus", "Originality", "Seasickness"
 		};
 		public enum Type {
 			Greataxe,
