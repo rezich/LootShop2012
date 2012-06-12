@@ -7,38 +7,10 @@ using System.Threading.Tasks;
 
 namespace LootShop {
 	public class Item {
-		public static List<string> PreAdjectives = new List<string> {
-			"Fantastic", "Amazing", "Fuckin' Metal", "Preposterous", "Ridiculously Overpowered", "Slithering", "Rock-Hard", "Aching", "Throbbing", "Tedious", "Lengthy", "Fond", "Horrible", "Ghostly", "Sweaty", "Charming",
-			"Rifting", "Lofty", "Perfectly Ordinary", "Jubilant", "Lightly Seasoned", "Seasoned", "Withered", "Humiliating", "Meaningful", "Far-Fetched", "Controversial", "Stolen", "Imbued", "Bashful", "Delicate",
-			"Righteous", "Encouraging", "Baffling", "Brilliant", "Rotten", "Rotting", "Roaring", "Seamless", "Forboding", "Tormented", "Scattered", "Demeaning", "Well-Crafted", "Epic", "Unfinished", "Half-Assed",
-			"Rustic", "Rusted", "Stained", "Becoming", "Plentiful", "Breached", "Shady", "Ransacked", "Virgin", "Well-Trimmed", "Well-Taught", "Charitable", "Resplendent", "Regular-Ass", "Gaping", "Stout", "Unfortunate",
-			"Famished", "Impoverished", "Unheard-Of", "Ineffable", "Affable", "Unusable", "Super Shiny", "Gas-Operated", "Tony's", "Moist", "Bleached", "Well-Bathed", "Static", "Well-Tuned", "Unstrung", "Shoddy", "Cross-Hatched",
-			"Strange", "Unremarkable", "Scarcely Lethal", "Mildly Menacing", "Somewhat Threatening", "Uncharitable", "Notably Dangerous", "Sufficiently Lethal", "Truly Feared", "Wicked Nasty", "Totally Ordinary", "Australian", //lol tf2
-			"Glamorous", "Fabulous", "Stingy", "Unplanned", "Vaguely Erotic", "Seductive", "Burnt", "Chiseled", "Gloomy", "Shiny", "Musty", "Moldy", "Drab", "Worn", "Deflated", "Shriveled", "Spotted", "Termite-Covered", "Polished",
-			"Enrapturing", "Warped", "Kinda Shitty", "Mediocre", "Scratched", "Dried", "Thrown Out", "Discarded", "Broken", "Irrepairable", "Unbelievable", "Indispensable", "Overprepared", "Succulent", "Subpar", "Asymmetrical",
-			"Negligent", "Gentleman's", "Lady-Like", "Manly", "Strict", "Greedy", "Notable", "Distorted", "Sight-Seeing", "Sexy", "Painful", "Legless", "Brass", "Fallen", "Tacky", "Bundled", "Business", "Requested",
-			"Summoned", "Ripped", "Twelfth", "Poorly-Wrapped", "My Wife's", "Butlers' Choice", "Scammed", "Cascading", "Uplifting", "Drafty", "Sinking", "Golden", "Plated", "Gilded", "Loot-Worthy", "Medieval", "Tribal", "Master",
-			"Brutal", "Brütal", "Everburning", "Giggling", "Prancing", "Balanced", "Silken", "Horribly Disgusting", "Probably On Fire", "Underwhelming", "Doom-Laden", "Inconsequential", "Rapidly Deteriorating", "Sacred",
-			"Steam-Powered", "Utterly Amazing", "Pretty Damn Cool", "Kingly", "Dire", "Hella Cool", "Rampant", "Aggressive", "Blustering", "Boisterous", "Dominant", "Extravagent", "Furious", "Raging", "Unruly", "Violent", "Wanton",
-			"Wild", "Advancing", "Intrusive", "Pretty Laid-Back", "Metal As Hell", "Absurdly Powerful", "Rather Weak", "Somewhat Lacking", "Burdensome", "Smashed", "Flagrant", "Disassembled", "Toe-Curling", "Impressive",
-			"Sour", "Gaudy", "Smelly", "Raunchy", "Flavorless", "Odorless", "Unexpectedly Awesome", "Careless", "Unsurprising", "Majestic", "Dwarven", "Spectacularly Worthless", "Shoplifted", "Respectable", "Daunting",
-			"Third-Best", "Curiously Weightless", "Ambiguous", "Sentient", "Well Thought-Out", "Absolutely Essential", "Infinitely Complex", "Cheap Knock-Off", "Festive", "Money Laundering", "Corrupt", "Incorigible",
-			"Mathematically-Sound", "Inoffensive", "Four-Stringed", "Elephantine", "Nerve-Wracking", "Cold And Heartless", "Lemon-Scented", "Slow-Burning", "Probably Waterproof", "Informative", "Entertaining", "Incredibly Aged"
-		};
-		public static List<string> OfX = new List<string> {
-			"The Boar", "Legend", "Lore", "Christmas Past", "Biblical Proportions", "China", "The Beast", "Reckoning", "The End Times", "Poverty", "The Jews", "Unbelievable Power", "Ridicule", "Greed", "Extra Shininess", "Shit",
-			"Embarassment", "The Wildebeast", "Worth", "Note", "Hope", "Survivability", "Reminiscence", "The Tourist", "The Lion", "The Loins", "The Hawk", "The Prisoner", "Portability", "The Clockmaker", "The Fool", "Sex",
-			"Sacrifice", "Smithing", "Disaster", "Completion", "Wrath", "Ascension", "Treasure", "Snakes", "Light", "Darkness", "The Owl", "Horror", "Vegetation", "Lies", "Greatness", "Due Time", "Patience", "Uncertainty",
-			"Quality", "\"Quality\"", "Celebration", "Burning", "Giggling", "Dancing", "The Journey", "Request", "Balance", "Cleansing", "Stability", "Teaching", "Speculation", "Wizardry", "The Church", "The Gods",
-			"The Nine Hells", "Lust", "Silly Titles", "Vast Fortune", "Commitment", "Cross-Breeding", "Salad Shooting", "Permadeath", "Untold Riches", "Burial", "Decapitation", "Disembowelment", "Quartering", "Instagibbing",
-			"Sick Flows", "Dungeoneering", "Loot-Having", "Turnip Farming", "Greater Purpose", "Lesser Evils", "Deception", "Horticulture", "Premonition", "Rice Cooking", "Absolution", "Destruction", "Not Having Any Real Purpose",
-			"Destiny", "Favoritism", "Beholding", "Ritual", "Roasting", "Uselessness", "Companionship", "Lucid Dreaming", "Funny Words", "Inherent Sexiness", "Pandemonium", "Thrill", "Separation", "Splicing", "The Fissure",
-			"The Void", "The End", "The Wretch", "The Spider-Queen's Great Aunt", "Caressing", "Fraternization", "Communal Living", "Not Having Legs Anymore", "Horseriding", "Adventure", "Malice", "Thorns", "Scorn", "Hatred",
-			"Sundering", "Sweet Dance Moves", "Explosions", "Exploding", "Deforestation", "Sublimation", "Naval Alacrity", "Acceleration", "Friction", "Slow Motion", "Dodging", "The Ancients", "Farsight", "Redemption", "Finality",
-			"Fluid Secretion", "Exhaustion", "Sleep Deprivation", "Jackie Chan", "Unmatched Power", "Fate", "Reforging", "Excitement", "The Bees", "Neglecting Gravity", "Respect", "Low, Low Prices", "Bursting", "Mental Anguish",
-			"Despair", "The Child", "The Astral Plane", "The Collective Unconscious", "Refactoring Primes", "Limitless Potential", "Wasted Potential", "Jest", "Upholding Grudges", "Cannibalism", "Master Craftsdwarfship",
-			"The Human Psyche", "The Status Quo", "Downfall", "Lounging About", "Sporadic Breathing", "Spontaneous Combustion", "Finality", "Retrospect", "Temptation", "Gluttony", "Coitus", "Originality", "Seasickness"
-		};
+		#region Words
+		public static List<string> PreAdjectives;
+		public static List<string> OfX;
+		#endregion
 		public enum Type {
 			Greataxe,
 			Longsword,
@@ -198,7 +170,12 @@ namespace LootShop {
 				Vitality,
 				MagicFind,
 				GoldFind,
-				AttackSpeed
+				AttackSpeed,
+				ResistFire,
+				ResistLightning,
+				ResistPoison,
+				LifeOnHit,
+				ReplenishLife,
 			}
 
 			public Type Name;
@@ -217,6 +194,11 @@ namespace LootShop {
 				List.Add(new Attribute(Type.MagicFind));
 				List.Add(new Attribute(Type.GoldFind));
 				List.Add(new Attribute(Type.AttackSpeed));
+				List.Add(new Attribute(Type.ResistFire));
+				List.Add(new Attribute(Type.ResistLightning));
+				List.Add(new Attribute(Type.ResistPoison));
+				List.Add(new Attribute(Type.LifeOnHit));
+				List.Add(new Attribute(Type.ReplenishLife));
 			}
 
 			public static Attribute Lookup(Attribute.Type type) {
@@ -243,6 +225,13 @@ namespace LootShop {
 		public int Level;
 		public Kind Variety;
 
+		public static void Initialize() {
+			Item.PreAdjectives = System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt").ToList<string>();
+			Item.OfX = System.IO.File.ReadAllLines(@"Data\OfX.txt").ToList<string>();
+			Attribute.Initialize();
+			RarityLevel.Initialize();
+			Kind.Initialize();
+		}
 		public static Item Generate(int level, Random r) {
 			Item i = new Item();
 			i.Level = level;
@@ -297,7 +286,7 @@ namespace LootShop {
 			}
 
 			// GENERATE THE NAME!!
-			int oddsOfOfX = 1;
+			int oddsOfOfX = 2;
 			string name = "";
 			name = i.Variety.Names[r.Next(i.Variety.Names.Count - 1)];
 			name = Item.PreAdjectives[r.Next(Item.PreAdjectives.Count - 1)] + " " + name;

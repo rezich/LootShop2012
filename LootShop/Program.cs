@@ -8,9 +8,7 @@ namespace LootShop {
 
 	class Program {
 		static void Main(string[] args) {
-			Item.Attribute.Initialize();
-			Item.RarityLevel.Initialize();
-			Item.Kind.Initialize();
+			Item.Initialize();
 			Random r = new Random();
 			for (; ; ) {
 				Item.Generate(r.Next(1, 20), r).WriteStatBlock();
