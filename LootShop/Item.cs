@@ -5,18 +5,47 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LootShop {
-	public enum RarityLevel {
-		Garbage,
-		Normal,
-		Magic,
-		Rare,
-		Legendary,
-		Unique
-	}
 	public class Item {
+		public class RarityLevel {
+			public enum Type {
+				Garbage,
+				Normal,
+				Magic,
+				Rare,
+				Legendary,
+				Unique
+			}
 
+			public Type Name;
+			public Range AttributeCount;
+			public Range AttributeModifier;
+
+			public static List<RarityLevel> List = new List<RarityLevel>();
+
+			public static void Initialize() {
+				List.Add(new RarityLevel(Type.Garbage,		new Range(0, 0),	new Range(0, 0.75)));
+				List.Add(new RarityLevel(Type.Normal,		new Range(0, 0),	new Range(0.75, 1.25)));
+				List.Add(new RarityLevel(Type.Magic,		new Range(2, 4),	new Range(1.25, 1.75)));
+				List.Add(new RarityLevel(Type.Rare,			new Range(3, 5),	new Range(1.5, 2.0)));
+				List.Add(new RarityLevel(Type.Legendary,	new Range(4, 6),	new Range(1.75, 2.5)));
+				List.Add(new RarityLevel(Type.Unique,		new Range(5, 7),	new Range(2.5, 3)));
+			}
+
+			public static RarityLevel Lookup(RarityLevel.Type type) {
+				RarityLevel level =
+					(from r in RarityLevel.List
+					 where r.Name == type
+					 select r).FirstOrDefault<RarityLevel>();
+				return level;
+			}
+
+			public RarityLevel(Type name, Range attributeCount, Range attributeRange) {
+				Name = name;
+				AttributeCount = attributeCount;
+				AttributeModifier = attributeRange;
+			}
+		}
 		public class Attribute {
-
 			public enum Type {
 				Strength,
 				Dexterity,
@@ -29,22 +58,30 @@ namespace LootShop {
 
 			public Type Name;
 
-			public static List<Attribute> List {
-				get {
-					List<Attribute> l = new List<Attribute>();
-					l.Add(new Attribute(Type.Strength));
-					l.Add(new Attribute(Type.Dexterity));
-					l.Add(new Attribute(Type.Intelligence));
-					l.Add(new Attribute(Type.Vitality));
-					l.Add(new Attribute(Type.MagicFind));
-					l.Add(new Attribute(Type.GoldFind));
-					l.Add(new Attribute(Type.AttackSpeed));
-					return l;
-				}
+			public static List<Attribute> List = new List<Attribute>();
+
+			public static void Initialize() {
+				List.Add(new Attribute(Type.Strength));
+				List.Add(new Attribute(Type.Dexterity));
+				List.Add(new Attribute(Type.Intelligence));
+				List.Add(new Attribute(Type.Vitality));
+				List.Add(new Attribute(Type.MagicFind));
+				List.Add(new Attribute(Type.GoldFind));
+				List.Add(new Attribute(Type.AttackSpeed));
 			}
+
+			public static Attribute Lookup(Attribute.Type type) {
+				Attribute attr =
+					(from r in Attribute.List
+					 where r.Name == type
+					 select r).FirstOrDefault<Attribute>();
+				return attr;
+			}
+
 			public Attribute(Type name) {
 				Name = name;
 			}
+
 		}
 
 		public Dictionary<Attribute.Type, int> Attributes = new Dictionary<Attribute.Type, int>();
@@ -54,10 +91,15 @@ namespace LootShop {
 		public static Item Generate(int level, Random r) {
 			Item i = new Item();
 			i.Level = level;
-			i.Rarity = (RarityLevel)r.Next(Enum.GetValues(typeof(RarityLevel)).Length);
+
+			// Choose a random rarity
+			// TODO: Weight this shit
+			Item.RarityLevel.Type[] rarityValues = (Item.RarityLevel.Type[])Enum.GetValues(typeof(Item.RarityLevel.Type));
+			Item.RarityLevel.Type selectedRarity = rarityValues[r.Next(0, rarityValues.Length)];
+			i.Rarity = RarityLevel.Lookup(selectedRarity);
 
 			List<Item.Attribute> attrs = new List<Item.Attribute>();
-			int attrCount = 4;
+			int attrCount = i.Rarity.AttributeCount.RandomInt(r);
 			List<Item.Attribute.Type> takenAttrs = new List<Attribute.Type>();
 			while (attrs.Count < attrCount) {
 				Item.Attribute.Type[] values = (Item.Attribute.Type[]) Enum.GetValues(typeof(Item.Attribute.Type));
@@ -73,27 +115,30 @@ namespace LootShop {
 			}
 
 			foreach (Item.Attribute a in attrs) {
-				int attrVal = 1;									// start at 1
-				attrVal += r.Next(16) * i.Level;					// multiply by level
-				attrVal *= Math.Max(2 * (int)i.Rarity, 1);			// multiply by rarity
+				int attrVal = 1;
+				int baseVal = 10;
+
+				attrVal += Math.Max((baseVal * Math.Max(i.Level - 1, 1)) + r.Next(baseVal * 2), 1);
+				attrVal = Math.Max((int)((double)attrVal * i.Rarity.AttributeModifier.RandomDouble(r)), 1);
+
 				i.Attributes.Add(a.Name, attrVal);
 			}
 
 			return i;
 		}
 		public static ConsoleColor RarityToConsoleColor(RarityLevel raritylevel) {
-			switch (raritylevel) {
-				case RarityLevel.Garbage:
+			switch (raritylevel.Name) {
+				case RarityLevel.Type.Garbage:
 					return ConsoleColor.Gray;
-				case RarityLevel.Normal:
+				case RarityLevel.Type.Normal:
 					return ConsoleColor.White;
-				case RarityLevel.Magic:
+				case RarityLevel.Type.Magic:
 					return ConsoleColor.DarkCyan;
-				case RarityLevel.Rare:
+				case RarityLevel.Type.Rare:
 					return ConsoleColor.Yellow;
-				case RarityLevel.Legendary:
+				case RarityLevel.Type.Legendary:
 					return ConsoleColor.DarkMagenta;
-				case RarityLevel.Unique:
+				case RarityLevel.Type.Unique:
 					return ConsoleColor.Magenta;
 				default:
 					return ConsoleColor.Red;
@@ -109,29 +154,31 @@ namespace LootShop {
 			Console.WriteLine("--------------------");
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
 			Console.WriteLine(Name);
-			switch (Rarity) {
-				case RarityLevel.Garbage:
+			switch (Rarity.Name) {
+				case RarityLevel.Type.Garbage:
 					Console.WriteLine("(Garbage item)");
 					break;
-				case RarityLevel.Magic:
+				case RarityLevel.Type.Magic:
 					Console.WriteLine("(Magic item)");
 					break;
-				case RarityLevel.Rare:
+				case RarityLevel.Type.Rare:
 					Console.WriteLine("(Rare item)");
 					break;
-				case RarityLevel.Legendary:
+				case RarityLevel.Type.Legendary:
 					Console.WriteLine("(Legendary item)");
 					break;
-				case RarityLevel.Unique:
+				case RarityLevel.Type.Unique:
 					Console.WriteLine("(Unique item)");
 					break;
 			}
 			Console.WriteLine();
 			Console.ResetColor();
-			foreach (KeyValuePair<Attribute.Type, int> kvp in Attributes) {
-				Console.WriteLine(kvp.Key.ToString() + "\t" + kvp.Value.ToString());
+			if (Attributes.Count > 0) {
+				foreach (KeyValuePair<Attribute.Type, int> kvp in Attributes) {
+					Console.WriteLine(kvp.Key.ToString() + "\t" + kvp.Value.ToString());
+				}
+				Console.WriteLine();
 			}
-			Console.WriteLine();
 			Console.WriteLine("Required Level\t" + Level);
 			Console.WriteLine("--------------------");
 		}
