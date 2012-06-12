@@ -52,22 +52,6 @@ namespace LootShop {
 			}
 			return newList;
 		}
-
-		public static int BreakLine(this string s, int pos, int max) {
-			// Find last whitespace in line
-			int i = max - 1;
-			while (i >= 0 && !Char.IsWhiteSpace(s[pos + i]))
-				i--;
-			if (i < 0)
-				return max; // No whitespace found; break at maximum length
-
-			// Find start of whitespace
-			while (i >= 0 && Char.IsWhiteSpace(s[pos + i]))
-				i--;
-
-			// Return length of text before whitespace
-			return i + 1;
-		}
 	}
 
 }
