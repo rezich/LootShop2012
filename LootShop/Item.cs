@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace LootShop {
 	public class Item {
-		#region Words
 		public static List<string> PreAdjectives;
 		public static List<string> OfX;
-		#endregion
 		public enum Type {
 			Greataxe,
 			Longsword,
