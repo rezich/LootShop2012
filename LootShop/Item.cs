@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LootShop {
@@ -37,6 +38,10 @@ namespace LootShop {
 					 where r.Name == type
 					 select r).FirstOrDefault<RarityLevel>();
 				return level;
+			}
+
+			public override string ToString() {
+				return Name.ToString().DeCamelCase();
 			}
 
 			public RarityLevel(Type name, Range attributeCount, Range attributeRange) {
@@ -151,31 +156,21 @@ namespace LootShop {
 			}
 		}
 		public void WriteStatBlock() {
-			Console.WriteLine("--------------------");
+			int width = 25;
+			string line = new String('-', width);
+			string _slot = "1-Hand";
+			string _type = "Axe";
+			Console.WriteLine(line);
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
-			string slot = "helmet";
-			Console.WriteLine(Name.ToUpper());
-			//Console.ForegroundColor = ConsoleColor.Gray;
-			//Console.Write(slot.PadLeft(20 - Name.Length) + "\n");
+			Console.WriteLine(Name.ToUpper().PadCenter(width, ' '));
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
-			switch (Rarity.Name) {
-				case RarityLevel.Type.Garbage:
-					Console.Write("Garbage");
-					break;
-				case RarityLevel.Type.Magic:
-					Console.Write("Magic");
-					break;
-				case RarityLevel.Type.Rare:
-					Console.Write("Rare");
-					break;
-				case RarityLevel.Type.Legendary:
-					Console.Write("Legendary");
-					break;
-				case RarityLevel.Type.Unique:
-					Console.Write("Unique");
-					break;
-			}
-			Console.Write((Rarity.Name == RarityLevel.Type.Normal ? System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(slot) : " " + slot) + "\n");
+
+			string type = (Rarity.Name == RarityLevel.Type.Normal ? "" : Rarity.ToString() + " ") + _type;
+
+			Console.Write(type);
+
+			Console.ForegroundColor = ConsoleColor.Gray;
+			Console.Write(_slot.PadLeft(width - type.Length) + "\n");
 			Console.WriteLine();
 			Console.ResetColor();
 			if (Attributes.Count > 0) {
@@ -193,7 +188,7 @@ namespace LootShop {
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.Write(Level + "\n");
 			Console.ResetColor();
-			Console.WriteLine("--------------------");
+			Console.WriteLine(line);
 		}
 
 	}
