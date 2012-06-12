@@ -8,20 +8,34 @@ using System.Threading.Tasks;
 namespace LootShop {
 	public class Item {
 		public enum Type {
-			//Greataxe,
+			Greataxe,
 			Longsword,
-			//Helmet,
-			//Armor,
-			//Pants,
-			//Gloves
+
+			Helmet,
+			Pauldrons,
+			Armor,
+			Pants,
+			Gloves,
+			Belt,
+			Boots,
+
+			Ring,
+			Amulet
 		}
 		public enum Slot {
-			Head,
-			Chest,
 			OneHand,
-			TwoHand,
+			TwoHands,
+
+			Head,
+			Shoulders,
+			Chest,
 			Hands,
-			Feet
+			Waist,
+			Legs,
+			Feet,
+
+			Finger,
+			Neck
 		}
 
 		public class Kind {
@@ -33,7 +47,23 @@ namespace LootShop {
 			public static List<Item.Kind> List = new List<Item.Kind>();
 
 			public static void Initialize() {
-				List.Add(new Item.Kind(Type.Longsword, Slot.OneHand, new List<Attribute> { Attribute.Lookup(Attribute.Type.Damage), Attribute.Lookup(Attribute.Type.AttacksPerSecond) }));
+				List<Attribute> meleeAttr = new List<Attribute> { Attribute.Lookup(Attribute.Type.Damage), Attribute.Lookup(Attribute.Type.AttacksPerSecond) };
+				List<Attribute> armorAttr = new List<Attribute> { Attribute.Lookup(Attribute.Type.Armor) };
+				List<Attribute> pureAttr = new List<Attribute> { };
+
+				List.Add(new Item.Kind(Type.Longsword, Slot.OneHand, meleeAttr));
+				List.Add(new Item.Kind(Type.Greataxe, Slot.TwoHands, meleeAttr));
+
+				List.Add(new Item.Kind(Type.Helmet, Slot.Head, armorAttr));
+				List.Add(new Item.Kind(Type.Armor, Slot.Chest, armorAttr));
+				List.Add(new Item.Kind(Type.Pants, Slot.Legs, armorAttr));
+				List.Add(new Item.Kind(Type.Gloves, Slot.Hands, armorAttr));
+				List.Add(new Item.Kind(Type.Belt, Slot.Waist, armorAttr));
+				List.Add(new Item.Kind(Type.Boots, Slot.Feet, armorAttr));
+				List.Add(new Item.Kind(Type.Pauldrons, Slot.Shoulders, armorAttr));
+
+				List.Add(new Item.Kind(Type.Ring, Slot.Finger, pureAttr));
+				List.Add(new Item.Kind(Type.Amulet, Slot.Neck, pureAttr));
 			}
 
 			public static Kind Lookup(Type type) {
@@ -98,6 +128,7 @@ namespace LootShop {
 			public enum Type {
 				Damage,
 				AttacksPerSecond,
+				Armor,
 				Strength,
 				Dexterity,
 				Intelligence,
@@ -115,6 +146,7 @@ namespace LootShop {
 			public static void Initialize() {
 				List.Add(new Attribute(Type.Damage, true));
 				List.Add(new Attribute(Type.AttacksPerSecond, true));
+				List.Add(new Attribute(Type.Armor, true));
 				List.Add(new Attribute(Type.Strength));
 				List.Add(new Attribute(Type.Dexterity));
 				List.Add(new Attribute(Type.Intelligence));
@@ -221,28 +253,31 @@ namespace LootShop {
 			}
 		}
 		public void WriteStatBlock() {
-			int width = 25;
+			int width = 30;
+			int padding = 3;
 			string line = new String('-', width);
 			Console.WriteLine(line);
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
 			Console.WriteLine(Name.ToUpper().PadCenter(width, ' '));
+			Console.ResetColor();
+			Console.WriteLine(line);
+
+			string type = " " + (Rarity.Name == RarityLevel.Type.Normal ? "" : Rarity.ToString() + " ") + Variety.Name;
+
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
-
-			string type = (Rarity.Name == RarityLevel.Type.Normal ? "" : Rarity.ToString() + " ") + Variety.Name;
-
 			Console.Write(type);
 
 			Console.ForegroundColor = ConsoleColor.Gray;
-			Console.Write(Variety.Slot.ToString().PadLeft(width - type.Length) + "\n");
+			Console.Write(Variety.Slot.ToString().DeCamelCase().PadLeft(width - type.Length - 1) + "\n");
 			Console.WriteLine();
 			Console.ResetColor();
 
 			foreach (KeyValuePair<Attribute.Type, int> kvp in Attributes) {
-				string key = " " + kvp.Key.ToString().DeCamelCase();
+				string key = new String(' ', padding) + kvp.Key.ToString().DeCamelCase();
 				Console.ForegroundColor = ConsoleColor.Gray;
 				Console.Write(key);
 				Console.ForegroundColor = ConsoleColor.White;
-				Console.Write(kvp.Value.ToString().PadLeft(width - key.Length - 1) + "\n");
+				Console.Write(kvp.Value.ToString().PadLeft(width - key.Length - padding) + "\n");
 				Console.ResetColor();
 			}
 			Console.WriteLine();

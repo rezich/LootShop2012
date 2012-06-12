@@ -13,7 +13,7 @@ namespace LootShop {
 			Item.Kind.Initialize();
 			Random r = new Random();
 			for (; ; ) {
-				Item.Generate(1, r).WriteStatBlock();
+				Item.Generate(r.Next(1, 20), r).WriteStatBlock();
 				Console.WriteLine();
 				Console.WriteLine();
 				Console.ReadKey(false);
