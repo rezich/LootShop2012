@@ -10,6 +10,7 @@ namespace LootShop {
 		static void Main(string[] args) {
 			Item.Attribute.Initialize();
 			Item.RarityLevel.Initialize();
+			Item.Kind.Initialize();
 			Random r = new Random();
 			for (; ; ) {
 				Item.Generate(1, r).WriteStatBlock();

@@ -7,6 +7,50 @@ using System.Threading.Tasks;
 
 namespace LootShop {
 	public class Item {
+		public enum Type {
+			//Greataxe,
+			Longsword,
+			//Helmet,
+			//Armor,
+			//Pants,
+			//Gloves
+		}
+		public enum Slot {
+			Head,
+			Chest,
+			OneHand,
+			TwoHand,
+			Hands,
+			Feet
+		}
+
+		public class Kind {
+
+			public Type Name;
+			public Slot Slot;
+			public List<Attribute> BaseAttributes;
+
+			public static List<Item.Kind> List = new List<Item.Kind>();
+
+			public static void Initialize() {
+				List.Add(new Item.Kind(Type.Longsword, Slot.OneHand, new List<Attribute> { Attribute.Lookup(Attribute.Type.Damage), Attribute.Lookup(Attribute.Type.AttacksPerSecond) }));
+			}
+
+			public static Kind Lookup(Type type) {
+				Kind kind =
+					(from r in Kind.List
+					 where r.Name == type
+					 select r).FirstOrDefault<Kind>();
+				return kind;
+			}
+
+			public Kind(Type type, Slot slot, List<Attribute> baseAttributes) {
+				Name = type;
+				Slot = slot;
+				BaseAttributes = baseAttributes;
+			}
+
+		}
 		public class RarityLevel {
 			public enum Type {
 				Garbage,
@@ -52,6 +96,8 @@ namespace LootShop {
 		}
 		public class Attribute {
 			public enum Type {
+				Damage,
+				AttacksPerSecond,
 				Strength,
 				Dexterity,
 				Intelligence,
@@ -62,10 +108,13 @@ namespace LootShop {
 			}
 
 			public Type Name;
+			public bool BaseStat = false;
 
 			public static List<Attribute> List = new List<Attribute>();
 
 			public static void Initialize() {
+				List.Add(new Attribute(Type.Damage, true));
+				List.Add(new Attribute(Type.AttacksPerSecond, true));
 				List.Add(new Attribute(Type.Strength));
 				List.Add(new Attribute(Type.Dexterity));
 				List.Add(new Attribute(Type.Intelligence));
@@ -87,15 +136,26 @@ namespace LootShop {
 				Name = name;
 			}
 
+			public Attribute(Type name, bool baseStat) {
+				Name = name;
+				BaseStat = baseStat;
+			}
+
 		}
 
 		public Dictionary<Attribute.Type, int> Attributes = new Dictionary<Attribute.Type, int>();
 		public RarityLevel Rarity;
 		public int Level;
+		public Kind Variety;
 
 		public static Item Generate(int level, Random r) {
 			Item i = new Item();
 			i.Level = level;
+
+			// Choose a random item kind
+			Item.Type[] kindValues = (Item.Type[])Enum.GetValues(typeof(Item.Type));
+			Item.Type selectedKind = kindValues[r.Next(0, kindValues.Length)];
+			i.Variety = Kind.Lookup(selectedKind);
 
 			// Choose a random rarity
 			// TODO: Weight this shit
@@ -104,6 +164,11 @@ namespace LootShop {
 			i.Rarity = RarityLevel.Lookup(selectedRarity);
 
 			List<Item.Attribute> attrs = new List<Item.Attribute>();
+
+			foreach (Attribute attr in i.Variety.BaseAttributes) {
+				attrs.Add(attr);
+			}
+
 			int attrCount = i.Rarity.AttributeCount.RandomInt(r);
 			List<Item.Attribute.Type> takenAttrs = new List<Attribute.Type>();
 			while (attrs.Count < attrCount) {
@@ -111,7 +176,7 @@ namespace LootShop {
 				Item.Attribute.Type selectedName = values[r.Next(0, values.Length)];
 				Item.Attribute newAttr =
 					(from t in Item.Attribute.List
-					where t.Name == selectedName && !takenAttrs.Contains(t.Name)
+					where t.Name == selectedName && !takenAttrs.Contains(t.Name) && t.BaseStat == false
 					select t).FirstOrDefault<Item.Attribute>();
 				if (newAttr != null) {
 					attrs.Add(newAttr);
@@ -158,35 +223,31 @@ namespace LootShop {
 		public void WriteStatBlock() {
 			int width = 25;
 			string line = new String('-', width);
-			string _slot = "1-Hand";
-			string _type = "Axe";
 			Console.WriteLine(line);
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
 			Console.WriteLine(Name.ToUpper().PadCenter(width, ' '));
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
 
-			string type = (Rarity.Name == RarityLevel.Type.Normal ? "" : Rarity.ToString() + " ") + _type;
+			string type = (Rarity.Name == RarityLevel.Type.Normal ? "" : Rarity.ToString() + " ") + Variety.Name;
 
 			Console.Write(type);
 
 			Console.ForegroundColor = ConsoleColor.Gray;
-			Console.Write(_slot.PadLeft(width - type.Length) + "\n");
+			Console.Write(Variety.Slot.ToString().PadLeft(width - type.Length) + "\n");
 			Console.WriteLine();
 			Console.ResetColor();
-			if (Attributes.Count > 0) {
-				foreach (KeyValuePair<Attribute.Type, int> kvp in Attributes) {
-					Console.ForegroundColor = ConsoleColor.Gray;
-					Console.Write(kvp.Key.ToString() + "\t");
-					Console.ForegroundColor = ConsoleColor.White;
-					Console.Write(kvp.Value.ToString() + "\n");
-					Console.ResetColor();
-				}
-				Console.WriteLine();
+
+			foreach (KeyValuePair<Attribute.Type, int> kvp in Attributes) {
+				string key = " " + kvp.Key.ToString().DeCamelCase();
+				Console.ForegroundColor = ConsoleColor.Gray;
+				Console.Write(key);
+				Console.ForegroundColor = ConsoleColor.White;
+				Console.Write(kvp.Value.ToString().PadLeft(width - key.Length - 1) + "\n");
+				Console.ResetColor();
 			}
+			Console.WriteLine();
 			Console.ForegroundColor = ConsoleColor.Gray;
-			Console.Write("Required Level\t");
-			Console.ForegroundColor = ConsoleColor.White;
-			Console.Write(Level + "\n");
+			Console.WriteLine(("Required Level: " + Level).PadCenter(width, ' '));
 			Console.ResetColor();
 			Console.WriteLine(line);
 		}
