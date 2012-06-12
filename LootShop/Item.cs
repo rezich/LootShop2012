@@ -18,13 +18,25 @@ namespace LootShop {
 			"Enrapturing", "Warped", "Kinda Shitty", "Mediocre", "Scratched", "Dried", "Thrown Out", "Discarded", "Broken", "Irrepairable", "Unbelievable", "Indispensable", "Overprepared", "Succulent", "Subpar", "Asymmetrical",
 			"Negligent", "Gentleman's", "Lady-Like", "Manly", "Strict", "Greedy", "Notable", "Distorted", "Sight-Seeing", "Sexy", "Painful", "Legless", "Brass", "Fallen", "Tacky", "Bundled", "Business", "Requested",
 			"Summoned", "Ripped", "Twelfth", "Poorly-Wrapped", "My Wife's", "Butlers' Choice", "Scammed", "Cascading", "Uplifting", "Drafty", "Sinking", "Golden", "Plated", "Gilded", "Loot-Worthy", "Medieval", "Tribal", "Master",
-			"Brutal", "Brütal", "Everburning", "Giggling", "Prancing", "Balanced", "Silken"
+			"Brutal", "Brütal", "Everburning", "Giggling", "Prancing", "Balanced", "Silken", "Horribly Disgusting", "Probably On Fire", "Underwhelming", "Doom-Laden", "Inconsequential", "Rapidly Deteriorating", "Sacred",
+			"Steam-Powered", "Utterly Amazing", "Pretty Damn Cool", "Kingly", "Dire", "Hella Cool", "Rampant", "Aggressive", "Blustering", "Boisterous", "Dominant", "Extravagent", "Furious", "Raging", "Unruly", "Violent", "Wanton",
+			"Wild", "Advancing", "Intrusive", "Pretty Laid-Back", "Metal As Hell", "Absurdly Powerful", "Rather Weak", "Somewhat Lacking", "Burdensome", "Smashed", "Flagrant", "Disassembled", "Toe-Curling", "Impressive",
+			"Sour", "Gaudy", "Smelly", "Raunchy", "Flavorless", "Odorless", "Unexpectedly Awesome", "Careless", "Unsurprising", "Majestic", "Dwarven", "Spectacularly Worthless", "Shoplifted", "Respectable", "Daunting",
+			"Third-Best", "Curiously Weightless", "Ambiguous", "Sentient", "Well Thought-Out", "Absolutely Essential", "Infinitely Complex", "Cheap Knock-Off", "Festive", "Money Laundering", "Corrupt", "Incorigible",
+			"Mathematically-Sound", "Inoffensive"
 		};
 		public static List<string> OfX = new List<string> {
 			"The Boar", "Legend", "Lore", "Christmas Past", "Biblical Proportions", "China", "The Beast", "Reckoning", "The End Times", "Poverty", "The Jews", "Unbelievable Power", "Ridicule", "Greed", "Extra Shininess", "Shit",
 			"Embarassment", "The Wildebeast", "Worth", "Note", "Hope", "Survivability", "Reminiscence", "The Tourist", "The Lion", "The Loins", "The Hawk", "The Prisoner", "Portability", "The Clockmaker", "The Fool", "Sex",
 			"Sacrifice", "Smithing", "Disaster", "Completion", "Wrath", "Ascension", "Treasure", "Snakes", "Light", "Darkness", "The Owl", "Horror", "Vegetation", "Lies", "Greatness", "Due Time", "Patience", "Uncertainty",
-			"Quality", "\"Quality\"", "Celebration", "Burning", "Giggling", "Dancing", "The Journey", "Request", "Balance", "Cleansing", "Stability", "Teaching", "Speculation", "Wizardry", "The Church"
+			"Quality", "\"Quality\"", "Celebration", "Burning", "Giggling", "Dancing", "The Journey", "Request", "Balance", "Cleansing", "Stability", "Teaching", "Speculation", "Wizardry", "The Church", "The Gods",
+			"The Nine Hells", "Lust", "Silly Titles", "Vast Fortune", "Commitment", "Cross-Breeding", "Salad Shooting", "Permadeath", "Untold Riches", "Burial", "Decapitation", "Disembowelment", "Quartering", "Instagibbing",
+			"Sick Flows", "Dungeoneering", "Loot-Having", "Turnip Farming", "Greater Purpose", "Lesser Evils", "Deception", "Horticulture", "Premonition", "Rice Cooking", "Absolution", "Destruction", "Not Having Any Real Purpose",
+			"Destiny", "Favoritism", "Beholding", "Ritual", "Roasting", "Uselessness", "Companionship", "Lucid Dreaming", "Funny Words", "Inherent Sexiness", "Pandemonium", "Thrill", "Separation", "Splicing", "The Fissure",
+			"The Void", "The End", "The Wretch", "The Spider-Queen's Great Aunt", "Caressing", "Fraternization", "Communal Living", "Not Having Legs Anymore", "Horseriding", "Adventure", "Malice", "Thorns", "Scorn", "Hatred",
+			"Sundering", "Sweet Dance Moves", "Explosions", "Exploding", "Deforestation", "Sublimation", "Naval Alacrity", "Acceleration", "Friction", "Slow Motion", "Dodging", "The Ancients", "Farsight", "Redemption", "Finality",
+			"Fluid Secretion", "Exhaustion", "Sleep Deprivation", "Jackie Chan", "Unmatched Power", "Fate", "Reforging", "Excitement", "The Bees", "Neglecting Gravity", "Respect", "Low, Low Prices", "Bursting", "Mental Anguish",
+			"Despair"
 		};
 		public enum Type {
 			Greataxe,
@@ -78,7 +90,7 @@ namespace LootShop {
 					"Sword", "Rapier", "Blade", "Pointy Stick", "Cutlass", "Zweihander", "Sabre", "Falchion"
 				}));
 				List.Add(new Item.Kind(Type.Greataxe, Slot.TwoHands, meleeAttr, new List<string> {
-					"Axe", "Hatchet", "Pick", "Broad Axe", "Battleaxe", "Great Axe", "Giant Axe", "Cleaver"
+					"Axe", "Hatchet", "Pick", "Broad Axe", "Battleaxe", "Great Axe", "Giant Axe", "Cleaver", "Pickaxe"
 				}));
 
 				// Armor
