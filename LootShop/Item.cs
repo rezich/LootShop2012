@@ -129,7 +129,7 @@ namespace LootShop {
 		public static ConsoleColor RarityToConsoleColor(RarityLevel raritylevel) {
 			switch (raritylevel.Name) {
 				case RarityLevel.Type.Garbage:
-					return ConsoleColor.Gray;
+					return ConsoleColor.DarkGray;
 				case RarityLevel.Type.Normal:
 					return ConsoleColor.White;
 				case RarityLevel.Type.Magic:
@@ -147,39 +147,52 @@ namespace LootShop {
 
 		public string Name {
 			get {
-				return "[ITEM NAME]";
+				return "Item Name";
 			}
 		}
 		public void WriteStatBlock() {
 			Console.WriteLine("--------------------");
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
-			Console.WriteLine(Name);
+			string slot = "helmet";
+			Console.WriteLine(Name.ToUpper());
+			//Console.ForegroundColor = ConsoleColor.Gray;
+			//Console.Write(slot.PadLeft(20 - Name.Length) + "\n");
+			Console.ForegroundColor = RarityToConsoleColor(Rarity);
 			switch (Rarity.Name) {
 				case RarityLevel.Type.Garbage:
-					Console.WriteLine("(Garbage item)");
+					Console.Write("Garbage");
 					break;
 				case RarityLevel.Type.Magic:
-					Console.WriteLine("(Magic item)");
+					Console.Write("Magic");
 					break;
 				case RarityLevel.Type.Rare:
-					Console.WriteLine("(Rare item)");
+					Console.Write("Rare");
 					break;
 				case RarityLevel.Type.Legendary:
-					Console.WriteLine("(Legendary item)");
+					Console.Write("Legendary");
 					break;
 				case RarityLevel.Type.Unique:
-					Console.WriteLine("(Unique item)");
+					Console.Write("Unique");
 					break;
 			}
+			Console.Write((Rarity.Name == RarityLevel.Type.Normal ? System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(slot) : " " + slot) + "\n");
 			Console.WriteLine();
 			Console.ResetColor();
 			if (Attributes.Count > 0) {
 				foreach (KeyValuePair<Attribute.Type, int> kvp in Attributes) {
-					Console.WriteLine(kvp.Key.ToString() + "\t" + kvp.Value.ToString());
+					Console.ForegroundColor = ConsoleColor.Gray;
+					Console.Write(kvp.Key.ToString() + "\t");
+					Console.ForegroundColor = ConsoleColor.White;
+					Console.Write(kvp.Value.ToString() + "\n");
+					Console.ResetColor();
 				}
 				Console.WriteLine();
 			}
-			Console.WriteLine("Required Level\t" + Level);
+			Console.ForegroundColor = ConsoleColor.Gray;
+			Console.Write("Required Level\t");
+			Console.ForegroundColor = ConsoleColor.White;
+			Console.Write(Level + "\n");
+			Console.ResetColor();
 			Console.WriteLine("--------------------");
 		}
 
