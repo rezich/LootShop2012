@@ -1,22 +1,22 @@
 ﻿The Boar
-Legend
-Lore
+Legend+
+Lore+
 Christmas Past
-Biblical Proportions
+Biblical Proportions+
 China
 The Beast
 Reckoning
 The End Times
-Poverty
+Poverty-
 The Jews
-Unbelievable Power
-Ridicule
+Unbelievable Power+
+Ridicule-
 Greed
-Extra Shininess
-Shit
-Embarassment
+Extra Shininess+
+Shit-
+Embarassment-
 The Wildebeast
-Worth
+Worth+
 Note
 Hope
 Survivability
@@ -36,7 +36,7 @@ Disaster
 Completion
 Wrath
 Ascension
-Treasure
+Treasure+
 Snakes
 Light
 Darkness
@@ -48,8 +48,8 @@ Greatness
 Due Time
 Patience
 Uncertainty
-Quality
-"Quality"
+Quality+
+"Quality"-
 Celebration
 Burning
 Giggling
@@ -67,40 +67,40 @@ The Gods
 The Nine Hells
 Lust
 Silly Titles
-Vast Fortune
+Vast Fortune+
 Commitment
 Cross-Breeding
 Salad Shooting
 Permadeath
-Untold Riches
-Burial
+Untold Riches+
+Burial-
 Decapitation
 Disembowelment
 Quartering
 Instagibbing
 Sick Flows
 Dungeoneering
-Loot-Having
-Turnip Farming
+Loot-Having+
+Turnip Farming-
 Greater Purpose
 Lesser Evils
 Deception
-Horticulture
+Horticulture-
 Premonition
 Rice Cooking
 Absolution
 Destruction
-Not Having Any Real Purpose
+Not Having Any Real Purpose-
 Destiny
-Favoritism
+Favoritism+
 Beholding
 Ritual
 Roasting
-Uselessness
+Uselessness-
 Companionship
 Lucid Dreaming
 Funny Words
-Inherent Sexiness
+Inherent Sexiness+
 Pandemonium
 Thrill
 Separation

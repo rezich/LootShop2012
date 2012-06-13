@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace LootShop {
 	public class Item {
-		public static List<string> PreAdjectives;
-		public static List<string> OfX;
+		public static List<Tuple<string, WordQuality>> PreAdjectives = new List<Tuple<string, WordQuality>>();
+		public static List<Tuple<string, WordQuality>> OfX = new List<Tuple<string, WordQuality>>();
 		public enum Type {
 			Greataxe,
 			Longsword,
@@ -41,6 +41,11 @@ namespace LootShop {
 
 			Finger,
 			Neck
+		}
+		public enum WordQuality {
+			Neutral,
+			Bad,
+			Good
 		}
 
 		public class Kind {
@@ -234,8 +239,34 @@ namespace LootShop {
 		public Kind Variety;
 
 		public static void Initialize() {
-			Item.PreAdjectives = System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt").ToList<string>();
-			Item.OfX = System.IO.File.ReadAllLines(@"Data\OfX.txt").ToList<string>();
+			foreach (string s in System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt")) {
+				WordQuality q = WordQuality.Neutral;
+				string str = s;
+				if (s.Substring(s.Length - 1, 1) == "+") {
+					q = WordQuality.Good;
+					str = s.Substring(0, s.Length - 1);
+				}
+				if (s.Substring(s.Length - 1, 1) == "-") {
+					q = WordQuality.Bad;
+					str = s.Substring(0, s.Length - 1);
+				}
+				Item.PreAdjectives.Add(new Tuple<string, WordQuality>(str, q));
+			}
+			foreach (string s in System.IO.File.ReadAllLines(@"Data\OfX.txt")) {
+				WordQuality q = WordQuality.Neutral;
+				string str = s;
+				if (s.Substring(s.Length - 1, 1) == "+") {
+					q = WordQuality.Good;
+					str = s.Substring(0, s.Length - 1);
+				}
+				if (s.Substring(s.Length - 1, 1) == "-") {
+					q = WordQuality.Bad;
+					str = s.Substring(0, s.Length - 1);
+				}
+				Item.OfX.Add(new Tuple<string, WordQuality>(str, q));
+			}
+			//Item.PreAdjectives = System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt").ToList<string>();
+			//Item.OfX = System.IO.File.ReadAllLines(@"Data\OfX.txt").ToList<string>();
 			Attribute.Initialize();
 			RarityLevel.Initialize();
 			Kind.Initialize();
@@ -296,9 +327,40 @@ namespace LootShop {
 			// GENERATE THE NAME!!
 			int oddsOfOfX = 2;
 			string name = "";
+			List<Tuple<string, WordQuality>> preAdjectives;
+			List<Tuple<string, WordQuality>> ofX;
+
+			// TODO: Rewrite to use RarityLevel's "good" and "bad" word odds
+			switch (i.Rarity.Name) {
+				case RarityLevel.Type.Garbage:
+					preAdjectives = (from w in PreAdjectives
+									 where w.Item2 == WordQuality.Bad
+									 select w).ToList<Tuple<string, WordQuality>>();
+					ofX = (from w in OfX
+						   where w.Item2 == WordQuality.Bad
+						   select w).ToList<Tuple<string, WordQuality>>();
+					break;
+				case RarityLevel.Type.Normal:
+					preAdjectives = (from w in PreAdjectives
+									 where w.Item2 != WordQuality.Bad && w.Item2 != WordQuality.Good
+									 select w).ToList<Tuple<string, WordQuality>>();
+					ofX = (from w in OfX
+						   where w.Item2 != WordQuality.Bad && w.Item2 != WordQuality.Good
+						   select w).ToList<Tuple<string, WordQuality>>();
+					break;
+				default:
+					preAdjectives = (from w in PreAdjectives
+									 where w.Item2 != WordQuality.Bad
+									 select w).ToList<Tuple<string, WordQuality>>();
+					ofX = (from w in OfX
+									 where w.Item2 != WordQuality.Bad
+									 select w).ToList<Tuple<string, WordQuality>>();
+					break;
+			}
+
 			name = i.Variety.Names[r.Next(i.Variety.Names.Count - 1)];
-			name = Item.PreAdjectives[r.Next(Item.PreAdjectives.Count - 1)] + " " + name;
-			if (r.Next(0, oddsOfOfX) == 0) name += " of " + Item.OfX[r.Next(Item.OfX.Count - 1)];
+			name = preAdjectives[r.Next(preAdjectives.Count - 1)].Item1 + " " + name;
+			if (r.Next(0, oddsOfOfX) == 0) name += " of " + ofX[r.Next(ofX.Count - 1)].Item1;
 			i.Name = name;
 			return i;
 		}
