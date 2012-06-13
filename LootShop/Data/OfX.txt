@@ -63,6 +63,7 @@ Friction
 Funny Words
 General Worthlessness-
 Giggling
+Giving Zero Fucks
 Gluttony
 Greater Purpose
 Greatness
@@ -79,6 +80,7 @@ Instagibbing
 Interminable Glory+
 Jackie Chan
 Jest
+Judgement
 Leaky Faucets-
 Legend+
 Lesser Evils
@@ -99,6 +101,7 @@ Mental Anguish
 Moral Decay
 Naval Alacrity
 Neglecting Gravity
+Not Giving A Shit
 Not Having Any Real Purpose-
 Not Having Legs Anymore
 Notably Subpar Quality-
@@ -107,6 +110,7 @@ Originality
 Pandemonium
 Patience
 Permadeath
+Pillaging
 Portability
 Poverty-
 Premonition
@@ -151,6 +155,8 @@ Statistical Acceptability
 Stench-
 Stink-
 Sublimation
+Swag
+Swagger
 Sundering
 Survivability
 Sweet Dance Moves
@@ -165,6 +171,7 @@ The Child
 The Church
 The Clockmaker
 The Collective Unconscious
+The Defendant
 The Dimensional Void
 The End
 The End Times
@@ -173,13 +180,19 @@ The Fool
 The Gods
 The Hawk
 The Human Psyche
+The Idiot-
+The Jailer
 The Jews
 The Journey
+The Judge
 The Lion
 The Loins
+The Moron-
+The Nimcompoop-
 The Nine Hells
 The Owl
 The Prisoner
+The Prosecutor
 The Runs-
 The Skunk-
 The Spider-Queen's Great Aunt

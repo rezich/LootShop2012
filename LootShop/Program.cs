@@ -9,13 +9,23 @@ namespace LootShop {
 	class Program {
 		static void Main(string[] args) {
 			Item.Initialize();
+			Console.WriteLine("Welcome to the Loot Shop! Press Spacebar to generate an item, or Escape to quit.");
 			Random r = new Random();
-			for (; ; ) {
-				Item.Generate(r.Next(1, 20), r).WriteStatBlock();
-				Console.WriteLine();
-				Console.WriteLine();
-				Console.ReadKey(true);
-			}
+			ConsoleKeyInfo cki;
+			bool done = false;
+			do {
+				cki = Console.ReadKey(true);
+				switch (cki.Key) {
+					case ConsoleKey.Spacebar:
+						Item.Generate(r.Next(1, 20), r).WriteStatBlock();
+						Console.WriteLine();
+						Console.WriteLine();
+						break;
+					case ConsoleKey.Escape:
+						done = true;
+						break;
+				}
+			} while (!done);
 		}
 	}
 

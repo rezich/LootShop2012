@@ -395,40 +395,60 @@ namespace LootShop {
 
 		public string Name = "!!OSHIT NO NAME GENERATED!!";
 		public void WriteStatBlock() {
-			int width = 32;
+			int width = 34;
 			int padding = 5;
-			string line = new String('-', width);
-			Console.WriteLine(line);
-			Console.ForegroundColor = RarityToConsoleColor(Rarity);
-			List<string> name = Name.ToUpper().Wrap(width);
-			foreach (string s in name) Console.WriteLine(s.PadCenter(width, ' '));
+			string leftPadding = new String(' ', 40 - (width / 2));
+			string bar = "│";
+			//string line = "+" + new String('─', width - 2) + "+";
+			string line = new String('─', width - 2);
+			string empty = bar + new String(' ', width - 2) + bar;
+
+			Console.WriteLine(leftPadding + "┌" + line + "┐");
+			List<string> name = Name.ToUpper().Wrap(width - 4);
+			foreach (string s in name) {
+				Console.ForegroundColor = ConsoleColor.Gray;
+				Console.Write(leftPadding + bar + " ");
+				Console.ForegroundColor = RarityToConsoleColor(Rarity);
+				Console.Write(s.PadCenter(width - 4, ' '));
+				Console.ForegroundColor = ConsoleColor.Gray;
+				Console.Write(" " + bar + "\n");
+			}
 			//Console.WriteLine(Name.ToUpper().PadCenter(width, ' '));
 			Console.ResetColor();
-			Console.WriteLine(line);
+			Console.WriteLine(leftPadding + "├" + line + "┤");
 
-			string type = " " + (Rarity.Name == RarityLevel.Type.Normal ? "" : Rarity.ToString() + " ") + Variety.Name;
+			string type = (Rarity.Name == RarityLevel.Type.Normal ? "" : Rarity.ToString() + " ") + Variety.Name;
+
+			Console.ForegroundColor = ConsoleColor.Gray;
+			Console.Write(leftPadding + bar + " ");
 
 			Console.ForegroundColor = RarityToConsoleColor(Rarity);
 			Console.Write(type);
 
 			Console.ForegroundColor = ConsoleColor.Gray;
-			Console.Write(Variety.Slot.ToString().DeCamelCase().PadLeft(width - type.Length - 1) + "\n");
-			Console.WriteLine();
+			Console.Write(Variety.Slot.ToString().DeCamelCase().PadLeft(width - type.Length - 4) + " " + bar + "\n");
+			Console.WriteLine(leftPadding + empty);
 			Console.ResetColor();
 
 			foreach (KeyValuePair<Attribute.Type, int> kvp in Attributes) {
 				string key = new String(' ', padding) + kvp.Key.ToString().DeCamelCase();
 				Console.ForegroundColor = ConsoleColor.Gray;
-				Console.Write(key);
+				Console.Write(leftPadding + bar + key);
 				Console.ForegroundColor = ConsoleColor.White;
-				Console.Write(kvp.Value.ToString().PadLeft(width - key.Length - padding) + "\n");
+				Console.Write(kvp.Value.ToString().PadLeft(width - key.Length - padding - 2) + new String(' ', padding));
+				Console.ForegroundColor = ConsoleColor.Gray;
+				Console.Write(bar + "\n");
 				Console.ResetColor();
 			}
-			Console.WriteLine();
+			Console.WriteLine(leftPadding + empty);
 			Console.ForegroundColor = ConsoleColor.Gray;
-			Console.WriteLine(("Required Level: " + Level).PadCenter(width, ' '));
+			Console.Write(leftPadding + bar);
+			Console.ForegroundColor = ConsoleColor.DarkGray;
+			Console.Write(("Required Level: " + Level).PadCenter(width - 2, ' '));
+			Console.ForegroundColor = ConsoleColor.Gray;
+			Console.Write(bar + "\n");
 			Console.ResetColor();
-			Console.WriteLine(line);
+			Console.WriteLine(leftPadding + "└" + line + "┘");
 		}
 
 	}
