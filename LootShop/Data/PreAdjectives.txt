@@ -1,288 +1,297 @@
-﻿Preposterous
-Slithering
-Rock-Hard
-Throbbing
-Lengthy
-Fond
-Horrible
-Ghostly
-Sweaty
-Charming
-Rifting
-Lofty
-Perfectly Ordinary
-Lightly Seasoned
-Seasoned
-Meaningful
-Controversial
-Stolen
-Bashful
-Delicate
-Rotting
-Roaring
-Seamless
-Forboding
-Tormented
-Scattered
-Demeaning
-Well-Crafted
-Epic
-Rustic
-Plentiful
-Ransacked
-Virgin
-Well-Trimmed
-Charitable
-Resplendent
-Gaping
-Stout
-Unheard-Of
-Ineffable
-Affable
-Gas-Operated
-Tony's
-Bleached
-Well-Bathed
-Static
-Well-Tuned
-Cross-Hatched
-Strange
-Scarcely Lethal
-Mildly Menacing
-Somewhat Threatening
-Uncharitable
-Australian
-Glamorous
-Stingy
-Vaguely Erotic
-Seductive
-Burnt
-Chiseled
-Shiny
-Spotted
-Enrapturing
-Unbelievable
-Overprepared
-Succulent
-Gentleman's
-Lady-Like
-Manly
-Strict
-Greedy
-Notable
-Sight-Seeing
-Sexy
-Painful
-Legless
-Brass
-Fallen
-Tacky
-Bundled
-Business
-Requested
-Summoned
-Ripped
-Twelfth
-My Wife's
-Butlers' Choice
-Cascading
-Uplifting
-Sinking
-Plated
-Medieval
-Tribal
-Master
-Brutal
-Everburning
-Giggling
-Prancing
-Balanced
-Silken
-Probably On Fire
-Doom-Laden
-Sacred
-Steam-Powered
-Dire
-Rampant
-Aggressive
-Blustering
-Boisterous
-Dominant
-Extravagent
-Furious
-Raging
-Unruly
-Violent
-Wanton
-Wild
-Advancing
-Intrusive
-Pretty Laid-Back
-Flagrant
-Toe-Curling
-Impressive
-Dwarven
-Daunting
-Curiously Weightless
-Ambiguous
-Sentient
-Infinitely Complex
-Festive
-Money-Laundering
-Corrupt
-Incorrigible
-Mathematically-Sound
-Four-Stringed
-Elephantine
-Nerve-Wracking
-Cold And Heartless
-Lemon-Scented
-Slow-Burning
-Probably Waterproof
-Informative
-Entertaining
-Incredibly Aged
-Fornicating
-Just Dandy
-Churlish
-Befuddled
-Hallucinogenic
-Vengeful
-
-
-Fabulous+
-Fantastic+
-Amazing+
-Ridiculously Overpowered+
-Fuckin' Metal+
-Jubilant+
-Imbued+
-Righteous+
-Encouraging+
-Brilliant+
-Super Shiny+
-Notably Dangerous+
-Sufficiently Lethal+
-Truly Feared+
-Wicked Nasty+
-Polished+
-Indispensable+
-Golden+
-Loot-Worthy+
-Brütal+
-Utterly Amazing+
-Pretty Damn Cool+
-Kingly+
-Hella Cool+
-Metal As Hell+
-Absurdly Powerful+
-Unexpectedly Awesome+
-Respectable+
-Third-Best+
-Well Thought-Out+
+﻿Abandoned-
 Absolutely Essential+
-Majestic+
-Gilded+
-Redoubtable+
-Radiant+
-
-Spectacularly Worthless-
-Cheap Knock-Off-
-Inoffensive-
-Dumpy-
-Poor-
-Cruddy-
-Pathetic-
-Morally Dubious-
-Not Even Worthwhile-
-Abandoned-
-Barren-
-Totally Bogus-
-Flimsy-
-Ineffective-
-Miserable-
-Bargain-Bin-
-Utterly Meaningless-
-So Common It Hurts-
-Shameful-
-Unworthy-
-Offensively Prehensile-
-Disgraceful-
-Grovelling-
-Sour-
-Gaudy-
-Smelly-
-Raunchy-
-Flavorless-
-Odorless-
+Absurdly Powerful+
 Aching-
-Tedious-
-Withered-
-Humiliating-
-Far-Fetched-
-Baffling-
-Rotten-
-Unfinished-
-Half-Assed-
-Rusted-
-Stained-
-Breached-
-Shady-
-Regular-Ass-
-Unfortunate-
-Famished-
-Impoverished-
-Unusable-
-Moist-
-Unstrung-
-Shoddy-
-Unremarkable-
-Totally Ordinary-
-Unplanned-
-Gloomy-
-Musty-
-Moldy-
-Drab-
-Worn-
-Deflated-
-Shriveled-
-Termite-Covered-
-Warped-
-Kinda Shitty-
-Mediocre-
-Scratched-
-Dried-
-Thrown Out-
-Discarded-
-Broken-
-Irrepairable-
-Subpar-
-Asymmetrical-
-Negligent-
-Distorted-
-Poorly-Wrapped-
-Scammed-
-Drafty-
-Horribly Disgusting-
-Underwhelming-
-Inconsequential-
-Rapidly Deteriorating-
-Rather Weak-
-Somewhat Lacking-
-Burdensome-
-Smashed-
-Disassembled-
-Careless-
-Unsurprising-
-Shoplifted-
-Stagnant-
+Advancing
+Affable
+Aggressive
+Allegedly Cursed-
+Amazing+
+Ambiguous
 Appropriately Meaningless-
-Nastier Than A Butt-
-Toiletesque-
-Lumpish-
-Girlish-
-Sat-Upon-
-Emasculated-
-Waste-Infused-
+Asymmetrical-
+Australian
+Baffling-
+Balanced
+Bargain-Bin-
+Barren-
+Bashful
+Befuddled
+Bleached
+Blustering
 Bogworthy-
+Boisterous
+Brass
+Breached-
+Brilliant+
+Broken-
+Brutal
+Brütal+
+Bundled
+Burdensome-
+Burnt
+Business
+Butlers' Choice
+Butt-
+Cancer-Causing-
+Careless-
+Cascading
+Charitable
+Charming
+Cheap Knock-Off-
+Chiseled
+Churlish
+Cold And Heartless
+Controversial
+Corrupt
+Crippled-
+Crippling
+Cross-Hatched
+Cruddy-
+Curiously Weightless
+Daunting
+Deflated-
+Delicate
+Demeaning
+Dire
+Disassembled-
+Discarded-
+Disgraceful-
+Distorted-
+Dominant
+Doom-Laden
+Drab-
+Drafty-
+Dried-
+Dumpy-
+Dwarven
+Elephantine
+Emasculated-
+Encouraging+
+Enrapturing
+Entertaining
+Epic
+Everburning
+Extravagent
+Fabulous+
+Fallen
+Famished-
+Fantastic+
+Far-Fetched-
+Festive
+Flagrant
+Flavorless-
+Flimsy-
+Fond
+Forboding
+Fornicating
+Four-Stringed
+Fuckin' Metal+
+Furious
+Gaping
+Gas-Operated
+Gaudy-
 Gelded-
+Gentleman's
+Ghostly
+Giggling
+Gilded+
+Girlish-
+Glamorous
+Gloomy-
+Golden+
+Greedy
+Grovelling-
+Half-Assed-
+Hallucinogenic
+Hella Cool+
+Horrible
+Horribly Disgusting-
+Humiliating-
+Imbued+
+Impoverished-
+Impressive
+Inconsequential-
+Incorrigible
+Incredibly Aged
+Indispensable+
+Ineffable
+Ineffective-
+Infinitely Complex
+Informative
+Inoffensive-
+Intrusive
+Irrepairable-
+Jubilant+
+Just Dandy
+Kinda Shitty-
+Kingly+
+Lady-Like
+Legless
+Lemon-Scented
+Lengthy
+Lightly Seasoned
+Lofty
+Loot-Worthy+
+Lumpish-
+Majestic+
+Manly
+Master
+Mathematically-Sound
+Meaningful
+Medieval
+Mediocre-
+Metal As Hell+
+Mildly Menacing
+Miserable-
+Moist-
+Moldy-
+Money-Laundering
+Morally Dubious-
+Musty-
+My Wife's
+Nastier Than A Butt-
+Negligent-
+Nerve-Wracking
+Not Even Worthwhile-
+Notable
+Notably Dangerous+
+Odorless-
+Offensively Prehensile-
+Overprepared
+Painful
+Pathetic-
+Paunchy
+Perfectly Ordinary
+Plated
+Plentiful
+Polished+
+Poor-
+Poorly-Wrapped-
+Prancing
+Preposterous
+Pretty Damn Cool+
+Pretty Laid-Back
+Probably On Fire
+Probably Radioactive-
+Probably Waterproof
+Punchy
+Radiant+
+Raging
+Rampant
+Ransacked
+Rapidly Deteriorating-
+Rather Nice+
+Rather Weak-
+Raunchy-
+Redoubtable+
+Reforged
+Regular-Ass-
+Requested
+Respectable+
+Resplendent
+Ridiculously Overpowered+
+Rifting
+Righteous+
+Ripped
+Roaring
+Rock-Hard
+Rotten-
+Rotting
+Rusted-
+Rustic
+Sacred
+Sacrificial
+Sat-Upon-
+Scammed-
+Scarcely Lethal
+Scattered
+Scratched-
+Seamless
+Seasoned
+Seductive
+Sentient
+Sexy
+Shady-
+Shameful-
+Shiny
+Shoddy-
+Shoplifted-
+Shriveled-
+Sight-Seeing
+Silken
+Sinking
+Slithering
+Slow-Burning
+Smashed-
+Smelly-
+So Common It Hurts-
+Somewhat Lacking-
+Somewhat Threatening
+Sour-
+Spectacularly Worthless-
+Spotted
+Stagnant-
+Stained-
+Static
+Steam-Powered
+Stingy
+Stolen
+Stout
+Strange
+Strict
+Subpar-
+Succulent
+Sufficiently Lethal+
+Summoned
+Super Shiny+
+Sweaty
+Tacky
+Tedious-
+Termite-Covered-
+Third-Best+
+Throbbing
+Thrown Out-
+Toe-Curling
+Toiletesque-
+Tony's
+Tormented
+Tornadoesque
+Totally Bogus-
+Totally Ordinary-
+Tribal
+Truly Feared+
+Twelfth
+Unbelievable
+Uncharitable
+Underwhelming-
+Unexpectedly Awesome+
+Unfinished-
+Unfortunate-
+Unheard-Of
+Unplanned-
+Unremarkable-
+Unruly
+Unstrung-
+Unsurprising-
+Unusable-
+Unworthy-
+Uplifting
+Utterly Amazing+
+Utterly Meaningless-
+Vaguely Erotic
+Vengeful
+Violent
+Virgin
+Wanton
+Warped-
+Waste-Infused-
+Well-Bathed
+Well-Crafted
+Well-Trimmed
+Well-Tuned
+Well Thought-Out+
+Wicked Nasty+
+Wild
+Withered-
+Worn-
