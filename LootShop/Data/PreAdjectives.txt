@@ -1,13 +1,9 @@
 ﻿Fantastic
 Amazing
-Fuckin' Metal+
 Preposterous
-Ridiculously Overpowered+
 Slithering
 Rock-Hard
-Aching-
 Throbbing
-Tedious-
 Lengthy
 Fond
 Horrible
@@ -17,23 +13,13 @@ Charming
 Rifting
 Lofty
 Perfectly Ordinary
-Jubilant+
 Lightly Seasoned
 Seasoned
-Withered-
-Humiliating-
 Meaningful
-Far-Fetched-
 Controversial
 Stolen
-Imbued+
 Bashful
 Delicate
-Righteous+
-Encouraging+
-Baffling-
-Brilliant+
-Rotten-
 Rotting
 Roaring
 Seamless
@@ -43,95 +29,50 @@ Scattered
 Demeaning
 Well-Crafted
 Epic
-Unfinished-
-Half-Assed-
 Rustic
-Rusted-
-Stained-
 Plentiful
-Breached-
-Shady-
 Ransacked
 Virgin
 Well-Trimmed
 Charitable
 Resplendent
-Regular-Ass-
 Gaping
 Stout
-Unfortunate-
-Famished-
-Impoverished-
 Unheard-Of
 Ineffable
 Affable
-Unusable-
-Super Shiny+
 Gas-Operated
 Tony's
-Moist-
 Bleached
 Well-Bathed
 Static
 Well-Tuned
-Unstrung-
-Shoddy-
 Cross-Hatched
 Strange
-Unremarkable-
 Scarcely Lethal
 Mildly Menacing
 Somewhat Threatening
 Uncharitable
-Notably Dangerous+
-Sufficiently Lethal+
-Truly Feared+
-Wicked Nasty+
-Totally Ordinary-
 Australian
 Glamorous
 Fabulous
 Stingy
-Unplanned-
 Vaguely Erotic
 Seductive
 Burnt
 Chiseled
-Gloomy-
 Shiny
-Musty-
-Moldy-
-Drab-
-Worn-
-Deflated-
-Shriveled-
 Spotted
-Termite-Covered-
-Polished+
 Enrapturing
-Warped-
-Kinda Shitty-
-Mediocre-
-Scratched-
-Dried-
-Thrown Out-
-Discarded-
-Broken-
-Irrepairable-
 Unbelievable
-Indispensable+
 Overprepared
 Succulent
-Subpar-
-Asymmetrical-
-Negligent-
 Gentleman's
 Lady-Like
 Manly
 Strict
 Greedy
 Notable
-Distorted-
 Sight-Seeing
 Sexy
 Painful
@@ -145,41 +86,26 @@ Requested
 Summoned
 Ripped
 Twelfth
-Poorly-Wrapped-
 My Wife's
 Butlers' Choice
-Scammed-
 Cascading
 Uplifting
-Drafty-
 Sinking
-Golden+
 Plated
-Gilded-
-Loot-Worthy+
 Medieval
 Tribal
 Master
 Brutal
-Brütal+
 Everburning
 Giggling
 Prancing
 Balanced
 Silken
-Horribly Disgusting-
 Probably On Fire
-Underwhelming-
 Doom-Laden
-Inconsequential-
-Rapidly Deteriorating-
 Sacred
 Steam-Powered
-Utterly Amazing+
-Pretty Damn Cool+
-Kingly+
 Dire
-Hella Cool+
 Rampant
 Aggressive
 Blustering
@@ -195,45 +121,20 @@ Wild
 Advancing
 Intrusive
 Pretty Laid-Back
-Metal As Hell+
-Absurdly Powerful+
-Rather Weak-
-Somewhat Lacking-
-Burdensome-
-Smashed-
 Flagrant
-Disassembled-
 Toe-Curling
 Impressive
-Sour-
-Gaudy-
-Smelly-
-Raunchy-
-Flavorless-
-Odorless-
-Unexpectedly Awesome+
-Careless-
-Unsurprising-
-Majestic+
 Dwarven
-Spectacularly Worthless-
-Shoplifted-
-Respectable+
 Daunting
-Third-Best+
 Curiously Weightless
 Ambiguous
 Sentient
-Well Thought-Out+
-Absolutely Essential+
 Infinitely Complex
-Cheap Knock-Off-
 Festive
 Money-Laundering
 Corrupt
 Incorigible
 Mathematically-Sound
-Inoffensive-
 Four-Stringed
 Elephantine
 Nerve-Wracking
@@ -246,3 +147,127 @@ Entertaining
 Incredibly Aged
 Fornicating
 Just Dandy
+
+Ridiculously Overpowered+
+Fuckin' Metal+
+Jubilant+
+Imbued+
+Righteous+
+Encouraging+
+Brilliant+
+Super Shiny+
+Notably Dangerous+
+Sufficiently Lethal+
+Truly Feared+
+Wicked Nasty+
+Polished+
+Indispensable+
+Golden+
+Loot-Worthy+
+Brütal+
+Utterly Amazing+
+Pretty Damn Cool+
+Kingly+
+Hella Cool+
+Metal As Hell+
+Absurdly Powerful+
+Unexpectedly Awesome+
+Respectable+
+Third-Best+
+Well Thought-Out+
+Absolutely Essential+
+Majestic+
+
+Spectacularly Worthless-
+Cheap Knock-Off-
+Inoffensive-
+Dumpy-
+Poor-
+Cruddy-
+Pathetic-
+Morally Dubious-
+Not Even Worthwhile-
+Abandoned-
+Barren-
+Totally Bogus-
+Flimsy-
+Ineffective-
+Miserable-
+Bargain-Bin-
+Utterly Meaningless-
+So Common It Hurts-
+Shameful-
+Unworthy-
+Offensively Prehensile-
+Disgraceful-
+Grovelling-
+Sour-
+Gaudy-
+Smelly-
+Raunchy-
+Flavorless-
+Odorless-
+Aching-
+Tedious-
+Withered-
+Humiliating-
+Far-Fetched-
+Baffling-
+Rotten-
+Unfinished-
+Half-Assed-
+Rusted-
+Stained-
+Breached-
+Shady-
+Regular-Ass-
+Unfortunate-
+Famished-
+Impoverished-
+Unusable-
+Moist-
+Unstrung-
+Shoddy-
+Unremarkable-
+Totally Ordinary-
+Unplanned-
+Gloomy-
+Musty-
+Moldy-
+Drab-
+Worn-
+Deflated-
+Shriveled-
+Termite-Covered-
+Warped-
+Kinda Shitty-
+Mediocre-
+Scratched-
+Dried-
+Thrown Out-
+Discarded-
+Broken-
+Irrepairable-
+Subpar-
+Asymmetrical-
+Negligent-
+Distorted-
+Poorly-Wrapped-
+Scammed-
+Drafty-
+Gilded-
+Horribly Disgusting-
+Underwhelming-
+Inconsequential-
+Rapidly Deteriorating-
+Rather Weak-
+Somewhat Lacking-
+Burdensome-
+Smashed-
+Disassembled-
+Careless-
+Unsurprising-
+Shoplifted-
+Stagnant-
+Appropriately Meaningless-
+Nastier Than A Butt-

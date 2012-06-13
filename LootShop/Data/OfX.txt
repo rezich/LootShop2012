@@ -1,22 +1,13 @@
 ﻿The Boar
-Legend+
-Lore+
 Christmas Past
-Biblical Proportions+
 China
 The Beast
 Reckoning
 The End Times
-Poverty-
 The Jews
-Unbelievable Power+
-Ridicule-
 Greed
-Extra Shininess+
-Shit-
-Embarassment-
+
 The Wildebeast
-Worth+
 Note
 Hope
 Survivability
@@ -36,7 +27,7 @@ Disaster
 Completion
 Wrath
 Ascension
-Treasure+
+
 Snakes
 Light
 Darkness
@@ -48,8 +39,6 @@ Greatness
 Due Time
 Patience
 Uncertainty
-Quality+
-"Quality"-
 Celebration
 Burning
 Giggling
@@ -67,40 +56,38 @@ The Gods
 The Nine Hells
 Lust
 Silly Titles
-Vast Fortune+
+
 Commitment
 Cross-Breeding
 Salad Shooting
 Permadeath
-Untold Riches+
-Burial-
+
 Decapitation
 Disembowelment
 Quartering
 Instagibbing
 Sick Flows
 Dungeoneering
-Loot-Having+
-Turnip Farming-
+
+
 Greater Purpose
 Lesser Evils
 Deception
-Horticulture-
+
 Premonition
 Rice Cooking
 Absolution
 Destruction
-Not Having Any Real Purpose-
+
 Destiny
-Favoritism+
+
 Beholding
 Ritual
 Roasting
-Uselessness-
 Companionship
 Lucid Dreaming
 Funny Words
-Inherent Sexiness+
+
 Pandemonium
 Thrill
 Separation
@@ -173,3 +160,28 @@ Gluttony
 Coitus
 Originality
 Seasickness
+
+Quality+
+Inherent Sexiness+
+Favoritism+
+Loot-Having+
+Vast Fortune+
+Treasure+
+Extra Shininess+
+Unbelievable Power+
+Biblical Proportions+
+Legend+
+Lore+
+Worth+
+Untold Riches+
+
+Burial-
+"Quality"-
+Uselessness-
+Embarassment-
+Ridicule-
+Poverty-
+Shit-
+Turnip Farming-
+Horticulture-
+Not Having Any Real Purpose-

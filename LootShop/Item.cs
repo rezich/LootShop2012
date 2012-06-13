@@ -240,6 +240,7 @@ namespace LootShop {
 
 		public static void Initialize() {
 			foreach (string s in System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt")) {
+				if (s == "") continue;
 				WordQuality q = WordQuality.Neutral;
 				string str = s;
 				if (s.Substring(s.Length - 1, 1) == "+") {
@@ -253,6 +254,7 @@ namespace LootShop {
 				Item.PreAdjectives.Add(new Tuple<string, WordQuality>(str, q));
 			}
 			foreach (string s in System.IO.File.ReadAllLines(@"Data\OfX.txt")) {
+				if (s == "") continue;
 				WordQuality q = WordQuality.Neutral;
 				string str = s;
 				if (s.Substring(s.Length - 1, 1) == "+") {
