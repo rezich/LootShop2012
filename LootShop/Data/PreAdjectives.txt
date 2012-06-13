@@ -122,6 +122,7 @@ Informative
 Inoffensive-
 Intrusive
 Irrepairable-
+Jewel-Encrusted+
 Jubilant+
 Just Dandy
 Kinda Shitty-
@@ -291,6 +292,7 @@ Well-Crafted
 Well-Trimmed
 Well-Tuned
 Well Thought-Out+
+Why Would You Even Equip This-
 Wicked Nasty+
 Wild
 Withered-
