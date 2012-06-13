@@ -12,9 +12,11 @@ namespace LootShop {
 		public enum Type {
 			Greataxe,
 			Longsword,
+			Greatsword,
 			Staff,
 			Bow,
 			Mace,
+			Dagger,
 
 			Helmet,
 			Pauldrons,
@@ -66,11 +68,17 @@ namespace LootShop {
 				List.Add(new Item.Kind(Type.Longsword, Slot.OneHand, meleeAttr, new List<string> {
 					"Sword", "Rapier", "Blade", "Pointy Stick", "Cutlass", "Zweihander", "Sabre", "Falchion"
 				}));
+				List.Add(new Item.Kind(Type.Greatsword, Slot.TwoHands, meleeAttr, new List<string> {
+					"Greatsword", "Broadsword", "Bastard Sword"
+				}));
+				List.Add(new Item.Kind(Type.Dagger, Slot.OneHand, meleeAttr, new List<string> {
+					"Dagger", "Knife", "Letter Opener", "Stabber"
+				}));
 				List.Add(new Item.Kind(Type.Greataxe, Slot.TwoHands, meleeAttr, new List<string> {
 					"Axe", "Hatchet", "Pick", "Broad Axe", "Battleaxe", "Great Axe", "Giant Axe", "Cleaver", "Pickaxe"
 				}));
 				List.Add(new Item.Kind(Type.Staff, Slot.OneHand, meleeAttr, new List<string> {
-					"Staff", "Rod", "Wand", "Implement", "Quarterstaff", "Walking Stick"
+					"Staff", "Rod", "Wand", "Implement", "Quarterstaff", "Walking Stick", "Channeler"
 				}));
 				List.Add(new Item.Kind(Type.Bow, Slot.TwoHands, meleeAttr, new List<string> {
 					"Bow", "Shortbow", "Longbow", "Composite Bow", "War Bow", "Siege Bow", "Great Bow"
@@ -87,24 +95,24 @@ namespace LootShop {
 					"Studded Armor", "Leather Armor", "Quilted Armor", "Ring Mail", "Scale Mail", "Chain Mail", "Breastplate", "Plate Mail", "Shirt", "Bodyshaft", "Sweater", "Rags", "Undershirt", "Robe", "Cloak", "Goatskin"
 				}));
 				List.Add(new Item.Kind(Type.Pants, Slot.Legs, armorAttr, new List<string> {
-					"Pants", "Leggings", "Kneepads", "Chaps", "Leg-Wraps"
+					"Pants", "Leggings", "Kneepads", "Chaps", "Leg-Wraps", "Lederhosen", "Kilt"
 				}));
 				List.Add(new Item.Kind(Type.Gloves, Slot.Hands, armorAttr, new List<string> {
 					"Gloves", "Gauntlets", "Bracers", "Mitts", "Vambraces", "Graspers"
 				}));
 				List.Add(new Item.Kind(Type.Belt, Slot.Waist, armorAttr, new List<string> {
-					"Sash", "Belt", "Coil", "Girdle", "Belly-Wrap", "String"
+					"Sash", "Belt", "Coil", "Girdle", "Belly-Wrap", "String", "Strap"
 				}));
 				List.Add(new Item.Kind(Type.Boots, Slot.Feet, armorAttr, new List<string> {
-					"Shoes", "Boots", "Greaves", "Sandals", "Galoshes"
+					"Shoes", "Boots", "Greaves", "Sandals", "Galoshes", "Kicks"
 				}));
 				List.Add(new Item.Kind(Type.Pauldrons, Slot.Shoulders, armorAttr, new List<string> {
-					"Shoulders", "Pauldrons", "Epaulets", "Mantle", "Shoulderpads"
+					"Shoulders", "Pauldrons", "Mantle", "Shoulderpads"
 				})); ;
 
 				// Pure Attributehavers
 				List.Add(new Item.Kind(Type.Ring, Slot.Finger, pureAttr, new List<string> {
-					"Ring", "Band", "Finger-Wrap"
+					"Ring", "Band"
 				}));
 				List.Add(new Item.Kind(Type.Amulet, Slot.Neck, pureAttr, new List<string> {
 					"Amulet", "Necklass", "Charm"
