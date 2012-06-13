@@ -1,6 +1,4 @@
-﻿Fantastic
-Amazing
-Preposterous
+﻿Preposterous
 Slithering
 Rock-Hard
 Throbbing
@@ -55,7 +53,6 @@ Somewhat Threatening
 Uncharitable
 Australian
 Glamorous
-Fabulous
 Stingy
 Vaguely Erotic
 Seductive
@@ -133,7 +130,7 @@ Infinitely Complex
 Festive
 Money-Laundering
 Corrupt
-Incorigible
+Incorrigible
 Mathematically-Sound
 Four-Stringed
 Elephantine
@@ -147,7 +144,15 @@ Entertaining
 Incredibly Aged
 Fornicating
 Just Dandy
+Churlish
+Befuddled
+Hallucinogenic
+Vengeful
 
+
+Fabulous+
+Fantastic+
+Amazing+
 Ridiculously Overpowered+
 Fuckin' Metal+
 Jubilant+
@@ -177,6 +182,9 @@ Third-Best+
 Well Thought-Out+
 Absolutely Essential+
 Majestic+
+Gilded+
+Redoubtable+
+Radiant+
 
 Spectacularly Worthless-
 Cheap Knock-Off-
@@ -255,7 +263,6 @@ Distorted-
 Poorly-Wrapped-
 Scammed-
 Drafty-
-Gilded-
 Horribly Disgusting-
 Underwhelming-
 Inconsequential-
@@ -271,3 +278,11 @@ Shoplifted-
 Stagnant-
 Appropriately Meaningless-
 Nastier Than A Butt-
+Toiletesque-
+Lumpish-
+Girlish-
+Sat-Upon-
+Emasculated-
+Waste-Infused-
+Bogworthy-
+Gelded-

@@ -160,6 +160,18 @@ Gluttony
 Coitus
 Originality
 Seasickness
+Animosity
+Vengeance
+Revenge
+The Dimensional Void
+Formidable Erections
+Uncontained Wild Fires
+Redirected Gas Leaks
+Unexpected Mutations
+Statistical Acceptability
+Semi-legal Whaling
+Right Angles
+
 
 Quality+
 Inherent Sexiness+
@@ -174,6 +186,9 @@ Legend+
 Lore+
 Worth+
 Untold Riches+
+Interminable Glory+
+Inexhaustible Fortitude+
+Magesty+
 
 Burial-
 "Quality"-
@@ -185,3 +200,10 @@ Shit-
 Turnip Farming-
 Horticulture-
 Not Having Any Real Purpose-
+Bloating-
+Excessively Uncomfortably Bloating-
+Truly Abhorrent Bloating-
+Unsatisfying Bowel Movements-
+Leaky Faucets-
+The Runs-
+Declined Credit Cards-
