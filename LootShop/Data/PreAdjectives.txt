@@ -18,6 +18,10 @@ Barren-
 Bashful
 Befuddled
 Bleached
+Blood-Crusted
+Blood-Smeared
+Bloodseeking
+Bloody
 Blustering
 Bogworthy-
 Boisterous
@@ -50,6 +54,7 @@ Cross-Hatched
 Cruddy-
 Curiously Weightless
 Daunting
+Decidedly Alien
 Deflated-
 Delicate
 Demeaning
@@ -71,6 +76,7 @@ Encouraging+
 Enrapturing
 Entertaining
 Epic
+Equipworthy
 Everburning
 Extravagent
 Fabulous+
@@ -89,6 +95,7 @@ Four-Stringed
 Fuckin' Metal+
 Furious
 Gaping
+Garbage-
 Gas-Operated
 Gaudy-
 Gelded-
@@ -273,6 +280,7 @@ Unheard-Of
 Unplanned-
 Unremarkable-
 Unruly
+Unscented
 Unstrung-
 Unsurprising-
 Unusable-

@@ -66,13 +66,13 @@ namespace LootShop {
 
 				// Weapons
 				List.Add(new Item.Kind(Type.Longsword, Slot.OneHand, meleeAttr, new List<string> {
-					"Sword", "Rapier", "Blade", "Pointy Stick", "Cutlass", "Zweihander", "Sabre", "Falchion"
+					"Sword", "Rapier", "Blade", "Cutlass", "Sabre", "Falchion", "Short Sword", "Longsword"
 				}));
 				List.Add(new Item.Kind(Type.Greatsword, Slot.TwoHands, meleeAttr, new List<string> {
-					"Greatsword", "Broadsword", "Bastard Sword"
+					"Greatsword", "Broadsword", "Bastard Sword", "Zweihander", "Claymore", "Flamberge"
 				}));
 				List.Add(new Item.Kind(Type.Dagger, Slot.OneHand, meleeAttr, new List<string> {
-					"Dagger", "Knife", "Letter Opener", "Stabber"
+					"Dagger", "Knife", "Letter Opener", "Stabber", "Dirk", "Stiletto", "Point", "Spike"
 				}));
 				List.Add(new Item.Kind(Type.Greataxe, Slot.TwoHands, meleeAttr, new List<string> {
 					"Axe", "Hatchet", "Pick", "Broad Axe", "Battleaxe", "Great Axe", "Giant Axe", "Cleaver", "Pickaxe"

@@ -16,6 +16,8 @@ namespace LootShop {
 			do {
 				cki = Console.ReadKey(true);
 				switch (cki.Key) {
+					case ConsoleKey.Enter:
+						goto case ConsoleKey.Spacebar;
 					case ConsoleKey.Spacebar:
 						Item.Generate(r.Next(1, 20), r).WriteStatBlock();
 						Console.WriteLine();
