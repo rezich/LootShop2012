@@ -66,7 +66,7 @@ namespace LootShop {
 
 				// Weapons
 				List.Add(new Item.Kind(Type.Longsword, Slot.OneHand, meleeAttr, new List<string> {
-					"Sword", "Rapier", "Blade", "Cutlass", "Sabre", "Falchion", "Short Sword", "Longsword"
+					"Sword", "Rapier", "Blade", "Cutlass", "Sabre", "Falchion", "Short Sword", "Longsword", "Scimitar"
 				}));
 				List.Add(new Item.Kind(Type.Greatsword, Slot.TwoHands, meleeAttr, new List<string> {
 					"Greatsword", "Broadsword", "Bastard Sword", "Zweihander", "Claymore", "Flamberge"
@@ -81,7 +81,7 @@ namespace LootShop {
 					"Staff", "Rod", "Wand", "Implement", "Quarterstaff", "Walking Stick", "Channeler"
 				}));
 				List.Add(new Item.Kind(Type.Bow, Slot.TwoHands, meleeAttr, new List<string> {
-					"Bow", "Shortbow", "Longbow", "Composite Bow", "War Bow", "Siege Bow", "Great Bow"
+					"Bow", "Shortbow", "Longbow", "Composite Bow", "War Bow", "Siege Bow", "Great Bow", "Cross Bow"
 				}));
 				List.Add(new Item.Kind(Type.Mace, Slot.OneHand, meleeAttr, new List<string> {
 					"Mace", "Club", "Morningstar", "Flail", "War Hammer", "Maul", "Cudgel", "Truncheon", "Mallet", "Hammer"
