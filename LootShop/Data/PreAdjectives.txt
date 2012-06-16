@@ -22,7 +22,8 @@ Blood-Crusted
 Blood-Smeared
 Bloodseeking
 Bloody
-Blustering
+Blundering-
+Blustery
 Bogworthy-
 Boisterous
 Brass
@@ -35,6 +36,7 @@ Bundled
 Burdensome-
 Burnt
 Business
+Business-Casual
 Butlers' Choice
 Butt-
 Cancer-Causing-
@@ -103,7 +105,7 @@ Gentleman's
 Ghostly
 Giggling
 Gilded+
-Girlish-
+Girly-
 Glamorous
 Gloomy-
 Golden+
@@ -161,6 +163,7 @@ My Wife's
 Nastier Than A Butt-
 Negligent-
 Nerve-Wracking
+Not Even Worth Equipping-
 Not Even Worthwhile-
 Notable
 Notably Dangerous+
@@ -233,6 +236,7 @@ Slithering
 Slow-Burning
 Smashed-
 Smelly-
+Smooth
 So Common It Hurts-
 Somewhat Lacking-
 Somewhat Threatening

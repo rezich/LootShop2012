@@ -21,7 +21,6 @@ namespace LootShop {
 					case ConsoleKey.Spacebar:
 						Item.Generate(r.Next(1, 20), r).WriteStatBlock();
 						Console.WriteLine();
-						Console.WriteLine();
 						break;
 					case ConsoleKey.Escape:
 						done = true;

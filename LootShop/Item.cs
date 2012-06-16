@@ -89,25 +89,25 @@ namespace LootShop {
 
 				// Armor
 				List.Add(new Item.Kind(Type.Helmet, Slot.Head, armorAttr, new List<string> {
-					"Helmet", "Hat", "Cap", "Crown", "Casque", "Basinet", "Sallet"
+					"Helmet", "Hat", "Cap", "Crown", "Casque", "Basinet", "Sallet", "Helm", "Headpiece"
 				}));
 				List.Add(new Item.Kind(Type.Armor, Slot.Chest, armorAttr, new List<string> {
 					"Studded Armor", "Leather Armor", "Quilted Armor", "Ring Mail", "Scale Mail", "Chain Mail", "Breastplate", "Plate Mail", "Shirt", "Bodyshaft", "Sweater", "Rags", "Undershirt", "Robe", "Cloak", "Goatskin"
 				}));
 				List.Add(new Item.Kind(Type.Pants, Slot.Legs, armorAttr, new List<string> {
-					"Pants", "Leggings", "Kneepads", "Chaps", "Leg-Wraps", "Lederhosen", "Kilt"
+					"Pants", "Leggings", "Kneepads", "Chaps", "Leg-Wraps", "Lederhosen", "Kilt", "Faulds"
 				}));
 				List.Add(new Item.Kind(Type.Gloves, Slot.Hands, armorAttr, new List<string> {
-					"Gloves", "Gauntlets", "Bracers", "Mitts", "Vambraces", "Graspers"
+					"Gloves", "Gauntlets", "Bracers", "Mitts", "Vambraces", "Graspers", "Stranglers"
 				}));
 				List.Add(new Item.Kind(Type.Belt, Slot.Waist, armorAttr, new List<string> {
-					"Sash", "Belt", "Coil", "Girdle", "Belly-Wrap", "String", "Strap"
+					"Sash", "Belt", "Coil", "Girdle", "Belly-Wrap", "String", "Strap", "Strand", "Scabbard"
 				}));
 				List.Add(new Item.Kind(Type.Boots, Slot.Feet, armorAttr, new List<string> {
-					"Shoes", "Boots", "Greaves", "Sandals", "Galoshes", "Kicks"
+					"Shoes", "Boots", "Greaves", "Sandals", "Galoshes", "Kicks", "Treads"
 				}));
 				List.Add(new Item.Kind(Type.Pauldrons, Slot.Shoulders, armorAttr, new List<string> {
-					"Shoulders", "Pauldrons", "Mantle", "Shoulderpads"
+					"Shoulders", "Pauldrons", "Mantle", "Shoulderpads", "Spaulders"
 				})); ;
 
 				// Pure Attributehavers
