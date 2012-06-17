@@ -153,9 +153,9 @@ namespace LootShop {
 			public static List<RarityLevel> List = new List<RarityLevel>();
 
 			public static void Initialize() {
-				List.Add(new RarityLevel(Type.Garbage,		new Range(0, 0),	new Range(0, 0.75),		false));
-				List.Add(new RarityLevel(Type.Normal,		new Range(0, 0),	new Range(0.75, 1.25),	false));
-				List.Add(new RarityLevel(Type.Magic,		new Range(2, 4),	new Range(1.25, 1.75),	true));
+				List.Add(new RarityLevel(Type.Garbage,		new Range(0, 0),	new Range(-0.5, 0),		false));
+				List.Add(new RarityLevel(Type.Normal,		new Range(0, 0),	new Range(0, 0.5),	false));
+				List.Add(new RarityLevel(Type.Magic,		new Range(2, 4),	new Range(0.25, 0.75),	true));
 				List.Add(new RarityLevel(Type.Rare,			new Range(3, 5),	new Range(1.5, 2.0),	true));
 				List.Add(new RarityLevel(Type.Legendary,	new Range(4, 6),	new Range(1.75, 2.5),	true));
 				List.Add(new RarityLevel(Type.Unique,		new Range(5, 7),	new Range(2.5, 3),		true));
@@ -204,31 +204,36 @@ namespace LootShop {
 			public double BaseValue;
 			public double ModAdd;
 			public double ModMultiply;
-			public double ModExponent;
 			public double LevelBaseValue;
 			public double LevelModAdd;
 			public double LevelModMultiply;
-			public double LevelModExponent;
+			public double RarityBaseValue;
+			public double RarityModAdd;
+			public double RarityModMultiply;
+
+			public bool Rounded;
+			public bool Percentage;
+			public bool Addition;
 
 			public static List<Attribute> List = new List<Attribute>();
 
 			public static void Initialize() {
-				//															Base	Mod+	Mod*	Mod^	LBase	LMod+	LMod*	LMod^
-				List.Add(new Attribute(Type.Damage,				true,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.AttacksPerSecond,	true,		1.5,	1,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.Armor,				true,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.Strength,			false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.Dexterity,			false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.Intelligence,		false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.Vitality,			false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.MagicFind,			false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.GoldFind,			false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.AttackSpeed,		false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.ResistFire,			false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.ResistLightning,	false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.ResistPoison,		false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.LifeOnHit,			false,		0,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.ReplenishLife,		false,		0,		0,		0,		0,		0,		0,		0,		0));
+				//																				Base	Mod+	Mod*	LBase	LMod+	LMod*	RBase	RMod+	RMod*
+				List.Add(new Attribute(Type.Damage,				true,	true,	false,	false,		0,		0,		0,		15,		14,		0,		15,		15,		0));
+				List.Add(new Attribute(Type.AttacksPerSecond,	true,	false,	false,	false,		1.5,	1,		0,		0,		0,		0,		0,		0,		0));
+				List.Add(new Attribute(Type.Armor,				true,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
+				List.Add(new Attribute(Type.Strength,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
+				List.Add(new Attribute(Type.Dexterity,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
+				List.Add(new Attribute(Type.Intelligence,		false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
+				List.Add(new Attribute(Type.Vitality,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
+				List.Add(new Attribute(Type.MagicFind,			false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0));
+				List.Add(new Attribute(Type.GoldFind,			false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0));
+				List.Add(new Attribute(Type.AttackSpeed,		false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0));
+				List.Add(new Attribute(Type.ResistFire,			false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0));
+				List.Add(new Attribute(Type.ResistLightning,	false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0));
+				List.Add(new Attribute(Type.ResistPoison,		false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0));
+				List.Add(new Attribute(Type.LifeOnHit,			false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0));
+				List.Add(new Attribute(Type.ReplenishLife,		false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0));
 			}
 
 			public static Attribute Lookup(Attribute.Type type) {
@@ -239,22 +244,38 @@ namespace LootShop {
 				return attr;
 			}
 
-			public double Generate(int level, Random r) {
+			public double Generate(RarityLevel rarity, int level, Random r) {
 				double val = BaseValue;
+
+				val += LevelBaseValue * level;
+
+				val += RarityBaseValue * rarity.AttributeModifier.RandomDouble(r);
+
 				if (ModAdd != 0) val = val - ModAdd + (r.NextDouble() * ModAdd * 2);
-				return Math.Round(val, 2);
+
+				if (RarityModAdd != 0) val += rarity.AttributeModifier.RandomDouble(r) * RarityModAdd;
+
+				return Math.Round(val, (Rounded ? 0 : 2));
 			}
 
-			public Attribute(Type name, bool baseStat, double baseValue, double modAdd, double modMultiply, double modExponent, double levelBaseValue, double levelModAdd, double levelModMultiply, double levelModExponent) {
+			public Attribute(Type name, bool baseStat, bool rounded, bool addition, bool percentage, double baseValue, double modAdd, double modMultiply, double levelBaseValue, double levelModAdd, double levelModMultiply, double rarityBaseValue, double rarityModAdd, double rarityModMultiply) {
 				Name = name;
 				BaseStat = baseStat;
-				BaseValue = baseValue;
-				ModAdd = modAdd;
-				ModMultiply = modMultiply;
-				ModExponent = modExponent;
-				LevelModAdd = levelModAdd;
-				LevelModMultiply = levelModMultiply;
-				LevelModExponent = levelModExponent;
+				Rounded = rounded;
+				Percentage = percentage;
+				Addition = addition;
+
+				BaseValue = baseValue;					// y = x
+				ModAdd = modAdd;						// y += x
+				ModMultiply = modMultiply;				// ???
+
+				LevelBaseValue = levelBaseValue;		// y += level * x
+				LevelModAdd = levelModAdd;				// y += (level * x) - x + (x * 2)
+				LevelModMultiply = levelModMultiply;	// ???
+
+				RarityBaseValue = rarityBaseValue;		// y += rarity * x
+				RarityModAdd = rarityModAdd;			// y += (rarity * x) - x + (x * 2)
+				RarityModMultiply = rarityModMultiply;	// ???
 			}
 
 		}
@@ -349,7 +370,7 @@ namespace LootShop {
 				//attrVal += Math.Max((baseVal * Math.Max(i.Level - 1, 1)) + r.Next(baseVal * 2), 1);
 				//attrVal = Math.Max((int)((double)attrVal * i.Rarity.AttributeModifier.RandomDouble(r)), 1);*/
 
-				i.Attributes.Add(a.Name, a.Generate(i.Level, r));
+				i.Attributes.Add(a.Name, a.Generate(i.Rarity, i.Level, r));
 			}
 
 			// GENERATE THE NAME!!
@@ -453,7 +474,8 @@ namespace LootShop {
 				Console.ForegroundColor = ConsoleColor.Gray;
 				Console.Write(leftPadding + bar + key);
 				Console.ForegroundColor = ConsoleColor.White;
-				Console.Write(kvp.Value.ToString().PadLeft(width - key.Length - padding - 2) + new String(' ', padding));
+				string num = ((Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
+				Console.Write(num.PadLeft(width - key.Length - padding - 2) + new String(' ', padding));
 				Console.ForegroundColor = ConsoleColor.Gray;
 				Console.Write(bar + "\n");
 				Console.ResetColor();
