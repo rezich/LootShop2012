@@ -8,15 +8,18 @@ Aggressive
 Allegedly Cursed-
 Amazing+
 Ambiguous
+Anachronistic
 Appropriately Meaningless-
 Asymmetrical-
 Australian
+Awkward-
 Baffling-
 Balanced
 Bargain-Bin-
 Barren-
 Bashful
 Befuddled
+Begrudging
 Bleached
 Blood-Crusted
 Blood-Smeared
@@ -32,6 +35,7 @@ Brilliant+
 Broken-
 Brutal
 Brütal+
+Bulky
 Bundled
 Burdensome-
 Burnt
@@ -47,6 +51,8 @@ Charming
 Cheap Knock-Off-
 Chiseled
 Churlish
+Clumsy-
+Coarse
 Cold And Heartless
 Controversial
 Corrupt
@@ -60,6 +66,7 @@ Decidedly Alien
 Deflated-
 Delicate
 Demeaning
+Depressing-
 Dire
 Disassembled-
 Discarded-
@@ -85,6 +92,7 @@ Fabulous+
 Fallen
 Famished-
 Fantastic+
+Fantastically Underwhelming-
 Far-Fetched-
 Festive
 Flagrant
@@ -113,6 +121,7 @@ Greedy
 Grovelling-
 Half-Assed-
 Hallucinogenic
+Heavy
 Hella Cool+
 Horrible
 Horribly Disgusting-
@@ -134,6 +143,7 @@ Irrepairable-
 Jewel-Encrusted+
 Jubilant+
 Just Dandy
+Just Plain Silly
 Kinda Shitty-
 Kingly+
 Lady-Like
@@ -143,6 +153,7 @@ Lengthy
 Lightly Seasoned
 Lofty
 Loot-Worthy+
+Low-Quality Even Compared To Other Garbage Items-
 Lumpish-
 Majestic+
 Manly
@@ -167,10 +178,14 @@ Not Even Worth Equipping-
 Not Even Worthwhile-
 Notable
 Notably Dangerous+
+Noticeably Poor Quality-
+Obscene
 Odorless-
 Offensively Prehensile-
+Outrageous
 Overprepared
 Painful
+Painfully Useless-
 Pathetic-
 Paunchy
 Perfectly Ordinary
@@ -193,6 +208,7 @@ Rampant
 Ransacked
 Rapidly Deteriorating-
 Rather Nice+
+Rather Useless-
 Rather Weak-
 Raunchy-
 Redoubtable+
@@ -214,6 +230,7 @@ Rustic
 Sacred
 Sacrificial
 Sat-Upon-
+Savage
 Scammed-
 Scarcely Lethal
 Scattered
@@ -231,6 +248,7 @@ Shoplifted-
 Shriveled-
 Sight-Seeing
 Silken
+Simply Splendid
 Sinking
 Slithering
 Slow-Burning
@@ -258,7 +276,7 @@ Sufficiently Lethal+
 Summoned
 Super Shiny+
 Sweaty
-Tacky
+Tacky-
 Tedious-
 Termite-Covered-
 Third-Best+
@@ -275,6 +293,7 @@ Tribal
 Truly Feared+
 Twelfth
 Unbelievable
+Uncertain
 Uncharitable
 Underwhelming-
 Unexpectedly Awesome+
@@ -293,6 +312,7 @@ Uplifting
 Utterly Amazing+
 Utterly Meaningless-
 Vaguely Erotic
+Vastly Ineffective-
 Vengeful
 Violent
 Virgin
@@ -308,4 +328,6 @@ Why Would You Even Equip This-
 Wicked Nasty+
 Wild
 Withered-
+Writhing
+Wobbly
 Worn-

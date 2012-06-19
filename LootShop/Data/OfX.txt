@@ -3,9 +3,12 @@ Absolution
 Acceleration
 Adventure
 Animosity
+Anxiety
 Asbestos-
 Ascension
 Balance
+Befuddlement
+Begrudging
 Beholding
 Being Pretty Useless In The Long Run-
 Better Times
@@ -42,6 +45,7 @@ Disembowelment
 Dodging
 Downfall
 Due Time
+Dumpster-Diving-
 Dungeoneering
 Embarassment-
 Excessively Uncomfortable Bloating-
@@ -50,6 +54,7 @@ Exhaustion
 Exploding
 Explosions
 Extra Shininess+
+Extra Fanciness+
 Farsight
 Fate
 Favoritism+
@@ -60,6 +65,7 @@ Flatulence
 Fluid Secretion
 Formidable Erections
 Fraternization
+Freedom
 Friction
 Funny Words
 General Worthlessness-
@@ -70,6 +76,8 @@ Greater Purpose
 Greatness
 Greed
 Hatred
+Helplessness-
+Hoarding
 Hope
 Horror
 Horseriding
@@ -93,7 +101,7 @@ Limitless Potential
 Loot-Having+
 Lore+
 Lounging About
-Low Prices
+Low, Low Prices
 Lucid Dreaming
 Lump-Having
 Lust
@@ -109,8 +117,10 @@ Not Having Any Real Purpose-
 Not Having Legs Anymore
 Notably Subpar Quality-
 Note
+Nourishment
 Originality
 Pandemonium
+Partying
 Patience
 Permadeath
 Pillaging
@@ -118,6 +128,7 @@ Portability
 Potential Energy
 Poverty-
 Power
+Prancing
 Premonition
 Princecrippling
 Quality+
@@ -165,6 +176,7 @@ Stank-
 Statistical Acceptability
 Stench-
 Stink-
+Stumbling
 Sublimation
 Swag
 Swagger
@@ -205,6 +217,7 @@ The Leper-
 The Libertarian
 The Lion
 The Loins
+The Mathematician
 The Moron-
 The Nimcompoop-
 The Nine Hells
@@ -239,6 +252,7 @@ Unexpected Mutations
 Unfaithfulness-
 Unmatched Power
 Unsatisfying Bowel Movements-
+Untapped Potential
 Untold Riches+
 Upholding Grudges
 Uselessness-
