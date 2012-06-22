@@ -3,12 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 11
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LootShop", "LootShop\LootShop.csproj", "{98B0DA58-DDBA-4D1A-86D4-0DFCB15AB8C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LootMaker", "LootMaker\LootMaker.csproj", "{1071EDC1-3CF8-4271-A059-F19E4381B088}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1071EDC1-3CF8-4271-A059-F19E4381B088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1071EDC1-3CF8-4271-A059-F19E4381B088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1071EDC1-3CF8-4271-A059-F19E4381B088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1071EDC1-3CF8-4271-A059-F19E4381B088}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98B0DA58-DDBA-4D1A-86D4-0DFCB15AB8C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98B0DA58-DDBA-4D1A-86D4-0DFCB15AB8C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98B0DA58-DDBA-4D1A-86D4-0DFCB15AB8C3}.Release|Any CPU.ActiveCfg = Release|Any CPU

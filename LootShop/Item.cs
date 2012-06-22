@@ -51,7 +51,6 @@ namespace LootShop {
 		}
 
 		public class Kind {
-
 			public Type Name;
 			public Slot Slot;
 			public List<Attribute> BaseAttributes;
@@ -278,6 +277,25 @@ namespace LootShop {
 				RarityModMultiply = rarityModMultiply;	// ???
 			}
 
+		}
+		public class Modifier {
+			public string Name;
+			public List<string> Tags;
+			public List<Submodifier> Submodifiers;
+
+			public static List<Item.Modifier> List = new List<Item.Modifier>();
+
+			public Modifier(string name, List<string> tags) {
+				Name = name;
+				Tags = tags;
+				List.Add(this);
+			}
+		}
+		public class Submodifier {
+			public List<Type> Types;
+			public List<Modification> Modifications;
+		}
+		public class Modification {
 		}
 
 		public Dictionary<Attribute.Type, double> Attributes = new Dictionary<Attribute.Type, double>();
