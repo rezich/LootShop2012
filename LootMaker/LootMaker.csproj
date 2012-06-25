@@ -94,9 +94,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LootShop\LootShop.csproj">
+    <ProjectReference Include="..\LootSystem\LootSystem.csproj">
       <Project>{98b0da58-ddba-4d1a-86d4-0dfcb15ab8c3}</Project>
-      <Name>LootShop</Name>
+      <Name>LootSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

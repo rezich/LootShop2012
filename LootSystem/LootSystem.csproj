@@ -7,8 +7,8 @@
     <ProjectGuid>{98B0DA58-DDBA-4D1A-86D4-0DFCB15AB8C3}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LootShop</RootNamespace>
-    <AssemblyName>LootShop</AssemblyName>
+    <RootNamespace>LootSystem</RootNamespace>
+    <AssemblyName>LootSystem</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
