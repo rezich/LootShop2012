@@ -1,5 +1,5 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 11
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LootSystem", "LootSystem\LootSystem.csproj", "{98B0DA58-DDBA-4D1A-86D4-0DFCB15AB8C3}"
 EndProject
