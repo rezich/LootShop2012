@@ -22,8 +22,8 @@ You are Stebbins, a grizzled old adventurer who was all set to have an easy reti
 Despite being Too Old For This Shit, Stebbins sets out to right the wrongs of the world, the only way he knows: capitalism.
 
 
-Overview
---------
+Disorganized overview of key game concepts
+------------------------------------------
 
 The game starts off with you, as Stebbins, having nothing to your name but a few hundred gold pieces, the clothes on your back, and your first ever set of equipment that you've kept around for sentimental purposes. You decide to become a street vendor in hopes of making money and fixing all this evil-rising-to-power nonsense, but, as everyone's broke themselves, nobody wants to buy anything.
 
@@ -33,8 +33,18 @@ And thus, the cycle of capitalism begins. ______ runs dungeons for loot, and you
 
 After a few days of this, the effects of the stimulated economy become apparent, and some townsfolk start selling items to you in addition to buying them.
 
+Eventually, you quit being a simple street merchant, buy an old shop, and begin to work from there. Over time, you rennovate the shop and make it awesome by buying upgrades and stuff.
+
 Then, after a couple weeks or so, more adventurers come to you, looking for you to sponsor them like you did ______. This is where the management sim portion of the game comes in: you must choose who to hire, negotiating contracts along the way, managing equipment, and so forth.
 
 The way the game will probably work is, you have to "train" adventurers up to a certain point (say, level 20). During this time, Stebbins will come along with the adventurer, and, even though you (the player) will be controlling the adventurer directly, Stebbins will tag along, "teaching him/her how to be a badass adventurer." Since Stebbins is along for the ride, this takes some of his time during the day (time that could be used to tend to the shop [the shop'll be closed when you're not at it {until you get some upgrade, possibly?}], or do other tasks).
 
 Once fully "trained," however, Stebbins will "trust the adventurer to go off on their own," and not be required to come along for the dungeon runs. At this point, you (the player) can choose to control the adventurer on his or her dungeon runs (in which case, Stebbins comes along, so it _does_ still take some of his time), or you can just send them off to do the runs themselves. Having Stebbins go with the adventurer will yield better and more plentiful loot, but, as mentioned, takes some of Stebbins' time. Having the adventurer run the dungeon themselves "costs" nothing!
+
+Time will probably work similar to how it does in the _Persona_ games and _Recettear_, dividing the day up into chunks. Some actions are "free" (such as entering/exiting your shop), but most (important) actions "take up chunks of time." Doing these actions advances the clock by one or multiple chunks. (Note to self: stop using the word "chunk," it sounds gross.)
+
+The day will probably be divided into four sections (see? there, better already): Early Morning, Morning, Afternoon, and Evening.
+
+Opening your shop for business takes one section of time, so you can do it as often as you'd like in a day. Going out and running a dungeon with an adventurer takes two sections of time.
+
+The "item shop" portion of the game will probably be a lot like _Recettear_.
