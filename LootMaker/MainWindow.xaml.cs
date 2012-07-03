@@ -20,15 +20,14 @@ namespace LootMaker {
 	/// </summary>
 	public partial class MainWindow : Window {
 
-		Item.Modifier selectedModifier = null;
-
 		public MainWindow() {
 			InitializeComponent();
-			
+			new Item.Modifier("TEST MODIFIER", new List<string>());
+			lbModifiers.DataContext = Item.Modifier.List;
 		}
 
 		private void btnModifiersNew_Click(object sender, RoutedEventArgs e) {
-			string name = "UNNAMED_";
+			/*string name = "UNNAMED_";
 			Item.Modifier taken = null;
 			int num = 0;
 
@@ -39,13 +38,12 @@ namespace LootMaker {
 				if (taken != null) num++;
 			} while (taken != null);
 
-			new Item.Modifier(name + num.ToString(), null);
-			lbModifiers.Items.Add(name + num.ToString());
+			new Item.Modifier(name + num.ToString(), null);*/
+			new Item.Modifier("TEST MODIFIER", new List<string>());
+			//lbModifiers.Items.Add(name + num.ToString());
 		}
 
 		private void lbModifiers_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-			//MessageBox.Show("OMG");
-			//selectedModifier = e.
 		}
 	}
 }

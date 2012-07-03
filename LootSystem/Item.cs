@@ -290,6 +290,10 @@ namespace LootShop {
 				Tags = tags;
 				List.Add(this);
 			}
+
+			public override string ToString() {
+				return Name;
+			}
 		}
 		public class Submodifier {
 			public List<Type> Types;

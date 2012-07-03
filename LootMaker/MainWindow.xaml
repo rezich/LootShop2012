@@ -7,9 +7,9 @@
         <TabControl>
             <TabItem x:Name="tabModifiers" Header="Modifiers">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="150" Margin="0,0,0,22" SelectionChanged="lbModifiers_SelectionChanged"/>
-                    <Button x:Name="btnModifiersNew" Content="New" HorizontalAlignment="Right" Width="75" VerticalAlignment="Bottom" Margin="0,0,424,0" Click="btnModifiersNew_Click"/>
-                    <Button x:Name="btnModifiersDelete" Content="Delete" HorizontalAlignment="Left" Margin="75,258,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="150" Margin="0,0,0,22" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" />
+                    <Button x:Name="btnModifiersNew" Content="New" HorizontalAlignment="Left" Width="75" VerticalAlignment="Bottom" Margin="0,0,424,0" Click="btnModifiersNew_Click"/>
+                    <Button x:Name="btnModifiersDelete" Content="Delete" HorizontalAlignment="Left" Margin="75,258,0,0" VerticalAlignment="Bottom" Width="75" IsEnabled="False"/>
                     <TabControl Margin="155,0,10,10">
                         <TabItem x:Name="tabModifierGeneral" Header="General">
                             <Grid Background="#FFE5E5E5">
