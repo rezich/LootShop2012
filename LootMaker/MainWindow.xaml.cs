@@ -101,19 +101,11 @@ namespace LootMaker {
 		}
 
 		private void btnSave_Click(object sender, RoutedEventArgs e) {
-			Item.Modifier.List.Save();
+			Item.Modifier.List.Save(@"..\..\..\LootSystem\Data\Modifiers.xml");
 		}
 
 		private void btnLoad_Click(object sender, RoutedEventArgs e) {
-			Item.Modifier.List.Clear();
-			//Item.Modifier.List = new Item.Modifier.ListType();
-			//Item.Modifier.List = Item.Modifier.ListType.Load();
-			Item.Modifier.ListType loadedData = Item.Modifier.ListType.Load();
-			foreach (Item.Modifier m in loadedData) {
-				((Item.Modifier.ListType)lbModifiers.DataContext).Add(m);
-				// NO IDEA WHY THE FUCK THE NEXT LINE OF CODE WORKS, BUT IT DOES
-				((Item.Modifier.ListType)lbModifiers.DataContext).RemoveAt(((Item.Modifier.ListType)lbModifiers.DataContext).Count - 1);
-			}
+			Item.Modifier.ListType.Load(@"..\..\..\LootSystem\Data\Modifiers.xml");
 		}
 
 		private void btnModifierTagsGood_Click(object sender, RoutedEventArgs e) {

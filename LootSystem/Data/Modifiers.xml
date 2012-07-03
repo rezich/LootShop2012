@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfModifier xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Modifier>
+    <Submodifiers />
+    <Name>Unwieldy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fantastic</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Terrible</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Shoddy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fuckin' Metal</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Superior</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Name>Pretty Alright</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>Reasonably-Priced</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>Commendable</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>Destruction</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Name>Amazingness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Name>Poor Quality</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Name>Shit</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>Being Pretty Alright</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>The Bear</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>The Valley</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+</ArrayOfModifier>

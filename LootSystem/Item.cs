@@ -10,8 +10,8 @@ using System.Xml.Serialization;
 
 namespace LootSystem {
 	public class Item {
-		public static List<Tuple<string, WordQuality>> PreAdjectives = new List<Tuple<string, WordQuality>>();
-		public static List<Tuple<string, WordQuality>> OfX = new List<Tuple<string, WordQuality>>();
+		//public static List<Tuple<string, WordQuality>> PreAdjectives = new List<Tuple<string, WordQuality>>();
+		//public static List<Tuple<string, WordQuality>> OfX = new List<Tuple<string, WordQuality>>();
 		public enum Type {
 			Greataxe,
 			Longsword,
@@ -321,6 +321,14 @@ namespace LootSystem {
 				List.Add(this);
 			}
 
+			public static List<Modifier> FindByTag(string tag) {
+				List<Modifier> list = new List<Modifier>();
+				list = (from m in Item.Modifier.List
+						where m.Tags.Contains(tag)
+						select m).ToList<Modifier>();
+				return list;
+			}
+
 			public event PropertyChangedEventHandler PropertyChanged;
 
 			protected void OnPropertyChanged(string info) {
@@ -335,18 +343,27 @@ namespace LootSystem {
 			}
 
 			public class ListType : ObservableCollection<Item.Modifier> {
-				public static ListType Load() {
+				public static void Load(string fileName) {
+					Item.Modifier.List.Clear();
+					Item.Modifier.ListType loadedData = Item.Modifier.ListType.LoadFromFile(fileName);
+					foreach (Item.Modifier m in loadedData) {
+						Item.Modifier.List.Add(m);
+						// NO IDEA WHY THE FUCK THE NEXT LINE OF CODE WORKS, BUT IT DOES
+						Item.Modifier.List.RemoveAt(Item.Modifier.List.Count - 1);
+					}
+				}
+				public static ListType LoadFromFile(string fileName) {
 					XmlSerializer reader = new XmlSerializer(typeof(Item.Modifier.ListType));
-					System.IO.StreamReader file = new System.IO.StreamReader("test.xml");
+					System.IO.StreamReader file = new System.IO.StreamReader(fileName);
 					ListType item = new ListType();
 					item = (ListType)reader.Deserialize(file);
 					file.Close();
 					return item;
 				}
 
-				public void Save() {
+				public void Save(string fileName) {
 					XmlSerializer writer = new XmlSerializer(typeof(Item.Modifier.ListType));
-					System.IO.StreamWriter file = new System.IO.StreamWriter("test.xml");
+					System.IO.StreamWriter file = new System.IO.StreamWriter(fileName);
 					writer.Serialize(file, this);
 					file.Close();
 				}
@@ -365,7 +382,7 @@ namespace LootSystem {
 		public Kind Variety;
 
 		public static void Initialize() {
-			foreach (string s in System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt")) {
+			/*foreach (string s in System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt")) {
 				if (s == "") continue;
 				WordQuality q = WordQuality.Neutral;
 				string str = s;
@@ -392,7 +409,8 @@ namespace LootSystem {
 					str = s.Substring(0, s.Length - 1);
 				}
 				Item.OfX.Add(new Tuple<string, WordQuality>(str, q));
-			}
+			}*/
+			Item.Modifier.ListType.Load(@"Data\Modifiers.xml");
 			//Item.PreAdjectives = System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt").ToList<string>();
 			//Item.OfX = System.IO.File.ReadAllLines(@"Data\OfX.txt").ToList<string>();
 			Attribute.Initialize();
@@ -455,40 +473,40 @@ namespace LootSystem {
 			// GENERATE THE NAME!!
 			int oddsOfOfX = 2;
 			string name = "";
-			List<Tuple<string, WordQuality>> preAdjectives;
-			List<Tuple<string, WordQuality>> ofX;
+			List<Modifier> preAdjectives;
+			List<Modifier> ofX;
 
 			// TODO: Rewrite to use RarityLevel's "good" and "bad" word odds
 			switch (i.Rarity.Name) {
 				case RarityLevel.Type.Garbage:
-					preAdjectives = (from w in PreAdjectives
-									 where w.Item2 == WordQuality.Bad
-									 select w).ToList<Tuple<string, WordQuality>>();
-					ofX = (from w in OfX
-						   where w.Item2 == WordQuality.Bad
-						   select w).ToList<Tuple<string, WordQuality>>();
+					preAdjectives = (from w in Item.Modifier.List
+									 where w.Tags.Contains("bad") && w.Kind == Modifier.Type.Adjective
+									 select w).ToList<Modifier>();
+					ofX = (from w in Item.Modifier.List
+						   where w.Tags.Contains("bad") && w.Kind == Modifier.Type.OfX
+						   select w).ToList<Modifier>();
 					break;
 				case RarityLevel.Type.Normal:
-					preAdjectives = (from w in PreAdjectives
-									 where w.Item2 != WordQuality.Bad && w.Item2 != WordQuality.Good
-									 select w).ToList<Tuple<string, WordQuality>>();
-					ofX = (from w in OfX
-						   where w.Item2 != WordQuality.Bad && w.Item2 != WordQuality.Good
-						   select w).ToList<Tuple<string, WordQuality>>();
+					preAdjectives = (from w in Item.Modifier.List
+									 where !w.Tags.Contains("good") && !w.Tags.Contains("bad") && w.Kind == Modifier.Type.Adjective
+									 select w).ToList<Modifier>();
+					ofX = (from w in Item.Modifier.List
+						   where !w.Tags.Contains("good") && !w.Tags.Contains("bad") && w.Kind == Modifier.Type.OfX
+						   select w).ToList<Modifier>();
 					break;
 				default:
-					preAdjectives = (from w in PreAdjectives
-									 where w.Item2 != WordQuality.Bad
-									 select w).ToList<Tuple<string, WordQuality>>();
-					ofX = (from w in OfX
-									 where w.Item2 != WordQuality.Bad
-									 select w).ToList<Tuple<string, WordQuality>>();
+					preAdjectives = (from w in Item.Modifier.List
+									 where !w.Tags.Contains("bad") && w.Kind == Modifier.Type.Adjective
+									 select w).ToList<Modifier>();
+					ofX = (from w in Item.Modifier.List
+						   where !w.Tags.Contains("bad") && w.Kind == Modifier.Type.OfX
+						   select w).ToList<Modifier>();
 					break;
 			}
 
 			name = i.Variety.Names[r.Next(i.Variety.Names.Count - 1)];
-			name = preAdjectives[r.Next(preAdjectives.Count - 1)].Item1 + " " + name;
-			if (r.Next(0, oddsOfOfX) == 0) name += " of " + ofX[r.Next(ofX.Count - 1)].Item1;
+			name = preAdjectives[r.Next(preAdjectives.Count - 1)].Name + " " + name;
+			if (r.Next(0, oddsOfOfX) == 0) name += " of " + ofX[r.Next(ofX.Count - 1)].Name;
 			i.Name = name;
 			return i;
 		}
