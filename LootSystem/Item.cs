@@ -285,7 +285,7 @@ namespace LootSystem {
 			[XmlType("ItemModifierType")]
 			public enum Type {
 				Adjective,
-				OfTheX
+				OfX
 			}
 
 			protected string name;

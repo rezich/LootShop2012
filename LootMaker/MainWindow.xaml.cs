@@ -115,6 +115,27 @@ namespace LootMaker {
 				((Item.Modifier.ListType)lbModifiers.DataContext).RemoveAt(((Item.Modifier.ListType)lbModifiers.DataContext).Count - 1);
 			}
 		}
+
+		private void btnModifierTagsGood_Click(object sender, RoutedEventArgs e) {
+			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			selectedItem.Tags.Remove("bad");
+			selectedItem.Tags.Add("good");
+			lbModifierTags.Items.Refresh();
+		}
+
+		private void btnModifierTagsNeutral_Click(object sender, RoutedEventArgs e) {
+			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			selectedItem.Tags.Remove("bad");
+			selectedItem.Tags.Remove("good");
+			lbModifierTags.Items.Refresh();
+		}
+
+		private void btnModifierTagsBad_Click(object sender, RoutedEventArgs e) {
+			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			selectedItem.Tags.Add("bad");
+			selectedItem.Tags.Remove("good");
+			lbModifierTags.Items.Refresh();
+		}
 	}
 
 }
