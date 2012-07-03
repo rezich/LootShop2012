@@ -29,7 +29,7 @@
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="ModifierItemTemplate">
-                <TextBlock Text="{Binding Path=NameWithQuality}"/>
+                <TextBlock Text="{Binding Path=Name}"/>
             </DataTemplate>
         </Grid.Resources>
     	<Grid.ColumnDefinitions>
