@@ -10,8 +10,6 @@ using System.Xml.Serialization;
 
 namespace LootSystem {
 	public class Item {
-		//public static List<Tuple<string, WordQuality>> PreAdjectives = new List<Tuple<string, WordQuality>>();
-		//public static List<Tuple<string, WordQuality>> OfX = new List<Tuple<string, WordQuality>>();
 		public enum Type {
 			Greataxe,
 			Longsword,
