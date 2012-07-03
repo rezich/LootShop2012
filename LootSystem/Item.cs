@@ -281,6 +281,11 @@ namespace LootSystem {
 
 		}
 		public class Modifier : INotifyPropertyChanged {
+			public enum Type {
+				Adjective,
+				OfTheX
+			}
+
 			protected string name;
 			public string Name {
 				get { return name; }
@@ -292,12 +297,20 @@ namespace LootSystem {
 				get { return tags; }
 				set { tags = value; OnPropertyChanged("Tags"); }
 			}
+
+			protected Type kind;
+			public Type Kind {
+				get { return kind; }
+				set { kind = value; OnPropertyChanged("Kind"); }
+			}
+
 			public List<Submodifier> Submodifiers;
 
 			public static Item.Modifier.ListType List = new Item.Modifier.ListType();
 
-			public Modifier(string name, List<string> tags) {
+			public Modifier(string name, Type kind, List<string> tags) {
 				Name = name;
+				Kind = kind;
 				Tags = tags;
 				List.Add(this);
 			}

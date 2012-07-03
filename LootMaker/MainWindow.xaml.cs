@@ -39,7 +39,7 @@ namespace LootMaker {
 				if (taken != null) num++;
 			} while (taken != null);
 
-			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), new List<string>());
+			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), Item.Modifier.Type.Adjective, new List<string>());
 			lbModifiers.SelectedItem = newModifier;
 			//lbModifiers.Items.Add(name + num.ToString());
 		}
@@ -60,14 +60,6 @@ namespace LootMaker {
 			}
 			tcModifiers.IsEnabled = true;
 			btnModifiersDelete.IsEnabled = true;
-		}
-
-		private void btnModifierTest_Click(object sender, RoutedEventArgs e) {
-			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
-			if (selectedItem == null) {
-				return;
-			}
-			selectedItem.Name = "POOPY PANTS";
 		}
 
 		private void btnModifierTagsAdd_Click(object sender, RoutedEventArgs e) {
@@ -98,6 +90,11 @@ namespace LootMaker {
 				btnModifierTagsRemove.IsEnabled = false;
 				return;
 			}
+		}
+
+		private void Window_Loaded(object sender, RoutedEventArgs e) {
+			cbModifierKind.ItemsSource = Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>();
+			//foreach (Item.Modifier.Type t in Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>()) cbModifierKind.Items.Add(t.ToString());
 		}
 	}
 
