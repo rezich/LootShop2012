@@ -22,7 +22,7 @@
                     <TabControl Margin="155,0,10,10" IsEnabled="False" Name="tcModifiers" DataContext="{Binding ElementName=lbModifiers, Path=SelectedItem}">
                         <TabItem x:Name="tabModifierGeneral" Header="General">
                             <Grid Background="#FFE5E5E5">
-                                <TextBox x:Name="tbModiferName" HorizontalAlignment="Left" Margin="57,10,0,0" VerticalAlignment="Top" Width="190" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBox x:Name="tbModifierName" HorizontalAlignment="Left" Margin="57,10,0,0" VerticalAlignment="Top" Width="190" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
                                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                                 <ListBox x:Name="lbModifierTags" HorizontalAlignment="Left" Height="76" Margin="57,63,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{Binding Tags}" IsManipulationEnabled="True" SelectionChanged="lbModifierTags_SelectionChanged" />
                                 <Label Content="Tags" HorizontalAlignment="Left" Margin="17,62,0,0" VerticalAlignment="Top"/>
@@ -43,5 +43,7 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
+        <Button x:Name="btnLoad" Content="Load" Height="22" Width="75" VerticalAlignment="Top" d:LayoutOverrides="Width" Grid.Column="1" HorizontalAlignment="Right" Click="btnLoad_Click" />
+        <Button x:Name="btnSave" Content="Save" Height="22" Width="75" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,75,0" d:LayoutOverrides="Width" Click="btnSave_Click" />
     </Grid>
 </Window>

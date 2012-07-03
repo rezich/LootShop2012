@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace LootSystem {
 	public class Item {
@@ -281,6 +282,7 @@ namespace LootSystem {
 
 		}
 		public class Modifier : INotifyPropertyChanged {
+			[XmlType("ItemModifierType")]
 			public enum Type {
 				Adjective,
 				OfTheX
@@ -292,23 +294,23 @@ namespace LootSystem {
 				set { name = value; OnPropertyChanged("Name"); }
 			}
 
+			protected Item.Modifier.Type kind;
+			public Item.Modifier.Type Kind {
+				get { return kind; }
+				set { kind = value; OnPropertyChanged("Kind"); }
+			}
+
 			protected List<string> tags;
 			public List<string> Tags {
 				get { return tags; }
 				set { tags = value; OnPropertyChanged("Tags"); }
 			}
 
-			protected Type kind;
-			public Type Kind {
-				get { return kind; }
-				set { kind = value; OnPropertyChanged("Kind"); }
-			}
-
 			public List<Submodifier> Submodifiers;
 
 			public static Item.Modifier.ListType List = new Item.Modifier.ListType();
 
-			public Modifier(string name, Type kind, List<string> tags) {
+			public Modifier(string name, Item.Modifier.Type kind, List<string> tags) {
 				Name = name;
 				Kind = kind;
 				Tags = tags;
@@ -334,11 +336,19 @@ namespace LootSystem {
 
 			public class ListType : ObservableCollection<Item.Modifier> {
 				public static ListType Load() {
-					// TODO: Load logic
-					return new ListType();
+					XmlSerializer reader = new XmlSerializer(typeof(Item.Modifier.ListType));
+					System.IO.StreamReader file = new System.IO.StreamReader("test.xml");
+					ListType item = new ListType();
+					item = (ListType)reader.Deserialize(file);
+					file.Close();
+					return item;
 				}
+
 				public void Save() {
-					// TODO: Save logic
+					XmlSerializer writer = new XmlSerializer(typeof(Item.Modifier.ListType));
+					System.IO.StreamWriter file = new System.IO.StreamWriter("test.xml");
+					writer.Serialize(file, this);
+					file.Close();
 				}
 			}
 		}

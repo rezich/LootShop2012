@@ -41,7 +41,8 @@ namespace LootMaker {
 
 			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), Item.Modifier.Type.Adjective, new List<string>());
 			lbModifiers.SelectedItem = newModifier;
-			//lbModifiers.Items.Add(name + num.ToString());
+			tbModifierName.Focus();
+			tbModifierName.SelectAll();
 		}
 
 		private void btnModifiersDelete_Click(object sender, RoutedEventArgs e) {
@@ -65,8 +66,10 @@ namespace LootMaker {
 		private void btnModifierTagsAdd_Click(object sender, RoutedEventArgs e) {
 			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
 			if (tbModifierTagsNew.Text != "" && tbModifierTagsNew.Text != null) {
-				selectedItem.Tags.Add(tbModifierTagsNew.Text);
+				if (!selectedItem.Tags.Contains(tbModifierTagsNew.Text)) selectedItem.Tags.Add(tbModifierTagsNew.Text);
 				lbModifierTags.Items.Refresh();
+				tbModifierTagsNew.Text = "";
+				tbModifierTagsNew.Focus();
 			}
 		}
 
@@ -95,6 +98,22 @@ namespace LootMaker {
 		private void Window_Loaded(object sender, RoutedEventArgs e) {
 			cbModifierKind.ItemsSource = Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>();
 			//foreach (Item.Modifier.Type t in Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>()) cbModifierKind.Items.Add(t.ToString());
+		}
+
+		private void btnSave_Click(object sender, RoutedEventArgs e) {
+			Item.Modifier.List.Save();
+		}
+
+		private void btnLoad_Click(object sender, RoutedEventArgs e) {
+			Item.Modifier.List.Clear();
+			//Item.Modifier.List = new Item.Modifier.ListType();
+			//Item.Modifier.List = Item.Modifier.ListType.Load();
+			Item.Modifier.ListType loadedData = Item.Modifier.ListType.Load();
+			foreach (Item.Modifier m in loadedData) {
+				((Item.Modifier.ListType)lbModifiers.DataContext).Add(m);
+				// NO IDEA WHY THE FUCK THE NEXT LINE OF CODE WORKS, BUT IT DOES
+				((Item.Modifier.ListType)lbModifiers.DataContext).RemoveAt(((Item.Modifier.ListType)lbModifiers.DataContext).Count - 1);
+			}
 		}
 	}
 
