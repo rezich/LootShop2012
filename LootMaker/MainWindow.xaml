@@ -32,16 +32,13 @@
                 <TextBlock Text="{Binding Path=Name}"/>
             </DataTemplate>
         </Grid.Resources>
-    	<Grid.ColumnDefinitions>
-    		<ColumnDefinition Width="0.36*"/>
-    		<ColumnDefinition Width="0.64*"/>
-    	</Grid.ColumnDefinitions>
         <TabControl Grid.ColumnSpan="2">
             <TabItem x:Name="tabModifiers" Header="Modifiers">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="229.667" Margin="0,0,0,25.96" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" ItemTemplate="{StaticResource ModifierItemTemplate}" IsSynchronizedWithCurrentItem="True" Extenders:ListBoxExtenders.AutoScrollToCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
-                    <Button x:Name="btnModifiersNew" Content="New" HorizontalAlignment="Left" Width="75" VerticalAlignment="Bottom" Margin="0,0,424,0" Command="{StaticResource NewModifier}"/>
-                    <Button x:Name="btnModifiersDelete" Content="Delete" HorizontalAlignment="Left" Margin="75,228.08,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btnModifiersDelete_Click" />
+                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="229.667" Margin="0,0,0,51.92" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" ItemTemplate="{StaticResource ModifierItemTemplate}" IsSynchronizedWithCurrentItem="True" Extenders:ListBoxExtenders.AutoScrollToCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                    <Button x:Name="btnModifiersNew" Content="New" HorizontalAlignment="Left" Width="75" VerticalAlignment="Bottom" Command="{StaticResource NewModifier}"/>
+                    <Button x:Name="btnModifiersDelete" Content="Delete" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Bottom" Width="75" IsEnabled="False" Click="btnModifiersDelete_Click" />
+                    <ComboBox x:Name="cbModifiersNewKind" HorizontalAlignment="Left" Margin="0,0,0,25.96" VerticalAlignment="Bottom" Width="229.667" d:LayoutOverrides="HorizontalAlignment"/>
                     <TabControl Margin="233.667,0,0,0" IsEnabled="False" Name="tcModifiers" DataContext="{Binding ElementName=lbModifiers, Path=SelectedItem}">
                         <TabItem x:Name="tabModifierGeneral" Header="General">
                             <Grid Background="#FFE5E5E5">

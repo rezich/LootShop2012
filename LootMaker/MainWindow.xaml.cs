@@ -80,6 +80,8 @@ namespace LootMaker {
 
 		private void Window_Loaded(object sender, RoutedEventArgs e) {
 			cbModifierKind.ItemsSource = Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>();
+			cbModifiersNewKind.ItemsSource = Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>();
+			cbModifiersNewKind.SelectedIndex = 0;
 			//foreach (Item.Modifier.Type t in Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>()) cbModifierKind.Items.Add(t.ToString());
 		}
 
@@ -127,7 +129,7 @@ namespace LootMaker {
 				if (taken != null) num++;
 			} while (taken != null);
 
-			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), Item.Modifier.Type.Adjective, new List<string>());
+			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), (Item.Modifier.Type)cbModifiersNewKind.SelectedItem, new List<string>());
 			lbModifiers.SelectedItem = newModifier;
 			tbModifierName.Focus();
 			tbModifierName.SelectAll();

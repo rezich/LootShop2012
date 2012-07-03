@@ -350,6 +350,7 @@ namespace LootSystem {
 					foreach (Item.Modifier m in loadedData) {
 						Item.Modifier.List.Add(m);
 						// NO IDEA WHY THE FUCK THE NEXT LINE OF CODE WORKS, BUT IT DOES
+						// (update: slept on it, figured it out, should probably rewrite other stuff to make it not needed but w/e)
 						Item.Modifier.List.RemoveAt(Item.Modifier.List.Count - 1);
 					}
 				}
@@ -383,37 +384,7 @@ namespace LootSystem {
 		public Kind Variety;
 
 		public static void Initialize() {
-			/*foreach (string s in System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt")) {
-				if (s == "") continue;
-				WordQuality q = WordQuality.Neutral;
-				string str = s;
-				if (s.Substring(s.Length - 1, 1) == "+") {
-					q = WordQuality.Good;
-					str = s.Substring(0, s.Length - 1);
-				}
-				if (s.Substring(s.Length - 1, 1) == "-") {
-					q = WordQuality.Bad;
-					str = s.Substring(0, s.Length - 1);
-				}
-				Item.PreAdjectives.Add(new Tuple<string, WordQuality>(str, q));
-			}
-			foreach (string s in System.IO.File.ReadAllLines(@"Data\OfX.txt")) {
-				if (s == "") continue;
-				WordQuality q = WordQuality.Neutral;
-				string str = s;
-				if (s.Substring(s.Length - 1, 1) == "+") {
-					q = WordQuality.Good;
-					str = s.Substring(0, s.Length - 1);
-				}
-				if (s.Substring(s.Length - 1, 1) == "-") {
-					q = WordQuality.Bad;
-					str = s.Substring(0, s.Length - 1);
-				}
-				Item.OfX.Add(new Tuple<string, WordQuality>(str, q));
-			}*/
 			Item.Modifier.ListType.Load(@"Data\Modifiers.xml");
-			//Item.PreAdjectives = System.IO.File.ReadAllLines(@"Data\PreAdjectives.txt").ToList<string>();
-			//Item.OfX = System.IO.File.ReadAllLines(@"Data\OfX.txt").ToList<string>();
 			Attribute.Initialize();
 			RarityLevel.Initialize();
 			Kind.Initialize();
