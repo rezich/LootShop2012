@@ -286,7 +286,12 @@ namespace LootSystem {
 				get { return name; }
 				set { name = value; OnPropertyChanged("Name"); }
 			}
-			public List<string> Tags;
+
+			protected List<string> tags;
+			public List<string> Tags {
+				get { return tags; }
+				set { tags = value; OnPropertyChanged("Tags"); }
+			}
 			public List<Submodifier> Submodifiers;
 
 			public static Item.Modifier.ListType List = new Item.Modifier.ListType();

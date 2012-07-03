@@ -39,7 +39,7 @@ namespace LootMaker {
 				if (taken != null) num++;
 			} while (taken != null);
 
-			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), null);
+			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), new List<string>());
 			lbModifiers.SelectedItem = newModifier;
 			//lbModifiers.Items.Add(name + num.ToString());
 		}
@@ -47,6 +47,8 @@ namespace LootMaker {
 		private void btnModifiersDelete_Click(object sender, RoutedEventArgs e) {
 			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
 			Item.Modifier.List.Remove(selectedItem);
+			if (((Item.Modifier.ListType)lbModifiers.DataContext).Count == 0) return;
+			lbModifiers.SelectedItem = ((Item.Modifier.ListType)lbModifiers.DataContext)[((Item.Modifier.ListType)lbModifiers.DataContext).Count - 1];
 		}
 
 		private void lbModifiers_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -66,6 +68,36 @@ namespace LootMaker {
 				return;
 			}
 			selectedItem.Name = "POOPY PANTS";
+		}
+
+		private void btnModifierTagsAdd_Click(object sender, RoutedEventArgs e) {
+			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			if (tbModifierTagsNew.Text != "" && tbModifierTagsNew.Text != null) {
+				selectedItem.Tags.Add(tbModifierTagsNew.Text);
+				lbModifierTags.Items.Refresh();
+			}
+		}
+
+		private void lbModifierTags_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+			string selectedItem = (string)lbModifierTags.SelectedItem;
+			if (selectedItem == null) {
+				btnModifierTagsRemove.IsEnabled = false;
+				return;
+			}
+			btnModifierTagsRemove.IsEnabled = true;
+		}
+
+		private void btnModifierTagsRemove_Click(object sender, RoutedEventArgs e) {
+			Item.Modifier selectedModifier = (Item.Modifier)lbModifiers.SelectedItem;
+			string selectedItem = (string)lbModifierTags.SelectedItem;
+
+			selectedModifier.Tags.Remove(selectedItem);
+			lbModifierTags.Items.Refresh();
+			selectedItem = (string)lbModifierTags.SelectedItem;
+			if (selectedItem == null) {
+				btnModifierTagsRemove.IsEnabled = false;
+				return;
+			}
 		}
 	}
 
