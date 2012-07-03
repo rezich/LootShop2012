@@ -61,6 +61,11 @@ namespace LootMaker {
 		}
 
 		private void btnModifierTest_Click(object sender, RoutedEventArgs e) {
+			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			if (selectedItem == null) {
+				return;
+			}
+			selectedItem.Name = "POOPY PANTS";
 		}
 	}
 

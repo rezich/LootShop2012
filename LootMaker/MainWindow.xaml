@@ -12,13 +12,13 @@
         <TabControl>
             <TabItem x:Name="tabModifiers" Header="Modifiers">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="150" Margin="0,0,0,22" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" SelectedItem="{Binding Path=SelectedModifier, Mode=TwoWay}" ItemTemplate="{StaticResource ModifierItemTemplate}"/>
+                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="150" Margin="0,0,0,22" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" ItemTemplate="{StaticResource ModifierItemTemplate}"/>
                     <Button x:Name="btnModifiersNew" Content="New" HorizontalAlignment="Left" Width="75" VerticalAlignment="Bottom" Margin="0,0,424,0" Click="btnModifiersNew_Click"/>
                     <Button x:Name="btnModifiersDelete" Content="Delete" HorizontalAlignment="Left" Margin="75,258,0,0" VerticalAlignment="Bottom" Width="75" IsEnabled="False" Click="btnModifiersDelete_Click" />
-                    <TabControl Margin="155,0,10,10" IsEnabled="False" Name="tcModifiers">
+                    <TabControl Margin="155,0,10,10" IsEnabled="False" Name="tcModifiers" DataContext="{Binding ElementName=lbModifiers, Path=SelectedItem}">
                         <TabItem x:Name="tabModifierGeneral" Header="General">
                             <Grid Background="#FFE5E5E5">
-                                <TextBox x:Name="tbModiferName" HorizontalAlignment="Left" Margin="57,10,0,0" TextWrapping="Wrap" Text="{Binding Path=SelectedModifier.Name}" VerticalAlignment="Top" Width="190"/>
+                                <TextBox x:Name="tbModiferName" HorizontalAlignment="Left" Margin="57,10,0,0" VerticalAlignment="Top" Width="190" Text="{Binding Name}"/>
                                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                                 <ListBox x:Name="tbModifierTags" HorizontalAlignment="Left" Height="76" Margin="57,63,0,0" VerticalAlignment="Top" Width="190"/>
                                 <Label Content="Tags" HorizontalAlignment="Left" Margin="17,62,0,0" VerticalAlignment="Top"/>
