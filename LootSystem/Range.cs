@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LootShop {
+namespace LootSystem {
 	public class Range {
 		public double Min;
 		public double Max;

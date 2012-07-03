@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace LootShop {
+namespace LootSystem {
 	public class Item {
 		public static List<Tuple<string, WordQuality>> PreAdjectives = new List<Tuple<string, WordQuality>>();
 		public static List<Tuple<string, WordQuality>> OfX = new List<Tuple<string, WordQuality>>();
@@ -278,12 +280,16 @@ namespace LootShop {
 			}
 
 		}
-		public class Modifier {
-			public string Name;
+		public class Modifier : INotifyPropertyChanged {
+			protected string name;
+			public string Name {
+				get { return name; }
+				set { name = value; OnPropertyChanged("Name"); }
+			}
 			public List<string> Tags;
 			public List<Submodifier> Submodifiers;
 
-			public static List<Item.Modifier> List = new List<Item.Modifier>();
+			public static Item.Modifier.ListType List = new Item.Modifier.ListType();
 
 			public Modifier(string name, List<string> tags) {
 				Name = name;
@@ -291,8 +297,31 @@ namespace LootShop {
 				List.Add(this);
 			}
 
+			public Modifier() {
+				List.Add(this);
+			}
+
+			public event PropertyChangedEventHandler PropertyChanged;
+
+			protected void OnPropertyChanged(string info) {
+				PropertyChangedEventHandler handler = PropertyChanged;
+				if (handler != null) {
+					handler(this, new PropertyChangedEventArgs(info));
+				}
+			}
+
 			public override string ToString() {
 				return Name;
+			}
+
+			public class ListType : ObservableCollection<Item.Modifier> {
+				public static ListType Load() {
+					// TODO: Load logic
+					return new ListType();
+				}
+				public void Save() {
+					// TODO: Save logic
+				}
 			}
 		}
 		public class Submodifier {

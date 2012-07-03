@@ -4,21 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="LootMaker.MainWindow"
         Title="LootMaker" Height="350" Width="525">
     <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="ModifierItemTemplate">
+                <TextBlock Text="{Binding Path=Name}"/>
+            </DataTemplate>
+        </Grid.Resources>
         <TabControl>
             <TabItem x:Name="tabModifiers" Header="Modifiers">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="150" Margin="0,0,0,22" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" />
+                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="150" Margin="0,0,0,22" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" SelectedItem="{Binding Path=SelectedModifier, Mode=TwoWay}" ItemTemplate="{StaticResource ModifierItemTemplate}"/>
                     <Button x:Name="btnModifiersNew" Content="New" HorizontalAlignment="Left" Width="75" VerticalAlignment="Bottom" Margin="0,0,424,0" Click="btnModifiersNew_Click"/>
-                    <Button x:Name="btnModifiersDelete" Content="Delete" HorizontalAlignment="Left" Margin="75,258,0,0" VerticalAlignment="Bottom" Width="75" IsEnabled="False"/>
-                    <TabControl Margin="155,0,10,10">
+                    <Button x:Name="btnModifiersDelete" Content="Delete" HorizontalAlignment="Left" Margin="75,258,0,0" VerticalAlignment="Bottom" Width="75" IsEnabled="False" Click="btnModifiersDelete_Click" />
+                    <TabControl Margin="155,0,10,10" IsEnabled="False" Name="tcModifiers">
                         <TabItem x:Name="tabModifierGeneral" Header="General">
                             <Grid Background="#FFE5E5E5">
-                                <TextBox x:Name="tbModiferName" HorizontalAlignment="Left" Margin="57,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190"/>
+                                <TextBox x:Name="tbModiferName" HorizontalAlignment="Left" Margin="57,10,0,0" TextWrapping="Wrap" Text="{Binding Path=SelectedModifier.Name}" VerticalAlignment="Top" Width="190"/>
                                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                                 <ListBox x:Name="tbModifierTags" HorizontalAlignment="Left" Height="76" Margin="57,63,0,0" VerticalAlignment="Top" Width="190"/>
                                 <Label Content="Tags" HorizontalAlignment="Left" Margin="17,62,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Type" HorizontalAlignment="Left" Margin="17,36,0,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="tbModifierType" HorizontalAlignment="Left" Margin="57,36,0,0" VerticalAlignment="Top" Width="190"/>
+                                <Button Content="TEST" Height="23" HorizontalAlignment="Left" Margin="49,168,0,0" Name="btnModifierTest" VerticalAlignment="Top" Width="75" Click="btnModifierTest_Click" />
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="tabModifierSubmodifiers" Header="Submodifiers">
