@@ -4,10 +4,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="LootMaker.MainWindow"
         xmlns:Extenders="clr-namespace:LootMaker"
         Title="LootMaker" Height="320" Width="600" Loaded="Window_Loaded" MinWidth="600" MinHeight="320">
+    
+    <Window.Resources>
+        <RoutedUICommand x:Key="ModifierGood" Text="Make Modifier Good" />
+        <RoutedUICommand x:Key="ModifierNeutral" Text="Make Modifier Neutral" />
+        <RoutedUICommand x:Key="ModifierBad" Text="Make Modifier Bad" />
+        <RoutedUICommand x:Key="NewModifier" Text="New Modifier" />
+    </Window.Resources>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource ModifierGood}"  Executed="CommandBinding_ModifierGood" />
+        <CommandBinding Command="{StaticResource ModifierNeutral}" Executed="CommandBinding_ModifierNeutral" />
+        <CommandBinding Command="{StaticResource ModifierBad}"  Executed="CommandBinding_ModifierBad" />
+        <CommandBinding Command="{StaticResource NewModifier}" Executed="CommandBinding_NewModifier" />
+    </Window.CommandBindings>
+    
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource ModifierGood}" Key="OemPlus" Modifiers="Ctrl" />
+        <KeyBinding Command="{StaticResource ModifierNeutral}" Key="D0" Modifiers="Ctrl" />
+        <KeyBinding Command="{StaticResource ModifierBad}" Key="OemMinus" Modifiers="Ctrl" />
+        <KeyBinding Command="{StaticResource NewModifier}" Key="N" Modifiers="Ctrl" />
+    </Window.InputBindings>
+    
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="ModifierItemTemplate">
-                <TextBlock Text="{Binding Path=Name}"/>
+                <TextBlock Text="{Binding Path=NameWithQuality}"/>
             </DataTemplate>
         </Grid.Resources>
     	<Grid.ColumnDefinitions>
@@ -17,10 +39,10 @@
         <TabControl Grid.ColumnSpan="2">
             <TabItem x:Name="tabModifiers" Header="Modifiers">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="150" Margin="0,0,0,25.96" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" ItemTemplate="{StaticResource ModifierItemTemplate}" IsSynchronizedWithCurrentItem="True" Extenders:ListBoxExtenders.AutoScrollToCurrentItem="True"/>
-                    <Button x:Name="btnModifiersNew" Content="New" HorizontalAlignment="Left" Width="75" VerticalAlignment="Bottom" Margin="0,0,424,0" Click="btnModifiersNew_Click"/>
+                    <ListBox x:Name="lbModifiers" HorizontalAlignment="Left" Width="229.667" Margin="0,0,0,25.96" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" ItemTemplate="{StaticResource ModifierItemTemplate}" IsSynchronizedWithCurrentItem="True" Extenders:ListBoxExtenders.AutoScrollToCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                    <Button x:Name="btnModifiersNew" Content="New" HorizontalAlignment="Left" Width="75" VerticalAlignment="Bottom" Margin="0,0,424,0" Command="{StaticResource NewModifier}"/>
                     <Button x:Name="btnModifiersDelete" Content="Delete" HorizontalAlignment="Left" Margin="75,228.08,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btnModifiersDelete_Click" />
-                    <TabControl Margin="155,0,0,0" IsEnabled="False" Name="tcModifiers" DataContext="{Binding ElementName=lbModifiers, Path=SelectedItem}">
+                    <TabControl Margin="233.667,0,0,0" IsEnabled="False" Name="tcModifiers" DataContext="{Binding ElementName=lbModifiers, Path=SelectedItem}">
                         <TabItem x:Name="tabModifierGeneral" Header="General">
                             <Grid Background="#FFE5E5E5">
                                 <TextBox x:Name="tbModifierName" HorizontalAlignment="Left" Margin="57,10,0,0" VerticalAlignment="Top" Width="190" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
@@ -32,9 +54,9 @@
                                 <Button x:Name="btnModifierTagsAdd" Content="Add" Margin="251,165.84,0,0" HorizontalAlignment="Left" Width="75" Click="btnModifierTagsAdd_Click" VerticalAlignment="Top" />
                                 <Button x:Name="btnModifierTagsRemove" Content="Remove" Margin="251,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" IsEnabled="False" Click="btnModifierTagsRemove_Click" />
                                 <TextBox HorizontalAlignment="Left" Margin="57,165.84,0,0" Name="tbModifierTagsNew" Width="190" Height="23" VerticalAlignment="Top" />
-                                <Button x:Name="btnModifierTagsNeutral" Content="Neutral" Margin="251,113.92,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="btnModifierTagsNeutral_Click" />
-                                <Button x:Name="btnModifierTagsBad" Content="Bad" Margin="251,139.88,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="btnModifierTagsBad_Click" />
-                                <Button x:Name="btnModifierTagsGood" Content="Good" HorizontalAlignment="Left" Margin="251,87.96,0,0" Width="75" VerticalAlignment="Top" Click="btnModifierTagsGood_Click" />
+                                <Button x:Name="btnModifierTagsNeutral" Content="Neutral" Margin="251,113.92,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Command="{StaticResource ModifierNeutral}" />
+                                <Button x:Name="btnModifierTagsBad" Content="Bad" Margin="251,139.88,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Command="{StaticResource ModifierBad}" />
+                                <Button x:Name="btnModifierTagsGood" Content="Good" HorizontalAlignment="Left" Margin="251,87.96,0,0" Width="75" VerticalAlignment="Top" Command="{StaticResource ModifierGood}" />
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="tabModifierSubmodifiers" Header="Submodifiers">

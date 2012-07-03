@@ -28,24 +28,6 @@ namespace LootMaker {
 			lbModifiers.DataContext = Item.Modifier.List;
 		}
 
-		private void btnModifiersNew_Click(object sender, RoutedEventArgs e) {
-			string name = "UNNAMED_";
-			Item.Modifier taken = null;
-			int num = 0;
-
-			do {
-				taken = (from m in Item.Modifier.List
-						 where m.Name == name + num.ToString()
-						 select m).FirstOrDefault<Item.Modifier>();
-				if (taken != null) num++;
-			} while (taken != null);
-
-			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), Item.Modifier.Type.Adjective, new List<string>());
-			lbModifiers.SelectedItem = newModifier;
-			tbModifierName.Focus();
-			tbModifierName.SelectAll();
-		}
-
 		private void btnModifiersDelete_Click(object sender, RoutedEventArgs e) {
 			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
 			Item.Modifier.List.Remove(selectedItem);
@@ -109,25 +91,46 @@ namespace LootMaker {
 			Item.Modifier.ListType.Load(@"..\..\..\LootSystem\Data\Modifiers.xml");
 		}
 
-		private void btnModifierTagsGood_Click(object sender, RoutedEventArgs e) {
+		private void CommandBinding_ModifierGood(object sender, ExecutedRoutedEventArgs e) {
 			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			if (selectedItem == null) return;
 			selectedItem.Tags.Remove("bad");
-			selectedItem.Tags.Add("good");
+			if (!selectedItem.Tags.Contains("good")) selectedItem.Tags.Add("good");
 			lbModifierTags.Items.Refresh();
 		}
 
-		private void btnModifierTagsNeutral_Click(object sender, RoutedEventArgs e) {
+		private void CommandBinding_ModifierNeutral(object sender, ExecutedRoutedEventArgs e) {
 			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			if (selectedItem == null) return;
 			selectedItem.Tags.Remove("bad");
 			selectedItem.Tags.Remove("good");
 			lbModifierTags.Items.Refresh();
 		}
 
-		private void btnModifierTagsBad_Click(object sender, RoutedEventArgs e) {
+		private void CommandBinding_ModifierBad(object sender, ExecutedRoutedEventArgs e) {
 			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
-			selectedItem.Tags.Add("bad");
+			if (selectedItem == null) return;
+			if (!selectedItem.Tags.Contains("bad")) selectedItem.Tags.Add("bad");
 			selectedItem.Tags.Remove("good");
 			lbModifierTags.Items.Refresh();
+		}
+
+		private void CommandBinding_NewModifier(object sender, ExecutedRoutedEventArgs e) {
+			string name = "UNNAMED_";
+			Item.Modifier taken = null;
+			int num = 0;
+
+			do {
+				taken = (from m in Item.Modifier.List
+						 where m.Name == name + num.ToString()
+						 select m).FirstOrDefault<Item.Modifier>();
+				if (taken != null) num++;
+			} while (taken != null);
+
+			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), Item.Modifier.Type.Adjective, new List<string>());
+			lbModifiers.SelectedItem = newModifier;
+			tbModifierName.Focus();
+			tbModifierName.SelectAll();
 		}
 	}
 

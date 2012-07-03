@@ -291,6 +291,9 @@ namespace LootSystem {
 				get { return name; }
 				set { name = value; OnPropertyChanged("Name"); }
 			}
+			public string NameWithQuality {
+				get { return Name + (tags.Contains("good") ? "+" : "") + (tags.Contains("bad") ? "-" : ""); }
+			}
 
 			protected Item.Modifier.Type kind;
 			public Item.Modifier.Type Kind {
