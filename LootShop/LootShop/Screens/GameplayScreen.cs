@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using LootSystem;
 #endregion
 
 namespace LootShop {
@@ -34,6 +35,8 @@ namespace LootShop {
 		Random random = new Random();
 
 		float pauseAlpha;
+
+		Item item;
 
 		#endregion
 
@@ -67,6 +70,9 @@ namespace LootShop {
 			// timing mechanism that we have just finished a very long frame, and that
 			// it should not try to catch up.
 			ScreenManager.Game.ResetElapsedTime();
+
+			Item.Initialize();
+			item = Item.Generate(4, random);
 		}
 
 
@@ -184,7 +190,7 @@ namespace LootShop {
 
 			spriteBatch.Begin();
 
-			spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
+			spriteBatch.DrawString(gameFont, item.Name, playerPosition, Color.Green);
 
 			spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
 								   enemyPosition, Color.DarkRed);

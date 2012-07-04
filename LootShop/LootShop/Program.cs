@@ -1,4 +1,5 @@
 using System;
+using LootSystem;
 
 namespace LootShop {
 #if WINDOWS || XBOX
