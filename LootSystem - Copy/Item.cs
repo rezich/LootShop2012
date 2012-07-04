@@ -5,10 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Xml;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
-using System.IO;
-using System.Reflection;
 
 namespace LootSystem {
 	public class Item {
@@ -311,9 +309,7 @@ namespace LootSystem {
 
 			public List<Submodifier> Submodifiers;
 
-			//public static Item.Modifier.ListType List = new Item.Modifier.ListType();
-
-			public static List<Modifier> List = new List<Modifier>();
+			public static Item.Modifier.ListType List = new Item.Modifier.ListType();
 
 			public Modifier(string name, Item.Modifier.Type kind, List<string> tags) {
 				Name = name;
@@ -347,43 +343,7 @@ namespace LootSystem {
 				return Name;
 			}
 
-			public static void Load() {
-				Item.Modifier.List.Clear();
-				List<Modifier> loadedData = LoadFromFile();
-				foreach (Item.Modifier m in loadedData) {
-					Item.Modifier.List.Add(m);
-					// NO IDEA WHY THE FUCK THE NEXT LINE OF CODE WORKS, BUT IT DOES
-					// (update: slept on it, figured it out, should probably rewrite other stuff to make it not needed but w/e)
-					Item.Modifier.List.RemoveAt(Item.Modifier.List.Count - 1);
-				}
-			}
-			public static List<Modifier> LoadFromFile() {
-				//StreamWriter writer;
-				Stream stream;
-				Assembly assembly = Assembly.GetExecutingAssembly();
-				List<Modifier> item = new List<Modifier>();
-
-				try {
-					stream = assembly.GetManifestResourceStream("LootSystem.Modifiers.xml");
-				}
-				catch {
-					throw new Exception("Aw shit son!");
-				}
-				XmlSerializer serializer = new XmlSerializer(typeof(List<Modifier>));
-				XmlReader reader = XmlReader.Create(stream);
-				item = (List<Modifier>)serializer.Deserialize(reader);
-
-				return item;
-			}
-
-			/*public void Save(string fileName) {
-				XmlSerializer writer = new XmlSerializer(typeof(List<Modifier>));
-				System.IO.StreamWriter file = new StreamWriter(fileName);
-				writer.Serialize(file, this);
-				file.Close();
-			}*/
-
-			/*public class ListType : ObservableCollection<Item.Modifier> {
+			public class ListType : ObservableCollection<Item.Modifier> {
 				public static void Load(string fileName) {
 					Item.Modifier.List.Clear();
 					Item.Modifier.ListType loadedData = Item.Modifier.ListType.LoadFromFile(fileName);
@@ -409,7 +369,7 @@ namespace LootSystem {
 					writer.Serialize(file, this);
 					file.Close();
 				}
-			}*/
+			}
 		}
 		public class Submodifier {
 			public List<Type> Types;
@@ -424,7 +384,7 @@ namespace LootSystem {
 		public Kind Variety;
 
 		public static void Initialize() {
-			Item.Modifier.Load();
+			Item.Modifier.ListType.Load(@"Data\Modifiers.xml");
 			Attribute.Initialize();
 			RarityLevel.Initialize();
 			Kind.Initialize();
@@ -434,15 +394,13 @@ namespace LootSystem {
 			i.Level = level;
 
 			// Choose a random item kind
-			//Item.Type[] kindValues = (Item.Type[])Enum.GetValues(typeof(Item.Type));
-			Item.Type[] kindValues = (Item.Type[])EnumHelper.GetValues<Item.Type>();
-			
+			Item.Type[] kindValues = (Item.Type[])Enum.GetValues(typeof(Item.Type));
 			Item.Type selectedKind = kindValues[r.Next(0, kindValues.Length)];
 			i.Variety = Kind.Lookup(selectedKind);
 
 			// Choose a random rarity
 			// TODO: Weight this shit
-			Item.RarityLevel.Type[] rarityValues = (Item.RarityLevel.Type[])EnumHelper.GetValues<Item.RarityLevel.Type>();
+			Item.RarityLevel.Type[] rarityValues = (Item.RarityLevel.Type[])Enum.GetValues(typeof(Item.RarityLevel.Type));
 			Item.RarityLevel.Type selectedRarity = RarityLevel.Type.Normal;
 
 			// Pick a random rarity, but if the type of item is one with no base stats (ring, amulet),
@@ -462,7 +420,7 @@ namespace LootSystem {
 			int attrCount = i.Rarity.AttributeCount.RandomInt(r);
 			List<Item.Attribute.Type> takenAttrs = new List<Attribute.Type>();
 			while (attrs.Count < attrCount) {
-				Item.Attribute.Type[] values = (Item.Attribute.Type[]) EnumHelper.GetValues<Item.Attribute.Type>();
+				Item.Attribute.Type[] values = (Item.Attribute.Type[]) Enum.GetValues(typeof(Item.Attribute.Type));
 				Item.Attribute.Type selectedName = values[r.Next(0, values.Length)];
 				Item.Attribute newAttr =
 					(from t in Item.Attribute.List
@@ -524,7 +482,7 @@ namespace LootSystem {
 			i.Name = name;
 			return i;
 		}
-		/*public static ConsoleColor RarityToConsoleColor(RarityLevel raritylevel) {
+		public static ConsoleColor RarityToConsoleColor(RarityLevel raritylevel) {
 			switch (raritylevel.Name) {
 				case RarityLevel.Type.Garbage:
 					return ConsoleColor.DarkGray;
@@ -541,10 +499,10 @@ namespace LootSystem {
 				default:
 					return ConsoleColor.Red;
 			}
-		}*/
+		}
 
 		public string Name = "!!OSHIT NO NAME GENERATED!!";
-		/*public void WriteStatBlock() {
+		public void WriteStatBlock() {
 			int width = 34;
 			int padding = 3;
 			string leftPadding = new String(' ', 40 - (width / 2));
@@ -600,7 +558,7 @@ namespace LootSystem {
 			Console.Write(bar + "\n");
 			Console.ResetColor();
 			Console.WriteLine(leftPadding + "└" + line + "┘");
-		}*/
+		}
 
 	}
 }

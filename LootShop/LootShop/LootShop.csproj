@@ -131,10 +131,6 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\LootSystem\LootSystem.csproj">
-      <Project>{98B0DA58-DDBA-4D1A-86D4-0DFCB15AB8C3}</Project>
-      <Name>LootSystem</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LootShopContent\LootShopContent.contentproj">
       <Name>LootShopContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>

@@ -1,0 +1,3987 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfModifier xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Modifier>
+    <Submodifiers />
+    <Name>Abandoned</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Absolutely Essential</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Absurdly Powerful</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Aching</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Advancing</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Affable</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Aggressive</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Allegedly Cursed</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Amazing</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ambiguous</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Anachronistic</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Appropriately Meaningless</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Asymmetrical</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Australian</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Awkward</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Baffling</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Balanced</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bargain-Bin</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Barren</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bashful</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Befuddled</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Begrudging</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bleached</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Blood-Crusted</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Blood-Smeared</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bloodseeking</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bloody</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Blundering</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Blustery</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bogworthy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Boisterous</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Brass</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Breached</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Brilliant</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Broken</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Brutal</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Brütal</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bulky</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bundled</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Burdensome</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Burnt</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Business</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Business-Casual</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Butlers' Choice</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Butt</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Cancer-Causing</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Careless</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Cascading</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Charitable</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Charming</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Cheap Knock-Off</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Chiseled</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Churlish</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Clumsy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Coarse</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Cold And Heartless</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Controversial</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Corrupt</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Crippled</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Crippling</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Cross-Hatched</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Cruddy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Curiously Weightless</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Daunting</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Decidedly Alien</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Deflated</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Delicate</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Demeaning</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Depressing</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Dire</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Disassembled</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Discarded</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Disgraceful</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Distorted</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Dominant</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Doom-Laden</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Drab</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Drafty</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Dried</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Dumpy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Dwarven</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Elephantine</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Emasculated</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Encouraging</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Enrapturing</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Entertaining</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Epic</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Equipworthy</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Everburning</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Extravagent</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fabulous</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fallen</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Famished</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fantastic</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fantastically Underwhelming</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Far-Fetched</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Festive</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Flagrant</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Flavorless</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Flimsy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fond</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Forboding</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fornicating</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Four-Stringed</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fuckin' Metal</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Furious</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Gaping</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Garbage</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Gas-Operated</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Guady</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Gelded</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Gentleman's</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ghostly</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Giggling</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Gilded</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Girly</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Golden</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Greedy</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Grovelling</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Half-Assed</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Hallucinogenic</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Heavy</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Hella Cool</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Horrible</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Horribly Disgusting</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Humiliating</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Imbued</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Impoverished</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Impressive</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Inconsequential</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Incorrigible</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Incredibly Aged</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Indispensable</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ineffable</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ineffective</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Infinitely Complex</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Informative</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Inoffensive</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Intrusive</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Irrepairable</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Jewel-Encrusted</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Jubilant</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Just Dandy</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Just Plain Silly</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Kinda Shitty</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Kingly</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lady-Like</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Legless</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lemon-Scented</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lengthy</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lightly Seasoned</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lofty</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Loot-Worthy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Low-Quality Even Compared To Other Garbage Items</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lumpish</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Majestic</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Manly</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Master</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Mathematically-Sound</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Meaningful</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Medieval</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Mediocre</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Metal As Hell</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Mildly Menacing</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Miserable</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Moist</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Moldy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Money-Laundering</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Morally Dubious</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Musty</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>My Wife's</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Nastier Than A Butt</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Negligent</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Nerve-Wracking</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Not Even Worth Equipping</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Not Even Worthwhile</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Notable</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Notably Dangerous</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Noticeably Poor Quality</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Obscene</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Odorless</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Offensively Prehensile</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Outrageous</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Overprepared</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Painful</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Painfully Useless</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Pathetic</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Paunchy</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Perfectly Ordinary</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Plated</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Plentiful</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Polished</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Poor</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Poorly-Wrapped</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Prancing</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Preposterous</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Pretty Damn Cool</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Pretty Laid-Back</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Probably On Fire</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Probably Radioactive</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Probably Waterproof</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Punchy</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Radiant</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Raging</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rampant</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ransacked</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rapidly Deteriorating</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rather Nice</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rather Useless</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rather Weak</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Raunchy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Redoubtable</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Reforged</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Regular-Ass</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Requested</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Resplendent</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ridiculously Overpowered</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rifting</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Righteous</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ripped</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Roaring</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rock-Hard</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rotten</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rotting</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rusted</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rustic</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sacred</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sacrificial</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sat-Upon</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Savage</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Scammed</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Scarcely Lethal</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Scattered</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Scratched</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Seamless</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Seasoned</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Seductive</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sentient</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sexy</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Shady</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Shameful</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Shiny</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Shoddy</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Shoplifted</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Shriveled</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sight-Seeing</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Silken</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Simply Splendid</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sinking</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Slithering</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Slow-Burning</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Smashed</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Smelly</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Smooth</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>So Comon It Hurts</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Somewhat Lacking</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Somewhat Threatening</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sour</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Spectacularly Worthless</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Spotted</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stagnant</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stained</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Static</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Steam-Powered</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stingy</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stolen</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stout</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Strange</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Strict</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Subpar</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Succulent</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sufficiently Lethal</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Summoned</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Supery Shiny</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sweaty</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Tacky</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Tedious</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Termite-Covered</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Third-Best</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Throbbing</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Thrown-Out</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Toe-Curling</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Toiletesque</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Tony's</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Tormented</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Tornadoesque</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Totally Bogus</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Totally Ordinary</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Tribal</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Truly Feared</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Twelfth</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unbelievable</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Uncertain</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Uncharitable</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Underwhelming</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unexpectedly Awesome</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unfinished</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unfortunate</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unheard-Of</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unplanned</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unremarkable</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unruly</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unscented</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unstrung</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unsurprising</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unusable</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Uplifting</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Utterly Amazing</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Utterly Meaningless</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Vaguely Erotic</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Vastly Ineffective</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Vengeful</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Violent</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Virgin</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Wanton</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Warped</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Waste-Infused</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Well-Bathed</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Well-Crafted</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Well-Trimmed</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Well-Tuned</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Well Thought-Out</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Why Would You Even Equip This</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Wicked Nasty</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Wild</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Withered</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Writhing</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Wobbly</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Worn</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>"Quality"</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Absolution</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Acceleration</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Adventure</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Animosity</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Anxiety</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Asbestos</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ascension</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Balance</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bankruptcy</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Befuddlement</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Begrudging</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Beholding</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Being Pretty Useless In The Long Run</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Better Times</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Biblical Proportions</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bloating</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Brandishing</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Burial</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Burning</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Bursting</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Cannibalism</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Caressing</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ceaseless Discharge</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Celebration</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>China</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Christmas Past</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Cleansing</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Coitus</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Commitment</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Communal Living</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Companionship</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Completion</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Cross-Breeding</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Dancing</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Darkness</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Decapitation</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Deception</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Declined Credit Cards</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Deforestation</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Despair</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Destiny</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Destruction</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Disaster</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Disembowelment</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Dodging</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Downfall</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Due Time</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Dumpster-Diving</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Dungeoneering</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Embarassment</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Excessively Uncomfortable Bloating</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Excitement</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Exhaustion</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Exploding</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Explosions</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Extra Fanciness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Extra Shininess</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Farsight</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fate</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Favoritism</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Finality</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Flagrant Disregard For Moral Standards</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Flatulence</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fluid Secretion</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Formidiable Erections</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Fraternization</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Freedom</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Friction</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Funny Words</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>General Worthlessness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Giggling</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Giving Zero Fucks</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Gluttony</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Greater Purpose</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Greatness</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Greed</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Hatred</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Helplessness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Hoarding</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Hope</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Horror</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Horseriding</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Horticulture</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Indecypherable Smells</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Inexhaustible Fortitude</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Inherent Sexiness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Instagibbing</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Insurmountable Crappiness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Interminable Glory</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Jackie Chan</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Jest</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Judgement</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Kanye West</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Leaky Faucets</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Legend</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lesser Evils</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lies</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Light</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Limitless Potential</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Loot-Having</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lore</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lounging About</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Low, Low Prices</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lucid Dreaming</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lump-Having</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Lust</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Majesty</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Malice</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Master Craftsdwarfship</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Mental Anguish</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Moral Decay</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Naval Alacrity</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Negelecting Gravity</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Not Giving A Shit</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Not Having Any Real Purpose</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Not Having Legs Anymore</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Notably Subpar Quality</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Note</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Nourishment</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Originality</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Pandemonium</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Partying</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Patience</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Permadeath</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Pillaging</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Portability</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Potential Energy</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Poverty</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Power</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Prancing</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Premonition</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Princecrippling</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Quality</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Quartering</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Reckoning</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Redemption</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Redirected Gas Leaks</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Refactoring Primes</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Reforging</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Reminiscence</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Request</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Respect</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Retrospect</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Revenge</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Rice Cooking</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ridicule</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Right Angles</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ritual</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Roasting</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Ruin</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sacrifice</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Salad Shooting</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Scorn</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Seasickness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Semi-Legal Whaling</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Separation</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sex</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Shit</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Showing Up Fashionably Late</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sick Flows</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Silly Titles</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sleep Deprivation</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Slow Motion</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Smithing</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Smooth Bass Lines</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Smoothness</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Snakes</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sorcery</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Speculation</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Splicing</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Spontaneous Combustion</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sporadic Breathing</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stability</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stank</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Statistical Acceptability</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stench</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stink</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Stumbling</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sublimation</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Swag</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Swagger</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sweet Revenge</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sundering</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Survivability</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sweet Dance Moves</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Teaching</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Temptation</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Ancients</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Astral Plane</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Beast</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Bees</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Boar</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Child</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Church</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Clockmaker</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Collective Unconscious</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Defendant</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Dimensional Void</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Doorknob</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The End</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The End Times</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Fissure</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Fool</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Gods</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Good Ol' Days</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Hawk</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Human Psyche</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Hypnotist</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Idiot</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Jailer</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Jews</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Joker</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Journey</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Judge</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Leper</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Libertarian</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Lion</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Loins</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Mathematician</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Moron</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Nimcompoop</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Nine Hells</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Owl</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Portalmaster</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Prisoner</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Prosecutor</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Runs</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Skunk</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Spider-Queen's Great Aunt</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Status Quo</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Still-Beating Heart</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Tourist</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Traditional Chinese Door-God</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Trout</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Void</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Wildebeast</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Wind</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Wraith</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>The Wretch</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Thorns</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Thrill</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Treasure</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Truly Abhorrent Bloating</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Turnip Farming</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unaccounted Expenditures</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unbelievable Power</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Uncertainty</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Uncontained Wildfires</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Uncountable Victories</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unexpected Mutations</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unfaithfulness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unmatched Power</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Unsatisfying Bowel Movements</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Untapped Potential</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Untold Riches</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Upholding Grudges</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Uselessness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Vast Fortune</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Vegetation</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Vengeance</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Wasted Potential</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Wizardry</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Worth</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Wrath</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+</ArrayOfModifier>
