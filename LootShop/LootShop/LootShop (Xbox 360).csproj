@@ -73,10 +73,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ScreenManager\InputState.cs" />
+    <Compile Include="ScreenManager\MenuEntry.cs" />
+    <Compile Include="ScreenManager\MenuScreen.cs" />
+    <Compile Include="ScreenManager\PlayerIndexEventArgs.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="ScreenManager\GameScreen.cs" />
+    <Compile Include="Screens\BackgroundScreen.cs" />
     <Compile Include="Screens\GameplayScreen.cs" />
+    <Compile Include="Screens\LoadingScreen.cs" />
     <Compile Include="Screens\MainMenuScreen.cs" />
+    <Compile Include="Screens\MessageBoxScreen.cs" />
+    <Compile Include="Screens\PauseMenuScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
