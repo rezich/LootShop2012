@@ -166,6 +166,8 @@ namespace LootShop {
 
 				Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
+				if (gamePadState.Buttons.A == ButtonState.Pressed) item = Item.Generate(4, random);
+
 				movement.X += thumbstick.X;
 				movement.Y -= thumbstick.Y;
 

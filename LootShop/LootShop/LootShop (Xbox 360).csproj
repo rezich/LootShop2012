@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{5D3A4064-E4B8-4BBE-B153-254D8D89CFCE}</ProjectGuid>
+    <ProjectGuid>{84C476BA-A5A1-4AEF-96E2-1204E0D6A711}</ProjectGuid>
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">Xbox 360</Platform>
@@ -59,7 +59,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LootSystem\LootSystem.csproj">
-      <Project>{98B0DA58-DDBA-4D1A-86D4-0DFCB15AB8C3}</Project>
+      <Project>{06F4948E-DD3D-4B00-9C7E-CD97E57C91F3}</Project>
       <Name>LootSystem</Name>
     </ProjectReference>
     <ProjectReference Include="..\LootShopContent\LootShopContent.contentproj">
@@ -72,16 +72,19 @@
     <Compile Include="LootShop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ScreenManager\GameScreen.cs" />
     <Compile Include="ScreenManager\InputState.cs" />
-    <Compile Include="ScreenManager\MenuEntry.cs" />
-    <Compile Include="ScreenManager\MenuScreen.cs" />
     <Compile Include="ScreenManager\PlayerIndexEventArgs.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
-    <Compile Include="ScreenManager\GameScreen.cs" />
     <Compile Include="Screens\BackgroundScreen.cs" />
     <Compile Include="Screens\GameplayScreen.cs" />
+    <Compile Include="Screens\GenericMenu.cs" />
     <Compile Include="Screens\LoadingScreen.cs" />
-    <Compile Include="Screens\MainMenuScreen.cs" />
+    <Compile Include="Screens\MainMenuScreen.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScreenManager\MenuEntry.cs" />
+    <Compile Include="ScreenManager\MenuScreen.cs" />
     <Compile Include="Screens\MessageBoxScreen.cs" />
     <Compile Include="Screens\PauseMenuScreen.cs" />
   </ItemGroup>
