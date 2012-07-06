@@ -126,6 +126,7 @@
     <Compile Include="Screens\MessageBoxScreen.cs" />
     <Compile Include="Screens\PauseMenuScreen.cs" />
     <Compile Include="StatBlock.cs" />
+    <Compile Include="TextBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

@@ -109,12 +109,12 @@ namespace LootSystem {
 					"Shoes", "Boots", "Greaves", "Sandals", "Galoshes", "Kicks", "Treads"
 				}));
 				List.Add(new Item.Kind(Type.Pauldrons, Slot.Shoulders, armorAttr, new List<string> {
-					"Shoulders", "Pauldrons", "Mantle", "Shoulderpads", "Spaulders"
+					"Shoulders", "Pauldrons", "Mantle", "Shoulderpads", "Spaulders", "Single Shoulderpad"
 				})); ;
 
 				// Pure Attributehavers
 				List.Add(new Item.Kind(Type.Ring, Slot.Finger, pureAttr, new List<string> {
-					"Ring", "Band"
+					"Ring", "Band", "Finger Protector"
 				}));
 				List.Add(new Item.Kind(Type.Amulet, Slot.Neck, pureAttr, new List<string> {
 					"Amulet", "Necklace", "Charm"

@@ -9,6 +9,7 @@
 
 #region Using Statements
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -28,6 +29,8 @@ namespace LootShop {
 
 		ContentManager content;
 		SpriteFont gameFont;
+
+		SpriteFont UIFontSmall;
 
 		Vector2 playerPosition = new Vector2(100, 100);
 		Vector2 enemyPosition = new Vector2(100, 100);
@@ -60,6 +63,7 @@ namespace LootShop {
 				content = new ContentManager(ScreenManager.Game.Services, "Content");
 
 			gameFont = content.Load<SpriteFont>("menufont");
+			UIFontSmall = content.Load<SpriteFont>("UIFontSmall");
 
 			// A real game would probably have more content than this sample, so
 			// it would take longer to load. We simulate that by delaying for a
@@ -72,7 +76,7 @@ namespace LootShop {
 			ScreenManager.Game.ResetElapsedTime();
 
 			Item.Initialize();
-			item = Item.Generate(4, random);
+			item = Item.Generate(random.Next(1, 50), random);
 		}
 
 
@@ -167,7 +171,7 @@ namespace LootShop {
 
 				Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
-				if (gamePadState.Buttons.A == ButtonState.Released && lastGamePadState.Buttons.A == ButtonState.Pressed) item = Item.Generate(4, random);
+				if (gamePadState.Buttons.A == ButtonState.Released && lastGamePadState.Buttons.A == ButtonState.Pressed) item = Item.Generate(random.Next(1, 50), random);
 
 				movement.X += thumbstick.X;
 				movement.Y -= thumbstick.Y;
@@ -218,12 +222,39 @@ namespace LootShop {
 					color = Color.Red;
 					break;
 			}
+			Vector2 origin = new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, 100);
 
-			Vector2 origin = gameFont.MeasureString(item.Name) / 2;
-			spriteBatch.DrawString(gameFont, item.Name, new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height / 2), color, 0.0f, origin, 1.0f, SpriteEffects.None, 1.0f);
+			SpriteFont lootFont = UIFontSmall;
 
-			/*spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
-								   enemyPosition, Color.DarkRed);*/
+			int width = 285;
+
+			origin.X -= width / 2;
+
+			int lineHeight = Convert.ToInt32(lootFont.MeasureString("W").Y * 0.8);
+			int padding = 35;
+			int line = 0;
+			TextBlock name = new TextBlock(item.Name.ToUpper());
+			List<string> nameList = name.WrappedText(lootFont, width);
+			foreach (string n in nameList) {
+				spriteBatch.DrawString(lootFont, n, origin + new Vector2(width / 2, line * lineHeight), color, 0.0f, new Vector2(lootFont.MeasureString(n).X, 0) / 2, 1.0f, SpriteEffects.None, 1.0f);
+				line++;
+			}
+			line++;
+
+			string type = (item.Rarity.Name == Item.RarityLevel.Type.Normal ? "" : item.Rarity.ToString() + " ") + item.Variety.Name;
+			spriteBatch.DrawString(lootFont, type, origin + new Vector2(0, line * lineHeight), color, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
+			spriteBatch.DrawString(lootFont, item.Variety.Slot.ToString().DeCamelCase(), origin + new Vector2(width, line * lineHeight), Color.White, 0.0f, new Vector2(lootFont.MeasureString(item.Variety.Slot.ToString().DeCamelCase()).X, 0), 1.0f, SpriteEffects.None, 1.0f);
+			line += 2;
+			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in item.Attributes) {
+				string key = kvp.Key.ToString().DeCamelCase();
+				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
+				spriteBatch.DrawString(lootFont, key, origin + new Vector2(padding, line * lineHeight), Color.White);
+				spriteBatch.DrawString(lootFont, num, origin + new Vector2(width - padding, line * lineHeight), Color.White, 0.0f, new Vector2(lootFont.MeasureString(num).X, 0), 1.0f, SpriteEffects.None, 1.0f);
+				line++;
+			}
+			line++;
+			string reqLevel = "Required Level: " + item.Level;
+			spriteBatch.DrawString(lootFont, reqLevel, origin + new Vector2(width / 2, line * lineHeight), Color.Gray, 0.0f, new Vector2(lootFont.MeasureString(reqLevel).X / 2, 0), 1.0f, SpriteEffects.None, 1.0f);
 
 			spriteBatch.End();
 
