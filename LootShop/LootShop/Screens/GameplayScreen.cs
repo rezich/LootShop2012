@@ -37,6 +37,8 @@ namespace LootShop {
 
 		Random random = new Random();
 
+		GenericMenu testMenu = new GenericMenu();
+
 		float pauseAlpha;
 
 		Item item;
@@ -52,6 +54,9 @@ namespace LootShop {
 		public GameplayScreen() {
 			TransitionOnTime = TimeSpan.FromSeconds(1.5);
 			TransitionOffTime = TimeSpan.FromSeconds(0.5);
+
+			testMenu.Title = "Test Menu!";
+			testMenu.Description = "This is just a test menu to see the generic menu system in action.";
 		}
 
 
@@ -122,6 +127,8 @@ namespace LootShop {
 
 				enemyPosition = Vector2.Lerp(enemyPosition, targetPosition, 0.05f);
 
+				testMenu.Update(gameTime);
+
 				// TODO: this game isn't very fun! You could probably improve
 				// it by inserting something more interesting in this space :-)
 			}
@@ -154,6 +161,7 @@ namespace LootShop {
 				ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
 			}
 			else {
+				testMenu.HandleInput(input, playerIndex);
 				// Otherwise move the player position.
 				Vector2 movement = Vector2.Zero;
 
@@ -171,7 +179,9 @@ namespace LootShop {
 
 				Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
-				if (gamePadState.Buttons.A == ButtonState.Released && lastGamePadState.Buttons.A == ButtonState.Pressed) item = Item.Generate(random.Next(1, 50), random);
+				PlayerIndex bleh = new PlayerIndex();
+
+				if (input.IsMenuSelect((PlayerIndex)playerIndex, out bleh)) item = Item.Generate(random.Next(1, 50), random);
 
 				movement.X += thumbstick.X;
 				movement.Y -= thumbstick.Y;
@@ -197,6 +207,7 @@ namespace LootShop {
 
 			spriteBatch.Begin();
 
+			#region Loot Test
 			Color color;
 
 			switch (item.Rarity.Name) {
@@ -255,6 +266,10 @@ namespace LootShop {
 			line++;
 			string reqLevel = "Required Level: " + item.Level;
 			spriteBatch.DrawString(lootFont, reqLevel, origin + new Vector2(width / 2, line * lineHeight), Color.Gray, 0.0f, new Vector2(lootFont.MeasureString(reqLevel).X / 2, 0), 1.0f, SpriteEffects.None, 1.0f);
+			
+			#endregion
+
+			testMenu.Draw(spriteBatch, gameTime);
 
 			spriteBatch.End();
 

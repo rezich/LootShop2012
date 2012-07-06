@@ -14,6 +14,7 @@ namespace LootShop {
 	public class LootShop : Microsoft.Xna.Framework.Game {
 		GraphicsDeviceManager graphics;
 		ScreenManager screenManager;
+		public static SpriteFont UIFontSmall;
 
 		static readonly string[] preloadAssets = {
         };
@@ -29,9 +30,9 @@ namespace LootShop {
 
 			Components.Add(screenManager);
 
-			//screenManager.AddScreen(new GameplayScreen(), PlayerIndex.One); // TODO: make PlayerIndex null so the main menu can determine the player or whatever
+			screenManager.AddScreen(new GameplayScreen(), PlayerIndex.One); // TODO: make PlayerIndex null so the main menu can determine the player or whatever
 			//screenManager.AddScreen(new BackgroundScreen(), null);
-			screenManager.AddScreen(new MainMenuScreen(), null);
+			//screenManager.AddScreen(new MainMenuScreen(), null);
 
 		}
 
@@ -43,6 +44,7 @@ namespace LootShop {
 			foreach (string asset in preloadAssets) {
 				Content.Load<object>(asset);
 			}
+			UIFontSmall = Content.Load<SpriteFont>("UIFontSmall");
 		}
 
 		protected override void UnloadContent() {
