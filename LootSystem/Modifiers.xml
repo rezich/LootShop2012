@@ -2482,7 +2482,9 @@
     <Submodifiers />
     <Name>Communal Living</Name>
     <Kind>OfX</Kind>
-    <Tags />
+    <Tags>
+      <string>bad</string>
+    </Tags>
   </Modifier>
   <Modifier>
     <Submodifiers />

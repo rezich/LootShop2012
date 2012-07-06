@@ -137,7 +137,7 @@ namespace LootShop {
 #endif
 
 			// Draw the selected entry in yellow, otherwise white.
-			Color color = isSelected ? Color.Yellow : Color.Black;
+			Color color = isSelected ? Color.Yellow : Color.White;
 
 			// Pulsate the size of the selected menu entry.
 			double time = gameTime.TotalGameTime.TotalSeconds;

@@ -92,7 +92,7 @@ namespace LootShop {
 			spriteBatch.Begin();
 
 			spriteBatch.Draw(backgroundTexture, fullscreen,
-							 new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));
+							 new Color(255 - TransitionAlpha, 255 - TransitionAlpha, 255 - TransitionAlpha));
 
 			spriteBatch.End();
 		}

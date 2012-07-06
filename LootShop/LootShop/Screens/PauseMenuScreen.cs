@@ -64,7 +64,7 @@ namespace LootShop {
 		/// transition from the game back to the main menu screen.
 		/// </summary>
 		void ConfirmQuitMessageBoxAccepted(object sender, PlayerIndexEventArgs e) {
-			LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(),
+			LoadingScreen.Load(ScreenManager, false, null, /*new BackgroundScreen(),*/
 														   new MainMenuScreen());
 		}
 

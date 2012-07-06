@@ -87,6 +87,7 @@
     <Compile Include="ScreenManager\MenuScreen.cs" />
     <Compile Include="Screens\MessageBoxScreen.cs" />
     <Compile Include="Screens\PauseMenuScreen.cs" />
+    <Compile Include="StatBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

@@ -117,7 +117,7 @@ namespace LootSystem {
 					"Ring", "Band"
 				}));
 				List.Add(new Item.Kind(Type.Amulet, Slot.Neck, pureAttr, new List<string> {
-					"Amulet", "Necklass", "Charm"
+					"Amulet", "Necklace", "Charm"
 				}));
 			}
 

@@ -137,6 +137,7 @@ namespace LootShop {
 
 			KeyboardState keyboardState = input.CurrentKeyboardStates[playerIndex];
 			GamePadState gamePadState = input.CurrentGamePadStates[playerIndex];
+			GamePadState lastGamePadState = input.LastGamePadStates[playerIndex];
 
 			// The game pauses either if the user presses the pause button, or if
 			// they unplug the active gamepad. This requires us to keep track of
@@ -166,7 +167,7 @@ namespace LootShop {
 
 				Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
-				if (gamePadState.Buttons.A == ButtonState.Pressed) item = Item.Generate(4, random);
+				if (gamePadState.Buttons.A == ButtonState.Released && lastGamePadState.Buttons.A == ButtonState.Pressed) item = Item.Generate(4, random);
 
 				movement.X += thumbstick.X;
 				movement.Y -= thumbstick.Y;
@@ -185,17 +186,44 @@ namespace LootShop {
 		public override void Draw(GameTime gameTime) {
 			// This game has a blue background. Why? Because!
 			ScreenManager.GraphicsDevice.Clear(ClearOptions.Target,
-											   Color.CornflowerBlue, 0, 0);
+											   Color.Black, 0, 0);
 
 			// Our player and enemy are both actually just text strings.
 			SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
 			spriteBatch.Begin();
 
-			spriteBatch.DrawString(gameFont, item.Name, playerPosition, Color.Green);
+			Color color;
 
-			spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
-								   enemyPosition, Color.DarkRed);
+			switch (item.Rarity.Name) {
+				case Item.RarityLevel.Type.Garbage:
+					color = Color.Gray;
+					break;
+				case Item.RarityLevel.Type.Normal:
+					color = Color.White;
+					break;
+				case Item.RarityLevel.Type.Magic:
+					color = Color.DarkCyan;
+					break;
+				case Item.RarityLevel.Type.Rare:
+					color = Color.Yellow;
+					break;
+				case Item.RarityLevel.Type.Legendary:
+					color = Color.DarkViolet;
+					break;
+				case Item.RarityLevel.Type.Unique:
+					color = Color.Violet;
+					break;
+				default:
+					color = Color.Red;
+					break;
+			}
+
+			Vector2 origin = gameFont.MeasureString(item.Name) / 2;
+			spriteBatch.DrawString(gameFont, item.Name, new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height / 2), color, 0.0f, origin, 1.0f, SpriteEffects.None, 1.0f);
+
+			/*spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
+								   enemyPosition, Color.DarkRed);*/
 
 			spriteBatch.End();
 
