@@ -25,18 +25,18 @@ namespace LootMaker {
 
 		public MainWindow() {
 			InitializeComponent();
-			lbModifiers.DataContext = Item.Modifier.List;
+			lbModifiers.DataContext = LootMaker.Modifier2.List;
 		}
 
 		private void btnModifiersDelete_Click(object sender, RoutedEventArgs e) {
-			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
-			Item.Modifier.List.Remove(selectedItem);
-			if (((Item.Modifier.ListType)lbModifiers.DataContext).Count == 0) return;
-			lbModifiers.SelectedItem = ((Item.Modifier.ListType)lbModifiers.DataContext)[((Item.Modifier.ListType)lbModifiers.DataContext).Count - 1];
+			LootMaker.Modifier2 selectedItem = (LootMaker.Modifier2)lbModifiers.SelectedItem;
+			LootMaker.Modifier2.List.Remove(selectedItem);
+			if (((LootMaker.Modifier2.ListType)lbModifiers.DataContext).Count == 0) return;
+			lbModifiers.SelectedItem = ((LootMaker.Modifier2.ListType)lbModifiers.DataContext)[((LootMaker.Modifier2.ListType)lbModifiers.DataContext).Count - 1];
 		}
 
 		private void lbModifiers_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			LootMaker.Modifier2 selectedItem = (LootMaker.Modifier2)lbModifiers.SelectedItem;
 			if (selectedItem == null) {
 				tcModifiers.IsEnabled = false;
 				btnModifiersDelete.IsEnabled = false;
@@ -47,7 +47,7 @@ namespace LootMaker {
 		}
 
 		private void btnModifierTagsAdd_Click(object sender, RoutedEventArgs e) {
-			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			LootMaker.Modifier2 selectedItem = (LootMaker.Modifier2)lbModifiers.SelectedItem;
 			if (tbModifierTagsNew.Text != "" && tbModifierTagsNew.Text != null) {
 				if (!selectedItem.Tags.Contains(tbModifierTagsNew.Text)) selectedItem.Tags.Add(tbModifierTagsNew.Text);
 				lbModifierTags.Items.Refresh();
@@ -66,7 +66,7 @@ namespace LootMaker {
 		}
 
 		private void btnModifierTagsRemove_Click(object sender, RoutedEventArgs e) {
-			Item.Modifier selectedModifier = (Item.Modifier)lbModifiers.SelectedItem;
+			LootMaker.Modifier2 selectedModifier = (LootMaker.Modifier2)lbModifiers.SelectedItem;
 			string selectedItem = (string)lbModifierTags.SelectedItem;
 
 			selectedModifier.Tags.Remove(selectedItem);
@@ -79,22 +79,22 @@ namespace LootMaker {
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e) {
-			cbModifierKind.ItemsSource = Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>();
-			cbModifiersNewKind.ItemsSource = Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>();
+			cbModifierKind.ItemsSource = Enum.GetValues(typeof(LootMaker.Modifier2.Type)).Cast<LootMaker.Modifier2.Type>().ToList<LootMaker.Modifier2.Type>();
+			cbModifiersNewKind.ItemsSource = Enum.GetValues(typeof(LootMaker.Modifier2.Type)).Cast<LootMaker.Modifier2.Type>().ToList<LootMaker.Modifier2.Type>();
 			cbModifiersNewKind.SelectedIndex = 0;
-			//foreach (Item.Modifier.Type t in Enum.GetValues(typeof(Item.Modifier.Type)).Cast<Item.Modifier.Type>().ToList<Item.Modifier.Type>()) cbModifierKind.Items.Add(t.ToString());
+			//foreach (LootMaker.Modifier.Type t in Enum.GetValues(typeof(LootMaker.Modifier.Type)).Cast<LootMaker.Modifier.Type>().ToList<LootMaker.Modifier.Type>()) cbModifierKind.Items.Add(t.ToString());
 		}
 
 		private void btnSave_Click(object sender, RoutedEventArgs e) {
-			Item.Modifier.List.Save(@"..\..\..\LootSystem\Data\Modifiers.xml");
+			LootMaker.Modifier2.List.Save(@"..\..\..\LootSystem\Modifiers.xml");
 		}
 
 		private void btnLoad_Click(object sender, RoutedEventArgs e) {
-			Item.Modifier.ListType.Load(@"..\..\..\LootSystem\Data\Modifiers.xml");
+			LootMaker.Modifier2.ListType.Load(@"..\..\..\LootSystem\Modifiers.xml");
 		}
 
 		private void CommandBinding_ModifierGood(object sender, ExecutedRoutedEventArgs e) {
-			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			LootMaker.Modifier2 selectedItem = (LootMaker.Modifier2)lbModifiers.SelectedItem;
 			if (selectedItem == null) return;
 			selectedItem.Tags.Remove("bad");
 			if (!selectedItem.Tags.Contains("good")) selectedItem.Tags.Add("good");
@@ -102,7 +102,7 @@ namespace LootMaker {
 		}
 
 		private void CommandBinding_ModifierNeutral(object sender, ExecutedRoutedEventArgs e) {
-			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			LootMaker.Modifier2 selectedItem = (LootMaker.Modifier2)lbModifiers.SelectedItem;
 			if (selectedItem == null) return;
 			selectedItem.Tags.Remove("bad");
 			selectedItem.Tags.Remove("good");
@@ -110,7 +110,7 @@ namespace LootMaker {
 		}
 
 		private void CommandBinding_ModifierBad(object sender, ExecutedRoutedEventArgs e) {
-			Item.Modifier selectedItem = (Item.Modifier)lbModifiers.SelectedItem;
+			LootMaker.Modifier2 selectedItem = (LootMaker.Modifier2)lbModifiers.SelectedItem;
 			if (selectedItem == null) return;
 			if (!selectedItem.Tags.Contains("bad")) selectedItem.Tags.Add("bad");
 			selectedItem.Tags.Remove("good");
@@ -119,17 +119,17 @@ namespace LootMaker {
 
 		private void CommandBinding_NewModifier(object sender, ExecutedRoutedEventArgs e) {
 			string name = "UNNAMED_";
-			Item.Modifier taken = null;
+			LootMaker.Modifier2 taken = null;
 			int num = 0;
 
 			do {
-				taken = (from m in Item.Modifier.List
+				taken = (from m in LootMaker.Modifier2.List
 						 where m.Name == name + num.ToString()
-						 select m).FirstOrDefault<Item.Modifier>();
+						 select m).FirstOrDefault<LootMaker.Modifier2>();
 				if (taken != null) num++;
 			} while (taken != null);
 
-			Item.Modifier newModifier = new Item.Modifier(name + num.ToString(), (Item.Modifier.Type)cbModifiersNewKind.SelectedItem, new List<string>());
+			LootMaker.Modifier2 newModifier = new LootMaker.Modifier2(name + num.ToString(), (LootMaker.Modifier2.Type)cbModifiersNewKind.SelectedItem, new List<string>());
 			lbModifiers.SelectedItem = newModifier;
 			tbModifierName.Focus();
 			tbModifierName.SelectAll();

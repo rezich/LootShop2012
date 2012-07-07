@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfModifier xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Modifier>
+    <Name>UNNAMED_0</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>UNNAMED_1</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>UNNAMED_2</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>UNNAMED_3</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>UNNAMED_4</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>UNNAMED_5</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+</ArrayOfModifier>
