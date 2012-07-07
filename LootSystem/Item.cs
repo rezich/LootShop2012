@@ -74,16 +74,16 @@ namespace LootSystem {
 					"Greatsword", "Broadsword", "Bastard Sword", "Zweihander", "Claymore", "Flamberge"
 				}));
 				List.Add(new Item.Kind(Type.Dagger, Slot.OneHand, meleeAttr, new List<string> {
-					"Dagger", "Knife", "Letter Opener", "Stabber", "Dirk", "Stiletto", "Point", "Spike"
+					"Dagger", "Knife", "Letter Opener", "Stabber", "Dirk", "Stiletto", "Point", "Spike", "Piercer", "Fleshripper", "Skincutter", "Fang"
 				}));
 				List.Add(new Item.Kind(Type.Greataxe, Slot.TwoHands, meleeAttr, new List<string> {
-					"Axe", "Hatchet", "Pick", "Broad Axe", "Battleaxe", "Great Axe", "Giant Axe", "Cleaver", "Pickaxe"
+					"Axe", "Hatchet", "Pick", "Broad Axe", "Battleaxe", "Great Axe", "Giant Axe", "Cleaver", "Pickaxe", "Reaver"
 				}));
 				List.Add(new Item.Kind(Type.Staff, Slot.OneHand, meleeAttr, new List<string> {
-					"Staff", "Rod", "Wand", "Implement", "Quarterstaff", "Walking Stick", "Channeler"
+					"Staff", "Rod", "Wand", "Implement", "Quarterstaff", "Walking Stick", "Channeler", "Spellbinder", "Branch"
 				}));
 				List.Add(new Item.Kind(Type.Bow, Slot.TwoHands, meleeAttr, new List<string> {
-					"Bow", "Shortbow", "Longbow", "Composite Bow", "War Bow", "Siege Bow", "Great Bow", "Cross Bow"
+					"Bow", "Shortbow", "Longbow", "Composite Bow", "War Bow", "Siege Bow", "Great Bow", "Cross Bow", "Sniper Bow"
 				}));
 				List.Add(new Item.Kind(Type.Mace, Slot.OneHand, meleeAttr, new List<string> {
 					"Mace", "Club", "Morningstar", "Flail", "War Hammer", "Maul", "Cudgel", "Truncheon", "Mallet", "Hammer"
@@ -97,13 +97,13 @@ namespace LootSystem {
 					"Studded Armor", "Leather Armor", "Quilted Armor", "Ring Mail", "Scale Mail", "Chain Mail", "Breastplate", "Plate Mail", "Shirt", "Bodyshaft", "Sweater", "Rags", "Undershirt", "Robe", "Cloak", "Goatskin"
 				}));
 				List.Add(new Item.Kind(Type.Pants, Slot.Legs, armorAttr, new List<string> {
-					"Pants", "Leggings", "Kneepads", "Chaps", "Leg-Wraps", "Lederhosen", "Kilt", "Faulds"
+					"Pants", "Leggings", "Kneepads", "Chaps", "Leg-Wraps", "Lederhosen", "Kilt", "Faulds", "Leg Plates"
 				}));
 				List.Add(new Item.Kind(Type.Gloves, Slot.Hands, armorAttr, new List<string> {
 					"Gloves", "Gauntlets", "Bracers", "Mitts", "Vambraces", "Graspers", "Stranglers"
 				}));
 				List.Add(new Item.Kind(Type.Belt, Slot.Waist, armorAttr, new List<string> {
-					"Sash", "Belt", "Coil", "Girdle", "Belly-Wrap", "String", "Strap", "Strand", "Scabbard"
+					"Sash", "Belt", "Coil", "Girdle", "Belly-Wrap", "String", "Strap", "Strand", "Scabbard", "Chain"
 				}));
 				List.Add(new Item.Kind(Type.Boots, Slot.Feet, armorAttr, new List<string> {
 					"Shoes", "Boots", "Greaves", "Sandals", "Galoshes", "Kicks", "Treads"
