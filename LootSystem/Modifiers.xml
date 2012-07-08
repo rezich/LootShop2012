@@ -170,13 +170,13 @@
   </Modifier>
   <Modifier>
     <Submodifiers />
-    <Name>Blood-Smeared</Name>
+    <Name>Bloodseeking</Name>
     <Kind>Adjective</Kind>
     <Tags />
   </Modifier>
   <Modifier>
     <Submodifiers />
-    <Name>Bloodseeking</Name>
+    <Name>Blood-Smeared</Name>
     <Kind>Adjective</Kind>
     <Tags />
   </Modifier>
@@ -750,14 +750,6 @@
   </Modifier>
   <Modifier>
     <Submodifiers />
-    <Name>Guady</Name>
-    <Kind>Adjective</Kind>
-    <Tags>
-      <string>bad</string>
-    </Tags>
-  </Modifier>
-  <Modifier>
-    <Submodifiers />
     <Name>Gelded</Name>
     <Kind>Adjective</Kind>
     <Tags>
@@ -815,6 +807,14 @@
   <Modifier>
     <Submodifiers />
     <Name>Grovelling</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Guady</Name>
     <Kind>Adjective</Kind>
     <Tags>
       <string>bad</string>
@@ -2204,6 +2204,14 @@
   </Modifier>
   <Modifier>
     <Submodifiers />
+    <Name>Well Thought-Out</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
     <Name>Well-Bathed</Name>
     <Kind>Adjective</Kind>
     <Tags />
@@ -2225,14 +2233,6 @@
     <Name>Well-Tuned</Name>
     <Kind>Adjective</Kind>
     <Tags />
-  </Modifier>
-  <Modifier>
-    <Submodifiers />
-    <Name>Well Thought-Out</Name>
-    <Kind>Adjective</Kind>
-    <Tags>
-      <string>good</string>
-    </Tags>
   </Modifier>
   <Modifier>
     <Submodifiers />
@@ -2266,12 +2266,6 @@
   </Modifier>
   <Modifier>
     <Submodifiers />
-    <Name>Writhing</Name>
-    <Kind>Adjective</Kind>
-    <Tags />
-  </Modifier>
-  <Modifier>
-    <Submodifiers />
     <Name>Wobbly</Name>
     <Kind>Adjective</Kind>
     <Tags />
@@ -2283,6 +2277,12 @@
     <Tags>
       <string>bad</string>
     </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Writhing</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
   </Modifier>
   <Modifier>
     <Submodifiers />
@@ -2787,6 +2787,14 @@
   <Modifier>
     <Submodifiers />
     <Name>Helplessness</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Hey Fuck You</Name>
     <Kind>OfX</Kind>
     <Tags>
       <string>bad</string>
@@ -3444,24 +3452,6 @@
   </Modifier>
   <Modifier>
     <Submodifiers />
-    <Name>Swag</Name>
-    <Kind>OfX</Kind>
-    <Tags />
-  </Modifier>
-  <Modifier>
-    <Submodifiers />
-    <Name>Swagger</Name>
-    <Kind>OfX</Kind>
-    <Tags />
-  </Modifier>
-  <Modifier>
-    <Submodifiers />
-    <Name>Sweet Revenge</Name>
-    <Kind>OfX</Kind>
-    <Tags />
-  </Modifier>
-  <Modifier>
-    <Submodifiers />
     <Name>Sundering</Name>
     <Kind>OfX</Kind>
     <Tags />
@@ -3474,7 +3464,25 @@
   </Modifier>
   <Modifier>
     <Submodifiers />
+    <Name>Swag</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Swagger</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
     <Name>Sweet Dance Moves</Name>
+    <Kind>OfX</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
+    <Submodifiers />
+    <Name>Sweet Revenge</Name>
     <Kind>OfX</Kind>
     <Tags />
   </Modifier>
@@ -3985,12 +3993,5 @@
     <Name>Wrath</Name>
     <Kind>OfX</Kind>
     <Tags />
-  </Modifier>
-  <Modifier>
-    <Name>Hey Fuck You</Name>
-    <Kind>OfX</Kind>
-    <Tags>
-      <string>bad</string>
-    </Tags>
   </Modifier>
 </ArrayOfModifier>

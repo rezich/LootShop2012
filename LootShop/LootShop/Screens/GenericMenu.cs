@@ -12,7 +12,7 @@ namespace LootShop {
 		public string Title;
 		public string Description;
 		private List<Entry> entries = new List<Entry> {
-			new Entry("Thing 1 üÜ"),
+			new Entry("Thing 1"),
 			new Entry("Thing 2"),
 			new Entry("Thing 3")
 		};

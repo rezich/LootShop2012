@@ -91,6 +91,7 @@ namespace LootMaker {
 
 		private void btnLoad_Click(object sender, RoutedEventArgs e) {
 			LootMaker.Modifier2.ListType.Load(@"..\..\..\LootSystem\Modifiers.xml");
+			btnSave.IsEnabled = true;
 		}
 
 		private void CommandBinding_ModifierGood(object sender, ExecutedRoutedEventArgs e) {
@@ -136,7 +137,18 @@ namespace LootMaker {
 		}
 
 		private void btnModifiersSort_Click(object sender, RoutedEventArgs e) {
-			Modifier2.List.Sort(x => x.Name);
+			List<Modifier2> adjectives = (from adj in Modifier2.List
+										 where adj.Kind == Item.Modifier.Type.Adjective
+										 orderby adj.Name
+										 select adj).ToList<Modifier2>();
+			List<Modifier2> ofX = (from adj in Modifier2.List
+								   where adj.Kind == Item.Modifier.Type.OfX
+								   orderby adj.Name
+								   select adj).ToList<Modifier2>();
+			Modifier2.List.Clear();
+			foreach (Modifier2 adj in adjectives) Modifier2.List.Add(adj);
+			foreach (Modifier2 x in ofX) Modifier2.List.Add(x);
+			//Modifier2.List.Sort(x => x.Name);
 		}
 	}
 
