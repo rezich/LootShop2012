@@ -281,7 +281,7 @@ namespace LootSystem {
 			}
 
 		}
-		public class Modifier : INotifyPropertyChanged {
+		public class Modifier : INotifyPropertyChanged, IComparable {
 			[XmlType("ItemModifierType")]
 			public enum Type {
 				Adjective,
@@ -314,6 +314,12 @@ namespace LootSystem {
 			//public static Item.Modifier.ListType List = new Item.Modifier.ListType();
 
 			public static List<Modifier> List = new List<Modifier>();
+
+			public int CompareTo(object obj) {
+				Modifier mod = obj as Modifier;
+				if (mod == null) throw new ArgumentException("Object is not Modifer");
+				return Name.CompareTo(mod.Name);
+			}
 
 			public Modifier(string name, Item.Modifier.Type kind, List<string> tags) {
 				Name = name;

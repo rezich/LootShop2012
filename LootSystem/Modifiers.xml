@@ -3986,4 +3986,11 @@
     <Kind>OfX</Kind>
     <Tags />
   </Modifier>
+  <Modifier>
+    <Name>Hey Fuck You</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>bad</string>
+    </Tags>
+  </Modifier>
 </ArrayOfModifier>

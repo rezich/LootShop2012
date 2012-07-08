@@ -134,6 +134,10 @@ namespace LootMaker {
 			tbModifierName.Focus();
 			tbModifierName.SelectAll();
 		}
+
+		private void btnModifiersSort_Click(object sender, RoutedEventArgs e) {
+			Modifier2.List.Sort(x => x.Name);
+		}
 	}
 
 	// The following code courtesy http://michlg.wordpress.com/2010/01/16/listbox-automatically-scroll-currentitem-into-view/

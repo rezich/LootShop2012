@@ -35,6 +35,7 @@ namespace LootMaker {
 		}
 
 		public class ListType : ObservableCollection<LootMaker.Modifier2> {
+
 			public static void Load(string fileName) {
 				Modifier2.List.Clear();
 				Modifier2.ListType loadedData = Modifier2.ListType.LoadFromFile(fileName);
@@ -77,6 +78,25 @@ namespace LootMaker {
 				StreamWriter writer = new StreamWriter(fileName);
 				writer.Write(content);
 				writer.Close();
+			}
+		}
+	}
+
+	public static class ListExtension {
+		public static void Sort<TSource, TKey>(this ObservableCollection<TSource> source, Func<TSource, TKey> keySelector) {
+			if (source == null) return;
+
+			Comparer<TKey> comparer = Comparer<TKey>.Default;
+
+			for (int i = source.Count - 1; i >= 0; i--) {
+				for (int j = 1; j <= i; j++) {
+					TSource o1 = source[j - 1];
+					TSource o2 = source[j];
+					if (comparer.Compare(keySelector(o1), keySelector(o2)) > 0) {
+						source.Remove(o1);
+						source.Insert(j, o1);
+					}
+				}
 			}
 		}
 	}
