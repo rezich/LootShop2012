@@ -1761,6 +1761,11 @@
     <Tags />
   </Modifier>
   <Modifier>
+    <Name>Snarky</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
     <Submodifiers />
     <Name>So Comon It Hurts</Name>
     <Kind>Adjective</Kind>

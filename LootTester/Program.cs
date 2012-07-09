@@ -66,10 +66,10 @@ namespace LootTester {
 
 			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in i.Attributes) {
 				string key = new String(' ', padding) + kvp.Key.ToString().DeCamelCase();
+				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
 				Console.ForegroundColor = ConsoleColor.Gray;
 				Console.Write(leftPadding + bar + key);
 				Console.ForegroundColor = ConsoleColor.White;
-				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
 				Console.Write(num.PadLeft(width - key.Length - padding - 2) + new String(' ', padding));
 				Console.ForegroundColor = ConsoleColor.Gray;
 				Console.Write(bar + "\n");

@@ -1,0 +1,68 @@
+﻿Damage
+Attacks Per Second
+Armor
+
+Strength
+Dexterity
+Intelligence
+Vitality
+
+Loot Find
+Gold Find
+
+Attack Speed
+
+Fire Damage
+Resist Fire
+Lightning Damage
+Resist Lightning
+Chance To Poison On Hit
+Resist Poison
+Chance To Disease On Hit
+Resist Disease
+Chance To Bleed on Hit
+Resist Bleed
+Chance To Slow On Hit
+Resist Slow
+Chance To Stun On Hit
+Resist Stun
+
+Resist All
+
+Chain Lightning
+Cleave
+Increased Attack Radius
+Increased Melee Reach
+Extra Projectile Fired
+
+Emit Particles
+Glow Character
+Color Trail
+Attack Color
+Scale Character
+Scale Character's Head
+
+Gib On Kill
+Skeletonize On Kill
+Disintegrate On Kill
+
+Life On Kill
+Life On Hit
+Mana On Kill
+Mana On Hit
+Lifeleach
+Manaleach
+Manashield
+
+Indestructable
+Ethereal
+Self Repair
+
+Chance To Revive Enemy As Allied Zombie On Kill
+Chance To Summon A Skeleton On Hit
+
+Chance To Damage Self On Hit
+Life Per Second
+Mana Per Second
+
+Chance To Reduce Armor On Hit

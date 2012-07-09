@@ -217,25 +217,27 @@ namespace LootSystem {
 			public bool Percentage;
 			public bool Addition;
 
+			public string NonstandardListing;
+
 			public static List<Attribute> List = new List<Attribute>();
 
 			public static void Initialize() {
 				//																				Base	Mod+	Mod*	LBase	LMod+	LMod*	RBase	RMod+	RMod*
-				List.Add(new Attribute(Type.Damage,				true,	true,	false,	false,		0,		0,		0,		15,		14,		0,		15,		15,		0));
-				List.Add(new Attribute(Type.AttacksPerSecond,	true,	false,	false,	false,		1.5,	1,		0,		0,		0,		0,		0,		0,		0));
-				List.Add(new Attribute(Type.Armor,				true,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
-				List.Add(new Attribute(Type.Strength,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
-				List.Add(new Attribute(Type.Dexterity,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
-				List.Add(new Attribute(Type.Intelligence,		false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
-				List.Add(new Attribute(Type.Vitality,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0));
-				List.Add(new Attribute(Type.MagicFind,			false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0));
-				List.Add(new Attribute(Type.GoldFind,			false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0));
-				List.Add(new Attribute(Type.AttackSpeed,		false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0));
-				List.Add(new Attribute(Type.ResistFire,			false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0));
-				List.Add(new Attribute(Type.ResistLightning,	false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0));
-				List.Add(new Attribute(Type.ResistPoison,		false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0));
-				List.Add(new Attribute(Type.LifeOnHit,			false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0));
-				List.Add(new Attribute(Type.ReplenishLife,		false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0));
+				List.Add(new Attribute(Type.Damage,				true,	true,	false,	false,		0,		0,		0,		15,		14,		0,		15,		15,		0, null));
+				List.Add(new Attribute(Type.AttacksPerSecond,	true,	false,	false,	false,		1.5,	1,		0,		0,		0,		0,		0,		0,		0, null));
+				List.Add(new Attribute(Type.Armor,				true,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.Strength,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.Dexterity,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.Intelligence,		false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.Vitality,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.MagicFind,			false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
+				List.Add(new Attribute(Type.GoldFind,			false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
+				List.Add(new Attribute(Type.AttackSpeed,		false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
+				List.Add(new Attribute(Type.ResistFire,			false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
+				List.Add(new Attribute(Type.ResistLightning,	false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
+				List.Add(new Attribute(Type.ResistPoison,		false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
+				List.Add(new Attribute(Type.LifeOnHit,			false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0, null));
+				List.Add(new Attribute(Type.ReplenishLife,		false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0, "Replenishes @ life on hit"));
 			}
 
 			public static Attribute Lookup(Attribute.Type type) {
@@ -260,7 +262,7 @@ namespace LootSystem {
 				return Math.Round(val, (Rounded ? 0 : 2));
 			}
 
-			public Attribute(Type name, bool baseStat, bool rounded, bool addition, bool percentage, double baseValue, double modAdd, double modMultiply, double levelBaseValue, double levelModAdd, double levelModMultiply, double rarityBaseValue, double rarityModAdd, double rarityModMultiply) {
+			public Attribute(Type name, bool baseStat, bool rounded, bool addition, bool percentage, double baseValue, double modAdd, double modMultiply, double levelBaseValue, double levelModAdd, double levelModMultiply, double rarityBaseValue, double rarityModAdd, double rarityModMultiply, string nonstandardListing) {
 				Name = name;
 				BaseStat = baseStat;
 				Rounded = rounded;
@@ -278,6 +280,8 @@ namespace LootSystem {
 				RarityBaseValue = rarityBaseValue;		// y += rarity * x
 				RarityModAdd = rarityModAdd;			// y += (rarity * x) - x + (x * 2)
 				RarityModMultiply = rarityModMultiply;	// ???
+
+				NonstandardListing = nonstandardListing;
 			}
 
 		}
