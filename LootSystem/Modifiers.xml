@@ -1260,14 +1260,6 @@
   </Modifier>
   <Modifier>
     <Submodifiers />
-    <Name>Offensively Prehensile</Name>
-    <Kind>Adjective</Kind>
-    <Tags>
-      <string>bad</string>
-    </Tags>
-  </Modifier>
-  <Modifier>
-    <Submodifiers />
     <Name>Outrageous</Name>
     <Kind>Adjective</Kind>
     <Tags />
@@ -1761,6 +1753,7 @@
     <Tags />
   </Modifier>
   <Modifier>
+    <Submodifiers />
     <Name>Snarky</Name>
     <Kind>Adjective</Kind>
     <Tags />
@@ -1874,6 +1867,11 @@
     <Tags>
       <string>bad</string>
     </Tags>
+  </Modifier>
+  <Modifier>
+    <Name>Subtly Phallic</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
   </Modifier>
   <Modifier>
     <Submodifiers />
@@ -3382,6 +3380,13 @@
     <Name>Sorcery</Name>
     <Kind>OfX</Kind>
     <Tags />
+  </Modifier>
+  <Modifier>
+    <Name>Soulflaying</Name>
+    <Kind>OfX</Kind>
+    <Tags>
+      <string>good</string>
+    </Tags>
   </Modifier>
   <Modifier>
     <Submodifiers />
