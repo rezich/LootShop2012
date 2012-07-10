@@ -199,6 +199,12 @@ namespace LootSystem {
 				ResistPoison,
 				LifeOnHit,
 				ReplenishLife,
+				Indestructible,
+				Ethereal,
+				GibOnKill,
+				SelfRepairing,
+				SkeletonizeOnKill,
+				DisintegrateOnKill
 			}
 
 			public Type Name;
@@ -237,7 +243,13 @@ namespace LootSystem {
 				List.Add(new Attribute(Type.ResistLightning,	false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
 				List.Add(new Attribute(Type.ResistPoison,		false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
 				List.Add(new Attribute(Type.LifeOnHit,			false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0, null));
-				List.Add(new Attribute(Type.ReplenishLife,		false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0, "Replenishes @ life on hit"));
+				List.Add(new Attribute(Type.ReplenishLife,		false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0, null));
+				List.Add(new Attribute(Type.Indestructible,		false,	false,	false,	false,		0,		0,		0,		0,		0,		0,		0,		0,		0, "Indestructible"));
+				List.Add(new Attribute(Type.Ethereal,			false,	false,	false,	false,		0,		0,		0,		0,		0,		0,		0,		0,		0, "Ethereal"));
+				List.Add(new Attribute(Type.SelfRepairing,		false,	false,	false,	false,		0,		0,		0,		0,		0,		0,		0,		0,		0, "Self-Repairing"));
+				List.Add(new Attribute(Type.GibOnKill,			false,	true,	true,	true,		50,		50,		0,		0,		0,		0,		0,		0,		0, "@ chance to gib on kill"));
+				List.Add(new Attribute(Type.SkeletonizeOnKill,	false,	true,	true,	true,		50,		50,		0,		0,		0,		0,		0,		0,		0, "@ chance to skeletonize on kill"));
+				List.Add(new Attribute(Type.DisintegrateOnKill,	false,	true,	true,	true,		50,		50,		0,		0,		0,		0,		0,		0,		0, "@ chance to disintegrate on kill"));
 			}
 
 			public static Attribute Lookup(Attribute.Type type) {
@@ -432,6 +444,19 @@ namespace LootSystem {
 		public RarityLevel Rarity;
 		public int Level;
 		public Kind Variety;
+
+		public Dictionary<Attribute.Type, double> StandardAttributes {
+			get {
+				var items = Attributes.Where(x => Attribute.Lookup(x.Key).NonstandardListing == null).ToDictionary(x => x.Key, x => x.Value);
+				return (Dictionary<Attribute.Type, double>)items;
+			}
+		}
+		public Dictionary<Attribute.Type, double> NonstandardAttributes {
+			get {
+				var items = Attributes.Where(x => Attribute.Lookup(x.Key).NonstandardListing != null).ToDictionary(x => x.Key, x => x.Value);
+				return (Dictionary<Attribute.Type, double>)items;
+			}
+		}
 
 		public static void Initialize() {
 			Item.Modifier.Load();

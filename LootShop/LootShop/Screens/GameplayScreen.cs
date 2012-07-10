@@ -237,12 +237,12 @@ namespace LootShop {
 
 			SpriteFont lootFont = UIFontSmall;
 
-			int width = 285;
+			int width = 300;
 
 			origin.X -= width / 2;
 
 			int lineHeight = Convert.ToInt32(lootFont.MeasureString("W").Y * 0.8);
-			int padding = 35;
+			int padding = 40;
 			int line = 0;
 			TextBlock name = new TextBlock(item.Name.ToUpper());
 			List<string> nameList = name.WrappedText(lootFont, width);
@@ -257,7 +257,9 @@ namespace LootShop {
 			spriteBatch.DrawString(lootFont, item.Variety.Slot.ToString().DeCamelCase(), origin + new Vector2(width, line * lineHeight), Color.White, 0.0f, new Vector2(lootFont.MeasureString(item.Variety.Slot.ToString().DeCamelCase()).X, 0), 1.0f, SpriteEffects.None, 1.0f);
 			line += 2;
 
-			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in item.Attributes) {
+			// TODO: Condense this shit
+
+			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in item.StandardAttributes) {
 				string key = kvp.Key.ToString().DeCamelCase();
 				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
 				if (Item.Attribute.Lookup(kvp.Key).NonstandardListing == null) {
@@ -266,11 +268,27 @@ namespace LootShop {
 				}
 				else {
 					string key2 = Item.Attribute.Lookup(kvp.Key).NonstandardListing.Replace("@", num);
-					spriteBatch.DrawString(lootFont, key2, origin + new Vector2(padding, line * lineHeight), Color.White);
+					spriteBatch.DrawString(lootFont, key2, origin + new Vector2(width / 2, line * lineHeight), Color.White, 0.0f, new Vector2(lootFont.MeasureString(key2).X, 0), 1.0f, SpriteEffects.None, 1.0f);
 				}
 				line++;
 			}
 			line++;
+
+			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in item.NonstandardAttributes) {
+				string key = kvp.Key.ToString().DeCamelCase();
+				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
+				if (Item.Attribute.Lookup(kvp.Key).NonstandardListing == null) {
+					spriteBatch.DrawString(lootFont, key, origin + new Vector2(padding, line * lineHeight), Color.White);
+					spriteBatch.DrawString(lootFont, num, origin + new Vector2(width - padding, line * lineHeight), Color.White, 0.0f, new Vector2(lootFont.MeasureString(num).X / 2, 0), 1.0f, SpriteEffects.None, 1.0f);
+				}
+				else {
+					string key2 = Item.Attribute.Lookup(kvp.Key).NonstandardListing.Replace("@", num);
+					spriteBatch.DrawString(lootFont, key2, origin + new Vector2(width / 2, line * lineHeight), Color.White, 0.0f, new Vector2(lootFont.MeasureString(key2).X / 2, 0), 1.0f, SpriteEffects.None, 1.0f);
+				}
+				line++;
+			}
+			if (item.NonstandardAttributes.Count > 0) line++;
+
 			string reqLevel = "Required Level: " + item.Level;
 			spriteBatch.DrawString(lootFont, reqLevel, origin + new Vector2(width / 2, line * lineHeight), Color.Gray, 0.0f, new Vector2(lootFont.MeasureString(reqLevel).X / 2, 0), 1.0f, SpriteEffects.None, 1.0f);
 			

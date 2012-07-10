@@ -50,13 +50,13 @@ Life On Kill
 Life On Hit
 Mana On Kill
 Mana On Hit
-Lifeleach
-Manaleach
+Lifeleech
+Manaleech
 Manashield
 
-Indestructable
+Indestructible
 Ethereal
-Self Repair
+Self Repairing
 
 Chance To Revive Enemy As Allied Zombie On Kill
 Chance To Summon A Skeleton On Hit
