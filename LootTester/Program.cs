@@ -64,7 +64,7 @@ namespace LootTester {
 			Console.WriteLine(leftPadding + empty);
 			Console.ResetColor();
 
-			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in i.Attributes) {
+			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in i.StandardAttributes) {
 				string key = new String(' ', padding) + kvp.Key.ToString().DeCamelCase();
 				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
 				Console.ForegroundColor = ConsoleColor.Gray;
@@ -75,7 +75,27 @@ namespace LootTester {
 				Console.Write(bar + "\n");
 				Console.ResetColor();
 			}
+
 			Console.WriteLine(leftPadding + empty);
+
+			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in i.NonstandardAttributes) {
+				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
+				List<string> key = Item.Attribute.Lookup(kvp.Key).NonstandardListing.Replace("@", num).Wrap(width - 4);
+
+				foreach (string s in key) {
+					Console.ForegroundColor = ConsoleColor.Gray;
+					Console.Write(leftPadding + bar + " ");
+					Console.ForegroundColor = ConsoleColor.White;
+					Console.Write(s.PadCenter(width - 4, ' '));
+					Console.ForegroundColor = ConsoleColor.Gray;
+					Console.Write(" " + bar + "\n");
+				}
+
+				Console.ResetColor();
+			}
+
+			if (i.NonstandardAttributes.Count > 0) Console.WriteLine(leftPadding + empty);
+
 			Console.ForegroundColor = ConsoleColor.Gray;
 			Console.Write(leftPadding + bar);
 			Console.ForegroundColor = ConsoleColor.DarkGray;

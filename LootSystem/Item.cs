@@ -191,7 +191,7 @@ namespace LootSystem {
 				Dexterity,
 				Intelligence,
 				Vitality,
-				MagicFind,
+				LootFind,
 				GoldFind,
 				AttackSpeed,
 				ResistFire,
@@ -218,6 +218,7 @@ namespace LootSystem {
 			public double RarityBaseValue;
 			public double RarityModAdd;
 			public double RarityModMultiply;
+			public bool Randomable;
 
 			public bool Rounded;
 			public bool Percentage;
@@ -228,28 +229,28 @@ namespace LootSystem {
 			public static List<Attribute> List = new List<Attribute>();
 
 			public static void Initialize() {
-				//																				Base	Mod+	Mod*	LBase	LMod+	LMod*	RBase	RMod+	RMod*
-				List.Add(new Attribute(Type.Damage,				true,	true,	false,	false,		0,		0,		0,		15,		14,		0,		15,		15,		0, null));
-				List.Add(new Attribute(Type.AttacksPerSecond,	true,	false,	false,	false,		1.5,	1,		0,		0,		0,		0,		0,		0,		0, null));
-				List.Add(new Attribute(Type.Armor,				true,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
-				List.Add(new Attribute(Type.Strength,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
-				List.Add(new Attribute(Type.Dexterity,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
-				List.Add(new Attribute(Type.Intelligence,		false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
-				List.Add(new Attribute(Type.Vitality,			false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
-				List.Add(new Attribute(Type.MagicFind,			false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
-				List.Add(new Attribute(Type.GoldFind,			false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
-				List.Add(new Attribute(Type.AttackSpeed,		false,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
-				List.Add(new Attribute(Type.ResistFire,			false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
-				List.Add(new Attribute(Type.ResistLightning,	false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
-				List.Add(new Attribute(Type.ResistPoison,		false,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
-				List.Add(new Attribute(Type.LifeOnHit,			false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0, null));
-				List.Add(new Attribute(Type.ReplenishLife,		false,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0, null));
-				List.Add(new Attribute(Type.Indestructible,		false,	false,	false,	false,		0,		0,		0,		0,		0,		0,		0,		0,		0, "Indestructible"));
-				List.Add(new Attribute(Type.Ethereal,			false,	false,	false,	false,		0,		0,		0,		0,		0,		0,		0,		0,		0, "Ethereal"));
-				List.Add(new Attribute(Type.SelfRepairing,		false,	false,	false,	false,		0,		0,		0,		0,		0,		0,		0,		0,		0, "Self-Repairing"));
-				List.Add(new Attribute(Type.GibOnKill,			false,	true,	true,	true,		50,		50,		0,		0,		0,		0,		0,		0,		0, "@ chance to gib on kill"));
-				List.Add(new Attribute(Type.SkeletonizeOnKill,	false,	true,	true,	true,		50,		50,		0,		0,		0,		0,		0,		0,		0, "@ chance to skeletonize on kill"));
-				List.Add(new Attribute(Type.DisintegrateOnKill,	false,	true,	true,	true,		50,		50,		0,		0,		0,		0,		0,		0,		0, "@ chance to disintegrate on kill"));
+				//																						Base	Mod+	Mod*	LBase	LMod+	LMod*	RBase	RMod+	RMod*
+				List.Add(new Attribute(Type.Damage,				true,	false,	true,	false,	false,		0,		0,		0,		15,		14,		0,		15,		15,		0, null));
+				List.Add(new Attribute(Type.AttacksPerSecond,	true,	false,	false,	false,	false,		1.5,	1,		0,		0,		0,		0,		0,		0,		0, null));
+				List.Add(new Attribute(Type.Armor,				true,	false,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.Strength,			false,	true,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.Dexterity,			false,	true,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.Intelligence,		false,	true,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.Vitality,			false,	true,	true,	false,	false,		0,		0,		0,		8,		7,		0,		8,		7,		0, null));
+				List.Add(new Attribute(Type.LootFind,			false,	true,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
+				List.Add(new Attribute(Type.GoldFind,			false,	true,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
+				List.Add(new Attribute(Type.AttackSpeed,		false,	true,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
+				List.Add(new Attribute(Type.ResistFire,			false,	true,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
+				List.Add(new Attribute(Type.ResistLightning,	false,	true,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
+				List.Add(new Attribute(Type.ResistPoison,		false,	true,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
+				List.Add(new Attribute(Type.LifeOnHit,			false,	true,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0, null));
+				List.Add(new Attribute(Type.ReplenishLife,		false,	true,	true,	false,	false,		0,		0,		0,		4,		4,		0,		4,		4,		0, null));
+				List.Add(new Attribute(Type.Indestructible,		false,	true,	false,	false,	false,		0,		0,		0,		0,		0,		0,		0,		0,		0, "Indestructible"));
+				List.Add(new Attribute(Type.Ethereal,			false,	true,	false,	false,	false,		0,		0,		0,		0,		0,		0,		0,		0,		0, "Ethereal"));
+				List.Add(new Attribute(Type.SelfRepairing,		false,	true,	false,	false,	false,		0,		0,		0,		0,		0,		0,		0,		0,		0, "Self-Repairing"));
+				List.Add(new Attribute(Type.GibOnKill,			false,	true,	true,	true,	true,		50,		50,		0,		0,		0,		0,		0,		0,		0, "@ chance to gib on kill"));
+				List.Add(new Attribute(Type.SkeletonizeOnKill,	false,	true,	true,	true,	true,		50,		50,		0,		0,		0,		0,		0,		0,		0, "@ chance to skeletonize on kill"));
+				List.Add(new Attribute(Type.DisintegrateOnKill,	false,	true,	true,	true,	true,		50,		50,		0,		0,		0,		0,		0,		0,		0, "@ chance to disintegrate on kill"));
 			}
 
 			public static Attribute Lookup(Attribute.Type type) {
@@ -274,9 +275,10 @@ namespace LootSystem {
 				return Math.Round(val, (Rounded ? 0 : 2));
 			}
 
-			public Attribute(Type name, bool baseStat, bool rounded, bool addition, bool percentage, double baseValue, double modAdd, double modMultiply, double levelBaseValue, double levelModAdd, double levelModMultiply, double rarityBaseValue, double rarityModAdd, double rarityModMultiply, string nonstandardListing) {
+			public Attribute(Type name, bool baseStat, bool randomable, bool rounded, bool addition, bool percentage, double baseValue, double modAdd, double modMultiply, double levelBaseValue, double levelModAdd, double levelModMultiply, double rarityBaseValue, double rarityModAdd, double rarityModMultiply, string nonstandardListing) {
 				Name = name;
 				BaseStat = baseStat;
+				Randomable = randomable;
 				Rounded = rounded;
 				Percentage = percentage;
 				Addition = addition;
@@ -436,8 +438,29 @@ namespace LootSystem {
 		public class Submodifier {
 			public List<Type> Types;
 			public List<Modification> Modifications;
+
+			public Submodifier(List<Type> types, List<Modification> modifications) {
+				Types = types;
+				Modifications = modifications;
+			}
+			public Submodifier() {
+				Types = new List<Type>();
+				Modifications = new List<Modification>();
+			}
 		}
 		public class Modification {
+			//[XmlAttribute("ModifiedAttribute")]
+			Attribute.Type Attribute;
+			bool Guaranteed;
+
+			public Modification(Attribute.Type attribute, bool guaranteed) {
+				Attribute = attribute;
+				Guaranteed = guaranteed;
+			}
+			public Modification() {
+				Attribute = Item.Attribute.Type.LootFind;
+				Guaranteed = false;
+			}
 		}
 
 		public Dictionary<Attribute.Type, double> Attributes = new Dictionary<Attribute.Type, double>();
