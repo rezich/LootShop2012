@@ -499,15 +499,23 @@ namespace LootSystem {
 			i.Variety = Kind.Lookup(selectedKind);
 
 			// Choose a random rarity
-			// TODO: Weight this shit
 			Item.RarityLevel.Type[] rarityValues = (Item.RarityLevel.Type[])EnumHelper.GetValues<Item.RarityLevel.Type>();
 			Item.RarityLevel.Type selectedRarity = RarityLevel.Type.Normal;
 
+			// TODO: Replace this shitty thing with a real thing
+			int rand = r.Next(100);
+			if (rand <= 25) selectedRarity = RarityLevel.Type.Garbage;
+			if (rand > 25 && rand <= 75) selectedRarity = RarityLevel.Type.Normal;
+			if (rand > 75 && rand <= 95) selectedRarity = RarityLevel.Type.Magic;
+			if (rand > 95 && rand <= 98) selectedRarity = RarityLevel.Type.Rare;
+			if (rand > 98) selectedRarity = RarityLevel.Type.Legendary;
+
+
 			// Pick a random rarity, but if the type of item is one with no base stats (ring, amulet),
 			// keep rolling until you get a "Magic" one (blue or higher)
-			do {
+			/*do {
 				selectedRarity = rarityValues[r.Next(0, rarityValues.Length)];
-			} while (i.Variety.BaseAttributes.Count == 0 && !RarityLevel.Lookup(selectedRarity).Magic);
+			} while (i.Variety.BaseAttributes.Count == 0 && !RarityLevel.Lookup(selectedRarity).Magic);*/
 
 			i.Rarity = RarityLevel.Lookup(selectedRarity);
 

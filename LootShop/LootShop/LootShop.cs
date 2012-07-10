@@ -15,6 +15,7 @@ namespace LootShop {
 		GraphicsDeviceManager graphics;
 		ScreenManager screenManager;
 		public static SpriteFont UIFontSmall;
+		public static Texture2D Pixel;
 
 		static readonly string[] preloadAssets = {
         };
@@ -45,6 +46,7 @@ namespace LootShop {
 				Content.Load<object>(asset);
 			}
 			UIFontSmall = Content.Load<SpriteFont>("UIFontSmall");
+			Pixel = Content.Load<Texture2D>("blank");
 		}
 
 		protected override void UnloadContent() {
