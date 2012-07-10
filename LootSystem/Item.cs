@@ -156,11 +156,11 @@ namespace LootSystem {
 
 			public static void Initialize() {
 				List.Add(new RarityLevel(Type.Garbage,		new Range(0, 0),	new Range(-0.5, 0),		false));
-				List.Add(new RarityLevel(Type.Normal,		new Range(0, 0),	new Range(0, 0.5),	false));
+				List.Add(new RarityLevel(Type.Normal,		new Range(0, 0),	new Range(0, 0.5),		false));
 				List.Add(new RarityLevel(Type.Magic,		new Range(2, 4),	new Range(0.25, 0.75),	true));
-				List.Add(new RarityLevel(Type.Rare,			new Range(3, 5),	new Range(1.5, 2.0),	true));
-				List.Add(new RarityLevel(Type.Legendary,	new Range(4, 6),	new Range(1.75, 2.5),	true));
-				List.Add(new RarityLevel(Type.Unique,		new Range(5, 7),	new Range(2.5, 3),		true));
+				List.Add(new RarityLevel(Type.Rare,			new Range(4, 6),	new Range(1.5, 2.0),	true));
+				List.Add(new RarityLevel(Type.Legendary,	new Range(6, 9),	new Range(1.75, 2.5),	true));
+				List.Add(new RarityLevel(Type.Unique,		new Range(8, 10),	new Range(2.5, 3),		true));
 			}
 
 			public static RarityLevel Lookup(RarityLevel.Type type) {
@@ -194,6 +194,8 @@ namespace LootSystem {
 				LootFind,
 				GoldFind,
 				AttackSpeed,
+				ResistBees,
+				ResistCold,
 				ResistFire,
 				ResistLightning,
 				ResistPoison,
@@ -240,6 +242,8 @@ namespace LootSystem {
 				List.Add(new Attribute(Type.LootFind,			false,	true,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
 				List.Add(new Attribute(Type.GoldFind,			false,	true,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
 				List.Add(new Attribute(Type.AttackSpeed,		false,	true,	true,	true,	true,		0,		0,		0,		1,		1,		0,		1,		1,		0, null));
+				List.Add(new Attribute(Type.ResistBees,			false,	true,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
+				List.Add(new Attribute(Type.ResistCold,			false,	true,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
 				List.Add(new Attribute(Type.ResistFire,			false,	true,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
 				List.Add(new Attribute(Type.ResistLightning,	false,	true,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
 				List.Add(new Attribute(Type.ResistPoison,		false,	true,	true,	false,	false,		20,		10,		0,		0,		0,		0,		0,		10,		0, null));
@@ -488,16 +492,6 @@ namespace LootSystem {
 			Kind.Initialize();
 		}
 		public static Item Generate(int level, Random r) {
-			Item i = new Item();
-			i.Level = level;
-
-			// Choose a random item kind
-			//Item.Type[] kindValues = (Item.Type[])Enum.GetValues(typeof(Item.Type));
-			Item.Type[] kindValues = (Item.Type[])EnumHelper.GetValues<Item.Type>();
-			
-			Item.Type selectedKind = kindValues[r.Next(0, kindValues.Length)];
-			i.Variety = Kind.Lookup(selectedKind);
-
 			// Choose a random rarity
 			Item.RarityLevel.Type[] rarityValues = (Item.RarityLevel.Type[])EnumHelper.GetValues<Item.RarityLevel.Type>();
 			Item.RarityLevel.Type selectedRarity = RarityLevel.Type.Normal;
@@ -516,8 +510,25 @@ namespace LootSystem {
 			/*do {
 				selectedRarity = rarityValues[r.Next(0, rarityValues.Length)];
 			} while (i.Variety.BaseAttributes.Count == 0 && !RarityLevel.Lookup(selectedRarity).Magic);*/
+			return Generate(level, selectedRarity, r);
+		}
+		public static Item Generate(int level, RarityLevel.Type rarity, Random r) {
+			Item i = new Item();
+			i.Level = level;
 
-			i.Rarity = RarityLevel.Lookup(selectedRarity);
+			// Choose a random item kind
+			//Item.Type[] kindValues = (Item.Type[])Enum.GetValues(typeof(Item.Type));
+			
+			Item.Type[] kindValues =  (Item.Type[])EnumHelper.GetValues<Item.Type>();
+
+			Item.Type selectedKind = Type.Armor;
+			do {
+				selectedKind = kindValues[r.Next(0, kindValues.Length)];
+			}
+			while (Item.Kind.Lookup(selectedKind).BaseAttributes.Count == 0 && RarityLevel.Lookup(rarity).Magic);
+			i.Variety = Kind.Lookup(selectedKind);
+
+			i.Rarity = RarityLevel.Lookup(rarity);
 
 			List<Item.Attribute> attrs = new List<Item.Attribute>();
 
