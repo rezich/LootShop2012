@@ -15,7 +15,7 @@ namespace LootShop {
 
 		public override void Initialize() {
 			item = Item.Generate(LootShop.Random.Next(1, 50), LootShop.Random);
-			testBlock = new TextBlock("Press #A_BUTTON# to generate some phat lewtz.");
+			testBlock = new TextBlock("Press #A_BUTTON# to generate some phat lewtz. #NL# Press #START_BUTTON# to return to the title screen.");
 		}
 
 		public override void HandleInput(InputState input) {

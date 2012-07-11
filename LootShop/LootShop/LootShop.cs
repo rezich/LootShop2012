@@ -17,7 +17,7 @@ namespace LootShop {
 		public SpriteFont UIFontSmall;
 		public SpriteFont UIFontMedium;
 		public Texture2D Pixel;
-		public Texture2D ButtonA;
+		public Dictionary<Buttons, Texture2D> ButtonImages = new Dictionary<Buttons, Texture2D>();
 		public static LootShop CurrentGame = null;
 		public static Random Random = new Random();
 		ScreenManager screenManager;
@@ -53,7 +53,16 @@ namespace LootShop {
 			UIFontSmall = Content.Load<SpriteFont>("UIFontSmall");
 			UIFontMedium = Content.Load<SpriteFont>("UIFontMedium");
 			Pixel = Content.Load<Texture2D>("blank");
-			ButtonA = Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonA");
+			ButtonImages.Add(Buttons.Back, Content.Load<Texture2D>(@"ButtonImages\xboxControllerBack"));
+			ButtonImages.Add(Buttons.A, Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonA"));
+			ButtonImages.Add(Buttons.B, Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonB"));
+			ButtonImages.Add(Buttons.X, Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonX"));
+			ButtonImages.Add(Buttons.Y, Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonY"));
+			ButtonImages.Add(Buttons.LeftShoulder, Content.Load<Texture2D>(@"ButtonImages\xboxControllerLeftShoulder"));
+			ButtonImages.Add(Buttons.LeftTrigger, Content.Load<Texture2D>(@"ButtonImages\xboxControllerLeftTrigger"));
+			ButtonImages.Add(Buttons.RightShoulder, Content.Load<Texture2D>(@"ButtonImages\xboxControllerRightShoulder"));
+			ButtonImages.Add(Buttons.RightTrigger, Content.Load<Texture2D>(@"ButtonImages\xboxControllerRightTrigger"));
+			ButtonImages.Add(Buttons.Start, Content.Load<Texture2D>(@"ButtonImages\xboxControllerStart"));
 		}
 
 		protected override void UnloadContent() {
