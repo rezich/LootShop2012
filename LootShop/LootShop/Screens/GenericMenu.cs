@@ -34,37 +34,38 @@ namespace LootShop {
 			}
 		}
 
-		public void Update(GameTime gameTime) {
+		public override void Update(GameTime gameTime) {
 			foreach (Entry e in entries) e.Selected = false;
 			entries[selectedIndex].Selected = true;
 		}
 
-		public void HandleInput(InputState input, int playerIndex) {
+		public override void HandleInput(InputState input) {
 			if (input == null)
 				throw new ArgumentNullException("input");
 
-			// Look up inputs for the active player profile.
-
-			KeyboardState keyboardState = input.CurrentKeyboardStates[playerIndex];
-			KeyboardState lastKeyboardState = input.LastKeyboardStates[playerIndex];
-			GamePadState gamePadState = input.CurrentGamePadStates[playerIndex];
-			GamePadState lastGamePadState = input.LastGamePadStates[playerIndex];
-
-			/*if (input.IsMenuDown((PlayerIndex)playerIndex)) {
+			if (input.IsMenuDown(ControllingPlayer)) {
 				selectedIndex++;
 				if (selectedIndex >= entries.Count) selectedIndex -= entries.Count;
 			}
 
-			if (input.IsMenuUp((PlayerIndex)playerIndex)) {
+			if (input.IsMenuUp(ControllingPlayer)) {
 				selectedIndex--;
 				if (selectedIndex < 0) selectedIndex += entries.Count;
-			}*/
+			}
+
+			PlayerIndex playerIndex;
+			if (input.IsMenuCancel(ControllingPlayer, out playerIndex)) {
+				ScreenManager.RemoveScreen(this);
+			}
 		}
 
-		public void Draw(SpriteBatch spriteBatch, GameTime gameTime) {
+		public override void Draw(GameTime gameTime) {
+			ScreenManager.SpriteBatch.Begin();
+			ScreenManager.SpriteBatch.Draw(LootShop.CurrentGame.Pixel, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), new Color(0f, 0f, 0f, 0.85f));
 			for (int i = 0; i < entries.Count; i++) {
-				entries[i].Draw(spriteBatch, gameTime, Origin, i);
+				entries[i].Draw(ScreenManager.SpriteBatch, gameTime, Origin, i);
 			}
+			ScreenManager.SpriteBatch.End();
 		}
 	}
 }

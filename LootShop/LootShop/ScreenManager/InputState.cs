@@ -74,6 +74,34 @@ namespace LootShop {
 			}
 		}
 
+		public bool IsMenuSelect(PlayerIndex? controllingPlayer,
+						 out PlayerIndex playerIndex) {
+			return IsNewKeyPress(Keys.Space, controllingPlayer, out playerIndex) ||
+				   IsNewKeyPress(Keys.Enter, controllingPlayer, out playerIndex) ||
+				   IsNewButtonPress(Buttons.A, controllingPlayer, out playerIndex) ||
+				   IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
+		}
+		public bool IsMenuCancel(PlayerIndex? controllingPlayer,
+								 out PlayerIndex playerIndex) {
+			return IsNewKeyPress(Keys.Escape, controllingPlayer, out playerIndex) ||
+				   IsNewButtonPress(Buttons.B, controllingPlayer, out playerIndex) ||
+				   IsNewButtonPress(Buttons.Back, controllingPlayer, out playerIndex);
+		}
+		public bool IsMenuUp(PlayerIndex? controllingPlayer) {
+			PlayerIndex playerIndex;
+
+			return IsNewKeyPress(Keys.Up, controllingPlayer, out playerIndex) ||
+				   IsNewButtonPress(Buttons.DPadUp, controllingPlayer, out playerIndex) ||
+				   IsNewButtonPress(Buttons.LeftThumbstickUp, controllingPlayer, out playerIndex);
+		}
+		public bool IsMenuDown(PlayerIndex? controllingPlayer) {
+			PlayerIndex playerIndex;
+
+			return IsNewKeyPress(Keys.Down, controllingPlayer, out playerIndex) ||
+				   IsNewButtonPress(Buttons.DPadDown, controllingPlayer, out playerIndex) ||
+				   IsNewButtonPress(Buttons.LeftThumbstickDown, controllingPlayer, out playerIndex);
+		}
+
 		public bool IsPressStart(PlayerIndex? controllingPlayer, out PlayerIndex playerIndex) {
 			return IsNewKeyPress(Keys.Space, controllingPlayer, out playerIndex) ||
 				   IsNewKeyPress(Keys.Enter, controllingPlayer, out playerIndex) ||
