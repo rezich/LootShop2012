@@ -17,6 +17,7 @@ namespace LootShop {
 		public SpriteFont UIFontSmall;
 		public SpriteFont UIFontMedium;
 		public Texture2D Pixel;
+		public Texture2D ButtonA;
 		public static LootShop CurrentGame = null;
 		public static Random Random = new Random();
 		ScreenManager screenManager;
@@ -38,13 +39,7 @@ namespace LootShop {
 
 			Components.Add(screenManager);
 
-			//screenManager.AddScreen(new TestScreen(), PlayerIndex.One);
 			screenManager.AddScreen(new TitleScreen(), null);
-
-			//screenManager.AddScreen(new GameplayScreen(), PlayerIndex.One); // TODO: make PlayerIndex null so the main menu can determine the player or whatever
-			//screenManager.AddScreen(new BackgroundScreen(), null);
-			//screenManager.AddScreen(new MainMenuScreen(), null);
-
 		}
 
 		protected override void Initialize() {
@@ -58,6 +53,7 @@ namespace LootShop {
 			UIFontSmall = Content.Load<SpriteFont>("UIFontSmall");
 			UIFontMedium = Content.Load<SpriteFont>("UIFontMedium");
 			Pixel = Content.Load<Texture2D>("blank");
+			ButtonA = Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonA");
 		}
 
 		protected override void UnloadContent() {

@@ -8,12 +8,15 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class TextBlock {
 
-	// TODO: Later split this into words or some shit
-	//       potentially in order to, for example,
-	//       have button icons in the middle of on-screen
-	//       text boxes.
+	public List<Word> Words;
 
-	public string Text;
+	public string Text {
+		get {
+			string ret = "";
+			foreach (Word w in Words) ret += w.Text + " ";
+			return ret.Trim();
+		}
+	}
 
 	public List<string> WrappedText(SpriteFont font, int width) {
 		Queue<string> words = new Queue<string>();
@@ -32,7 +35,31 @@ public class TextBlock {
 		return Text;
 	}
 
+	public void Draw(SpriteBatch spriteBatch, SpriteFont font, Vector2 position) {
+		Vector2 offset = new Vector2(0, 0);
+		foreach (Word w in Words) {
+			spriteBatch.DrawString(font, w.Text + " ", position + offset, Color.White);
+			offset.X += font.MeasureString(w.Text + " ").X;
+		}
+	}
+
 	public TextBlock(string text) {
-		Text = text;
+		Words = new List<Word>();
+		foreach (string w in text.Split(' ')) {
+			Words.Add(new Word(w));
+		}
+	}
+
+	public class Word {
+		public enum WordType {
+			Text,
+			Icon
+		}
+		public WordType Type;
+		public string Text;
+		public Word(string text) {
+			Type = WordType.Text;
+			Text = text;
+		}
 	}
 }

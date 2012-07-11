@@ -11,9 +11,11 @@ using LootSystem;
 namespace LootShop {
 	public class TestScreen : GameScreen {
 		Item item;
+		TextBlock testBlock;
 
 		public override void Initialize() {
 			item = Item.Generate(LootShop.Random.Next(1, 50), LootShop.Random);
+			testBlock = new TextBlock("Press #A_BUTTON# to generate some phat lewtz.");
 		}
 
 		public override void HandleInput(InputState input) {
@@ -26,6 +28,7 @@ namespace LootShop {
 		public override void Draw(GameTime gameTime) {
 			ScreenManager.SpriteBatch.Begin();
 			StatBlock.Draw(ScreenManager.SpriteBatch, item);
+			testBlock.Draw(ScreenManager.SpriteBatch, LootShop.CurrentGame.UIFontSmall, new Vector2(0, 0));
 			ScreenManager.SpriteBatch.End();
 		}
 	}
