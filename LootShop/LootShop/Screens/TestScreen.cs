@@ -20,8 +20,8 @@ namespace LootShop {
 
 		public override void HandleInput(InputState input) {
 			PlayerIndex playerIndex;
-			if (input.IsNewButtonPress(Buttons.A, ControllingPlayer, out playerIndex)) item = Item.Generate(LootShop.Random.Next(1, 50), LootShop.Random);
-			if (input.IsNewButtonPress(Buttons.Y, ControllingPlayer, out playerIndex)) ScreenManager.AddScreen(new TestMenu(), ControllingPlayer);
+			if (input.IsNewButtonPress(Buttons.A, ControllingPlayer, out playerIndex) || input.IsNewKeyPress(Keys.A, ControllingPlayer, out playerIndex)) item = Item.Generate(LootShop.Random.Next(1, 50), LootShop.Random);
+			if (input.IsNewButtonPress(Buttons.Y, ControllingPlayer, out playerIndex) || input.IsNewKeyPress(Keys.Y, ControllingPlayer, out playerIndex)) ScreenManager.AddScreen(new TestMenu(), ControllingPlayer);
 			if (input.IsPause(ControllingPlayer, out playerIndex)) {
 				ScreenManager.ClearScreens();
 				ScreenManager.AddScreen(new TitleScreen(), ControllingPlayer);

@@ -34,12 +34,18 @@ namespace LootShop {
 				MenuEntries.Add(new Entry("Load Game"));
 				MenuEntries.Add(new Entry("Options"));
 				MenuEntries.Add(LootTest);
-				MenuEntries.Add(new Entry("Quit"));
+				Entry itemExit = new Entry("Quit");
+				itemExit.Selected += QuitGame;
+				MenuEntries.Add(itemExit);
 		}
 
 		void StartNewGame(object sender, PlayerIndexEventArgs e) {
 			ScreenManager.ClearScreens();
 			ScreenManager.AddScreen(new TestScreen(), ControllingPlayer);
+		}
+
+		void QuitGame(object sender, PlayerIndexEventArgs e) {
+			LootShop.CurrentGame.Exit();
 		}
 	}
 }

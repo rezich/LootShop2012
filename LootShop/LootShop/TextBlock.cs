@@ -17,9 +17,7 @@ namespace LootShop {
 
 		public string Text {
 			get {
-				string ret = "";
-				foreach (Word w in Words) ret += w.Text + " ";
-				return ret.Trim();
+				return String.Join(" ", Words.Select(x => x.Text).ToArray());
 			}
 		}
 
@@ -140,6 +138,10 @@ namespace LootShop {
 				}
 				Type = WordType.Icon;
 				Icon = icon;
+			}
+
+			public override string ToString() {
+				return Text;
 			}
 		}
 	}

@@ -18,7 +18,6 @@ namespace LootShop {
 				MenuEntries.Add(new Entry("Test filler"));
 				MenuEntries.Add(new Entry("Test filler"));
 				MenuEntries.Add(new Entry("Test filler"));
-				MenuEntries.Add(new Entry("Test filler"));
 		}
 
 		void SpawnAnotherMenu(object sender, PlayerIndexEventArgs e) {
