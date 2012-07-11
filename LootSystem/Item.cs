@@ -571,26 +571,26 @@ namespace LootSystem {
 			switch (i.Rarity.Name) {
 				case RarityLevel.Type.Garbage:
 					preAdjectives = (from w in Item.Modifier.List
-									 where w.Tags.Contains("bad") && w.Kind == Modifier.Type.Adjective
+									 where w.Tags.Contains("bad") && w.Kind == Modifier.Type.Adjective && !w.Tags.Contains("unique")
 									 select w).ToList<Modifier>();
 					ofX = (from w in Item.Modifier.List
-						   where w.Tags.Contains("bad") && w.Kind == Modifier.Type.OfX
+						   where w.Tags.Contains("bad") && w.Kind == Modifier.Type.OfX && !w.Tags.Contains("unique")
 						   select w).ToList<Modifier>();
 					break;
 				case RarityLevel.Type.Normal:
 					preAdjectives = (from w in Item.Modifier.List
-									 where !w.Tags.Contains("good") && !w.Tags.Contains("bad") && w.Kind == Modifier.Type.Adjective
+									 where !w.Tags.Contains("good") && !w.Tags.Contains("bad") && w.Kind == Modifier.Type.Adjective && !w.Tags.Contains("unique")
 									 select w).ToList<Modifier>();
 					ofX = (from w in Item.Modifier.List
-						   where !w.Tags.Contains("good") && !w.Tags.Contains("bad") && w.Kind == Modifier.Type.OfX
+						   where !w.Tags.Contains("good") && !w.Tags.Contains("bad") && w.Kind == Modifier.Type.OfX && !w.Tags.Contains("unique")
 						   select w).ToList<Modifier>();
 					break;
 				default:
 					preAdjectives = (from w in Item.Modifier.List
-									 where !w.Tags.Contains("bad") && w.Kind == Modifier.Type.Adjective
+									 where !w.Tags.Contains("bad") && w.Kind == Modifier.Type.Adjective && !w.Tags.Contains("unique")
 									 select w).ToList<Modifier>();
 					ofX = (from w in Item.Modifier.List
-						   where !w.Tags.Contains("bad") && w.Kind == Modifier.Type.OfX
+						   where !w.Tags.Contains("bad") && w.Kind == Modifier.Type.OfX && !w.Tags.Contains("unique")
 						   select w).ToList<Modifier>();
 					break;
 			}

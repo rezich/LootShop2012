@@ -245,6 +245,11 @@
     </Tags>
   </Modifier>
   <Modifier>
+    <Name>Brotherly</Name>
+    <Kind>Adjective</Kind>
+    <Tags />
+  </Modifier>
+  <Modifier>
     <Submodifiers />
     <Name>Brutal</Name>
     <Kind>Adjective</Kind>
@@ -1259,6 +1264,13 @@
     </Tags>
   </Modifier>
   <Modifier>
+    <Name>Of The Brother, Brother</Name>
+    <Kind>Adjective</Kind>
+    <Tags>
+      <string>unique</string>
+    </Tags>
+  </Modifier>
+  <Modifier>
     <Submodifiers />
     <Name>Outrageous</Name>
     <Kind>Adjective</Kind>
@@ -1869,6 +1881,7 @@
     </Tags>
   </Modifier>
   <Modifier>
+    <Submodifiers />
     <Name>Subtly Phallic</Name>
     <Kind>Adjective</Kind>
     <Tags />
@@ -3382,6 +3395,7 @@
     <Tags />
   </Modifier>
   <Modifier>
+    <Submodifiers />
     <Name>Soulflaying</Name>
     <Kind>OfX</Kind>
     <Tags>
