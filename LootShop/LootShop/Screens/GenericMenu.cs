@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace LootShop {
-	public class GenericMenu {
+	public class GenericMenu : GameScreen {
 		public string Title;
 		public string Description;
 		private List<Entry> entries = new List<Entry> {

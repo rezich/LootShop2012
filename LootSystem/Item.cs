@@ -157,10 +157,10 @@ namespace LootSystem {
 			public static void Initialize() {
 				List.Add(new RarityLevel(Type.Garbage,		new Range(0, 0),	new Range(-0.5, 0),		false));
 				List.Add(new RarityLevel(Type.Normal,		new Range(0, 0),	new Range(0, 0.5),		false));
-				List.Add(new RarityLevel(Type.Magic,		new Range(2, 4),	new Range(0.25, 0.75),	true));
-				List.Add(new RarityLevel(Type.Rare,			new Range(4, 6),	new Range(1.5, 2.0),	true));
-				List.Add(new RarityLevel(Type.Legendary,	new Range(6, 9),	new Range(1.75, 2.5),	true));
-				List.Add(new RarityLevel(Type.Unique,		new Range(8, 10),	new Range(2.5, 3),		true));
+				List.Add(new RarityLevel(Type.Magic,		new Range(4, 6),	new Range(0.25, 0.75),	true));
+				List.Add(new RarityLevel(Type.Rare,			new Range(6, 8),	new Range(1.5, 2.0),	true));
+				List.Add(new RarityLevel(Type.Legendary,	new Range(8, 10),	new Range(1.75, 2.5),	true));
+				List.Add(new RarityLevel(Type.Unique,		new Range(10, 14),	new Range(2.5, 3),		true));
 			}
 
 			public static RarityLevel Lookup(RarityLevel.Type type) {

@@ -15,6 +15,7 @@ namespace LootShop {
 
 		GraphicsDeviceManager graphics;
 		public SpriteFont UIFontSmall;
+		public SpriteFont UIFontMedium;
 		public Texture2D Pixel;
 		public static LootShop CurrentGame = null;
 		public static Random Random = new Random();
@@ -55,6 +56,7 @@ namespace LootShop {
 				Content.Load<object>(asset);
 			}
 			UIFontSmall = Content.Load<SpriteFont>("UIFontSmall");
+			UIFontMedium = Content.Load<SpriteFont>("UIFontMedium");
 			Pixel = Content.Load<Texture2D>("blank");
 		}
 
