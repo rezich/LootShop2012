@@ -27,16 +27,21 @@ namespace LootShop {
 
 		public MainMenu()
 			: base(null, true, false) {
-				Entry LootTest = new Entry("Loot Test");
-				LootTest.Selected += StartNewGame;
-				MenuEntries.Add(new Entry("New Game"));
-				MenuEntries.Add(new Entry("Continue"));
-				MenuEntries.Add(new Entry("Load Game"));
-				MenuEntries.Add(new Entry("Options"));
-				MenuEntries.Add(LootTest);
-				Entry itemExit = new Entry("Quit");
-				itemExit.Selected += QuitGame;
-				MenuEntries.Add(itemExit);
+				Entry entryNewGame = new Entry("New Game", false);
+				Entry entryContinue = new Entry("Continue", false);
+				Entry entryLoadGame = new Entry("Load Game", false);
+				Entry entryOptions = new Entry("Options", false);
+				Entry entryLootTest = new Entry("Loot Test");
+				entryLootTest.Selected += StartNewGame;
+				Entry entryExit = new Entry("Quit");
+				entryExit.Selected += QuitGame;
+
+				MenuEntries.Add(entryNewGame);
+				MenuEntries.Add(entryContinue);
+				MenuEntries.Add(entryLoadGame);
+				MenuEntries.Add(entryOptions);
+				MenuEntries.Add(entryLootTest);
+				MenuEntries.Add(entryExit);
 		}
 
 		void StartNewGame(object sender, PlayerIndexEventArgs e) {

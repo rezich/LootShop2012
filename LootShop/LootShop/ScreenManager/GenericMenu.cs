@@ -13,13 +13,24 @@ namespace LootShop {
 		public string Description;
 		public bool Cancelable = true;
 		public bool HasContent = true;
+		bool initialized = false;
 		public TextBlock Content = null;
 		private List<Entry> entries = new List<Entry>();
 
 		private int selectedIndex = 0;
 
 		public override void Update(GameTime gameTime) {
-			foreach (Entry e in entries) e.IsSelected = false;
+			bool foundGoodOne = false;
+			foreach (Entry e in entries) {
+				if (!initialized) {
+					if (!foundGoodOne && e.Enabled) {
+						foundGoodOne = true;
+						selectedIndex = entries.IndexOf(e);
+						initialized = true;
+					}
+				}
+				e.IsSelected = false;
+			}
 			entries[selectedIndex].IsSelected = true;
 		}
 
@@ -32,13 +43,20 @@ namespace LootShop {
 				throw new ArgumentNullException("input");
 
 			if (input.IsMenuDown(ControllingPlayer)) {
-				selectedIndex++;
-				if (selectedIndex >= entries.Count) selectedIndex -= entries.Count;
+				do {
+					selectedIndex++;
+					if (selectedIndex >= entries.Count) selectedIndex -= entries.Count;
+				}
+				while (!entries[selectedIndex].Enabled);
 			}
 
 			if (input.IsMenuUp(ControllingPlayer)) {
-				selectedIndex--;
-				if (selectedIndex < 0) selectedIndex += entries.Count;
+				do {
+					selectedIndex--;
+					if (selectedIndex < 0) selectedIndex += entries.Count;
+				}
+				while (!entries[selectedIndex].Enabled);
+
 			}
 
 			if (entries[selectedIndex].Content != null) Content = entries[selectedIndex].Content;
@@ -110,6 +128,7 @@ namespace LootShop {
 			public string Text;
 			public TextBlock Content;
 			public bool IsSelected = false;
+			public bool Enabled = true;
 
 			public event EventHandler<PlayerIndexEventArgs> Selected;
 
@@ -123,7 +142,7 @@ namespace LootShop {
 			}
 
 			public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin) {
-				spriteBatch.DrawString(GenericMenu.Font, Text, origin, IsSelected ? Color.White : Color.Gray);
+				spriteBatch.DrawString(GenericMenu.Font, Text, origin, Enabled ? (IsSelected ? Color.White : new Color(128, 128, 128)) : new Color(64, 64, 64));
 			}
 
 			public Entry(string text) {
@@ -132,6 +151,10 @@ namespace LootShop {
 			public Entry(string text, TextBlock content) {
 				Text = text;
 				Content = content;
+			}
+			public Entry(string text, bool enabled) {
+				Text = text;
+				Enabled = enabled;
 			}
 		}
 	}
