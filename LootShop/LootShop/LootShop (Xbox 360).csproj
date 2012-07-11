@@ -77,6 +77,7 @@
     <Compile Include="ScreenManager\PlayerIndexEventArgs.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="Screens\GameScreen.cs" />
+    <Compile Include="Screens\MainMenu.cs" />
     <Compile Include="Screens\TestMenu.cs" />
     <Compile Include="Screens\TestScreen.cs" />
     <Compile Include="Screens\TitleScreen.cs" />

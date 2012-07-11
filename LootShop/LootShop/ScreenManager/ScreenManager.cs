@@ -27,6 +27,7 @@ namespace LootShop {
 			screen.ScreenManager = this;
 			screens.Add(screen);
 			screen.Initialize();
+			screen.LoadContent(); // TODO: Move to loading screen
 		}
 
 		public void RemoveScreen(GameScreen screen) {
@@ -37,6 +38,10 @@ namespace LootShop {
 		public void ReplaceScreen(GameScreen screen, PlayerIndex? controllingPlayer) {
 			if (screens.Count > 0) RemoveScreen(screens[screens.Count - 1]);
 			AddScreen(screen, controllingPlayer);
+		}
+
+		public void ClearScreens() {
+			screens.Clear();
 		}
 
 		protected override void LoadContent() {

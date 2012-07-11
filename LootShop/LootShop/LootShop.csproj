@@ -115,6 +115,7 @@
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="ScreenManager\GenericMenu.cs" />
+    <Compile Include="Screens\MainMenu.cs" />
     <Compile Include="Screens\TestMenu.cs" />
     <Compile Include="Screens\TitleScreen.cs" />
     <Compile Include="Screens\TestScreen.cs" />

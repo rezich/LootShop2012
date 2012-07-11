@@ -59,7 +59,7 @@ namespace LootShop {
 				entriesHeight += e.Height;
 			}
 			float heightSoFar = 0;
-			Vector2 entriesOrigin = new Vector2(8, (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
+			Vector2 entriesOrigin = new Vector2(24, (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
 			Vector2 titleOrigin = HasContent ? new Vector2((ScreenManager.GraphicsDevice.Viewport.Width / 3) * 2, 8) : new Vector2((ScreenManager.GraphicsDevice.Viewport.Width / 2), 8);
 			Rectangle contentRect = new Rectangle((ScreenManager.GraphicsDevice.Viewport.Width / 3), 60, (ScreenManager.GraphicsDevice.Viewport.Width / 3) * 2 - 40, 550);
 
@@ -67,7 +67,7 @@ namespace LootShop {
 
 			ScreenManager.SpriteBatch.Draw(LootShop.CurrentGame.Pixel, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), new Color(0f, 0f, 0f, 0.85f));
 
-			ScreenManager.SpriteBatch.DrawString(Font, Title, titleOrigin, Color.White, 0.0f, new Vector2(Font.MeasureString(Title).X / 2, 0), 1.0f, SpriteEffects.None, 0.0f);
+			if (Title != null) ScreenManager.SpriteBatch.DrawString(Font, Title, titleOrigin, Color.White, 0.0f, new Vector2(Font.MeasureString(Title).X / 2, 0), 1.0f, SpriteEffects.None, 0.0f);
 
 			if (HasContent) {
 				ScreenManager.SpriteBatch.Draw(LootShop.CurrentGame.Pixel, contentRect, new Color(0.25f, 0.25f, 0.25f, 0.85f));
