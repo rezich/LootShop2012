@@ -47,28 +47,27 @@ namespace LootShop {
 			Draw(spriteBatch, font, position, align, null);
 		}
 		public void Draw(SpriteBatch spriteBatch, SpriteFont font, Vector2 position, TextAlign align, int? width) {
-			float charHeight = font.MeasureString("W").Y;
 			Vector2 offset = new Vector2(0, 0);
 			foreach (Word w in Words) {
 				switch (w.Type) {
 					case Word.WordType.Newline:
 						offset.X = 0;
-						offset.Y += charHeight;
+						offset.Y += font.LineSpacing;
 						break;
 					case Word.WordType.Text:
 						if (offset.X + font.MeasureString(w.Text + " ").X > width) {
 							offset.X = 0;
-							offset.Y += charHeight;
+							offset.Y += font.LineSpacing;
 						}
-						spriteBatch.DrawString(font, w.Text + " ", position + offset, Color.White);
+						spriteBatch.DrawString(font, w.Text + " ", position + offset, w.Color);
 						offset.X += font.MeasureString(w.Text + " ").X;
 						break;
 					case Word.WordType.Icon:
-						int iconHeight = (int)charHeight;
+						int iconHeight = (int)font.LineSpacing;
 						int iconWidth = w.Icon.Width / w.Icon.Height * iconHeight;
 						if (offset.X + w.Icon.Width > width) {
 							offset.X = 0;
-							offset.Y += charHeight;
+							offset.Y += font.LineSpacing;
 						}
 						spriteBatch.Draw(w.Icon, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), iconWidth, iconHeight), Color.White);
 						offset.X += iconWidth + font.MeasureString(" ").X;
@@ -79,8 +78,14 @@ namespace LootShop {
 
 		public TextBlock(string text) {
 			Words = new List<Word>();
+			Color color = Color.White;
 			foreach (string w in text.Split(' ')) {
-				if (w != "") Words.Add(new Word(w));
+				Color? newColor = Word.StringToColor(w);
+				if (newColor != null) {
+					color = (Color)newColor;
+					continue;
+				}
+				if (w != "") Words.Add(new Word(w, color));
 			}
 		}
 
@@ -93,6 +98,7 @@ namespace LootShop {
 			public WordType Type;
 			public string Text;
 			public Texture2D Icon;
+			public Color Color;
 
 			public static Texture2D StringToIcon(string text) {
 				switch (text) {
@@ -110,7 +116,16 @@ namespace LootShop {
 				return null;
 			}
 
-			public Word(string text) {
+			public static Color? StringToColor(string text) {
+				switch (text) {
+					case "#C_NORMAL#": return Color.White;
+					case "#C_SPECIAL#": return Color.DarkCyan;
+				}
+				return null;
+			}
+
+			public Word(string text, Color color) {
+				Color = color;
 				text = text.Trim();
 				Texture2D icon = StringToIcon(text);
 				if (text == "#NL#") {

@@ -15,7 +15,7 @@ namespace LootShop {
 
 		public override void Initialize() {
 			item = Item.Generate(LootShop.Random.Next(1, 50), LootShop.Random);
-			testBlock = new TextBlock("Press #A_BUTTON# to generate some phat lewtz. #NL# Press #Y_BUTTON# to open a test menu. #NL# Press #START_BUTTON# to return to the title screen.");
+			testBlock = new TextBlock("#A_BUTTON# Generate loot #NL# #Y_BUTTON# Menu test #NL# #START_BUTTON# Return to title");
 		}
 
 		public override void HandleInput(InputState input) {
@@ -28,7 +28,7 @@ namespace LootShop {
 		public override void Draw(GameTime gameTime) {
 			ScreenManager.SpriteBatch.Begin();
 			StatBlock.Draw(ScreenManager.SpriteBatch, item);
-			testBlock.Draw(ScreenManager.SpriteBatch, LootShop.CurrentGame.UIFontSmall, new Vector2(0, 0));
+			testBlock.Draw(ScreenManager.SpriteBatch, LootShop.CurrentGame.UIFontSmall, new Vector2(8, 8));
 			ScreenManager.SpriteBatch.End();
 		}
 	}

@@ -58,6 +58,7 @@ namespace LootShop {
 			foreach (Entry e in entries) {
 				entriesHeight += e.Height;
 			}
+			float heightSoFar = 0;
 			Vector2 entriesOrigin = new Vector2(8, (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
 			Vector2 titleOrigin = HasContent ? new Vector2((ScreenManager.GraphicsDevice.Viewport.Width / 3) * 2, 8) : new Vector2((ScreenManager.GraphicsDevice.Viewport.Width / 2), 8);
 			Rectangle contentRect = new Rectangle((ScreenManager.GraphicsDevice.Viewport.Width / 3), 60, (ScreenManager.GraphicsDevice.Viewport.Width / 3) * 2 - 40, 550);
@@ -69,12 +70,13 @@ namespace LootShop {
 			ScreenManager.SpriteBatch.DrawString(Font, Title, titleOrigin, Color.White, 0.0f, new Vector2(Font.MeasureString(Title).X / 2, 0), 1.0f, SpriteEffects.None, 0.0f);
 
 			if (HasContent) {
-				ScreenManager.SpriteBatch.Draw(LootShop.CurrentGame.Pixel, contentRect, Color.DarkOliveGreen);
+				ScreenManager.SpriteBatch.Draw(LootShop.CurrentGame.Pixel, contentRect, new Color(0.25f, 0.25f, 0.25f, 0.85f));
 				if (Content != null) Content.Draw(ScreenManager.SpriteBatch, LootShop.CurrentGame.UIFontSmall, new Vector2(contentRect.X, contentRect.Y), TextBlock.TextAlign.Left, contentRect.Width);
 			}
 
 			for (int i = 0; i < entries.Count; i++) {
-				entries[i].Draw(ScreenManager.SpriteBatch, gameTime, entriesOrigin, i);
+				entries[i].Draw(ScreenManager.SpriteBatch, gameTime, entriesOrigin + new Vector2(0, heightSoFar));
+				heightSoFar += entries[i].Height;
 			}
 
 			ScreenManager.SpriteBatch.End();
@@ -120,8 +122,8 @@ namespace LootShop {
 				get { return Font.LineSpacing; }
 			}
 
-			public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin, int position) {
-				spriteBatch.DrawString(GenericMenu.Font, Text, origin + new Vector2(0, position * GenericMenu.Font.LineSpacing), IsSelected ? Color.White : Color.Gray);
+			public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin) {
+				spriteBatch.DrawString(GenericMenu.Font, Text, origin, IsSelected ? Color.White : Color.Gray);
 			}
 
 			public Entry(string text) {
