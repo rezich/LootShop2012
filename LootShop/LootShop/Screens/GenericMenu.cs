@@ -26,7 +26,7 @@ namespace LootShop {
 			public bool Selected = false;
 
 			public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin, int position) {
-				spriteBatch.DrawString(LootShop.UIFontSmall, Text, origin + new Vector2(0, position * 20), Selected ? Color.White : Color.Gray);
+				spriteBatch.DrawString(LootShop.CurrentGame.UIFontSmall, Text, origin + new Vector2(0, position * 20), Selected ? Color.White : Color.Gray);
 			}
 
 			public Entry(string text) {
@@ -50,7 +50,7 @@ namespace LootShop {
 			GamePadState gamePadState = input.CurrentGamePadStates[playerIndex];
 			GamePadState lastGamePadState = input.LastGamePadStates[playerIndex];
 
-			if (input.IsMenuDown((PlayerIndex)playerIndex)) {
+			/*if (input.IsMenuDown((PlayerIndex)playerIndex)) {
 				selectedIndex++;
 				if (selectedIndex >= entries.Count) selectedIndex -= entries.Count;
 			}
@@ -58,7 +58,7 @@ namespace LootShop {
 			if (input.IsMenuUp((PlayerIndex)playerIndex)) {
 				selectedIndex--;
 				if (selectedIndex < 0) selectedIndex += entries.Count;
-			}
+			}*/
 		}
 
 		public void Draw(SpriteBatch spriteBatch, GameTime gameTime) {
