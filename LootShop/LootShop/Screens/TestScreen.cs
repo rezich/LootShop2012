@@ -20,6 +20,7 @@ namespace LootShop {
 			PlayerIndex playerIndex;
 			if (input.IsNewButtonPress(Buttons.A, ControllingPlayer, out playerIndex)) item = Item.Generate(LootShop.Random.Next(1, 50), LootShop.Random);
 			if (input.IsNewButtonPress(Buttons.Y, ControllingPlayer, out playerIndex)) ScreenManager.AddScreen(new GenericMenu(), ControllingPlayer);
+			if (input.IsPause(ControllingPlayer, out playerIndex)) ScreenManager.ReplaceScreen(new TitleScreen(), null);
 		}
 
 		public override void Draw(GameTime gameTime) {

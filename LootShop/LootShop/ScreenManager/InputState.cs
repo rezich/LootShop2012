@@ -108,5 +108,9 @@ namespace LootShop {
 				   IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex) ||
 				   IsNewButtonPress(Buttons.A, controllingPlayer, out playerIndex);
 		}
+		public bool IsPause(PlayerIndex? controllingPlayer, out PlayerIndex playerIndex) {
+			return IsNewKeyPress(Keys.Escape, controllingPlayer, out playerIndex) ||
+				   IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
+		}
 	}
 }

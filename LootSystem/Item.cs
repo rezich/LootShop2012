@@ -562,7 +562,7 @@ namespace LootSystem {
 			}
 
 			// GENERATE THE NAME!!
-			int oddsOfOfX = 2;
+			int oddsOfOfX = 1;
 			string name = "";
 			List<Modifier> preAdjectives;
 			List<Modifier> ofX;
@@ -597,7 +597,17 @@ namespace LootSystem {
 
 			name = i.Variety.Names[r.Next(i.Variety.Names.Count - 1)];
 			name = preAdjectives[r.Next(preAdjectives.Count - 1)].Name + " " + name;
-			if (r.Next(0, oddsOfOfX) == 0) name += " of " + ofX[r.Next(ofX.Count - 1)].Name;
+			bool doOfX = true;
+
+			switch (i.Rarity.Name) {
+				case RarityLevel.Type.Garbage:
+					if (r.Next(0, oddsOfOfX) != 0) doOfX = false;
+					break;
+				case RarityLevel.Type.Normal:
+					doOfX = false;
+					break;
+			}
+			if (doOfX) name += " of " + ofX[r.Next(ofX.Count - 1)].Name;
 			i.Name = name;
 			return i;
 		}
