@@ -21,14 +21,14 @@ namespace LootShop {
 		public override void HandleInput(InputState input) {
 			PlayerIndex playerIndex;
 			if (input.IsNewButtonPress(Buttons.A, ControllingPlayer, out playerIndex)) item = Item.Generate(LootShop.Random.Next(1, 50), LootShop.Random);
-			if (input.IsNewButtonPress(Buttons.Y, ControllingPlayer, out playerIndex)) ScreenManager.AddScreen(new GenericMenu(), ControllingPlayer);
+			if (input.IsNewButtonPress(Buttons.Y, ControllingPlayer, out playerIndex)) ScreenManager.AddScreen(new TestMenu(), ControllingPlayer);
 			if (input.IsPause(ControllingPlayer, out playerIndex)) ScreenManager.ReplaceScreen(new TitleScreen(), null);
 		}
 
 		public override void Draw(GameTime gameTime) {
 			ScreenManager.SpriteBatch.Begin();
 			StatBlock.Draw(ScreenManager.SpriteBatch, item);
-			testBlock.Draw(ScreenManager.SpriteBatch, LootShop.CurrentGame.UIFontSmall, new Vector2(0, 0), TextBlock.TextAlign.Left, 200);
+			testBlock.Draw(ScreenManager.SpriteBatch, LootShop.CurrentGame.UIFontSmall, new Vector2(0, 0));
 			ScreenManager.SpriteBatch.End();
 		}
 	}
