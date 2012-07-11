@@ -39,7 +39,7 @@ namespace LootShop {
 			Components.Add(screenManager);
 
 			//screenManager.AddScreen(new TestScreen(), PlayerIndex.One);
-			screenManager.AddScreen(new PressStartScreen(), null);
+			screenManager.AddScreen(new TitleScreen(), null);
 
 			//screenManager.AddScreen(new GameplayScreen(), PlayerIndex.One); // TODO: make PlayerIndex null so the main menu can determine the player or whatever
 			//screenManager.AddScreen(new BackgroundScreen(), null);
