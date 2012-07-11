@@ -8,7 +8,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace LootShop {
 	public class TextBlock {
-
+		public enum TextAlign {
+			Left,
+			Center,
+			Right
+		}
 		public List<Word> Words;
 
 		public string Text {
@@ -36,8 +40,13 @@ namespace LootShop {
 			return Text;
 		}
 
-		// TODO: maximum width, for text wrapping!
 		public void Draw(SpriteBatch spriteBatch, SpriteFont font, Vector2 position) {
+			Draw(spriteBatch, font, position, TextAlign.Left, null);
+		}
+		public void Draw(SpriteBatch spriteBatch, SpriteFont font, Vector2 position, TextAlign align) {
+			Draw(spriteBatch, font, position, align, null);
+		}
+		public void Draw(SpriteBatch spriteBatch, SpriteFont font, Vector2 position, TextAlign align, int? width) {
 			float charHeight = font.MeasureString("W").Y;
 			Vector2 offset = new Vector2(0, 0);
 			foreach (Word w in Words) {
@@ -47,14 +56,22 @@ namespace LootShop {
 						offset.Y += charHeight;
 						break;
 					case Word.WordType.Text:
+						if (offset.X + font.MeasureString(w.Text + " ").X > width) {
+							offset.X = 0;
+							offset.Y += charHeight;
+						}
 						spriteBatch.DrawString(font, w.Text + " ", position + offset, Color.White);
 						offset.X += font.MeasureString(w.Text + " ").X;
 						break;
 					case Word.WordType.Icon:
-						int height = (int)charHeight;
-						int width = w.Icon.Width / w.Icon.Height * height;
-						spriteBatch.Draw(w.Icon, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), width, height), Color.White);
-						offset.X += width + font.MeasureString(" ").X;
+						int iconHeight = (int)charHeight;
+						int iconWidth = w.Icon.Width / w.Icon.Height * iconHeight;
+						if (offset.X + w.Icon.Width > width) {
+							offset.X = 0;
+							offset.Y += charHeight;
+						}
+						spriteBatch.Draw(w.Icon, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), iconWidth, iconHeight), Color.White);
+						offset.X += iconWidth + font.MeasureString(" ").X;
 						break;
 				}
 			}
