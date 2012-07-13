@@ -10,7 +10,7 @@ namespace LootShop {
         /// </summary>
         static void Main(string[] args)
         {
-            using (LootShop game = new LootShop())
+            using (Game game = new Game())
             {
                 game.Run();
             }

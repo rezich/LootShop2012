@@ -7,18 +7,23 @@ using LootSystem;
 namespace LootTester {
 	class Program {
 		static void Main(string[] args) {
-			Item.Initialize();
-			Console.WriteLine("Welcome to the Loot Shop! Press Spacebar to generate an item, or Escape to quit.");
-			Random r = new Random();
-			ConsoleKeyInfo cki;
 			bool done = false;
+			Random r = new Random();
+			Time time = new Time();
+			time.Month = 12;
+			time.Day = 29;
+			ConsoleKeyInfo cki;
+			Item.Initialize();
 			do {
 				cki = Console.ReadKey(true);
 				switch (cki.Key) {
 					case ConsoleKey.Enter:
 						goto case ConsoleKey.Spacebar;
 					case ConsoleKey.Spacebar:
-						WriteStatBlock(Item.Generate(r.Next(1, 20), r));
+						//WriteStatBlock(Item.Generate(r.Next(1, 20), r));
+						time.TimeOfDay++;
+						//time.Day += 2;
+						Console.WriteLine(time);
 						Console.WriteLine();
 						break;
 					case ConsoleKey.Escape:

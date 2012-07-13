@@ -27,6 +27,8 @@ namespace LootShop {
 
 		public MainMenu()
 			: base(null, true, false) {
+				DimBackground = false;
+				
 				Entry entryNewGame = new Entry("New Game", false);
 				Entry entryContinue = new Entry("Continue", false);
 				Entry entryLoadGame = new Entry("Load Game", false);
@@ -50,7 +52,7 @@ namespace LootShop {
 		}
 
 		void QuitGame(object sender, PlayerIndexEventArgs e) {
-			LootShop.CurrentGame.Exit();
+			Game.Current.Exit();
 		}
 	}
 }

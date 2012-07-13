@@ -14,13 +14,13 @@ namespace LootShop {
 		TextBlock testBlock;
 
 		public override void Initialize() {
-			item = Item.Generate(LootShop.Random.Next(1, 50), LootShop.Random);
+			item = Item.Generate(Game.Random.Next(1, 50), Game.Random);
 			testBlock = new TextBlock("#A_BUTTON# Generate loot #NL# #Y_BUTTON# Menu test #NL# #START_BUTTON# Return to main menu");
 		}
 
 		public override void HandleInput(InputState input) {
 			PlayerIndex playerIndex;
-			if (input.IsNewButtonPress(Buttons.A, ControllingPlayer, out playerIndex) || input.IsNewKeyPress(Keys.A, ControllingPlayer, out playerIndex)) item = Item.Generate(LootShop.Random.Next(1, 50), LootShop.Random);
+			if (input.IsNewButtonPress(Buttons.A, ControllingPlayer, out playerIndex) || input.IsNewKeyPress(Keys.A, ControllingPlayer, out playerIndex)) item = Item.Generate(Game.Random.Next(1, 50), Game.Random);
 			if (input.IsNewButtonPress(Buttons.Y, ControllingPlayer, out playerIndex) || input.IsNewKeyPress(Keys.Y, ControllingPlayer, out playerIndex)) ScreenManager.AddScreen(new TestMenu(), ControllingPlayer);
 			if (input.IsPause(ControllingPlayer, out playerIndex)) {
 				ScreenManager.ClearScreens();
@@ -32,7 +32,7 @@ namespace LootShop {
 		public override void Draw(GameTime gameTime) {
 			ScreenManager.SpriteBatch.Begin();
 			StatBlock.Draw(ScreenManager.SpriteBatch, item);
-			testBlock.Draw(ScreenManager.SpriteBatch, LootShop.CurrentGame.UIFontSmall, new Vector2(8, 8));
+			testBlock.Draw(ScreenManager.SpriteBatch, Game.Current.UIFontSmall, new Vector2(8, 8));
 			ScreenManager.SpriteBatch.End();
 		}
 	}

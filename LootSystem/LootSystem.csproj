@@ -35,12 +35,14 @@
   <ItemGroup>
     <Compile Include="Hero.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Time.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Range.cs" />
     <Compile Include="Shop.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>

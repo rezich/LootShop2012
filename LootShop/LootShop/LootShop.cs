@@ -11,22 +11,23 @@ using Microsoft.Xna.Framework.Media;
 using LootSystem;
 
 namespace LootShop {
-	public class LootShop : Microsoft.Xna.Framework.Game {
+	public class Game : Microsoft.Xna.Framework.Game {
 
 		GraphicsDeviceManager graphics;
 		public SpriteFont UIFontSmall;
 		public SpriteFont UIFontMedium;
 		public Texture2D Pixel;
 		public Dictionary<Buttons, Texture2D> ButtonImages = new Dictionary<Buttons, Texture2D>();
-		public static LootShop CurrentGame = null;
+		public Time Time = new Time();
+		public static Game Current = null;
 		public static Random Random = new Random();
 		ScreenManager screenManager;
 
 		static readonly string[] preloadAssets = {
         };
 
-		public LootShop() {
-			CurrentGame = this;
+		public Game() {
+			Current = this;
 			Content.RootDirectory = "Content";
 
 			Item.Initialize();
