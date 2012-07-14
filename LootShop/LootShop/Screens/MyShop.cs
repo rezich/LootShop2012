@@ -13,8 +13,8 @@ namespace LootShop {
 		public MyShop()
 			: base("My Shop", true, true) {
 				DimBackground = false;
-				Entry entryManageInventory = new Entry("Manage Inventory");
-				Entry entryOpenShop = new Entry("Open Shop");
+				Entry entryManageInventory = new Entry("Manage Inventory", new TextBlock("Manage your shop's inventory. #ACTION_0#"));
+				Entry entryOpenShop = new Entry("Open Shop", new TextBlock("Open your shop for business! #ACTION_1#"));
 				entryOpenShop.Selected += OpenShop;
 
 				MenuEntries.Add(entryManageInventory);

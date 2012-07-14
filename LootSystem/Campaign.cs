@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LootSystem {
 	public class Campaign {
-		public PlayerCharacter PlayerCharacter;
+		public PlayerCharacter PlayerCharacter = new PlayerCharacter();
 		public Time Time = new Time();
 
 		public Campaign() {

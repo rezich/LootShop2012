@@ -13,11 +13,11 @@ namespace LootShop {
 		public TownMap()
 			: base("Town Map", true, true) {
 				DimBackground = false;
-				Entry entryShop = new Entry("My Shop");
+				Entry entryShop = new Entry("My Shop", new TextBlock("Your shop! Manage your shop's inventory, put items out on display, and, most importantly, open your shop for business."));
 				entryShop.Selected += ToMyShop;
-				Entry entryTownSquare = new Entry("Town Square");
-				Entry entryTavern = new Entry("Tavern");
-				Entry entryDungeon = new Entry("Dungeon");
+				Entry entryTownSquare = new Entry("Town Square", new TextBlock("Hear the latest rumors and gossip about the town."));
+				Entry entryTavern = new Entry("Tavern", new TextBlock("Find and hire new adventurers to expand your loot-obtaining capabilities."));
+				Entry entryDungeon = new Entry("Dungeon", new TextBlock("Delve into the dungeons in search of loot and more loot!"));
 
 				MenuEntries.Add(entryShop);
 				MenuEntries.Add(entryTownSquare);
