@@ -100,16 +100,16 @@ namespace LootShop {
 
 			public static Texture2D StringToIcon(string text) {
 				switch (text) {
-					case "#A_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.A];
-					case "#B_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.B];
-					case "#X_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.X];
-					case "#Y_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Y];
-					case "#START_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Start];
-					case "#BACK_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Back];
-					case "#LT_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.LeftTrigger];
-					case "#LB_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.LeftShoulder];
-					case "#RT_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.RightTrigger];
-					case "#RB_BUTTON#": return Game.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.RightShoulder];
+					case "#A_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.A];
+					case "#B_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.B];
+					case "#X_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.X];
+					case "#Y_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Y];
+					case "#START_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Start];
+					case "#BACK_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Back];
+					case "#LT_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.LeftTrigger];
+					case "#LB_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.LeftShoulder];
+					case "#RT_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.RightTrigger];
+					case "#RB_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.RightShoulder];
 				}
 				return null;
 			}

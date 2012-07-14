@@ -84,13 +84,13 @@ namespace LootShop {
 
 			ScreenManager.SpriteBatch.Begin();
 
-			if (DimBackground) ScreenManager.SpriteBatch.Draw(Game.Current.Pixel, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), new Color(0f, 0f, 0f, 0.85f));
+			if (DimBackground) ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), new Color(0f, 0f, 0f, 0.85f));
 
 			if (Title != null) ScreenManager.SpriteBatch.DrawString(Font, Title, titleOrigin, Color.White, 0.0f, new Vector2(Font.MeasureString(Title).X / 2, 0), 1.0f, SpriteEffects.None, 0.0f);
 
 			if (HasContent) {
-				ScreenManager.SpriteBatch.Draw(Game.Current.Pixel, contentRect, new Color(0.25f, 0.25f, 0.25f, 0.85f));
-				if (Content != null) Content.Draw(ScreenManager.SpriteBatch, Game.Current.UIFontSmall, new Vector2(contentRect.X, contentRect.Y), TextBlock.TextAlign.Left, contentRect.Width);
+				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, contentRect, new Color(0.25f, 0.25f, 0.25f, 0.85f));
+				if (Content != null) Content.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(contentRect.X, contentRect.Y), TextBlock.TextAlign.Left, contentRect.Width);
 			}
 
 			for (int i = 0; i < entries.Count; i++) {
@@ -112,7 +112,7 @@ namespace LootShop {
 		}
 
 		public static SpriteFont Font {
-			get { return Game.Current.UIFontMedium; }
+			get { return GameSession.Current.UIFontMedium; }
 		}
 
 		public GenericMenu(string menuTitle) {

@@ -15,9 +15,9 @@ namespace LootShop {
 			string title = "Loot Shop";
 			string pressStart = "PRESS START";
 			string copyright = "Copyright © 2012 108 Studios, all rights reserved.";
-			ScreenManager.SpriteBatch.DrawString(Game.Current.UIFontMedium, title, new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height / 2 - 13), Color.White, 0.0f, Game.Current.UIFontMedium.MeasureString(title) / 2, 1.0f, SpriteEffects.None, 0.0f);
-			ScreenManager.SpriteBatch.DrawString(Game.Current.UIFontSmall, pressStart, new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height / 2 + 11), Color.Lerp(Color.Yellow, Color.Black, (float)Math.Sin(gameTime.TotalGameTime.TotalSeconds * 5)), 0.0f, Game.Current.UIFontSmall.MeasureString(pressStart) / 2, 1.0f, SpriteEffects.None, 0.0f);
-			ScreenManager.SpriteBatch.DrawString(Game.Current.UIFontSmall, copyright, new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height), Color.Gray, 0.0f, new Vector2(Game.Current.UIFontSmall.MeasureString(copyright).X / 2, Game.Current.UIFontSmall.MeasureString(copyright).Y), 1.0f, SpriteEffects.None, 0.0f);
+			ScreenManager.SpriteBatch.DrawString(GameSession.Current.UIFontMedium, title, new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height / 2 - 13), Color.White, 0.0f, GameSession.Current.UIFontMedium.MeasureString(title) / 2, 1.0f, SpriteEffects.None, 0.0f);
+			ScreenManager.SpriteBatch.DrawString(GameSession.Current.UIFontSmall, pressStart, new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height / 2 + 11), Color.Lerp(Color.Yellow, Color.Black, (float)Math.Sin(gameTime.TotalGameTime.TotalSeconds * 5)), 0.0f, GameSession.Current.UIFontSmall.MeasureString(pressStart) / 2, 1.0f, SpriteEffects.None, 0.0f);
+			ScreenManager.SpriteBatch.DrawString(GameSession.Current.UIFontSmall, copyright, new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height), Color.Gray, 0.0f, new Vector2(GameSession.Current.UIFontSmall.MeasureString(copyright).X / 2, GameSession.Current.UIFontSmall.MeasureString(copyright).Y), 1.0f, SpriteEffects.None, 0.0f);
 			ScreenManager.SpriteBatch.End();
 		}
 

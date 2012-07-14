@@ -13,7 +13,7 @@ namespace LootShop {
 		List<GameScreen> screens = new List<GameScreen>();
 		InputState input = new InputState();
 
-		public ScreenManager(Game game)
+		public ScreenManager(GameSession game)
 			: base(game) {
 		}
 
@@ -37,6 +37,11 @@ namespace LootShop {
 
 		public void ReplaceScreen(GameScreen screen, PlayerIndex? controllingPlayer) {
 			if (screens.Count > 0) RemoveScreen(screens[screens.Count - 1]);
+			AddScreen(screen, controllingPlayer);
+		}
+
+		public void ReplaceAllScreens(GameScreen screen, PlayerIndex? controllingPlayer) {
+			ClearScreens();
 			AddScreen(screen, controllingPlayer);
 		}
 

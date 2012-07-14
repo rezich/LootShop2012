@@ -29,7 +29,8 @@ namespace LootShop {
 			: base(null, true, false) {
 				DimBackground = false;
 				
-				Entry entryNewGame = new Entry("New Game", false);
+				Entry entryNewGame = new Entry("New Game");
+				entryNewGame.Selected += NewGame;
 				Entry entryContinue = new Entry("Continue", false);
 				Entry entryLoadGame = new Entry("Load Game", false);
 				Entry entryOptions = new Entry("Options", false);
@@ -48,11 +49,15 @@ namespace LootShop {
 
 		void StartNewGame(object sender, PlayerIndexEventArgs e) {
 			ScreenManager.ClearScreens();
-			ScreenManager.AddScreen(new TestScreen(), ControllingPlayer);
+			ScreenManager.ReplaceAllScreens(new TestScreen(), ControllingPlayer);
 		}
 
 		void QuitGame(object sender, PlayerIndexEventArgs e) {
-			Game.Current.Exit();
+			GameSession.Current.Exit();
+		}
+
+		void NewGame(object sender, PlayerIndexEventArgs e) {
+			ScreenManager.ReplaceAllScreens(new GameplayScreen(), ControllingPlayer);
 		}
 	}
 }

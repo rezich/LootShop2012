@@ -107,18 +107,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LootShop.cs" />
+    <Compile Include="GameSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ScreenManager\InputState.cs" />
     <Compile Include="ScreenManager\PlayerIndexEventArgs.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
+    <Compile Include="Screens\GameplayScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="ScreenManager\GenericMenu.cs" />
     <Compile Include="Screens\MainMenu.cs" />
     <Compile Include="Screens\TestMenu.cs" />
     <Compile Include="Screens\TitleScreen.cs" />
     <Compile Include="Screens\TestScreen.cs" />
+    <Compile Include="Screens\TownMap.cs" />
     <Compile Include="StatBlock.cs" />
     <Compile Include="TextBlock.cs" />
   </ItemGroup>
