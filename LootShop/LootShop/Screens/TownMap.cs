@@ -10,12 +10,11 @@ using LootSystem;
 
 namespace LootShop {
 	public class TownMap : GenericMenu {
-		Campaign Campaign;
-		public TownMap(Campaign campaign)
-			: base("", false, true) {
-				Campaign = campaign;
+		public TownMap()
+			: base("Town Map", true, true) {
 				DimBackground = false;
 				Entry entryShop = new Entry("My Shop");
+				entryShop.Selected += ToMyShop;
 				Entry entryTownSquare = new Entry("Town Square");
 				Entry entryTavern = new Entry("Tavern");
 				Entry entryDungeon = new Entry("Dungeon");
@@ -24,6 +23,14 @@ namespace LootShop {
 				MenuEntries.Add(entryTownSquare);
 				MenuEntries.Add(entryTavern);
 				MenuEntries.Add(entryDungeon);
+		}
+
+		void ToMyShop(object sender, PlayerIndexEventArgs e) {
+			ScreenManager.ReplaceScreen(new MyShop(), ControllingPlayer); 
+		}
+
+		protected override void OnCancel(PlayerIndex playerIndex) {
+			ScreenManager.BackToTitle(ControllingPlayer);
 		}
 	}
 }

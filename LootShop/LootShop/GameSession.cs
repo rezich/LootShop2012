@@ -18,7 +18,7 @@ namespace LootShop {
 		public SpriteFont UIFontMedium;
 		public Texture2D Pixel;
 		public Dictionary<Buttons, Texture2D> ButtonImages = new Dictionary<Buttons, Texture2D>();
-		public Time Time = new Time();
+		public Campaign Campaign;
 		public static GameSession Current = null;
 		public static Random Random = new Random();
 		ScreenManager screenManager;

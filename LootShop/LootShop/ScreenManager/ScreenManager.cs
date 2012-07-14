@@ -45,6 +45,12 @@ namespace LootShop {
 			AddScreen(screen, controllingPlayer);
 		}
 
+		public void BackToTitle(PlayerIndex? controllingPlayer) {
+			ClearScreens();
+			AddScreen(new TitleScreen(), controllingPlayer);
+			AddScreen(new MainMenu(), null);
+		}
+
 		public void ClearScreens() {
 			screens.Clear();
 		}
