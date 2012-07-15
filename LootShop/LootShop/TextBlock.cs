@@ -14,6 +14,8 @@ namespace LootShop {
 			Right
 		}
 		public List<Word> Words;
+		public bool FullyTyped = true;
+		public int CurrentWordIndex;
 
 		public string Text {
 			get {
@@ -46,7 +48,9 @@ namespace LootShop {
 		}
 		public void Draw(SpriteBatch spriteBatch, SpriteFont font, Vector2 position, TextAlign align, int? width) {
 			Vector2 offset = new Vector2(0, 0);
-			foreach (Word w in Words) {
+			//foreach (Word w in Words) {
+			for (int i = 0; i <= (FullyTyped ? Words.Count - 1 : CurrentWordIndex); i++) {
+				Word w = Words[i];
 				switch (w.Type) {
 					case Word.WordType.Newline:
 						offset.X = 0;
@@ -74,6 +78,11 @@ namespace LootShop {
 			}
 		}
 
+		public void Type() {
+			if (CurrentWordIndex < Words.Count - 1) CurrentWordIndex++;
+			if (CurrentWordIndex == Words.Count - 1) FullyTyped = true;
+		}
+
 		public TextBlock(string text) {
 			Words = new List<Word>();
 			Color color = Color.White;
@@ -85,6 +94,7 @@ namespace LootShop {
 				}
 				if (w != "") Words.Add(new Word(w, color));
 			}
+			CurrentWordIndex = 0;
 		}
 
 		public class Word {
