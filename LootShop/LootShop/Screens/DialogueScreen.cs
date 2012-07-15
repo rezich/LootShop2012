@@ -19,6 +19,10 @@ namespace LootShop {
 			ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(32, ScreenManager.GraphicsDevice.Viewport.Height - 182, ScreenManager.GraphicsDevice.Viewport.Width - 64, 150), Color.DodgerBlue);
 			DialogueBox.Text.Draw(ScreenManager.SpriteBatch, GameSession.Current.DialogueFont, new Vector2(32, ScreenManager.GraphicsDevice.Viewport.Height - 182), TextBlock.TextAlign.Left, ScreenManager.GraphicsDevice.Viewport.Width - 64);
 			if (DialogueBox.Text.FullyTyped) ScreenManager.SpriteBatch.Draw(GameSession.Current.ButtonImages[Buttons.A], new Rectangle(ScreenManager.GraphicsDevice.Viewport.Width - 64, ScreenManager.GraphicsDevice.Viewport.Height - 64, 32, 32), Color.White);
+			if (DialogueBox.Speaker != null) {
+				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(32, ScreenManager.GraphicsDevice.Viewport.Height - 182 - GameSession.Current.DialogueFont.LineSpacing, (int)GameSession.Current.DialogueFont.MeasureString(DialogueBox.Speaker).X, GameSession.Current.DialogueFont.LineSpacing), Color.RoyalBlue);
+				ScreenManager.SpriteBatch.DrawString(GameSession.Current.DialogueFont, DialogueBox.Speaker, new Vector2(32, ScreenManager.GraphicsDevice.Viewport.Height - 182 - GameSession.Current.DialogueFont.LineSpacing), Color.White);
+			}
 			ScreenManager.SpriteBatch.End();
 		}
 
