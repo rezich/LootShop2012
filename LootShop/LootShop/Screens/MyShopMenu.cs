@@ -16,7 +16,7 @@ namespace LootShop {
 			Entry entryManageInventory = new Entry("Manage Inventory", new TextBlock("Manage your shop's inventory. #ACTION_0#"));
 			MenuEntries.Add(entryManageInventory);
 
-			Entry entryOpenShop = new Entry("Open Shop", new TextBlock("Open your shop for business! #ACTION_1#"));
+			Entry entryOpenShop = new Entry("Open Shop", new TextBlock("Open your shop for business! Can't be done at night. #ACTION_1#"));
 			entryOpenShop.Selected += OpenShop;
 			if (GameSession.Current.Campaign.Time.TimeOfDay == (int)Time.TimeOfDayName.Night) entryOpenShop.Visible = false;
 			MenuEntries.Add(entryOpenShop);
