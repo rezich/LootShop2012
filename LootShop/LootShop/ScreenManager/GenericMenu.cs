@@ -75,7 +75,7 @@ namespace LootShop {
 		public override void Draw(GameTime gameTime) {
 			float entriesHeight = 0;
 			foreach (Entry e in entries) {
-				entriesHeight += e.Height;
+				if (e.Visible) entriesHeight += e.Height;
 			}
 			float heightSoFar = 0;
 			Vector2 entriesOrigin = new Vector2(24, (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
@@ -94,8 +94,10 @@ namespace LootShop {
 			}
 
 			for (int i = 0; i < entries.Count; i++) {
-				entries[i].Draw(ScreenManager.SpriteBatch, gameTime, entriesOrigin + new Vector2(0, heightSoFar));
-				heightSoFar += entries[i].Height;
+				if (entries[i].Visible) {
+					entries[i].Draw(ScreenManager.SpriteBatch, gameTime, entriesOrigin + new Vector2(0, heightSoFar));
+					heightSoFar += entries[i].Height;
+				}
 			}
 
 			ScreenManager.SpriteBatch.End();
@@ -129,7 +131,16 @@ namespace LootShop {
 			public string Text;
 			public TextBlock Content;
 			public bool IsSelected = false;
-			public bool Enabled = true;
+			public bool Enabled {
+				get {
+					return enabled && Visible;
+				}
+				set {
+					enabled = value;
+				}
+			}
+			public bool Visible = true;
+			bool enabled = true;
 
 			public event EventHandler<PlayerIndexEventArgs> Selected;
 

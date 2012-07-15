@@ -118,6 +118,8 @@
     <Compile Include="ScreenManager\GenericMenu.cs" />
     <Compile Include="Screens\MainMenu.cs" />
     <Compile Include="Screens\MyShop.cs" />
+    <Compile Include="Screens\MyShopMenu.cs" />
+    <Compile Include="Screens\MyShopOpen.cs" />
     <Compile Include="Screens\TestMenu.cs" />
     <Compile Include="Screens\TitleScreen.cs" />
     <Compile Include="Screens\TestScreen.cs" />
