@@ -18,7 +18,7 @@ namespace LootShop {
 				MenuEntries.Add(entryShop);
 
 				Entry entryTownSquare = new Entry("Town Square", new TextBlock("Hear the latest rumors and gossip about the town."));
-				entryTownSquare.Selected += ToTavern;
+				entryTownSquare.Selected += ToTownSquare;
 				MenuEntries.Add(entryTownSquare);
 
 				Entry entryTavern = new Entry("Tavern", new TextBlock("Find and hire new adventurers to expand your loot-obtaining capabilities."));
@@ -32,8 +32,10 @@ namespace LootShop {
 			ScreenManager.ReplaceScreen(new MyShop(), ControllingPlayer); 
 		}
 
-		void ToTavern(object sender, PlayerIndexEventArgs e) {
-			ScreenManager.ReplaceScreen(new CutsceneScreen(), ControllingPlayer);
+		void ToTownSquare(object sender, PlayerIndexEventArgs e) {
+			//ScreenManager.ReplaceScreen(new CutsceneScreen(), ControllingPlayer);
+			//ScreenManager.AddScreen(new ScreenProxy(new CutsceneScreen(), new TownMap()), ControllingPlayer);
+			ScreenManager.ReplaceScreenProxy(new CutsceneScreen(), new TownMap(), ControllingPlayer);
 		}
 
 		protected override void OnCancel(PlayerIndex playerIndex) {

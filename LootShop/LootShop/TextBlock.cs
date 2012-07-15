@@ -127,7 +127,7 @@ namespace LootShop {
 			public static Color? StringToColor(string text) {
 				switch (text) {
 					case "#C_NORMAL#": return Color.White;
-					case "#C_SPECIAL#": return Color.DarkCyan;
+					case "#C_SPECIAL#": return Color.Yellow;
 				}
 				return null;
 			}

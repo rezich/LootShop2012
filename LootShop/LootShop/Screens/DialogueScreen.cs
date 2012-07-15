@@ -14,8 +14,9 @@ namespace LootShop {
 
 		public override void Draw(Microsoft.Xna.Framework.GameTime gameTime) {
 			ScreenManager.SpriteBatch.Begin();
-			ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(32, ScreenManager.GraphicsDevice.Viewport.Height - 182, ScreenManager.GraphicsDevice.Viewport.Width - 64, 150), Color.Gray);
+			ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(32, ScreenManager.GraphicsDevice.Viewport.Height - 182, ScreenManager.GraphicsDevice.Viewport.Width - 64, 150), Color.DodgerBlue);
 			DialogueBox.Text.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(32, ScreenManager.GraphicsDevice.Viewport.Height - 182), TextBlock.TextAlign.Left, ScreenManager.GraphicsDevice.Viewport.Width - 64);
+			if (DialogueBox.Text.FullyTyped) ScreenManager.SpriteBatch.Draw(GameSession.Current.ButtonImages[Buttons.A], new Rectangle(ScreenManager.GraphicsDevice.Viewport.Width - 64, ScreenManager.GraphicsDevice.Viewport.Height - 64, 32, 32), Color.White);
 			ScreenManager.SpriteBatch.End();
 		}
 
@@ -26,7 +27,7 @@ namespace LootShop {
 		public override void HandleInput(InputState input) {
 			PlayerIndex playerIndex;
 			if (input.IsMenuSelect(ControllingPlayer, out playerIndex)) {
-				if (DialogueBox.Text.FullyTyped) { }
+				if (DialogueBox.Text.FullyTyped) ScreenManager.RemoveScreen();
 				else DialogueBox.Text.FullyTyped = true;
 			}
 		}

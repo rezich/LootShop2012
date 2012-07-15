@@ -49,6 +49,10 @@ namespace LootShop {
 			AddScreen(screen, controllingPlayer);
 		}
 
+		public void ReplaceScreenProxy(GameScreen now, GameScreen after, PlayerIndex? controllingPlayer) {
+			ReplaceScreen(new ScreenProxy(now, after), controllingPlayer);
+		}
+
 		public void BackToTitle(PlayerIndex? controllingPlayer) {
 			ClearScreens();
 			AddScreen(new TitleScreen(), controllingPlayer);

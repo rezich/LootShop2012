@@ -86,6 +86,7 @@
     <Compile Include="Screens\MyShop.cs" />
     <Compile Include="Screens\MyShopMenu.cs" />
     <Compile Include="Screens\MyShopOpen.cs" />
+    <Compile Include="Screens\ScreenProxy.cs" />
     <Compile Include="Screens\TestMenu.cs" />
     <Compile Include="Screens\TestScreen.cs" />
     <Compile Include="Screens\TitleScreen.cs" />
