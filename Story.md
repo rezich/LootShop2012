@@ -30,4 +30,17 @@ When you open your shop a third time, in the afternoon, people come to buy items
 
 At night, a cutscene plays where Stebbins realizes a flaw in his plan: buying and selling loot is all well and good, but if nobody's selling, there will be no loot to stock the shelves with.
 
+__Day 2__
+
 The next day, Stebbins mopes about all day, trying to devise a plan, even at one point donning his old starting gear, thinking of setting out to kill monsters for loot on his own. After a few practice swings, though, he resigns to the fact that he is, in fact, Too Old For This Shit, and heads off to the pub in the evening.
+
+On his way into the pub, Stebbins runs into a young, Level 1 fighter who just got back from getting the living shit kicked out of him from trying to kill monsters for loot. Stebbins talks to him a bit, and learns that the young fighter, Bash, was trying to follow in his father's footsteps and run some dungeons for loot in an attempt to rise to power and defeat the forces of evil.
+
+But alas, Bash was ill-equipped for the task, literally; his standard Level 1 Fighter starting gear was no match for the now-stronger-than-ever monsters that lurk in the starting dungeons.
+
+After thinking it over, Stebbins gets a brilliant idea, and proposes it to Bash: Stebbins will hire Bash, teach him the ways of the Fighter, give him his coveted first set of uncommon items he ever found. They would set off into the dungeon together, Bash doing the killing and looting, with Stebbins coaching him along the way. Upon returning to town, Stebbins would get all of the loot and a share of the gold, and Bash would get the rest of the gold, with the promise that Stebbins would see to it that Bash gets better gear as they find it.
+
+After some negotiation over rates and accommodations, Bash agrees, and the two head back to the alleyway Stebbins is sleeping in for some rest before morning.
+
+__Day 3__
+
