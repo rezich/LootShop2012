@@ -73,6 +73,9 @@
             <TabItem x:Name="tabItemTest" Header="Item Test">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
+            <TabItem x:Name="tabItemCutscenes" Header="Cutscenes">
+            	<Grid Background="#FFE5E5E5"/>
+            </TabItem>
         </TabControl>
         <Button x:Name="btnLoad" Content="Load" Height="22" Width="75" VerticalAlignment="Top" d:LayoutOverrides="Width" Grid.Column="1" HorizontalAlignment="Right" Click="btnLoad_Click" />
         <Button x:Name="btnSave" Content="Save" Height="22" Width="75" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,75,0" d:LayoutOverrides="Width" Click="btnSave_Click" IsEnabled="False" />
