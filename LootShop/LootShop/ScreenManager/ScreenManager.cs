@@ -83,11 +83,13 @@ namespace LootShop {
 			}
 
 			SpriteBatch.Begin();
+
+			//SpriteBatch.Draw(GameSession.Current.Border, new Rectangle(GraphicsDevice.Viewport.X, GraphicsDevice.Viewport.Y, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+
 			Vector2 origin = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right - 4, GraphicsDevice.Viewport.TitleSafeArea.Top + 4);
 			foreach (GameScreen screen in screens) {
 				string text = screen.GetType().ToString().Replace("LootShop.", "");
 				SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, text, origin, Color.Yellow, Color.Black, 0f, new Vector2(GameSession.Current.UIFontSmall.MeasureString(text).X, 0), 1f);
-				//DrawText(spriteBatch, GameSession.Current.UIFontSmall, screen.GetType().ToString(), Color.Black, Color.Yellow, 1f, 0f, origin);
 				origin.Y += GameSession.Current.UIFontSmall.LineSpacing;
 			}
 			Color red = new Color(1f, 0f, 0f, 0.05f);
