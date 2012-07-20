@@ -74,31 +74,28 @@ namespace LootShop {
 		}
 
 		public override void Draw(GameTime gameTime) {
+			/*SpriteBatch.Begin();
+			SpriteBatch.Draw(GameSession.Current.TestBackground, VectorsToRect(new Vector2(GraphicsDevice.Viewport.X, GraphicsDevice.Viewport.Y), new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height)), Color.White);
+			SpriteBatch.End();*/
+
 			foreach (GameScreen screen in screens) {
 				screen.Draw(gameTime);
 			}
+
 			SpriteBatch.Begin();
-			Vector2 origin = new Vector2(GraphicsDevice.Viewport.Width - 4, 4);
+			Vector2 origin = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right - 4, 4);
 			foreach (GameScreen screen in screens) {
 				string text = screen.GetType().ToString().Replace("LootShop.", "");
 				SpriteBatch.DrawString(GameSession.Current.UIFontSmall, text, origin, Color.Yellow, 0f, new Vector2(GameSession.Current.UIFontSmall.MeasureString(text).X, 0), 1f, SpriteEffects.None, 1f);
 				//DrawText(spriteBatch, GameSession.Current.UIFontSmall, screen.GetType().ToString(), Color.Black, Color.Yellow, 1f, 0f, origin);
 				origin.Y += GameSession.Current.UIFontSmall.LineSpacing;
 			}
+			Color red = new Color(1f, 0f, 0f, 0.05f);
+			SpriteBatch.Draw(GameSession.Current.Pixel, RectangleHelper.FromVectors(new Vector2(GraphicsDevice.Viewport.X, GraphicsDevice.Viewport.Y), new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Left, GraphicsDevice.Viewport.Height)), red);
+			SpriteBatch.Draw(GameSession.Current.Pixel, RectangleHelper.FromVectors(new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right, GraphicsDevice.Viewport.Y), new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height)), red);
+			SpriteBatch.Draw(GameSession.Current.Pixel, RectangleHelper.FromVectors(new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Left, GraphicsDevice.Viewport.Y), new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right, GraphicsDevice.Viewport.TitleSafeArea.Top)), red);
+			SpriteBatch.Draw(GameSession.Current.Pixel, RectangleHelper.FromVectors(new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Left, GraphicsDevice.Viewport.TitleSafeArea.Bottom), new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right, GraphicsDevice.Viewport.Height)), red);
 			SpriteBatch.End();
-		}
-
-		private void DrawText(SpriteBatch spriteBatch, SpriteFont font, string text, Color backColor, Color frontColor, float scale, float rotation, Vector2 position) {
-			Vector2 origin = new Vector2(font.MeasureString(text).X / 2, font.MeasureString(text).Y / 2);
-
-			spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, 1 * scale), backColor, rotation, origin, scale, SpriteEffects.None, 1f);
-
-			spriteBatch.DrawString(font, text, position + new Vector2(-1 * scale, -1 * scale), backColor, rotation, origin, scale, SpriteEffects.None, 1f);
-			spriteBatch.DrawString(font, text, position + new Vector2(-1 * scale, 1 * scale), backColor, rotation, origin, scale, SpriteEffects.None, 1f);
-
-			spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, -1 * scale), backColor, rotation, origin, scale, SpriteEffects.None, 1f);
-			spriteBatch.DrawString(font, text, position, frontColor, rotation, origin, scale, SpriteEffects.None, 1f);
-
 		}
 	}
 }

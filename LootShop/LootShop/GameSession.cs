@@ -18,6 +18,7 @@ namespace LootShop {
 		public SpriteFont UIFontMedium;
 		public SpriteFont DialogueFont;
 		public Texture2D Pixel;
+		public Texture2D TestBackground;
 		public Dictionary<Buttons, Texture2D> ButtonImages = new Dictionary<Buttons, Texture2D>();
 		public Campaign Campaign;
 		public static GameSession Current = null;
@@ -56,6 +57,7 @@ namespace LootShop {
 			UIFontMedium = Content.Load<SpriteFont>("UIFontMedium");
 			DialogueFont = Content.Load<SpriteFont>("DialogueFont");
 			Pixel = Content.Load<Texture2D>("blank");
+			TestBackground = Content.Load<Texture2D>("testbackground");
 			ButtonImages.Add(Buttons.Back, Content.Load<Texture2D>(@"ButtonImages\xboxControllerBack"));
 			ButtonImages.Add(Buttons.A, Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonA"));
 			ButtonImages.Add(Buttons.B, Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonB"));

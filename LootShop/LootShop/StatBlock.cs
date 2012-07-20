@@ -41,7 +41,7 @@ namespace LootShop {
 
 			SpriteFont lootFont = GameSession.Current.UIFontSmall;
 
-			int width = 300;
+			int width = 400;
 
 			origin.X -= width / 2;
 
