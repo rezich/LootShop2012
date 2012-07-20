@@ -61,7 +61,7 @@ namespace LootShop {
 							offset.X = 0;
 							offset.Y += font.LineSpacing;
 						}
-						spriteBatch.DrawString(font, w.Text + " ", position + offset, w.Color);
+						spriteBatch.DrawStringOutlined(font, w.Text + " ", position + offset, w.Color);
 						offset.X += font.MeasureString(w.Text + " ").X;
 						break;
 					case Word.WordType.Icon:
