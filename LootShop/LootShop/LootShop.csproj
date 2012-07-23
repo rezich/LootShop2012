@@ -107,7 +107,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cutscene.cs" />
     <Compile Include="DialogueBox.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="GameSession.cs" />
@@ -118,6 +117,7 @@
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="Screens\CutsceneScreen.cs" />
     <Compile Include="Screens\DialogueScreen.cs" />
+    <Compile Include="Screens\DungeonScreen.cs" />
     <Compile Include="Screens\GameplayScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="ScreenManager\GenericMenu.cs" />
