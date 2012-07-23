@@ -2,11 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 using LootSystem;
 
 namespace LootTester {
 	class Program {
 		static void Main(string[] args) {
+
+			Cutscene cutscene = new Cutscene("Opening", new List<CutsceneAction>() {
+				new DialogueAction("Everything was good in the world of [Acquesitia]."),
+				new DialogueAction("Evil existed in this realm, to be sure, but the hordes of vile monsters were always kept at bay."),
+				new DialogueAction("Adventurers' endless appetites for acquiring new and better [loot] from killing monsters ensured that the forces of evil could never truly rise to power."),
+				new DialogueAction("Then, one day, the [Real Money Auction House] was established."),
+				new DialogueAction("Adventurers could now buy and sell loot using endless supplies of mythical [Real Currency], causing the established gold standard to bottom out."),
+				new DialogueAction("After awhile, adventurers stopped using gold and bartering to trade items altogether, preferring to deal solely with Real Currency."),
+				new DialogueAction("While the adventurers of the world traded items for [Real Currency], the forces of evil, no longer being farmed for their loot, rose to power for the first time in milennia."),
+				new DialogueAction("They began to terrorize the civilizations of Acquesitia, and the adventurers of the world, no longer equipped to fight, found themselves unable to fight back."),
+				new DialogueAction("You are [Stebbins], a grizzled old adventurer who was all set to have an easy retirement as an item vendor (as is often the case for aged heroes), but then all of this happened."),
+				new DialogueAction("Vendors are now obsolete, evil is rising across the land, and you, Stebbins, are homeless, living in an alleyway with what remains of the loot you acquired in your adventuring days."),
+				new DialogueAction("Despite being [too old for this shit], Stebbins sets out to right the wrongs of the world, the only way he knows: [capitalism].")
+			});
+
+			XmlSerializer writer = new XmlSerializer(typeof(List<Cutscene>), new Type[] { typeof(CutsceneAction) });
+			System.IO.StreamWriter file = new StreamWriter("../../../LootSystem/Cutscenes.xml");
+			writer.Serialize(file, Cutscene.List);
+			file.Close();
+
 			bool done = false;
 			Random r = new Random();
 			Time time = new Time();

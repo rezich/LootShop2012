@@ -10,14 +10,12 @@ using LootSystem;
 
 namespace LootShop {
 	class CutsceneScreen : GameScreen {
-		Cutscene Cutscene = new Cutscene(new List<CutsceneAction>() {
-			new DialogueAction("The path of #C_SPECIAL# the righteous man #C_NORMAL# is beset on all sides by the iniquities of the selfish and the tyranny of evil men.", "???"),
-			new DialogueAction("Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children.", "Samuel L. Jackson"),
-			new DialogueAction("And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.", "Samuel L. Jackson"),
-			new DialogueAction("Normally, both your asses would be dead as #C_SPECIAL# fucking fried chicken #C_NORMAL# , but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you.", "Samuel L. Jackson"),
-			new DialogueAction("But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass.", "Samuel L. Jackson")
-		});
+		Cutscene Cutscene;
 		int actionIndex = 0;
+
+		public CutsceneScreen(string name) {
+			Cutscene = Cutscene.Lookup(name);
+		}
 
 		public override void Initialize() {
 			//if (Cutscene.DialogueBoxes.Count == 0) throw new Exception("Empty cutscene?!");

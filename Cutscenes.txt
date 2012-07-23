@@ -8,7 +8,7 @@ opening cutscene
 : After awhile, adventurers stopped using gold and bartering to trade items altogether, preferring to deal solely with Real Currency.
 : While the adventurers of the world traded items for [Real Currency], the forces of evil, no longer being farmed for their loot, rose to power for the first time in milennia.
 : They began to terrorize the civilizations of Acquesitia, and the adventurers of the world, no longer equipped to fight, found themselves unable to fight back.
-: You are Stebbins, a grizzled old adventurer who was all set to have an easy retirement as an item vendor (as is often the case for aged heroes), but then all of this happened.
+: You are [Stebbins], a grizzled old adventurer who was all set to have an easy retirement as an item vendor (as is often the case for aged heroes), but then all of this happened.
 : Vendors are now obsolete, evil is rising across the land, and you, Stebbins, are homeless, living in an alleyway with what remains of the loot you acquired in your adventuring days.
 : Despite being [too old for this shit], Stebbins sets out to right the wrongs of the world, the only way he knows: [capitalism].
 :: ACT I

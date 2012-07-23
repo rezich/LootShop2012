@@ -34,6 +34,7 @@ namespace LootShop {
 			Content.RootDirectory = "Content";
 
 			Item.Initialize();
+			Cutscene.LoadFromFile();
 
 			screenManager = new ScreenManager(this);
 

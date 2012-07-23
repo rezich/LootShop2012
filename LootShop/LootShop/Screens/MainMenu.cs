@@ -57,7 +57,9 @@ namespace LootShop {
 		}
 
 		void NewGame(object sender, PlayerIndexEventArgs e) {
-			ScreenManager.ReplaceAllScreens(new GameplayScreen(), ControllingPlayer);
+			ScreenManager.ClearScreens();
+			ScreenManager.ReplaceScreenProxy(new CutsceneScreen("Opening"), new GameplayScreen(), ControllingPlayer);
+			//ScreenManager.ReplaceAllScreens(new GameplayScreen(), ControllingPlayer);
 		}
 	}
 }

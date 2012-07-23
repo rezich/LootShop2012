@@ -84,6 +84,7 @@ namespace LootShop {
 		}
 
 		public TextBlock(string text) {
+			text = text.Replace("[", " #C_SPECIAL# ").Replace("]", " #C_NORMAL# ").Trim();
 			Words = new List<Word>();
 			Color color = Color.White;
 			foreach (string w in text.Split(' ')) {
