@@ -26,6 +26,7 @@ namespace LootShop {
 		}
 
 		public override void Update(GameTime gameTime) {
+			base.Update(gameTime);
 			if (actionIndex < Cutscene.Actions.Count) {
 				if (Cutscene.Actions[actionIndex] is DialogueAction) {
 					ScreenManager.AddScreen(new DialogueScreen(new DialogueBox(new TextBlock(((DialogueAction)Cutscene.Actions[actionIndex]).Text), ((DialogueAction)Cutscene.Actions[actionIndex]).Speaker)), ControllingPlayer);

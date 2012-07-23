@@ -24,6 +24,7 @@ namespace LootShop {
 		}
 
 		public override void Update(GameTime gameTime) {
+			base.Update(gameTime);
 			if (!updated) {
 				updated = true;
 				return;

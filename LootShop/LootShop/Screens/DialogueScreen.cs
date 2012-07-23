@@ -40,6 +40,7 @@ namespace LootShop {
 		}
 
 		public override void Update(GameTime gameTime) {
+			base.Update(gameTime);
 			if (textCountdown < textDelay) textCountdown++;
 			else if (textCountdown == textDelay) {
 				textCountdown = 0;

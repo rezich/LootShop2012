@@ -17,7 +17,7 @@ namespace LootShop {
 		}
 
 		public static void Load(ScreenManager screenManager, bool loadingIsSlow, PlayerIndex? controllingPlayer, params GameScreen[] screensToLoad) {
-			//foreach (GameScreen screen in screenManager.GetScreens()) screen.ExitScreen();
+			foreach (GameScreen screen in screenManager.GetScreens()) screen.ExitScreen();
 			LoadingScreen loadingScreen = new LoadingScreen(screenManager, loadingIsSlow, screensToLoad);
 			screenManager.AddScreen(loadingScreen, controllingPlayer);
 		}

@@ -21,6 +21,7 @@ namespace LootShop {
 		private int selectedIndex = 0;
 
 		public override void Update(GameTime gameTime) {
+			base.Update(gameTime);
 			bool foundGoodOne = false;
 			foreach (Entry e in entries) {
 				if (!initialized) {
@@ -139,12 +140,16 @@ namespace LootShop {
 
 		public GenericMenu(string menuTitle) {
 			Title = menuTitle;
+			TransitionOnTime = TimeSpan.FromSeconds(0.5);
+			TransitionOffTime = TimeSpan.FromSeconds(0.5);
 		}
 
 		public GenericMenu(string menuTitle, bool cancelable, bool hasContent) {
 			Title = menuTitle;
 			Cancelable = cancelable;
 			HasContent = hasContent;
+			TransitionOnTime = TimeSpan.FromSeconds(0.5);
+			TransitionOffTime = TimeSpan.FromSeconds(0.5);
 		}
 
 		public class Entry {
