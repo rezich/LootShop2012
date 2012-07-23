@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace LootShop {
 	public class MainMenu : GenericMenu {
@@ -58,6 +59,7 @@ namespace LootShop {
 
 		void NewGame(object sender, PlayerIndexEventArgs e) {
 			ScreenManager.ClearScreens();
+			MediaPlayer.Play(GameSession.Current.IntroTheme);
 			ScreenManager.ReplaceScreenProxy(new CutsceneScreen("Opening"), new GameplayScreen(), ControllingPlayer);
 			//ScreenManager.ReplaceAllScreens(new GameplayScreen(), ControllingPlayer);
 		}

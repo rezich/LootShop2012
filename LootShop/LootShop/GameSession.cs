@@ -20,8 +20,10 @@ namespace LootShop {
 		public Texture2D Pixel;
 		public Texture2D TestBackground;
 		public Texture2D Border;
-		public Song TitleSong;
+		public Song TitleTheme;
 		public Song ShopTheme;
+		public Song TownTheme;
+		public Song IntroTheme;
 		public Dictionary<Buttons, Texture2D> ButtonImages = new Dictionary<Buttons, Texture2D>();
 		public Campaign Campaign;
 		public static GameSession Current = null;
@@ -51,7 +53,7 @@ namespace LootShop {
 
 		protected override void Initialize() {
 			base.Initialize();
-			MediaPlayer.Play(TitleSong);
+			MediaPlayer.Play(TitleTheme);
 			MediaPlayer.IsRepeating = true;
 		}
 
@@ -65,8 +67,11 @@ namespace LootShop {
 			Pixel = Content.Load<Texture2D>("blank");
 			TestBackground = Content.Load<Texture2D>("testbackground");
 			Border = Content.Load<Texture2D>("border");
-			TitleSong = Content.Load<Song>(@"Music\Loot Shop 1a");
+
+			TitleTheme = Content.Load<Song>(@"Music\Loot Shop 1a");
 			ShopTheme = Content.Load<Song>(@"Music\lootshop 6a medieval bossa");
+			TownTheme = Content.Load<Song>(@"Music\Loot Shop 3a");
+			IntroTheme = Content.Load<Song>(@"Music\Loot Shop 2a");
 
 			ButtonImages.Add(Buttons.Back, Content.Load<Texture2D>(@"ButtonImages\xboxControllerBack"));
 			ButtonImages.Add(Buttons.A, Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonA"));
