@@ -34,9 +34,9 @@ namespace LootShop {
 		}
 
 		void ToTownSquare(object sender, PlayerIndexEventArgs e) {
-			//ScreenManager.ReplaceScreen(new CutsceneScreen(), ControllingPlayer);
-			//ScreenManager.AddScreen(new ScreenProxy(new CutsceneScreen(), new TownMap()), ControllingPlayer);
-			ScreenManager.ReplaceScreenProxy(new CutsceneScreen("Opening"), new TownMap(), ControllingPlayer);
+			ScreenManager.ReplaceScreenProxy(new CutsceneScreen(new List<CutsceneAction>() {
+				new DialogueAction("There is nobody in the town square at the moment.")
+			}), new TownMap(), ControllingPlayer);
 		}
 
 		protected override void OnCancel(PlayerIndex playerIndex) {

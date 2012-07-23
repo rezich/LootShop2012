@@ -17,6 +17,10 @@ namespace LootShop {
 			Cutscene = Cutscene.Lookup(name);
 		}
 
+		public CutsceneScreen(List<CutsceneAction> actions) {
+			Cutscene = new Cutscene(null, actions);
+		}
+
 		public override void Initialize() {
 			//if (Cutscene.DialogueBoxes.Count == 0) throw new Exception("Empty cutscene?!");
 		}
