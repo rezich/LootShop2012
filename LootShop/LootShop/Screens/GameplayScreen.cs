@@ -22,7 +22,8 @@ namespace LootShop {
 
 		public override void Initialize() {
 			MediaPlayer.Play(GameSession.Current.IntroTheme);
-			ScreenManager.ReplaceScreenProxy(new CutsceneScreen("Opening"), new TownMap(), ControllingPlayer);
+			//ScreenManager.ReplaceScreenProxy(new CutsceneScreen("Opening"), new TownMap(), ControllingPlayer);
+			ScreenManager.AddScreen(new TownMap(), ControllingPlayer);
 		}
 
 		public override void Draw(GameTime gameTime) {

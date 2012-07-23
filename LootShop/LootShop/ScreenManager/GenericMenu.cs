@@ -74,8 +74,6 @@ namespace LootShop {
 		}
 
 		public override void Draw(GameTime gameTime) {
-
-
 			float entriesHeight = 0;
 			foreach (Entry e in entries) {
 				if (e.Visible) entriesHeight += e.Height;
@@ -91,9 +89,11 @@ namespace LootShop {
 			int entriesWidth = 270;
 
 			SpriteFont descriptionFont = GameSession.Current.UIFontSmall;
+			SpriteFont backFont = GameSession.Current.UIFontSmall;
 
 			Vector2 entriesOrigin = new Vector2(left + margin, (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
 			Rectangle descriptionRect = RectangleHelper.FromVectors(new Vector2(left + entriesWidth + margin * 2, bottom - descriptionFont.LineSpacing - margin - padding * 2), new Vector2(right - margin, bottom - margin));
+			Rectangle cancelRect = RectangleHelper.FromVectors(new Vector2(left + margin, bottom - backFont.LineSpacing - margin - padding * 2), new Vector2(left + entriesWidth + margin, bottom - margin));
 			Vector2 titleOrigin = new Vector2(0, top + margin);
 			Rectangle contentRect = RectangleHelper.FromVectors(new Vector2(left + entriesWidth + margin * 2, titleOrigin.Y + Font.LineSpacing + margin), new Vector2(right - margin, Description == null ? bottom - margin : descriptionRect.Top - margin));
 			titleOrigin.X = contentRect.Center.X;
@@ -112,6 +112,12 @@ namespace LootShop {
 			if (Description != null) {
 				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, descriptionRect, new Color(0.35f, 0.35f, 0.35f));
 				Description.Draw(ScreenManager.SpriteBatch, descriptionFont, new Vector2(descriptionRect.X + padding, descriptionRect.Y + padding), TextBlock.TextAlign.Left, descriptionRect.Width - padding * 2);
+			}
+
+			if (Cancelable && HasContent) {
+				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, cancelRect, new Color(0.35f, 0.35f, 0.35f));
+				TextBlock backBlock = new TextBlock("#B_BUTTON# Back");
+				backBlock.Draw(ScreenManager.SpriteBatch, backFont, new Vector2(cancelRect.X + padding, cancelRect.Y + padding));
 			}
 
 			for (int i = 0; i < entries.Count; i++) {
