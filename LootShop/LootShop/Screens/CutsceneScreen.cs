@@ -22,7 +22,7 @@ namespace LootShop {
 		}
 
 		public override void Initialize() {
-			//if (Cutscene.DialogueBoxes.Count == 0) throw new Exception("Empty cutscene?!");
+			if (Cutscene.Actions.Count == 0) throw new Exception("Empty cutscene?!");
 		}
 
 		public override void Update(GameTime gameTime) {

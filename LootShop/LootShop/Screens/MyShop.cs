@@ -6,11 +6,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using LootSystem;
 
 namespace LootShop {
 	public class MyShop : GameScreen {
+
 		public override void Initialize() {
+			MediaPlayer.Play(GameSession.Current.ShopTheme);
 			ScreenManager.AddScreen(new MyShopMenu(), ControllingPlayer);
 		}
 	}
