@@ -8,7 +8,20 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace LootShop {
+	public enum ScreenState {
+		TransitionOn,
+		Active,
+		TransitionOff,
+		Hidden,
+	}
+
 	public abstract class GameScreen {
+		public ScreenState ScreenState {
+			get { return screenState; }
+			protected set { screenState = value; }
+		}
+		ScreenState screenState = ScreenState.TransitionOn;
+
 		public virtual void Initialize() { }
 		public virtual void LoadContent() { }
 		public virtual void UnloadContent() { }

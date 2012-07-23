@@ -63,6 +63,10 @@ namespace LootShop {
 			screens.Clear();
 		}
 
+		public GameScreen[] GetScreens() {
+			return screens.ToArray();
+		}
+
 		protected override void LoadContent() {
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 		}

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Microsoft.Xna;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using LootSystem;
 
 namespace LootShop {
@@ -14,8 +16,13 @@ namespace LootShop {
 			GameSession.Current.Campaign = new Campaign();
 		}
 
+		public override void LoadContent() {
+			Thread.Sleep(1000);
+		}
+
 		public override void Initialize() {
-			ScreenManager.AddScreen(new TownMap(), ControllingPlayer);
+			MediaPlayer.Play(GameSession.Current.IntroTheme);
+			ScreenManager.ReplaceScreenProxy(new CutsceneScreen("Opening"), new TownMap(), ControllingPlayer);
 		}
 
 		public override void Draw(GameTime gameTime) {

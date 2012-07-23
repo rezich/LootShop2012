@@ -59,9 +59,7 @@ namespace LootShop {
 
 		void NewGame(object sender, PlayerIndexEventArgs e) {
 			ScreenManager.ClearScreens();
-			MediaPlayer.Play(GameSession.Current.IntroTheme);
-			ScreenManager.ReplaceScreenProxy(new CutsceneScreen("Opening"), new GameplayScreen(), ControllingPlayer);
-			//ScreenManager.ReplaceAllScreens(new GameplayScreen(), ControllingPlayer);
+			LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen());
 		}
 	}
 }
