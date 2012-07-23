@@ -13,6 +13,7 @@ namespace LootShop {
 		public TownMap()
 			: base("Town Map", true, true) {
 				DimBackground = false;
+				Description = new TextBlock("Choose where you want to go around town.");
 				Entry entryShop = new Entry("My Shop", new TextBlock("Your shop! Manage your shop's inventory, put items out on display, and, most importantly, open your shop for business."));
 				entryShop.Selected += ToMyShop;
 				MenuEntries.Add(entryShop);

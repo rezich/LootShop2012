@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 namespace LootShop {
 	public class GenericMenu : GameScreen {
 		public string Title;
-		public string Description;
+		public TextBlock Description;
 		public bool Cancelable = true;
 		public bool HasContent = true;
 		public bool DimBackground = true;
@@ -73,6 +73,8 @@ namespace LootShop {
 		}
 
 		public override void Draw(GameTime gameTime) {
+
+
 			float entriesHeight = 0;
 			foreach (Entry e in entries) {
 				if (e.Visible) entriesHeight += e.Height;
@@ -80,20 +82,35 @@ namespace LootShop {
 			float heightSoFar = 0;
 			int left = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Left;
 			int top = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Top;
+			int right = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Right;
+			int bottom = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Bottom;
 
-			Vector2 entriesOrigin = new Vector2(left + 24, (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
-			Vector2 titleOrigin = HasContent ? new Vector2((ScreenManager.GraphicsDevice.Viewport.Width / 3) * 2, 8) : new Vector2((ScreenManager.GraphicsDevice.Viewport.Width / 2), 8);
-			Rectangle contentRect = new Rectangle((ScreenManager.GraphicsDevice.Viewport.Width / 3), 60, (ScreenManager.GraphicsDevice.Viewport.Width / 3) * 2 - 40, 550);
+			int padding = 8;
+			int margin = 16;
+			int entriesWidth = 270;
+
+			SpriteFont descriptionFont = GameSession.Current.UIFontSmall;
+
+			Vector2 entriesOrigin = new Vector2(left + margin, (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
+			Rectangle descriptionRect = RectangleHelper.FromVectors(new Vector2(left + entriesWidth + margin * 2, bottom - descriptionFont.LineSpacing - margin - padding * 2), new Vector2(right - margin, bottom - margin));
+			Vector2 titleOrigin = new Vector2(0, top + margin);
+			Rectangle contentRect = RectangleHelper.FromVectors(new Vector2(left + entriesWidth + margin * 2, titleOrigin.Y + Font.LineSpacing + margin), new Vector2(right - margin, Description == null ? bottom - margin : descriptionRect.Top - margin));
+			titleOrigin.X = contentRect.Center.X;
 
 			ScreenManager.SpriteBatch.Begin();
 
 			if (DimBackground) ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), new Color(0f, 0f, 0f, 0.85f));
 
-			if (Title != null) ScreenManager.SpriteBatch.DrawString(Font, Title, titleOrigin, Color.White, 0.0f, new Vector2(Font.MeasureString(Title).X / 2, 0), 1.0f, SpriteEffects.None, 0.0f);
+			if (Title != null) ScreenManager.SpriteBatch.DrawStringOutlined(Font, Title, titleOrigin, Color.White, Color.Black, 0.0f, new Vector2(Font.MeasureString(Title).X / 2, 0), 1f);
 
 			if (HasContent) {
-				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, contentRect, new Color(0.25f, 0.25f, 0.25f, 0.85f));
-				if (Content != null) Content.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(contentRect.X, contentRect.Y), TextBlock.TextAlign.Left, contentRect.Width);
+				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, contentRect, new Color(0.25f, 0.25f, 0.25f));
+				if (Content != null) Content.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(contentRect.X + padding, contentRect.Y + padding), TextBlock.TextAlign.Left, contentRect.Width - padding * 2);
+			}
+
+			if (Description != null) {
+				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, descriptionRect, new Color(0.35f, 0.35f, 0.35f));
+				Description.Draw(ScreenManager.SpriteBatch, descriptionFont, new Vector2(descriptionRect.X + padding, descriptionRect.Y + padding), TextBlock.TextAlign.Left, descriptionRect.Width - padding * 2);
 			}
 
 			for (int i = 0; i < entries.Count; i++) {

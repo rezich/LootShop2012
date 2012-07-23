@@ -20,10 +20,10 @@ namespace LootTester {
 					case ConsoleKey.Enter:
 						goto case ConsoleKey.Spacebar;
 					case ConsoleKey.Spacebar:
-						//WriteStatBlock(Item.Generate(r.Next(1, 20), r));
-						time.TimeOfDay++;
+						WriteStatBlock(Item.Generate(r.Next(1, 20), r));
+						//time.TimeOfDay++;
 						//time.Day += 2;
-						Console.WriteLine(time);
+						//Console.WriteLine(time);
 						Console.WriteLine();
 						break;
 					case ConsoleKey.Escape:

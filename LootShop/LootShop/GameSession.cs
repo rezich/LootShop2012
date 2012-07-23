@@ -80,7 +80,7 @@ namespace LootShop {
 		}
 
 		protected override void Draw(GameTime gameTime) {
-			graphics.GraphicsDevice.Clear(Color.Black);
+			graphics.GraphicsDevice.Clear(new Color(0.05f, 0.05f, 0.05f));
 
 			base.Draw(gameTime);
 		}
