@@ -91,11 +91,13 @@ namespace LootShop {
 			SpriteFont descriptionFont = GameSession.Current.UIFontSmall;
 			SpriteFont backFont = GameSession.Current.UIFontSmall;
 
-			Vector2 entriesOrigin = new Vector2(left + margin, (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
+			Vector2 entriesOrigin = new Vector2(left + margin - entriesWidth * (TransitionPositionSquared), (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
 			Rectangle descriptionRect = RectangleHelper.FromVectors(new Vector2(left + entriesWidth + margin * 2, bottom - descriptionFont.LineSpacing - margin - padding * 2), new Vector2(right - margin, bottom - margin));
+			//descriptionRect.Height = Convert.ToInt32((float)descriptionRect.Height * (1 - TransitionPositionSquared));
 			Rectangle cancelRect = RectangleHelper.FromVectors(new Vector2(left + margin, bottom - backFont.LineSpacing - margin - padding * 2), new Vector2(left + entriesWidth + margin, bottom - margin));
 			Vector2 titleOrigin = new Vector2(0, top + margin);
 			Rectangle contentRect = RectangleHelper.FromVectors(new Vector2(left + entriesWidth + margin * 2, titleOrigin.Y + Font.LineSpacing + margin), new Vector2(right - margin, Description == null ? bottom - margin : descriptionRect.Top - margin));
+			contentRect.Height = Convert.ToInt32((float)contentRect.Height * (1 - TransitionPositionSquared));
 			titleOrigin.X = contentRect.Center.X;
 
 			ScreenManager.SpriteBatch.Begin();
@@ -134,7 +136,7 @@ namespace LootShop {
 			entries[entryIndex].OnSelectEntry(playerIndex);
 		}
 		protected virtual void OnCancel(PlayerIndex playerIndex) {
-			ScreenManager.RemoveScreen(this);
+			ExitScreen();
 		}
 		protected void OnCancel(object sender, PlayerIndexEventArgs e) {
 			OnCancel(e.PlayerIndex);
@@ -146,16 +148,16 @@ namespace LootShop {
 
 		public GenericMenu(string menuTitle) {
 			Title = menuTitle;
-			TransitionOnTime = TimeSpan.FromSeconds(0.5);
-			TransitionOffTime = TimeSpan.FromSeconds(0.5);
+			TransitionOnTime = TimeSpan.FromSeconds(0.35);
+			TransitionOffTime = TimeSpan.FromSeconds(0.25);
 		}
 
 		public GenericMenu(string menuTitle, bool cancelable, bool hasContent) {
 			Title = menuTitle;
 			Cancelable = cancelable;
 			HasContent = hasContent;
-			TransitionOnTime = TimeSpan.FromSeconds(0.5);
-			TransitionOffTime = TimeSpan.FromSeconds(0.5);
+			TransitionOnTime = TimeSpan.FromSeconds(0.35);
+			TransitionOffTime = TimeSpan.FromSeconds(0.25);
 		}
 
 		public class Entry {

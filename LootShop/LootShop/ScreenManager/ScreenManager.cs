@@ -32,11 +32,13 @@ namespace LootShop {
 
 		public void RemoveScreen() {
 			RemoveScreen(screens[screens.Count - 1]);
+			//screens[screens.Count - 1].ExitScreen();
 		}
 
 		public void RemoveScreen(GameScreen screen) {
 			screen.UnloadContent();
 			screens.Remove(screen);
+			//screen.ExitScreen();
 		}
 
 		public void ReplaceScreen(GameScreen screen, PlayerIndex? controllingPlayer) {

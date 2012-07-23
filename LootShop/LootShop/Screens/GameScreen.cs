@@ -108,6 +108,10 @@ namespace LootShop {
 			protected set { transitionPosition = value; }
 		}
 
+		public float TransitionPositionSquared {
+			get { return (float)Math.Pow(transitionPosition, 2); }
+		}
+
 		float transitionPosition = 1;
 
 		public float TransitionAlpha {
