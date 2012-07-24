@@ -6,6 +6,7 @@ using Microsoft.Xna;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using LootSystem;
 
 namespace LootShop {
@@ -65,6 +66,7 @@ namespace LootShop {
 			ClearScreens();
 			AddScreen(new TitleScreen(), controllingPlayer);
 			AddScreen(new MainMenu(), null);
+			MediaPlayer.Play(GameSession.Current.TitleTheme);
 		}
 
 		public void ClearScreens() {
