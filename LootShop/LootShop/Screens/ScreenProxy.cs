@@ -25,6 +25,8 @@ namespace LootShop {
 
 		public override void Update(GameTime gameTime) {
 			base.Update(gameTime);
+			//if (!TopActive) return;
+			if (ScreenManager.GetScreens().Last() != this) return;
 			if (!updated) {
 				updated = true;
 				return;

@@ -51,7 +51,9 @@ namespace LootShop {
 
 			Components.Add(screenManager);
 
-			screenManager.AddScreen(new TitleScreen(), null);
+			//screenManager.AddScreen(new TitleScreen(), null);
+			//screenManager.AddScreen(new SplashScreen("108 Studios presents", new TitleScreen()), null);
+			screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents"), new TitleScreen()), null);
 		}
 
 		protected override void Initialize() {

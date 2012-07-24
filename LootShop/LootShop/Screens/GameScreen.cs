@@ -118,6 +118,10 @@ namespace LootShop {
 			get { return 1f - TransitionPosition; }
 		}
 
+		public float TransitionAlphaSquared {
+			get { return (float)Math.Pow(1f - TransitionPosition, 2); }
+		}
+
 		public PlayerIndex? ControllingPlayer {
 			get { return controllingPlayer; }
 			internal set { controllingPlayer = value; }
