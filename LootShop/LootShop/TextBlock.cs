@@ -47,6 +47,9 @@ namespace LootShop {
 			Draw(spriteBatch, font, position, align, null);
 		}
 		public void Draw(SpriteBatch spriteBatch, SpriteFont font, Vector2 position, TextAlign align, int? width) {
+			Draw(spriteBatch, font, position, align, width, 1f);
+		}
+		public void Draw(SpriteBatch spriteBatch, SpriteFont font, Vector2 position, TextAlign align, int? width, float alpha) {
 			Vector2 offset = new Vector2(0, 0);
 			//foreach (Word w in Words) {
 			for (int i = 0; i <= (FullyTyped ? Words.Count - 1 : CurrentWordIndex); i++) {
@@ -61,7 +64,7 @@ namespace LootShop {
 							offset.X = 0;
 							offset.Y += font.LineSpacing;
 						}
-						spriteBatch.DrawStringOutlined(font, w.Text + " ", position + offset, w.Color);
+						spriteBatch.DrawStringOutlined(font, w.Text + " ", position + offset, w.Color * alpha);
 						offset.X += font.MeasureString(w.Text + " ").X;
 						break;
 					case Word.WordType.Icon:
@@ -71,7 +74,7 @@ namespace LootShop {
 							offset.X = 0;
 							offset.Y += font.LineSpacing;
 						}
-						spriteBatch.Draw(w.Icon, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), iconWidth, iconHeight), Color.White);
+						spriteBatch.Draw(w.Icon, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), iconWidth, iconHeight), Color.White * alpha);
 						offset.X += iconWidth + font.MeasureString(" ").X;
 						break;
 				}

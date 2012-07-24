@@ -21,7 +21,7 @@ namespace LootShop {
 
 		public override void Draw(GameTime gameTime) {
 			ScreenManager.SpriteBatch.Begin();
-			ScreenManager.SpriteBatch.Draw(background, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), Color.White);
+			ScreenManager.SpriteBatch.Draw(background, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), Color.White * TransitionAlpha);
 			ScreenManager.SpriteBatch.End();
 			base.Draw(gameTime);
 		}
@@ -58,7 +58,7 @@ namespace LootShop {
 		}
 
 		void NewGame(object sender, PlayerIndexEventArgs e) {
-			ScreenManager.ClearScreens();
+			//ScreenManager.ClearScreens();
 			LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen());
 		}
 	}

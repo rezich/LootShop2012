@@ -102,29 +102,29 @@ namespace LootShop {
 
 			ScreenManager.SpriteBatch.Begin();
 
-			if (DimBackground) ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), new Color(0f, 0f, 0f, 0.85f));
+			if (DimBackground) ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), new Color(0f, 0f, 0f, 0.85f) * TransitionAlpha);
 
-			if (Title != null) ScreenManager.SpriteBatch.DrawStringOutlined(Font, Title, titleOrigin, Color.White, Color.Black, 0.0f, new Vector2(Font.MeasureString(Title).X / 2, 0), 1f);
+			if (Title != null) ScreenManager.SpriteBatch.DrawStringOutlined(Font, Title, titleOrigin, Color.White * TransitionAlpha, Color.Black, 0.0f, new Vector2(Font.MeasureString(Title).X / 2, 0), 1f);
 
 			if (HasContent) {
-				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, contentRect, new Color(0.25f, 0.25f, 0.25f));
-				if (Content != null) Content.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(contentRect.X + padding, contentRect.Y + padding), TextBlock.TextAlign.Left, contentRect.Width - padding * 2);
+				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, contentRect, new Color(0.25f, 0.25f, 0.25f) * TransitionAlpha);
+				if (Content != null) Content.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(contentRect.X + padding, contentRect.Y + padding), TextBlock.TextAlign.Left, contentRect.Width - padding * 2, TransitionAlpha);
 			}
 
 			if (Description != null) {
-				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, descriptionRect, new Color(0.35f, 0.35f, 0.35f));
-				Description.Draw(ScreenManager.SpriteBatch, descriptionFont, new Vector2(descriptionRect.X + padding, descriptionRect.Y + padding), TextBlock.TextAlign.Left, descriptionRect.Width - padding * 2);
+				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, descriptionRect, new Color(0.35f, 0.35f, 0.35f) * TransitionAlpha);
+				Description.Draw(ScreenManager.SpriteBatch, descriptionFont, new Vector2(descriptionRect.X + padding, descriptionRect.Y + padding), TextBlock.TextAlign.Left, descriptionRect.Width - padding * 2, TransitionAlpha);
 			}
 
 			if (Cancelable && HasContent) {
-				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, cancelRect, new Color(0.35f, 0.35f, 0.35f));
+				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, cancelRect, new Color(0.35f, 0.35f, 0.35f) * TransitionAlpha);
 				TextBlock backBlock = new TextBlock("#B_BUTTON# Back");
 				backBlock.Draw(ScreenManager.SpriteBatch, backFont, new Vector2(cancelRect.X + padding, cancelRect.Y + padding));
 			}
 
 			for (int i = 0; i < entries.Count; i++) {
 				if (entries[i].Visible) {
-					entries[i].Draw(ScreenManager.SpriteBatch, gameTime, entriesOrigin + new Vector2(0, heightSoFar));
+					entries[i].Draw(ScreenManager.SpriteBatch, gameTime, entriesOrigin + new Vector2(0, heightSoFar), TransitionAlpha);
 					heightSoFar += entries[i].Height;
 				}
 			}
@@ -186,8 +186,8 @@ namespace LootShop {
 				get { return Font.LineSpacing; }
 			}
 
-			public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin) {
-				spriteBatch.DrawStringOutlined(GenericMenu.Font, Text, origin, Enabled ? (IsSelected ? Color.White : new Color(192, 192, 192)) : new Color(96, 96, 96));
+			public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin, float alpha) {
+				spriteBatch.DrawStringOutlined(GenericMenu.Font, Text, origin, Enabled ? (IsSelected ? Color.White : new Color(192, 192, 192)) : new Color(96, 96, 96) * alpha);
 			}
 
 			public Entry(string text) {

@@ -28,9 +28,9 @@ namespace LootShop {
 
 		protected override void OnCancel(PlayerIndex playerIndex) {
 			//ScreenManager.ReplaceAllScreens(new TownMap(), ControllingPlayer);
-			ScreenManager.RemoveScreen();
-			ScreenManager.RemoveScreen();
-			ScreenManager.AddScreen(new TownMap(), ControllingPlayer);
+			ExitScreen();
+			//ScreenManager.RemoveScreen(ScreenManager.GetScreens().Count
+			//ScreenManager.AddScreen(new TownMap(), ControllingPlayer);
 		}
 	}
 }

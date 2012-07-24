@@ -16,5 +16,10 @@ namespace LootShop {
 			MediaPlayer.Play(GameSession.Current.ShopTheme);
 			ScreenManager.AddScreen(new MyShopMenu(), ControllingPlayer);
 		}
+
+		public override void Update(GameTime gameTime) {
+			base.Update(gameTime);
+			if (ScreenManager.GetScreens().Last() == this) ScreenManager.AddScreen(new TownMap(), ControllingPlayer);
+		}
 	}
 }
