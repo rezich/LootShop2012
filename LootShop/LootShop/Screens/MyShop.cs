@@ -19,7 +19,10 @@ namespace LootShop {
 
 		public override void Update(GameTime gameTime) {
 			base.Update(gameTime);
-			if (ScreenManager.GetScreens().Last() == this) ScreenManager.AddScreen(new TownMap(), ControllingPlayer);
+			if (ScreenManager.GetScreens().Last() == this) {
+				ExitScreen();
+				ScreenManager.AddScreen(new TownMap(), ControllingPlayer);
+			}
 		}
 	}
 }

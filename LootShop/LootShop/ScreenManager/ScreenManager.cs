@@ -75,6 +75,14 @@ namespace LootShop {
 			return screens.ToArray();
 		}
 
+		public GameScreen LastNonExiting() {
+			GameScreen screen = null;
+			foreach (GameScreen s in screens) {
+				if (!s.IsExiting) screen = s;
+			}
+			return screen;
+		}
+
 		protected override void LoadContent() {
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 		}

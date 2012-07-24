@@ -129,5 +129,9 @@ namespace LootShop {
 			internal set { screenManager = value; }
 		}
 		ScreenManager screenManager;
+
+		public bool TopActive {
+			get { return ScreenManager.LastNonExiting() == this; }
+		}
 	}
 }

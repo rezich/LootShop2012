@@ -19,8 +19,8 @@ namespace LootShop {
 			int margin = 8;
 			SpriteFont font = GameSession.Current.DialogueFont;
 
-			Color boxColor1 = new Color(0.2f, 0.2f, 0.2f);
-			Color boxColor2 = new Color(0.3f, 0.3f, 0.3f);
+			Color boxColor1 = new Color(0.2f, 0.2f, 0.2f) * TransitionAlpha;
+			Color boxColor2 = new Color(0.3f, 0.3f, 0.3f) * TransitionAlpha;
 
 			int boxWidth = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Width - margin * 2;
 			int boxHeight = font.LineSpacing * 4 + padding * 2;
@@ -30,11 +30,11 @@ namespace LootShop {
 			ScreenManager.SpriteBatch.Begin();
 
 			ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(boxLeft, boxTop, boxWidth, boxHeight), boxColor1);
-			DialogueBox.Text.Draw(ScreenManager.SpriteBatch, GameSession.Current.DialogueFont, new Vector2(boxLeft + padding, boxTop + padding), TextBlock.TextAlign.Left, boxWidth - padding * 2);
-			if (DialogueBox.Text.FullyTyped) ScreenManager.SpriteBatch.Draw(GameSession.Current.ButtonImages[Buttons.A], new Rectangle(boxLeft + boxWidth - padding - 32, boxTop + boxHeight - padding - 32, 32, 32), Color.White);
+			DialogueBox.Text.Draw(ScreenManager.SpriteBatch, GameSession.Current.DialogueFont, new Vector2(boxLeft + padding, boxTop + padding), TextBlock.TextAlign.Left, boxWidth - padding * 2, TransitionAlpha);
+			if (DialogueBox.Text.FullyTyped) ScreenManager.SpriteBatch.Draw(GameSession.Current.ButtonImages[Buttons.A], new Rectangle(boxLeft + boxWidth - padding - 32, boxTop + boxHeight - padding - 32, 32, 32), Color.White * TransitionAlpha);
 			if (DialogueBox.Speaker != null) {
 				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(boxLeft, boxTop - font.LineSpacing - padding * 2, (int)GameSession.Current.DialogueFont.MeasureString(DialogueBox.Speaker).X + padding * 2, GameSession.Current.DialogueFont.LineSpacing + padding * 2), boxColor2);
-				ScreenManager.SpriteBatch.DrawStringOutlined(font, DialogueBox.Speaker, new Vector2(boxLeft + padding, boxTop - font.LineSpacing - padding), Color.White);
+				ScreenManager.SpriteBatch.DrawStringOutlined(font, DialogueBox.Speaker, new Vector2(boxLeft + padding, boxTop - font.LineSpacing - padding), Color.White * TransitionAlpha);
 			}
 			ScreenManager.SpriteBatch.End();
 		}
@@ -51,13 +51,15 @@ namespace LootShop {
 		public override void HandleInput(InputState input) {
 			PlayerIndex playerIndex;
 			if (input.IsMenuSelect(ControllingPlayer, out playerIndex)) {
-				if (DialogueBox.Text.FullyTyped) ScreenManager.RemoveScreen();
+				if (DialogueBox.Text.FullyTyped) ExitScreen();
 				else DialogueBox.Text.FullyTyped = true;
 			}
 		}
 
 		public DialogueScreen(DialogueBox dialogueBox) {
 			DialogueBox = dialogueBox;
+			TransitionOnTime = TimeSpan.FromSeconds(0.2);
+			TransitionOffTime = TimeSpan.FromSeconds(0.2);
 		}
 	}
 }

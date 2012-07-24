@@ -55,7 +55,7 @@ namespace LootShop {
 			base.Initialize();
 			MediaPlayer.Play(TitleTheme);
 			MediaPlayer.IsRepeating = true;
-			MediaPlayer.Volume = 0;
+			//MediaPlayer.Volume = 0;
 		}
 
 		protected override void LoadContent() {
