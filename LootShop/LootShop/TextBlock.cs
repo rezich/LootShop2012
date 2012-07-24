@@ -134,16 +134,10 @@ namespace LootShop {
 
 			public static Texture2D StringToIcon(string text) {
 				switch (text) {
-					case "#MENU_ACCEPT#": return InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.A] : GameSession.Current.Pixel;
-					case "#MENU_CANCEL#": return InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.B] : GameSession.Current.Pixel;
-					case "#X_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.X];
-					case "#Y_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Y];
-					case "#START_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Start];
-					case "#BACK_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Back];
-					case "#LT_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.LeftTrigger];
-					case "#LB_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.LeftShoulder];
-					case "#RT_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.RightTrigger];
-					case "#RB_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.RightShoulder];
+					case "#MENU_ACCEPT#": return InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.A] : GameSession.Current.KeyImages["X"];
+					case "#MENU_CANCEL#": return InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.B] : GameSession.Current.KeyImages["Z"];
+
+					case "#GAME_PAUSE#": return InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Start] : GameSession.Current.KeyImages["Esc"]; ;
 				}
 				return null;
 			}

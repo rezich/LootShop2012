@@ -27,6 +27,7 @@ namespace LootShop {
 		public Song TownTheme;
 		public Song IntroTheme;
 		public Dictionary<Buttons, Texture2D> ButtonImages = new Dictionary<Buttons, Texture2D>();
+		public Dictionary<string, Texture2D> KeyImages = new Dictionary<string, Texture2D>();
 		public Campaign Campaign;
 		public static GameSession Current = null;
 		public static Random Random = new Random();
@@ -77,6 +78,10 @@ namespace LootShop {
 			ShopTheme = Content.Load<Song>(@"Music\lootshop 6a medieval bossa");
 			TownTheme = Content.Load<Song>(@"Music\Loot Shop 3a");
 			IntroTheme = Content.Load<Song>(@"Music\Loot Shop 2a");
+
+			KeyImages.Add("X", Content.Load<Texture2D>(@"KeyImages\keyboardX"));
+			KeyImages.Add("Z", Content.Load<Texture2D>(@"KeyImages\keyboardZ"));
+			KeyImages.Add("Esc", Content.Load<Texture2D>(@"KeyImages\keyboardEsc"));
 
 			ButtonImages.Add(Buttons.Back, Content.Load<Texture2D>(@"ButtonImages\xboxControllerBack"));
 			ButtonImages.Add(Buttons.A, Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonA"));
