@@ -61,5 +61,10 @@ namespace LootShop {
 			//ScreenManager.ClearScreens();
 			LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen());
 		}
+
+		protected override void OnCancel(PlayerIndex playerIndex) {
+			ExitScreen();
+			ScreenManager.AddScreen(new TitleScreen(), null);
+		}
 	}
 }

@@ -21,13 +21,13 @@ namespace LootShop {
 
 			if (frontColor.A != 1f && backColor.A == 1f) backColor.A = frontColor.A;
 
-			spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, 1 * scale) + origin2, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
+			spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, 1 * scale) + origin2 * scale, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
 
-			spriteBatch.DrawString(font, text, position + new Vector2(-1 * scale, -1 * scale) + origin2, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
-			spriteBatch.DrawString(font, text, position + new Vector2(-1 * scale, 1 * scale) + origin2, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
+			spriteBatch.DrawString(font, text, position + new Vector2(-1 * scale, -1 * scale) + origin2 * scale, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
+			spriteBatch.DrawString(font, text, position + new Vector2(-1 * scale, 1 * scale) + origin2 * scale, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
 
-			spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, -1 * scale) + origin2, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
-			spriteBatch.DrawString(font, text, position + origin2, frontColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
+			spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, -1 * scale) + origin2 * scale, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
+			spriteBatch.DrawString(font, text, position + origin2 * scale, frontColor, rotation, origin + origin2, scale, SpriteEffects.None, 1f);
 
 		}
 	}

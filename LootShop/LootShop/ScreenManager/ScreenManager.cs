@@ -65,7 +65,7 @@ namespace LootShop {
 		public void BackToTitle(PlayerIndex? controllingPlayer) {
 			ClearScreens();
 			AddScreen(new TitleScreen(), controllingPlayer);
-			AddScreen(new MainMenu(), null);
+			//AddScreen(new MainMenu(), null);
 			MediaPlayer.Play(GameSession.Current.TitleTheme);
 		}
 

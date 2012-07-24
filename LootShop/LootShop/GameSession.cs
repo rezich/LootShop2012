@@ -16,6 +16,7 @@ namespace LootShop {
 		GraphicsDeviceManager graphics;
 		public SpriteFont UIFontSmall;
 		public SpriteFont UIFontMedium;
+		public SpriteFont UIFontLarge;
 		public SpriteFont DialogueFont;
 		public Texture2D Pixel;
 		public Texture2D TestBackground;
@@ -55,7 +56,7 @@ namespace LootShop {
 			base.Initialize();
 			MediaPlayer.Play(TitleTheme);
 			MediaPlayer.IsRepeating = true;
-			//MediaPlayer.Volume = 0;
+			MediaPlayer.Volume = 0;
 		}
 
 		protected override void LoadContent() {
@@ -64,6 +65,7 @@ namespace LootShop {
 			}
 			UIFontSmall = Content.Load<SpriteFont>("UIFontSmall");
 			UIFontMedium = Content.Load<SpriteFont>("UIFontMedium");
+			UIFontLarge = Content.Load<SpriteFont>("UIFontLarge");
 			DialogueFont = Content.Load<SpriteFont>("DialogueFont");
 			Pixel = Content.Load<Texture2D>("blank");
 			TestBackground = Content.Load<Texture2D>("testbackground");
