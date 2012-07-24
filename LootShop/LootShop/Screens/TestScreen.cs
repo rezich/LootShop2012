@@ -15,12 +15,12 @@ namespace LootShop {
 
 		public override void Initialize() {
 			item = Item.Generate(GameSession.Random.Next(1, 50), GameSession.Random);
-			testBlock = new TextBlock("#A_BUTTON# Generate loot #NL# #Y_BUTTON# Menu test #NL# #START_BUTTON# Return to main menu");
+			testBlock = new TextBlock("#MENU_ACCEPT# Generate loot #NL# #Y_BUTTON# Menu test #NL# #START_BUTTON# Return to main menu");
 		}
 
 		public override void HandleInput(InputState input) {
 			PlayerIndex playerIndex;
-			if (input.IsNewButtonPress(Buttons.A, ControllingPlayer, out playerIndex) || input.IsNewKeyPress(Keys.A, ControllingPlayer, out playerIndex)) item = Item.Generate(GameSession.Random.Next(1, 50), GameSession.Random);
+			if (input.IsMenuSelect(ControllingPlayer, out playerIndex)) item = Item.Generate(GameSession.Random.Next(1, 50), GameSession.Random);
 			if (input.IsNewButtonPress(Buttons.Y, ControllingPlayer, out playerIndex) || input.IsNewKeyPress(Keys.Y, ControllingPlayer, out playerIndex)) ScreenManager.AddScreen(new TestMenu(), ControllingPlayer);
 			if (input.IsPause(ControllingPlayer, out playerIndex)) {
 				ScreenManager.BackToTitle(ControllingPlayer);

@@ -69,13 +69,20 @@ namespace LootShop {
 						break;
 					case Word.WordType.Icon:
 						int iconHeight = (int)font.LineSpacing;
-						int iconWidth = w.Icon.Width / w.Icon.Height * iconHeight;
-						if (offset.X + w.Icon.Width > width) {
-							offset.X = 0;
-							offset.Y += font.LineSpacing;
+
+						if (w.Icon == GameSession.Current.Pixel) {
+							spriteBatch.DrawStringOutlined(GameSession.Current.KeyboardFont, w.Text, position + offset, w.Color * alpha);
+							offset.X += GameSession.Current.KeyboardFont.MeasureString(w.Text).X + font.MeasureString(" ").X;
 						}
-						spriteBatch.Draw(w.Icon, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), iconWidth, iconHeight), Color.White * alpha);
-						offset.X += iconWidth + font.MeasureString(" ").X;
+						else {
+							int iconWidth = w.Icon.Width / w.Icon.Height * iconHeight;
+							if (offset.X + w.Icon.Width > width) {
+								offset.X = 0;
+								offset.Y += font.LineSpacing;
+							}
+							spriteBatch.Draw(w.Icon, new Rectangle((int)(position.X + offset.X), (int)(position.Y + offset.Y), iconWidth, iconHeight), Color.White * alpha);
+							offset.X += iconWidth + font.MeasureString(" ").X;
+						}
 						break;
 				}
 			}
@@ -108,14 +115,27 @@ namespace LootShop {
 				Newline
 			}
 			public WordType Type;
-			public string Text;
-			public Texture2D Icon;
+			public string Text {
+				get {
+					switch (text) {
+						case "#MENU_ACCEPT#": return "x";
+						case "#MENU_CANCEL#": return "z";
+					}
+					return text;
+				}
+			}
+			private string text;
+			public Texture2D Icon {
+				get {
+					return StringToIcon(text);
+				}
+			}
 			public Color Color;
 
 			public static Texture2D StringToIcon(string text) {
 				switch (text) {
-					case "#A_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.A];
-					case "#B_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.B];
+					case "#MENU_ACCEPT#": return InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.A] : GameSession.Current.Pixel;
+					case "#MENU_CANCEL#": return InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.B] : GameSession.Current.Pixel;
 					case "#X_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.X];
 					case "#Y_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Y];
 					case "#START_BUTTON#": return GameSession.Current.ButtonImages[Microsoft.Xna.Framework.Input.Buttons.Start];
@@ -138,20 +158,17 @@ namespace LootShop {
 
 			public Word(string text, Color color) {
 				Color = color;
-				text = text.Trim();
-				Texture2D icon = StringToIcon(text);
-				if (text == "#NL#") {
+				this.text = text.Trim();
+				Texture2D icon = StringToIcon(this.text);
+				if (this.text == "#NL#") {
 					Type = WordType.Newline;
-					Text = text;
 					return;
 				}
 				if (icon == null) {
 					Type = WordType.Text;
-					Text = text;
 					return;
 				}
 				Type = WordType.Icon;
-				Icon = icon;
 			}
 
 			public override string ToString() {

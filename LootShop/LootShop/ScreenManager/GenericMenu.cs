@@ -118,7 +118,7 @@ namespace LootShop {
 
 			if (Cancelable && HasContent) {
 				ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, cancelRect, new Color(0.35f, 0.35f, 0.35f) * TransitionAlpha);
-				TextBlock backBlock = new TextBlock("#B_BUTTON# Back");
+				TextBlock backBlock = new TextBlock("#MENU_CANCEL# Back");
 				backBlock.Draw(ScreenManager.SpriteBatch, backFont, new Vector2(cancelRect.X + padding, cancelRect.Y + padding));
 			}
 
