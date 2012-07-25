@@ -86,7 +86,7 @@ namespace LootShop {
 
 			int padding = 8;
 			int margin = 16;
-			int entriesWidth = 270;
+			int entriesWidth = 388;
 
 			SpriteFont descriptionFont = GameSession.Current.UIFontSmall;
 			SpriteFont backFont = GameSession.Current.UIFontSmall;
@@ -187,7 +187,10 @@ namespace LootShop {
 			}
 
 			public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin, float alpha) {
-				spriteBatch.DrawStringOutlined(GenericMenu.Font, Text, origin, Enabled ? (IsSelected ? Color.White : new Color(192, 192, 192)) : new Color(96, 96, 96) * alpha);
+				Vector2 offset = new Vector2(36, 0);
+				Vector2 imageOffset = new Vector2(0, 12);
+				if (IsSelected) spriteBatch.Draw(InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Buttons.A] : GameSession.Current.KeyImages["X"], new Rectangle((int)origin.X + (int)imageOffset.X, (int)origin.Y + (int)imageOffset.Y, 32, 32), Color.White);
+				spriteBatch.DrawStringOutlined(GenericMenu.Font, Text, origin + offset, Enabled ? (IsSelected ? Color.White : new Color(192, 192, 192)) : new Color(96, 96, 96) * alpha);
 			}
 
 			public Entry(string text) {
