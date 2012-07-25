@@ -10,9 +10,7 @@
         <RoutedUICommand x:Key="ModifierNeutral" Text="Make Modifier Neutral" />
         <RoutedUICommand x:Key="ModifierBad" Text="Make Modifier Bad" />
         <RoutedUICommand x:Key="NewModifier" Text="New Modifier" />
-        <DataTemplate x:Key="ModifierItemTemplate">
-        	<TextBlock Text="{Binding Name}"/>
-        </DataTemplate>
+		<RoutedUICommand x:Key="NewCutscene" Text="New Cutscene" />
     </Window.Resources>
     
     <Window.CommandBindings>
@@ -20,6 +18,7 @@
         <CommandBinding Command="{StaticResource ModifierNeutral}" Executed="CommandBinding_ModifierNeutral" />
         <CommandBinding Command="{StaticResource ModifierBad}"  Executed="CommandBinding_ModifierBad" />
         <CommandBinding Command="{StaticResource NewModifier}" Executed="CommandBinding_NewModifier" />
+		<CommandBinding Command="{StaticResource NewCutscene}" Executed="CommandBinding_NewCutscene" />
     </Window.CommandBindings>
     
     <Window.InputBindings>
@@ -32,6 +31,9 @@
     <Grid>
         <Grid.Resources>
             <DataTemplate x:Key="ModifierItemTemplate">
+                <TextBlock Text="{Binding Path=Name}"/>
+            </DataTemplate>
+			<DataTemplate x:Key="CutsceneItemTemplate">
                 <TextBlock Text="{Binding Path=Name}"/>
             </DataTemplate>
         </Grid.Resources>
@@ -73,37 +75,32 @@
             		</Grid>
             	</Grid>
             </TabItem>
-            <TabItem x:Name="tabItemTest" Header="Item Test">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
             <TabItem x:Name="tabItemCutscenes" Header="Cutscenes">
             	<Grid Background="#FFE5E5E5">
-            		<ListBox x:Name="lbCutscenes" HorizontalAlignment="Left" Width="229.667" Margin="0,0,0,25.96" SelectionChanged="lbModifiers_SelectionChanged" ItemsSource="{Binding}" ItemTemplate="{StaticResource ModifierItemTemplate}" IsSynchronizedWithCurrentItem="True" Extenders:ListBoxExtenders.AutoScrollToCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+            		<ListBox x:Name="lbCutscenes" HorizontalAlignment="Left" Width="229.667" Margin="0,0,0,25.96" SelectionChanged="lbCutscenes_SelectionChanged" ItemsSource="{Binding}" ItemTemplate="{StaticResource CutsceneItemTemplate}" IsSynchronizedWithCurrentItem="True" Extenders:ListBoxExtenders.AutoScrollToCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
             		<Grid HorizontalAlignment="Left" Height="21.96" VerticalAlignment="Bottom" Width="229.667">
             			<Grid.ColumnDefinitions>
             				<ColumnDefinition/>
             				<ColumnDefinition/>
             				<ColumnDefinition/>
             			</Grid.ColumnDefinitions>
-            			<Button x:Name="btnCutscenesNew" Content="New" Command="{StaticResource NewModifier}" Grid.Column="0" d:LayoutOverrides="HorizontalAlignment"/>
+            			<Button x:Name="btnCutscenesNew" Content="New" Command="{StaticResource NewCutscene}" Grid.Column="0" d:LayoutOverrides="HorizontalAlignment"/>
             			<Button x:Name="btnCutscenesDelete" Content="Delete" IsEnabled="False" Click="btnModifiersDelete_Click" Grid.Column="1" />
             			<Button x:Name="btnCutscenesSort" Content="Sort" Grid.Column="2" Click="btnModifiersSort_Click" />
             		</Grid>
-            		<Grid Height="21" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="339.5">
-            			<Grid.ColumnDefinitions>
-            				<ColumnDefinition/>
-							<ColumnDefinition/>
-						</Grid.ColumnDefinitions>
-            			<Button x:Name="btnNewDialogueAction" Content="Dialogue" Grid.Column="0" HorizontalAlignment="Stretch" />
-            		</Grid>
-            		<ListView Margin="234.5,0,0,25">
-            			<ListView.View>
-            				<GridView>
-            					<GridViewColumn/>
-            				</GridView>
-            			</ListView.View>
-            		</ListView>
+            		<TabControl x:Name="tcCutscenes" Margin="233.667,0,0,0" DataContext="{Binding SelectedItem, ElementName=lbCutscenes}">
+            			<TabItem Header="Actions">
+            				<Grid Background="#FFE5E5E5">
+            					<ListBox x:Name="lbCutsceneActions" Margin="8,33.96,8,33"/>
+            					<TextBox x:Name="tbCutsceneName" Margin="8,8,8,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+            					<Button x:Name="btnNewDialogueAction" Content="Dialogue" Grid.Column="0" HorizontalAlignment="Stretch" Click="btnNewDialogueAction_Click" Height="21" Margin="8,0,8,8" VerticalAlignment="Bottom" />
+            				</Grid>
+            			</TabItem>
+            		</TabControl>
             	</Grid>
+            </TabItem>
+            <TabItem x:Name="tabItemTest" Header="Item Test">
+            	<Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
         <Button x:Name="btnLoad" Content="Load" Height="22" Width="75" VerticalAlignment="Top" d:LayoutOverrides="Width" Grid.Column="1" HorizontalAlignment="Right" Click="btnLoad_Click" />

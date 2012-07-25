@@ -15,22 +15,22 @@ Content\ButtonImages\xboxControllerRightTrigger.xnb
 Content\ButtonImages\xboxControllerSpriteFont.xnb
 Content\ButtonImages\xboxControllerStart.xnb
 Content\title.xnb
+Content\testbackground.xnb
+Content\border.xnb
+Content\stonebackground.xnb
+Content\KeyImages\keyboardEsc.xnb
+Content\KeyImages\keyboardX.xnb
+Content\KeyImages\keyboardZ.xnb
 Content\menufont.xnb
 Content\UIFontSmall.xnb
 Content\UIFontMedium.xnb
 Content\DialogueFont.xnb
-Content\testbackground.xnb
-Content\border.xnb
+Content\UIFontLarge.xnb
+Content\KeyboardFont.xnb
 Content\Music\Loot Shop 1a.xnb
 Content\Music\Loot Shop 2a.xnb
 Content\Music\Loot Shop 3a.xnb
 Content\Music\lootshop 6a medieval bossa.xnb
-Content\UIFontLarge.xnb
-Content\KeyboardFont.xnb
-Content\KeyImages\keyboardX.xnb
-Content\KeyImages\keyboardZ.xnb
-Content\KeyImages\keyboardEsc.xnb
-Content\stonebackground.xnb
 Content\Music\Loot Shop 1a.wma
 Content\Music\Loot Shop 2a.wma
 Content\Music\Loot Shop 3a.wma

@@ -7,10 +7,15 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using System.Reflection;
+using System.ComponentModel;
 
 namespace LootSystem {
-	public class Cutscene {
-		public string Name;
+	public class Cutscene : INotifyPropertyChanged, IComparable {
+		protected string name;
+		public string Name {
+			get { return name; }
+			set { name = value; OnPropertyChanged("Name"); }
+		}
 		public static List<Cutscene> List = new List<Cutscene>();
 		public List<CutsceneAction> Actions = new List<CutsceneAction>();
 
@@ -23,11 +28,30 @@ namespace LootSystem {
 			List.Add(this);
 		}
 
+		public override string ToString() {
+			return Name;
+		}
+
 		public static Cutscene Lookup(string name) {
 			Cutscene cutscene = (from c in List
 								 where c.Name == name
 								 select c).FirstOrDefault<Cutscene>();
 			return cutscene;
+		}
+
+		public int CompareTo(object obj) {
+			Cutscene c = obj as Cutscene;
+			if (c == null) throw new ArgumentException("Object is not Cutscene");
+			return Name.CompareTo(c.Name);
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		protected void OnPropertyChanged(string info) {
+			PropertyChangedEventHandler handler = PropertyChanged;
+			if (handler != null) {
+				handler(this, new PropertyChangedEventArgs(info));
+			}
 		}
 
 		public static void Load() {
@@ -76,6 +100,10 @@ namespace LootSystem {
 		public DialogueAction(string text, string speaker) {
 			Text = text;
 			Speaker = speaker;
+		}
+
+		public override string ToString() {
+			return (Speaker != null ? Speaker + ": " : "") + Text;
 		}
 	}
 }

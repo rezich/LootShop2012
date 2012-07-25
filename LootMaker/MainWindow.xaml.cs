@@ -26,6 +26,7 @@ namespace LootMaker {
 		public MainWindow() {
 			InitializeComponent();
 			lbModifiers.DataContext = LootMaker.Modifier2.List;
+			lbCutscenes.DataContext = LootMaker.Cutscene2.List;
 		}
 
 		private void btnModifiersDelete_Click(object sender, RoutedEventArgs e) {
@@ -43,6 +44,17 @@ namespace LootMaker {
 				return;
 			}
 			tcModifiers.IsEnabled = true;
+			btnModifiersDelete.IsEnabled = true;
+		}
+
+		private void lbCutscenes_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+			LootMaker.Cutscene2 selectedItem = (LootMaker.Cutscene2)lbCutscenes.SelectedItem;
+			if (selectedItem == null) {
+				tcCutscenes.IsEnabled = false;
+				btnModifiersDelete.IsEnabled = false;
+				return;
+			}
+			tcCutscenes.IsEnabled = true;
 			btnModifiersDelete.IsEnabled = true;
 		}
 
@@ -87,10 +99,12 @@ namespace LootMaker {
 
 		private void btnSave_Click(object sender, RoutedEventArgs e) {
 			LootMaker.Modifier2.List.Save(@"..\..\..\LootSystem\Modifiers.xml");
+			LootMaker.Cutscene2.List.Save(@"..\..\..\LootSystem\Cutscenes.xml");
 		}
 
 		private void btnLoad_Click(object sender, RoutedEventArgs e) {
 			LootMaker.Modifier2.ListType.Load(@"..\..\..\LootSystem\Modifiers.xml");
+			LootMaker.Cutscene2.ListType.Load(@"..\..\..\LootSystem\Cutscenes.xml");
 			btnSave.IsEnabled = true;
 		}
 
@@ -136,6 +150,24 @@ namespace LootMaker {
 			tbModifierName.SelectAll();
 		}
 
+		private void CommandBinding_NewCutscene(object sender, ExecutedRoutedEventArgs e) {
+			string name = "UNNAMED_";
+			LootMaker.Cutscene2 taken = null;
+			int num = 0;
+
+			do {
+				taken = (from m in LootMaker.Cutscene2.List
+						 where m.Name == name + num.ToString()
+						 select m).FirstOrDefault<LootMaker.Cutscene2>();
+				if (taken != null) num++;
+			} while (taken != null);
+
+			LootMaker.Cutscene2 newCutscene = new LootMaker.Cutscene2(name + num.ToString(), new List<CutsceneAction>());
+			lbCutscenes.SelectedItem = newCutscene;
+			tbCutsceneName.Focus();
+			tbCutsceneName.SelectAll();
+		}
+
 		private void btnModifiersSort_Click(object sender, RoutedEventArgs e) {
 			List<Modifier2> adjectives = (from adj in Modifier2.List
 										 where adj.Kind == Item.Modifier.Type.Adjective
@@ -149,6 +181,12 @@ namespace LootMaker {
 			foreach (Modifier2 adj in adjectives) Modifier2.List.Add(adj);
 			foreach (Modifier2 x in ofX) Modifier2.List.Add(x);
 			//Modifier2.List.Sort(x => x.Name);
+		}
+
+		private void btnNewDialogueAction_Click(object sender, RoutedEventArgs e) {
+			LootMaker.Cutscene2 selectedItem = (LootMaker.Cutscene2)lbCutscenes.SelectedItem;
+			if (selectedItem == null) return;
+			selectedItem.Actions.Add(new DialogueAction("TEST"));
 		}
 	}
 

@@ -245,6 +245,7 @@
     </Tags>
   </Modifier>
   <Modifier>
+    <Submodifiers />
     <Name>Brotherly</Name>
     <Kind>Adjective</Kind>
     <Tags />
@@ -1264,6 +1265,7 @@
     </Tags>
   </Modifier>
   <Modifier>
+    <Submodifiers />
     <Name>Of The Brother, Brother</Name>
     <Kind>Adjective</Kind>
     <Tags>

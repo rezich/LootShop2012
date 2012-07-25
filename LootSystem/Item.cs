@@ -333,8 +333,6 @@ namespace LootSystem {
 
 			public List<Submodifier> Submodifiers;
 
-			//public static Item.Modifier.ListType List = new Item.Modifier.ListType();
-
 			public static List<Modifier> List = new List<Modifier>();
 
 			public int CompareTo(object obj) {
