@@ -19,7 +19,7 @@ namespace LootShop {
 		public static void DrawStringOutlined(this SpriteBatch spriteBatch, SpriteFont font, string text, Vector2 position, Color frontColor, Color backColor, float rotation, Vector2 origin, float scale) {
 			Vector2 origin2 = new Vector2(font.MeasureString(text).X / 2, font.MeasureString(text).Y / 2);
 
-			if (frontColor.A != 1f && backColor.A == 1f) backColor.A = frontColor.A;
+			backColor.A = frontColor.A;
 
 			spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, 1 * scale) + origin2 * scale, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
 

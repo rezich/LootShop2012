@@ -211,7 +211,13 @@
       <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="stonebackground.png">
+      <Name>stonebackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="KeyImages\keyboardEsc.png">
       <Name>keyboardEsc</Name>
