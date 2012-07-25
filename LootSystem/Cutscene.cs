@@ -16,9 +16,13 @@ namespace LootSystem {
 			get { return name; }
 			set { name = value; OnPropertyChanged("Name"); }
 		}
+		protected List<CutsceneAction> actions;
+		public List<CutsceneAction> Actions {
+			get { return actions; }
+			set { actions = value; OnPropertyChanged("Actions"); }
+		}
 		public static List<Cutscene> List = new List<Cutscene>();
-		public List<CutsceneAction> Actions = new List<CutsceneAction>();
-
+		
 		public Cutscene(string name, List<CutsceneAction> actions) {
 			Name = name;
 			Actions = actions;

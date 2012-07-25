@@ -36,6 +36,9 @@
 			<DataTemplate x:Key="CutsceneItemTemplate">
                 <TextBlock Text="{Binding Path=Name}"/>
             </DataTemplate>
+			<DataTemplate x:Key="CutsceneActionItemTemplate">
+                <TextBlock Text="{Binding Path=Text}"/>
+            </DataTemplate>
         </Grid.Resources>
         <TabControl Grid.ColumnSpan="2">
             <TabItem x:Name="tabModifiers" Header="Modifiers">
@@ -88,12 +91,13 @@
             			<Button x:Name="btnCutscenesDelete" Content="Delete" IsEnabled="False" Click="btnModifiersDelete_Click" Grid.Column="1" />
             			<Button x:Name="btnCutscenesSort" Content="Sort" Grid.Column="2" Click="btnModifiersSort_Click" />
             		</Grid>
-            		<TabControl x:Name="tcCutscenes" Margin="233.667,0,0,0" DataContext="{Binding SelectedItem, ElementName=lbCutscenes}">
+            		<TabControl x:Name="tcCutscenes" Margin="233.667,0,0,0" DataContext="{Binding SelectedItem, ElementName=lbCutscenes}" IsEnabled="False">
             			<TabItem Header="Actions">
             				<Grid Background="#FFE5E5E5">
-            					<ListBox x:Name="lbCutsceneActions" Margin="8,33.96,8,33"/>
+            					<ListBox x:Name="lbCutsceneActions" Margin="8,33.96,8,33" ItemsSource="{Binding Actions}" SelectionChanged="lbCutsceneActions_SelectionChanged" />
             					<TextBox x:Name="tbCutsceneName" Margin="8,8,8,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
-            					<Button x:Name="btnNewDialogueAction" Content="Dialogue" Grid.Column="0" HorizontalAlignment="Stretch" Click="btnNewDialogueAction_Click" Height="21" Margin="8,0,8,8" VerticalAlignment="Bottom" />
+            					<Button x:Name="btnCutsceneActionsAddDialogue" Content="Dialogue" Grid.Column="0" HorizontalAlignment="Stretch" Click="btnCutsceneActionsAddDialogue_Click" Height="21" Margin="8,0,99.333,8" VerticalAlignment="Bottom" />
+            					<Button x:Name="btnCutsceneActionsRemove" Content="Remove" Grid.Column="0" HorizontalAlignment="Right" Click="btnCutsceneActionsRemove_Click" Height="21" Margin="0,0,8,8" VerticalAlignment="Bottom" Width="87.333" />
             				</Grid>
             			</TabItem>
             		</TabControl>

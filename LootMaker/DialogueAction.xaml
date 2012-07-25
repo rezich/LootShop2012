@@ -1,0 +1,12 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="LootMaker.DialogueAction"
+	x:Name="Window"
+	Title="Edit Dialogue Action"
+	Width="640" Height="480" Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize">
+
+	<Grid x:Name="LayoutRoot">
+		<ComboBox x:Name="cbName" Margin="214.333,25.666,299.667,0" VerticalAlignment="Top" IsEditable="True"/>
+	</Grid>
+</Window>

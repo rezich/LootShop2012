@@ -77,6 +77,15 @@ namespace LootMaker {
 			btnModifierTagsRemove.IsEnabled = true;
 		}
 
+		private void lbCutsceneActions_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+			CutsceneAction selectedItem = (CutsceneAction)lbCutsceneActions.SelectedItem;
+			if (selectedItem == null) {
+				btnCutsceneActionsRemove.IsEnabled = false;
+				return;
+			}
+			btnCutsceneActionsRemove.IsEnabled = true;
+		}
+
 		private void btnModifierTagsRemove_Click(object sender, RoutedEventArgs e) {
 			LootMaker.Modifier2 selectedModifier = (LootMaker.Modifier2)lbModifiers.SelectedItem;
 			string selectedItem = (string)lbModifierTags.SelectedItem;
@@ -86,6 +95,19 @@ namespace LootMaker {
 			selectedItem = (string)lbModifierTags.SelectedItem;
 			if (selectedItem == null) {
 				btnModifierTagsRemove.IsEnabled = false;
+				return;
+			}
+		}
+
+		private void btnCutsceneActionsRemove_Click(object sender, RoutedEventArgs e) {
+			LootMaker.Cutscene2 selectedCutscene = (LootMaker.Cutscene2)lbCutscenes.SelectedItem;
+			CutsceneAction selectedItem = (CutsceneAction)lbCutsceneActions.SelectedItem;
+
+			selectedCutscene.Actions.Remove(selectedItem);
+			lbCutsceneActions.Items.Refresh();
+			selectedItem = (CutsceneAction)lbCutsceneActions.SelectedItem;
+			if (selectedItem == null) {
+				btnCutsceneActionsRemove.IsEnabled = false;
 				return;
 			}
 		}
@@ -183,10 +205,19 @@ namespace LootMaker {
 			//Modifier2.List.Sort(x => x.Name);
 		}
 
-		private void btnNewDialogueAction_Click(object sender, RoutedEventArgs e) {
-			LootMaker.Cutscene2 selectedItem = (LootMaker.Cutscene2)lbCutscenes.SelectedItem;
+		private void btnCutsceneActionsAddDialogue_Click(object sender, RoutedEventArgs e) {
+			var window = new DialogueActionWindow();
+			window.Owner = Window.GetWindow(this);
+			if (window.ShowDialog() == true) {
+				LootMaker.Cutscene2 selectedItem = (LootMaker.Cutscene2)lbCutscenes.SelectedItem;
+				if (selectedItem == null) return;
+				selectedItem.Actions.Add(new DialogueAction(window.Text, window.Speaker));
+				lbCutsceneActions.Items.Refresh();
+			}
+			/*LootMaker.Cutscene2 selectedItem = (LootMaker.Cutscene2)lbCutscenes.SelectedItem;
 			if (selectedItem == null) return;
 			selectedItem.Actions.Add(new DialogueAction("TEST"));
+			lbCutsceneActions.Items.Refresh();*/
 		}
 	}
 
