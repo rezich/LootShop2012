@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace LootShop {	
 	class SplashScreen : GameScreen {
 		string text;
-		int countdown = 2000;
+		int countdown = 2200;
 
 		public SplashScreen(string text) {
 			this.text = text;
