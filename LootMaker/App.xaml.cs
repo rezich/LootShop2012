@@ -134,8 +134,8 @@ namespace LootMaker {
 				string content = reader.ReadToEnd();
 				reader.Close();
 
-				content = loading ? Regex.Replace(content, "<Cutscene", "<Cutscene2") : Regex.Replace(content, "<Cutscene2", "<Cutscene");
-				content = loading ? Regex.Replace(content, "</Cutscene", "</Cutscene2") : Regex.Replace(content, "</Cutscene2", "</Cutscene");
+				content = loading ? Regex.Replace(content, "<Cutscene>", "<Cutscene2>") : Regex.Replace(content, "<Cutscene2>", "<Cutscene>");
+				content = loading ? Regex.Replace(content, "</Cutscene>", "</Cutscene2>") : Regex.Replace(content, "</Cutscene2>", "</Cutscene>");
 
 				StreamWriter writer = new StreamWriter(fileName);
 				writer.Write(content);

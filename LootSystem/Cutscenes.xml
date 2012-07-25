@@ -36,6 +36,10 @@
       <CutsceneAction xsi:type="DialogueAction">
         <Text>Despite being [too old for this shit], Stebbins sets out to right the wrongs of the world, the only way he knows: [capitalism].</Text>
       </CutsceneAction>
+      <CutsceneAction xsi:type="DialogueAction">
+        <Text>LET THE GAMES BEGIN</Text>
+        <Speaker>Stebbins</Speaker>
+      </CutsceneAction>
     </Actions>
   </Cutscene>
 </ArrayOfCutscene>
