@@ -35,7 +35,7 @@ namespace LootShop {
 		public OptionsScreen()
 			: base("Options", true, false) {
 			foreach (DisplayMode dm in GraphicsAdapter.DefaultAdapter.SupportedDisplayModes) {
-				resolutions.Add(new ScreenResolution(dm.Width, dm.Height));
+				resolutions.Add(new ScreenResolution(dm.Width, dm.Height, dm.AspectRatio));
 			}
 
 			curResolution = resolutions.IndexOf((from r in resolutions
@@ -88,14 +88,16 @@ namespace LootShop {
 		struct ScreenResolution {
 			public int Width;
 			public int Height;
+			public float AspectRatio;
 
-			public ScreenResolution(int width, int height) {
+			public ScreenResolution(int width, int height, float aspectRatio) {
 				Width = width;
 				Height = height;
+				AspectRatio = aspectRatio;
 			}
 
 			public override string ToString() {
-				return Width.ToString() + "x" + Height.ToString();
+				return Width.ToString() + "x" + Height.ToString() + (AspectRatio != (16f / 9f) ? "*" : "");
 			}
 		}
 	}
