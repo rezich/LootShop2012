@@ -32,6 +32,7 @@ namespace LootShop {
 		public static GameSession Current = null;
 		public static Random Random = new Random();
 		ScreenManager screenManager;
+		FrameRateCounter fpsCounter;
 
 		static readonly string[] preloadAssets = {
         };
@@ -44,16 +45,27 @@ namespace LootShop {
 			Cutscene.LoadFromFile();
 
 			screenManager = new ScreenManager(this);
+			fpsCounter = new FrameRateCounter(this);
 
 			graphics = new GraphicsDeviceManager(this);
-			graphics.PreferredBackBufferWidth = 1280;
-			graphics.PreferredBackBufferHeight = 720;
+			//graphics.PreferredBackBufferWidth = 1280;
+			//graphics.PreferredBackBufferHeight = 720;
+			Resolution.Init(ref graphics);
+#if XBOX
+			Resolution.SetResolution(this.Window.ClientBounds.Width, this.Window.ClientBounds.Height, true);
+#else
+			Resolution.SetResolution(640, 480, false);
+#endif
+			Resolution.SetVirtualResolution(1280, 720);
 
 			Components.Add(screenManager);
+			//Components.Add(fpsCounter);
 
+
+			//screenManager.AddScreen(new TestCardScreen(), null);
 			//screenManager.AddScreen(new TitleScreen(), null);
 			//screenManager.AddScreen(new SplashScreen("108 Studios presents", new TitleScreen()), null);
-			screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents"), new ScreenProxy(new SplashScreen("a game with no publisher"), new TitleScreen())), null);
+			screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents"), new ScreenProxy(new SplashScreen("a game best played in 720p or higher"), new TitleScreen())), null);
 		}
 
 		protected override void Initialize() {
@@ -74,7 +86,7 @@ namespace LootShop {
 			DialogueFont = Content.Load<SpriteFont>("DialogueFont");
 			Pixel = Content.Load<Texture2D>("blank");
 			TestBackground = Content.Load<Texture2D>("testbackground");
-			Border = Content.Load<Texture2D>("border");
+			Border = Content.Load<Texture2D>("stonebackground");
 
 			TitleTheme = Content.Load<Song>(@"Music\Loot Shop 1a");
 			ShopTheme = Content.Load<Song>(@"Music\lootshop 6a medieval bossa");
@@ -105,8 +117,6 @@ namespace LootShop {
 		}
 
 		protected override void Draw(GameTime gameTime) {
-			graphics.GraphicsDevice.Clear(new Color(0.05f, 0.05f, 0.05f));
-
 			base.Draw(gameTime);
 		}
 	}

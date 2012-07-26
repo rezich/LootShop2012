@@ -79,10 +79,10 @@ namespace LootShop {
 				if (e.Visible) entriesHeight += e.Height;
 			}
 			float heightSoFar = 0;
-			int left = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Left;
-			int top = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Top;
-			int right = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Right;
-			int bottom = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Bottom;
+			int left = Resolution.Left;
+			int top = Resolution.Top;
+			int right = Resolution.Right;
+			int bottom = Resolution.Bottom;
 
 			int padding = 8;
 			int margin = 16;
@@ -91,7 +91,7 @@ namespace LootShop {
 			SpriteFont descriptionFont = GameSession.Current.UIFontSmall;
 			SpriteFont backFont = GameSession.Current.UIFontSmall;
 
-			Vector2 entriesOrigin = new Vector2(left + margin - entriesWidth * (TransitionPositionSquared), (ScreenManager.GraphicsDevice.Viewport.Height / 2) - (entriesHeight / 2));
+			Vector2 entriesOrigin = new Vector2(left + margin - entriesWidth * (TransitionPositionSquared), (Resolution.Bottom / 2) - (entriesHeight / 2));
 			Rectangle descriptionRect = RectangleHelper.FromVectors(new Vector2(left + entriesWidth + margin * 2, bottom - descriptionFont.LineSpacing - margin - padding * 2), new Vector2(right - margin, bottom - margin));
 			//descriptionRect.Height = Convert.ToInt32((float)descriptionRect.Height * (1 - TransitionPositionSquared));
 			Rectangle cancelRect = RectangleHelper.FromVectors(new Vector2(left + margin, bottom - backFont.LineSpacing - margin - padding * 2), new Vector2(left + entriesWidth + margin, bottom - margin));
@@ -100,9 +100,9 @@ namespace LootShop {
 			contentRect.Height = Convert.ToInt32((float)contentRect.Height * (1 - TransitionPositionSquared));
 			titleOrigin.X = contentRect.Center.X;
 
-			ScreenManager.SpriteBatch.Begin();
+			ScreenManager.BeginSpriteBatch();
 
-			if (DimBackground) ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), new Color(0f, 0f, 0f, 0.85f) * TransitionAlpha);
+			if (DimBackground) ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(0, 0, Resolution.Right, Resolution.Bottom), new Color(0f, 0f, 0f, 0.85f) * TransitionAlpha);
 
 			if (Title != null) ScreenManager.SpriteBatch.DrawStringOutlined(Font, Title, titleOrigin, Color.White * TransitionAlpha, Color.Black, 0.0f, new Vector2(Font.MeasureString(Title).X / 2, 0), 1f);
 

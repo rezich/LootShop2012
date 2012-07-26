@@ -27,9 +27,9 @@ namespace LootShop {
 		}
 
 		public override void Draw(GameTime gameTime) {
-			ScreenManager.SpriteBatch.Begin();
+			ScreenManager.BeginSpriteBatch();
 			StatBlock.Draw(ScreenManager.SpriteBatch, item);
-			testBlock.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Left + 8, ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Top + 8));
+			testBlock.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(Resolution.Left + 8, Resolution.Top + 8));
 			ScreenManager.SpriteBatch.End();
 		}
 	}

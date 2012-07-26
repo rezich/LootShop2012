@@ -84,6 +84,10 @@ namespace LootShop {
 			return screen;
 		}
 
+		public void BeginSpriteBatch() {
+			SpriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Resolution.getTransformationMatrix());
+		}
+
 		protected override void LoadContent() {
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 		}
@@ -124,17 +128,26 @@ namespace LootShop {
 		}
 
 		public override void Draw(GameTime gameTime) {
-			/*SpriteBatch.Begin();
-			SpriteBatch.Draw(GameSession.Current.TestBackground, VectorsToRect(new Vector2(GraphicsDevice.Viewport.X, GraphicsDevice.Viewport.Y), new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height)), Color.White);
-			SpriteBatch.End();*/
+
+			Resolution.FullViewport();
+
+			SpriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearWrap, null, null);
+			SpriteBatch.Draw(GameSession.Current.Border, new Vector2(0, 0), new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+			SpriteBatch.End();
+
+			Resolution.BeginDraw();
+
+			BeginSpriteBatch();
+			SpriteBatch.Draw(GameSession.Current.Pixel, Resolution.Rectangle, Color.Black);
+			SpriteBatch.End();
 
 			foreach (GameScreen screen in screens) {
 				if (screen.ScreenState == ScreenState.Hidden) continue;
 				screen.Draw(gameTime);
 			}
 
-			SpriteBatch.Begin();
-			Vector2 origin = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right - 4, GraphicsDevice.Viewport.TitleSafeArea.Top + 4);
+			BeginSpriteBatch();
+			Vector2 origin = new Vector2(Resolution.Right - 4, Resolution.Top + 4);
 			foreach (GameScreen screen in screens) {
 				string text = screen.GetType().ToString().Replace("LootShop.", "");
 				SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, text, origin, Color.Yellow, Color.Black, 0f, new Vector2(GameSession.Current.UIFontSmall.MeasureString(text).X, 0), 1f);
@@ -142,12 +155,12 @@ namespace LootShop {
 			}
 			SpriteBatch.End();
 
-			spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearWrap, null, null);
+			/*spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.LinearWrap, null, null);
 			SpriteBatch.Draw(GameSession.Current.Border, new Vector2(GraphicsDevice.Viewport.X, GraphicsDevice.Viewport.Y), RectangleHelper.FromVectors(new Vector2(GraphicsDevice.Viewport.X, GraphicsDevice.Viewport.Y), new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Left, GraphicsDevice.Viewport.Height)), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0);
 			SpriteBatch.Draw(GameSession.Current.Border, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right, GraphicsDevice.Viewport.Y), RectangleHelper.FromVectors(new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right, GraphicsDevice.Viewport.Y), new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height)), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0);
 			SpriteBatch.Draw(GameSession.Current.Border, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Left, GraphicsDevice.Viewport.Y), RectangleHelper.FromVectors(new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Left, GraphicsDevice.Viewport.Y), new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right, GraphicsDevice.Viewport.TitleSafeArea.Top)), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0);
 			SpriteBatch.Draw(GameSession.Current.Border, new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Left, GraphicsDevice.Viewport.TitleSafeArea.Bottom), RectangleHelper.FromVectors(new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Left, GraphicsDevice.Viewport.TitleSafeArea.Bottom), new Vector2(GraphicsDevice.Viewport.TitleSafeArea.Right, GraphicsDevice.Viewport.Height)), Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0);
-			SpriteBatch.End();
+			SpriteBatch.End();*/
 		}
 	}
 }

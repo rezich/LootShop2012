@@ -26,8 +26,8 @@ namespace LootShop {
 
 		public override void Draw(Microsoft.Xna.Framework.GameTime gameTime) {
 			SpriteFont font = GameSession.Current.UIFontMedium;
-			ScreenManager.SpriteBatch.Begin();
-			ScreenManager.SpriteBatch.DrawStringOutlined(font, text, new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height / 2), Color.White * TransitionAlphaSquared, Color.Black, 0f, font.MeasureString(text) / 2, 1f + TransitionPosition * 5f);
+			ScreenManager.BeginSpriteBatch();
+			ScreenManager.SpriteBatch.DrawStringOutlined(font, text, new Vector2(Resolution.Right / 2, Resolution.Bottom / 2), Color.White * TransitionAlphaSquared, Color.Black, 0f, font.MeasureString(text) / 2, 1f + TransitionPosition * 5f);
 			ScreenManager.SpriteBatch.End();
 		}
 	}

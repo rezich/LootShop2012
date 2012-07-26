@@ -28,8 +28,8 @@ namespace LootShop {
 
 		public override void Draw(GameTime gameTime) {
 			int padding = 8;
-			ScreenManager.SpriteBatch.Begin();
-			ScreenManager.SpriteBatch.DrawString(GameSession.Current.UIFontMedium, ((Time.MonthName)GameSession.Current.Campaign.Time.Month).ToString() + " " + GameSession.Current.Campaign.Time.Day + ", " + GameSession.Current.Campaign.Time.Year + "\n" + ((Time.TimeOfDayName)GameSession.Current.Campaign.Time.TimeOfDay).ToString().DeCamelCase(), new Vector2(ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Left + padding, ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Top + padding), Color.White);
+			ScreenManager.BeginSpriteBatch();
+			ScreenManager.SpriteBatch.DrawString(GameSession.Current.UIFontMedium, ((Time.MonthName)GameSession.Current.Campaign.Time.Month).ToString() + " " + GameSession.Current.Campaign.Time.Day + ", " + GameSession.Current.Campaign.Time.Year + "\n" + ((Time.TimeOfDayName)GameSession.Current.Campaign.Time.TimeOfDay).ToString().DeCamelCase(), new Vector2(Resolution.Left + padding, Resolution.Top + padding), Color.White);
 			ScreenManager.SpriteBatch.End();
 			base.Draw(gameTime);
 		}

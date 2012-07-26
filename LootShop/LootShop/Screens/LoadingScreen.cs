@@ -44,23 +44,22 @@ namespace LootShop {
 			}
 
 			if (loadingIsSlow) {
-				SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 				SpriteFont font = GameSession.Current.UIFontMedium;
 
 				const string message = "Loading...";
 
 				// Center the text in the viewport.
 				Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
-				Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
+				Vector2 viewportSize = new Vector2(Resolution.Right, Resolution.Bottom);
 				Vector2 textSize = font.MeasureString(message);
 				Vector2 textPosition = (viewportSize - textSize) / 2;
 
 				Color color = Color.White;
 
 				// Draw the text.
-				spriteBatch.Begin();
-				spriteBatch.DrawStringOutlined(font, message, textPosition, color);
-				spriteBatch.End();
+				ScreenManager.BeginSpriteBatch();
+				ScreenManager.SpriteBatch.DrawStringOutlined(font, message, textPosition, color);
+				ScreenManager.SpriteBatch.End();
 			}
 		}
 	}

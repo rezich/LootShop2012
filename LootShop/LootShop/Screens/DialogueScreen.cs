@@ -22,12 +22,12 @@ namespace LootShop {
 			Color boxColor1 = new Color(0.2f, 0.2f, 0.2f) * TransitionAlpha;
 			Color boxColor2 = new Color(0.3f, 0.3f, 0.3f) * TransitionAlpha;
 
-			int boxWidth = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Width - margin * 2;
+			int boxWidth = Resolution.Right - margin * 2;
 			int boxHeight = font.LineSpacing * 4 + padding * 2;
-			int boxLeft = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Left + margin;
-			int boxTop = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Bottom - margin - boxHeight;
+			int boxLeft = Resolution.Left + margin;
+			int boxTop = Resolution.Bottom - margin - boxHeight;
 
-			ScreenManager.SpriteBatch.Begin();
+			ScreenManager.BeginSpriteBatch();
 
 			ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(boxLeft, boxTop, boxWidth, boxHeight), boxColor1);
 			DialogueBox.Text.Draw(ScreenManager.SpriteBatch, GameSession.Current.DialogueFont, new Vector2(boxLeft + padding, boxTop + padding), TextBlock.TextAlign.Left, boxWidth - padding * 2, TransitionAlpha);

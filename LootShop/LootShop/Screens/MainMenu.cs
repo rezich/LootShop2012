@@ -20,8 +20,8 @@ namespace LootShop {
 		}
 
 		public override void Draw(GameTime gameTime) {
-			ScreenManager.SpriteBatch.Begin();
-			ScreenManager.SpriteBatch.Draw(background, new Rectangle(0, 0, ScreenManager.GraphicsDevice.Viewport.Width, ScreenManager.GraphicsDevice.Viewport.Height), Color.White * TransitionAlpha);
+			ScreenManager.BeginSpriteBatch();
+			ScreenManager.SpriteBatch.Draw(background, Resolution.Rectangle, Color.White * TransitionAlpha);
 			ScreenManager.SpriteBatch.End();
 			base.Draw(gameTime);
 		}

@@ -37,7 +37,7 @@ namespace LootShop {
 					color = Color.Red;
 					break;
 			}
-			Vector2 origin = new Vector2(GameSession.Current.GraphicsDevice.Viewport.Width / 2, 100);
+			Vector2 origin = new Vector2(Resolution.Right / 2, 100);
 
 			SpriteFont lootFont = GameSession.Current.UIFontSmall;
 
