@@ -48,6 +48,12 @@ namespace LootShop {
 		public static int RealWidth { get { return _Width; } }
 		public static int RealHeight { get { return _Height; } }
 
+		public static bool IsFullscreen { get { return _FullScreen; } }
+
+		public static bool DirtyMatrix {
+			set { _dirtyMatrix = value; }
+		}
+
 		public static Rectangle Rectangle {
 			get { return new Rectangle(0, 0, _VWidth, _VHeight); }
 		}

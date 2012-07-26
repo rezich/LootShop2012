@@ -48,13 +48,11 @@ namespace LootShop {
 			fpsCounter = new FrameRateCounter(this);
 
 			graphics = new GraphicsDeviceManager(this);
-			//graphics.PreferredBackBufferWidth = 1280;
-			//graphics.PreferredBackBufferHeight = 720;
 			Resolution.Init(ref graphics);
 #if XBOX
 			Resolution.SetResolution(this.Window.ClientBounds.Width, this.Window.ClientBounds.Height, true);
 #else
-			Resolution.SetResolution(640, 480, false);
+			Resolution.SetResolution(1280, 720, false);
 #endif
 			Resolution.SetVirtualResolution(1280, 720);
 
@@ -62,9 +60,6 @@ namespace LootShop {
 			//Components.Add(fpsCounter);
 
 
-			//screenManager.AddScreen(new TestCardScreen(), null);
-			//screenManager.AddScreen(new TitleScreen(), null);
-			//screenManager.AddScreen(new SplashScreen("108 Studios presents", new TitleScreen()), null);
 			screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents"), new ScreenProxy(new SplashScreen("a game best played in 720p or higher"), new TitleScreen())), null);
 		}
 
