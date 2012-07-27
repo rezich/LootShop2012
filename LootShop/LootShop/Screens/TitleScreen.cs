@@ -28,7 +28,7 @@ namespace LootShop {
 
 		public override void HandleInput(InputState input) {
 			PlayerIndex playerIndex;
-			if (input.IsPressStart(null, out playerIndex)) {
+			if (input.IsInput(Inputs.PressStart, null, out playerIndex)) {
 				ExitScreen();
 				ScreenManager.AddScreen(new MainMenu(), playerIndex);
 			}

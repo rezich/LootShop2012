@@ -45,6 +45,15 @@ namespace LootShop {
 			get { return 0; }
 		}
 
+		public static bool HasTitleSafeArea {
+			get {
+				return (_Device.GraphicsDevice.Viewport.X != _Device.GraphicsDevice.Viewport.TitleSafeArea.Left
+					|| _Device.GraphicsDevice.Viewport.Y != _Device.GraphicsDevice.Viewport.TitleSafeArea.Top
+					|| _Device.GraphicsDevice.Viewport.Width != _Device.GraphicsDevice.Viewport.TitleSafeArea.Width
+					|| _Device.GraphicsDevice.Viewport.Height != _Device.GraphicsDevice.Viewport.TitleSafeArea.Height);
+			}
+		}
+
 		public static int RealWidth { get { return _Width; } }
 		public static int RealHeight { get { return _Height; } }
 

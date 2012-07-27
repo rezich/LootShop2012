@@ -14,6 +14,18 @@ namespace LootShop {
 		Gamepad,
 		KeyboardMouse
 	}
+	public enum Inputs {
+		MenuUp,
+		MenuDown,
+		MenuLeft,
+		MenuRight,
+		MenuCancel,
+		MenuAccept,
+
+		GamePause,
+
+		PressStart
+	}
 	public class InputState {
 		public const int MaxInputs = 4;
 
@@ -130,46 +142,60 @@ namespace LootShop {
 			//return !CurrentKeyboardStates.Equals(LastKeyboardStates);
 		}
 
-		public bool IsMenuSelect(PlayerIndex? controllingPlayer,
-						 out PlayerIndex playerIndex) {
-			return IsNewKeyPress(Keys.Space, controllingPlayer, out playerIndex) ||
-				   IsNewKeyPress(Keys.Enter, controllingPlayer, out playerIndex) ||
-				   IsNewKeyPress(Keys.X, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.A, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
-		}
-		public bool IsMenuCancel(PlayerIndex? controllingPlayer,
-								 out PlayerIndex playerIndex) {
-			return IsNewKeyPress(Keys.Escape, controllingPlayer, out playerIndex) ||
-				   IsNewKeyPress(Keys.Z, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.B, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.Back, controllingPlayer, out playerIndex);
-		}
-		public bool IsMenuUp(PlayerIndex? controllingPlayer) {
+		public bool IsInput(Inputs input, PlayerIndex? controllingPlayer) {
 			PlayerIndex playerIndex;
-
-			return IsNewKeyPress(Keys.Up, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.DPadUp, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.LeftThumbstickUp, controllingPlayer, out playerIndex);
-		}
-		public bool IsMenuDown(PlayerIndex? controllingPlayer) {
-			PlayerIndex playerIndex;
-
-			return IsNewKeyPress(Keys.Down, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.DPadDown, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.LeftThumbstickDown, controllingPlayer, out playerIndex);
+			return IsInput(input, controllingPlayer, out playerIndex);
 		}
 
-		public bool IsPressStart(PlayerIndex? controllingPlayer, out PlayerIndex playerIndex) {
-			return IsNewKeyPress(Keys.Space, controllingPlayer, out playerIndex) ||
-				   IsNewKeyPress(Keys.Enter, controllingPlayer, out playerIndex) ||
-				   IsNewKeyPress(Keys.X, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.A, controllingPlayer, out playerIndex);
-		}
-		public bool IsPause(PlayerIndex? controllingPlayer, out PlayerIndex playerIndex) {
-			return IsNewKeyPress(Keys.Escape, controllingPlayer, out playerIndex) ||
-				   IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
+		public bool IsInput(Inputs input, PlayerIndex? controllingPlayer, out PlayerIndex playerIndex) {
+			switch (input) {
+				case Inputs.MenuAccept:
+					return IsNewKeyPress(Keys.Space, controllingPlayer, out playerIndex) ||
+						   IsNewKeyPress(Keys.Enter, controllingPlayer, out playerIndex) ||
+						   IsNewKeyPress(Keys.X, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.A, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
+
+				case Inputs.MenuCancel:
+					return IsNewKeyPress(Keys.Escape, controllingPlayer, out playerIndex) ||
+						   IsNewKeyPress(Keys.Z, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.B, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.Back, controllingPlayer, out playerIndex);
+
+				case Inputs.MenuUp:
+					return IsNewKeyPress(Keys.Up, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.DPadUp, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.LeftThumbstickUp, controllingPlayer, out playerIndex);
+
+				case Inputs.MenuDown:
+					return IsNewKeyPress(Keys.Down, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.DPadDown, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.LeftThumbstickDown, controllingPlayer, out playerIndex);
+
+				case Inputs.MenuLeft:
+					return IsNewKeyPress(Keys.Left, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.DPadLeft, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.LeftThumbstickLeft, controllingPlayer, out playerIndex);
+
+				case Inputs.MenuRight:
+					return IsNewKeyPress(Keys.Right, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.DPadRight, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.LeftThumbstickRight, controllingPlayer, out playerIndex);
+
+				case Inputs.GamePause:
+					return IsNewKeyPress(Keys.Escape, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex);
+
+				case Inputs.PressStart:
+					return IsNewKeyPress(Keys.Space, controllingPlayer, out playerIndex) ||
+						   IsNewKeyPress(Keys.Enter, controllingPlayer, out playerIndex) ||
+						   IsNewKeyPress(Keys.X, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.Start, controllingPlayer, out playerIndex) ||
+						   IsNewButtonPress(Buttons.A, controllingPlayer, out playerIndex);
+
+				default:
+					goto case Inputs.MenuAccept;
+			}
 		}
 	}
 }

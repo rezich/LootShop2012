@@ -44,45 +44,68 @@ namespace LootShop {
 			titleSafeIndex = titleSafeModes.IndexOf(Resolution.TitleSafeAreaScale);
 			fullscreen = Resolution.IsFullscreen;
 
-			resolutionEntry = new Entry("Resolution: " + resolutions[curResolution]);
-			resolutionEntry.Selected += IncrementResolution;
+			resolutionEntry = new Entry("");
+			resolutionEntry.SwipeLeft += DecrementResolution;
+			resolutionEntry.SwipeRight += IncrementResolution;
 			MenuEntries.Add(resolutionEntry);
 
-			fullscreenEntry = new Entry("Fullscreen: " + (fullscreen ? "YES" : "NO"));
+			fullscreenEntry = new Entry("");
 			fullscreenEntry.Selected += ToggleFullscreen;
 			MenuEntries.Add(fullscreenEntry);
 
-			titleSafeEntry = new Entry("Safe zone: " + titleSafeModes[titleSafeIndex].ToString());
-			titleSafeEntry.Selected += IncrementTitleSafeMode;
+			titleSafeEntry = new Entry("");
+			titleSafeEntry.SwipeLeft += DecrementTitleSafeMode;
+			titleSafeEntry.SwipeRight += IncrementTitleSafeMode;
 			MenuEntries.Add(titleSafeEntry);
 
 			Entry applySettingsEntry = new Entry("Apply settings");
 			applySettingsEntry.Selected += ApplySettings;
 			MenuEntries.Add(applySettingsEntry);
 
+			UpdateEntryText();
 		}
 
 		void IncrementResolution(object sender, PlayerIndexEventArgs e) {
 			curResolution++;
 			if (curResolution >= resolutions.Count) curResolution -= resolutions.Count;
-			resolutionEntry.Text = "Resolution: " + resolutions[curResolution];
+			UpdateEntryText();
+		}
+
+		void DecrementResolution(object sender, PlayerIndexEventArgs e) {
+			curResolution--;
+			if (curResolution < 0) curResolution += resolutions.Count;
+			UpdateEntryText();
 		}
 
 		void ToggleFullscreen(object sender, PlayerIndexEventArgs e) {
 			fullscreen = !fullscreen;
-			fullscreenEntry.Text = "Fullscreen: " + (fullscreen ? "YES" : "NO");
+			UpdateEntryText();
 		}
 
 		void IncrementTitleSafeMode(object sender, PlayerIndexEventArgs e) {
 			titleSafeIndex++;
 			if (titleSafeIndex >= titleSafeModes.Count) titleSafeIndex -= titleSafeModes.Count;
-			titleSafeEntry.Text = "Safe zone: " + titleSafeModes[titleSafeIndex].ToString();
 			Resolution.TitleSafeAreaScale = titleSafeModes[titleSafeIndex];
 			Resolution.DirtyMatrix = true;
+			UpdateEntryText();
+		}
+
+		void DecrementTitleSafeMode(object sender, PlayerIndexEventArgs e) {
+			titleSafeIndex--;
+			if (titleSafeIndex < 0) titleSafeIndex += titleSafeModes.Count;
+			Resolution.TitleSafeAreaScale = titleSafeModes[titleSafeIndex];
+			Resolution.DirtyMatrix = true;
+			UpdateEntryText();
 		}
 
 		void ApplySettings(object sender, PlayerIndexEventArgs e) {
 			Resolution.SetResolution(resolutions[curResolution].Width, resolutions[curResolution].Height, fullscreen);
+		}
+
+		void UpdateEntryText() {
+			if (resolutionEntry != null) resolutionEntry.Text = "Resolution: " + resolutions[curResolution];
+			if (fullscreenEntry != null) fullscreenEntry.Text = "Fullscreen: " + (fullscreen ? "YES" : "NO");
+			if (titleSafeEntry != null) titleSafeEntry.Text = "Safe zone: " + titleSafeModes[titleSafeIndex].ToString();
 		}
 
 		struct ScreenResolution {

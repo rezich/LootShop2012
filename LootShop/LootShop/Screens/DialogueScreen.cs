@@ -49,8 +49,7 @@ namespace LootShop {
 		}
 
 		public override void HandleInput(InputState input) {
-			PlayerIndex playerIndex;
-			if (input.IsMenuSelect(ControllingPlayer, out playerIndex)) {
+			if (input.IsInput(Inputs.MenuAccept, ControllingPlayer)) {
 				if (DialogueBox.Text.FullyTyped) ExitScreen();
 				else DialogueBox.Text.FullyTyped = true;
 			}

@@ -44,7 +44,7 @@ namespace LootShop {
 			if (input == null)
 				throw new ArgumentNullException("input");
 
-			if (input.IsMenuDown(ControllingPlayer)) {
+			if (input.IsInput(Inputs.MenuDown, ControllingPlayer)) {
 				do {
 					selectedIndex++;
 					if (selectedIndex >= entries.Count) selectedIndex -= entries.Count;
@@ -52,7 +52,7 @@ namespace LootShop {
 				while (!entries[selectedIndex].Enabled);
 			}
 
-			if (input.IsMenuUp(ControllingPlayer)) {
+			if (input.IsInput(Inputs.MenuUp, ControllingPlayer)) {
 				do {
 					selectedIndex--;
 					if (selectedIndex < 0) selectedIndex += entries.Count;
@@ -65,10 +65,16 @@ namespace LootShop {
 			else Content = null;
 
 			PlayerIndex playerIndex;
-			if (input.IsMenuSelect(ControllingPlayer, out playerIndex)) {
+			if (input.IsInput(Inputs.MenuAccept, ControllingPlayer, out playerIndex)) {
 				OnSelectEntry(selectedIndex, playerIndex);
 			}
-			if (input.IsMenuCancel(ControllingPlayer, out playerIndex) && Cancelable) {
+			if (input.IsInput(Inputs.MenuLeft, ControllingPlayer, out playerIndex)) {
+				OnSwipeLeftEntry(selectedIndex, playerIndex);
+			}
+			if (input.IsInput(Inputs.MenuRight, ControllingPlayer, out playerIndex)) {
+				OnSwipeRightEntry(selectedIndex, playerIndex);
+			}
+			if (input.IsInput(Inputs.MenuCancel, ControllingPlayer, out playerIndex) && Cancelable) {
 				OnCancel(playerIndex);
 			}
 		}
@@ -135,6 +141,12 @@ namespace LootShop {
 		protected virtual void OnSelectEntry(int entryIndex, PlayerIndex playerIndex) {
 			entries[entryIndex].OnSelectEntry(playerIndex);
 		}
+		protected virtual void OnSwipeLeftEntry(int entryIndex, PlayerIndex playerIndex) {
+			entries[entryIndex].OnSwipeLeftEntry(playerIndex);
+		}
+		protected virtual void OnSwipeRightEntry(int entryIndex, PlayerIndex playerIndex) {
+			entries[entryIndex].OnSwipeRightEntry(playerIndex);
+		}
 		protected virtual void OnCancel(PlayerIndex playerIndex) {
 			ExitScreen();
 		}
@@ -176,10 +188,22 @@ namespace LootShop {
 			bool enabled = true;
 
 			public event EventHandler<PlayerIndexEventArgs> Selected;
+			public event EventHandler<PlayerIndexEventArgs> SwipeLeft;
+			public event EventHandler<PlayerIndexEventArgs> SwipeRight;
 
 			protected internal virtual void OnSelectEntry(PlayerIndex playerIndex) {
 				if (Selected != null)
 					Selected(this, new PlayerIndexEventArgs(playerIndex));
+			}
+
+			protected internal virtual void OnSwipeLeftEntry(PlayerIndex playerIndex) {
+				if (SwipeLeft != null)
+					SwipeLeft(this, new PlayerIndexEventArgs(playerIndex));
+			}
+
+			protected internal virtual void OnSwipeRightEntry(PlayerIndex playerIndex) {
+				if (SwipeRight != null)
+					SwipeRight(this, new PlayerIndexEventArgs(playerIndex));
 			}
 
 			public float Height {
@@ -189,7 +213,13 @@ namespace LootShop {
 			public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin, float alpha) {
 				Vector2 offset = new Vector2(36, 0);
 				Vector2 imageOffset = new Vector2(0, 12);
-				if (IsSelected) spriteBatch.Draw(InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Buttons.A] : GameSession.Current.KeyImages["X"], new Rectangle((int)origin.X + (int)imageOffset.X, (int)origin.Y + (int)imageOffset.Y, 32, 32), Color.White);
+				if (IsSelected) {
+					if (Selected != null) spriteBatch.Draw(InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Buttons.A] : GameSession.Current.KeyImages["X"], new Rectangle((int)origin.X + (int)imageOffset.X, (int)origin.Y + (int)imageOffset.Y, 32, 32), Color.White);
+					if (InputState.InputMethod == InputMethods.KeyboardMouse) { // TODO: Remove this once we get images for the gamepad left and right buttons
+						if (SwipeLeft != null) spriteBatch.Draw(InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Buttons.DPadLeft] : GameSession.Current.KeyImages["Left"], new Rectangle((int)origin.X + (int)imageOffset.X, (int)origin.Y + (int)imageOffset.Y, 32, 32), Color.White);
+						if (SwipeRight != null) spriteBatch.Draw(InputState.InputMethod == InputMethods.Gamepad ? GameSession.Current.ButtonImages[Buttons.DPadRight] : GameSession.Current.KeyImages["Right"], new Rectangle((int)origin.X + (int)imageOffset.X + 8 + 32 + (int)GenericMenu.Font.MeasureString(Text).X, (int)origin.Y + (int)imageOffset.Y, 32, 32), Color.White);
+					}
+				}
 				spriteBatch.DrawStringOutlined(GenericMenu.Font, Text, origin + offset, Enabled ? (IsSelected ? Color.White : new Color(192, 192, 192)) : new Color(96, 96, 96) * alpha);
 			}
 

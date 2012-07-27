@@ -91,6 +91,10 @@ namespace LootShop {
 			KeyImages.Add("X", Content.Load<Texture2D>(@"KeyImages\keyboardX"));
 			KeyImages.Add("Z", Content.Load<Texture2D>(@"KeyImages\keyboardZ"));
 			KeyImages.Add("Esc", Content.Load<Texture2D>(@"KeyImages\keyboardEsc"));
+			KeyImages.Add("Up", Content.Load<Texture2D>(@"KeyImages\keyboardUp"));
+			KeyImages.Add("Down", Content.Load<Texture2D>(@"KeyImages\keyboardDown"));
+			KeyImages.Add("Left", Content.Load<Texture2D>(@"KeyImages\keyboardLeft"));
+			KeyImages.Add("Right", Content.Load<Texture2D>(@"KeyImages\keyboardRight"));
 
 			ButtonImages.Add(Buttons.Back, Content.Load<Texture2D>(@"ButtonImages\xboxControllerBack"));
 			ButtonImages.Add(Buttons.A, Content.Load<Texture2D>(@"ButtonImages\xboxControllerButtonA"));
