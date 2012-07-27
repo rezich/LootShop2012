@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 using LootSystem;
 
 namespace LootMaker {
@@ -125,8 +126,10 @@ namespace LootMaker {
 		}
 
 		private void btnLoad_Click(object sender, RoutedEventArgs e) {
-			LootMaker.Modifier2.ListType.Load(@"..\..\..\LootSystem\Modifiers.xml");
-			LootMaker.Cutscene2.ListType.Load(@"..\..\..\LootSystem\Cutscenes.xml");
+			if (File.Exists(@"..\..\..\LootSystem\Modifiers.xml")) LootMaker.Modifier2.ListType.Load(@"..\..\..\LootSystem\Modifiers.xml");
+			else MessageBox.Show("Modifier XML file not found!", "Uh-oh!", MessageBoxButton.OK, MessageBoxImage.Error);
+			if (File.Exists(@"..\..\..\LootSystem\Cutscenes.xml")) LootMaker.Cutscene2.ListType.Load(@"..\..\..\LootSystem\Cutscenes.xml");
+			else MessageBox.Show("Cutscene XML file not found!", "Uh-oh!", MessageBoxButton.OK, MessageBoxImage.Error);
 			btnSave.IsEnabled = true;
 		}
 
@@ -192,9 +195,9 @@ namespace LootMaker {
 
 		private void btnModifiersSort_Click(object sender, RoutedEventArgs e) {
 			List<Modifier2> adjectives = (from adj in Modifier2.List
-										 where adj.Kind == Item.Modifier.Type.Adjective
-										 orderby adj.Name
-										 select adj).ToList<Modifier2>();
+										  where adj.Kind == Item.Modifier.Type.Adjective
+										  orderby adj.Name
+										  select adj).ToList<Modifier2>();
 			List<Modifier2> ofX = (from adj in Modifier2.List
 								   where adj.Kind == Item.Modifier.Type.OfX
 								   orderby adj.Name
@@ -206,18 +209,29 @@ namespace LootMaker {
 		}
 
 		private void btnCutsceneActionsAddDialogue_Click(object sender, RoutedEventArgs e) {
-			var window = new DialogueActionWindow();
+			LootMaker.Cutscene2 selectedItem = (LootMaker.Cutscene2)lbCutscenes.SelectedItem;
+			if (selectedItem == null) return;
+			selectedItem.Actions.Add(new DialogueAction());
+			lbCutsceneActions.Items.Refresh();
+			lbCutsceneActions.SelectedIndex = lbCutsceneActions.Items.Count - 1;
+			EditDialogueAction();
+		}
+
+		private void lbCutsceneActions_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+			if (lbCutsceneActions.SelectedItem == null) return;
+			if (lbCutsceneActions.SelectedItem is DialogueAction) EditDialogueAction();
+		}
+
+		private void EditDialogueAction() {
+			DialogueActionWindow window = null;
+			window = new DialogueActionWindow((DialogueAction)lbCutsceneActions.SelectedItem);
 			window.Owner = Window.GetWindow(this);
 			if (window.ShowDialog() == true) {
-				LootMaker.Cutscene2 selectedItem = (LootMaker.Cutscene2)lbCutscenes.SelectedItem;
-				if (selectedItem == null) return;
-				selectedItem.Actions.Add(new DialogueAction(window.Text, window.Speaker));
+				((DialogueAction)lbCutsceneActions.SelectedItem).Speaker = window.Speaker;
+				((DialogueAction)lbCutsceneActions.SelectedItem).Text = window.Text;
+				//selectedItem.Actions.Add(new DialogueAction(window.Text, window.Speaker));
 				lbCutsceneActions.Items.Refresh();
 			}
-			/*LootMaker.Cutscene2 selectedItem = (LootMaker.Cutscene2)lbCutscenes.SelectedItem;
-			if (selectedItem == null) return;
-			selectedItem.Actions.Add(new DialogueAction("TEST"));
-			lbCutsceneActions.Items.Refresh();*/
 		}
 	}
 
@@ -289,5 +303,4 @@ namespace LootMaker {
 
 		#endregion
 	}
-
 }

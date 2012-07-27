@@ -11,8 +11,6 @@ using LootSystem;
 
 namespace LootShop {
 	class TitleScreen : GameScreen {
-		SoundEffect sound;
-
 		public TitleScreen() {
 			TransitionOnTime = TimeSpan.FromSeconds(0.35);
 			TransitionOffTime = TimeSpan.FromSeconds(0.25);

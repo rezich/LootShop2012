@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace LootShop {	
 	class SplashScreen : GameScreen {
 		string text;
-		int countdown = 100; //2400;
+		TimeSpan countdown = TimeSpan.FromSeconds(1.5);
 
 		public SplashScreen(string text) {
 			this.text = text;
@@ -18,8 +18,8 @@ namespace LootShop {
 
 		public override void Update(GameTime gameTime) {
 			base.Update(gameTime);
-			/*if (TransitionPosition == 0)*/ countdown -= (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-			if (countdown <= 0 && !IsExiting) {
+			/*if (TransitionPosition == 0)*/ countdown -= gameTime.ElapsedGameTime;
+			if (countdown <= TimeSpan.Zero && !IsExiting) {
 				ExitScreen();
 			}
 		}

@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LootSystem;
 
 namespace LootMaker {
 	/// <summary>
@@ -26,6 +27,12 @@ namespace LootMaker {
 
 		public DialogueActionWindow() {
 			this.InitializeComponent();
+		}
+
+		public DialogueActionWindow(DialogueAction action) {
+			this.InitializeComponent();
+			cbSpeaker.Text = action.Speaker;
+			tbText.Text = action.Text;
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e) {
