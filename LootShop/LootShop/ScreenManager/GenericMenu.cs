@@ -178,14 +178,14 @@ namespace LootShop {
 			public bool IsSelected = false;
 			public bool Enabled {
 				get {
-					return enabled && Visible;
+					return selectable && Visible;
 				}
 				set {
-					enabled = value;
+					selectable = value;
 				}
 			}
 			public bool Visible = true;
-			bool enabled = true;
+			protected bool selectable = true;
 
 			public event EventHandler<PlayerIndexEventArgs> Selected;
 			public event EventHandler<PlayerIndexEventArgs> SwipeLeft;
@@ -210,7 +210,7 @@ namespace LootShop {
 				get { return Font.LineSpacing; }
 			}
 
-			public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin, float alpha) {
+			public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin, float alpha) {
 				Vector2 offset = new Vector2(36, 0);
 				Vector2 imageOffset = new Vector2(0, 12);
 				if (IsSelected) {
@@ -226,13 +226,19 @@ namespace LootShop {
 			public Entry(string text) {
 				Text = text;
 			}
-			public Entry(string text, TextBlock content) {
-				Text = text;
-				Content = content;
+		}
+
+		public class HeadingEntry : Entry {
+			float scale = 0.7f;
+			public HeadingEntry(string text) : base(text) {
+				selectable = false;
 			}
-			public Entry(string text, bool enabled) {
-				Text = text;
-				Enabled = enabled;
+			public override void Draw(SpriteBatch spriteBatch, GameTime gameTime, Vector2 origin, float alpha) {
+				spriteBatch.DrawStringOutlined(GenericMenu.Font, Text, origin, Color.Gray * alpha, Color.Black, 0f, Vector2.Zero, scale);
+			}
+
+			public new float Height {
+				get { return (float)Font.LineSpacing * scale; }
 			}
 		}
 	}

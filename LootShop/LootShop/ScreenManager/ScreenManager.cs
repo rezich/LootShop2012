@@ -101,7 +101,7 @@ namespace LootShop {
 				screensToUpdate.Add(screen);
 
 			bool otherScreenHasFocus = !Game.IsActive;
-			bool coveredByOtherScreen = false;
+			//bool coveredByOtherScreen = false;
 
 			// Loop as long as there are screens waiting to be updated.
 			while (screensToUpdate.Count > 0) {

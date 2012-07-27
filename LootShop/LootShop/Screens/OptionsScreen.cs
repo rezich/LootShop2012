@@ -44,6 +44,8 @@ namespace LootShop {
 			titleSafeIndex = titleSafeModes.IndexOf(Resolution.TitleSafeAreaScale);
 			fullscreen = Resolution.IsFullscreen;
 
+			MenuEntries.Add(new HeadingEntry("Graphics"));
+
 			resolutionEntry = new Entry("");
 			resolutionEntry.SwipeLeft += DecrementResolution;
 			resolutionEntry.SwipeRight += IncrementResolution;

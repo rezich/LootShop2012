@@ -32,8 +32,10 @@ namespace LootShop {
 				
 				Entry entryNewGame = new Entry("New Game");
 				entryNewGame.Selected += NewGame;
-				Entry entryContinue = new Entry("Continue", false);
-				Entry entryLoadGame = new Entry("Load Game", false);
+				Entry entryContinue = new Entry("Continue");
+				entryContinue.Enabled = false;
+				Entry entryLoadGame = new Entry("Load Game");
+				entryLoadGame.Enabled = false;
 				Entry entryOptions = new Entry("Options");
 				entryOptions.Selected += Options;
 				Entry entryLootTest = new Entry("Loot Test");

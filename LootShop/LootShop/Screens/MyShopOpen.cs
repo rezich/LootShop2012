@@ -12,7 +12,8 @@ namespace LootShop {
 	class MyShopOpen : GenericMenu {
 		public MyShopOpen()
 			: base("My Shop - OPEN", false, true) {
-				Entry entryCloseShop = new Entry("Close Shop", new TextBlock("Close the shop."));
+				Entry entryCloseShop = new Entry("Close Shop");
+				entryCloseShop.Content = new TextBlock("Close the shop.");
 				entryCloseShop.Selected += CloseShop;
 				MenuEntries.Add(entryCloseShop);
 		}

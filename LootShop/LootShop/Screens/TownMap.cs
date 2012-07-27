@@ -15,18 +15,22 @@ namespace LootShop {
 			: base("Town Map", true, true) {
 				DimBackground = false;
 				Description = new TextBlock("Choose where you want to go around town.");
-				Entry entryShop = new Entry("My Shop", new TextBlock("Your shop! Manage your shop's inventory, put items out on display, and, most importantly, open your shop for business."));
+				Entry entryShop = new Entry("My Shop");
+				entryShop.Content = new TextBlock("Your shop! Manage your shop's inventory, put items out on display, and, most importantly, open your shop for business.");
 				entryShop.Selected += ToMyShop;
 				MenuEntries.Add(entryShop);
 
-				Entry entryTownSquare = new Entry("Town Square", new TextBlock("Hear the latest rumors and gossip about the town."));
+				Entry entryTownSquare = new Entry("Town Square");
+				entryTownSquare.Content = new TextBlock("Hear the latest rumors and gossip about the town.");
 				entryTownSquare.Selected += ToTownSquare;
 				MenuEntries.Add(entryTownSquare);
 
-				Entry entryTavern = new Entry("Tavern", new TextBlock("Find and hire new adventurers to expand your loot-obtaining capabilities."));
+				Entry entryTavern = new Entry("Tavern");
+				entryTavern.Content = new TextBlock("Find and hire new adventurers to expand your loot-obtaining capabilities.");
 				MenuEntries.Add(entryTavern);
 
-				Entry entryDungeon = new Entry("Dungeon", new TextBlock("Delve into the dungeons in search of loot and more loot!"));
+				Entry entryDungeon = new Entry("Dungeon");
+				entryDungeon.Content = new TextBlock("Delve into the dungeons in search of loot and more loot!");
 				MenuEntries.Add(entryDungeon);
 		}
 
