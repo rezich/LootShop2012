@@ -29,6 +29,7 @@ namespace LootShop {
 		public MainMenu()
 			: base(null, true, false) {
 				DimBackground = false;
+				ShowCancel = false;
 				
 				Entry entryNewGame = new Entry("New Game");
 				entryNewGame.Selected += NewGame;

@@ -17,6 +17,12 @@ namespace LootShop {
 
 		public ScreenManager(GameSession game)
 			: base(game) {
+				input.Update();
+#if XBOX
+				InputState.InputMethod = InputMethods.Gamepad;
+#else
+				InputState.InputMethod = InputMethods.KeyboardMouse;
+#endif
 		}
 
 		public SpriteBatch SpriteBatch {

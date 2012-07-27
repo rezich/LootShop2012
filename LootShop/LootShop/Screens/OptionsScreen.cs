@@ -34,6 +34,7 @@ namespace LootShop {
 
 		public OptionsScreen()
 			: base("Options", true, false) {
+				Centered = true;
 			foreach (DisplayMode dm in GraphicsAdapter.DefaultAdapter.SupportedDisplayModes) {
 				resolutions.Add(new ScreenResolution(dm.Width, dm.Height, dm.AspectRatio));
 			}
@@ -46,18 +47,25 @@ namespace LootShop {
 
 			MenuEntries.Add(new HeadingEntry("Graphics"));
 
-			resolutionEntry = new Entry("");
+			resolutionEntry = new Entry("Resolution");
 			resolutionEntry.SwipeLeft += DecrementResolution;
 			resolutionEntry.SwipeRight += IncrementResolution;
+#if XBOX
+			resolutionEntry.Enabled = false;
+#endif
 			MenuEntries.Add(resolutionEntry);
 
-			fullscreenEntry = new Entry("");
+			fullscreenEntry = new Entry("Fullscreen");
 			fullscreenEntry.Selected += ToggleFullscreen;
+#if XBOX
+			fullscreenEntry.Enabled = false;
+#endif
 			MenuEntries.Add(fullscreenEntry);
 
-			titleSafeEntry = new Entry("");
+			titleSafeEntry = new Entry("Safe Zone");
 			titleSafeEntry.SwipeLeft += DecrementTitleSafeMode;
 			titleSafeEntry.SwipeRight += IncrementTitleSafeMode;
+			titleSafeEntry.Enabled = Resolution.HasTitleSafeArea;
 			MenuEntries.Add(titleSafeEntry);
 
 			Entry applySettingsEntry = new Entry("Apply settings");
@@ -105,9 +113,16 @@ namespace LootShop {
 		}
 
 		void UpdateEntryText() {
-			if (resolutionEntry != null) resolutionEntry.Text = "Resolution: " + resolutions[curResolution];
-			if (fullscreenEntry != null) fullscreenEntry.Text = "Fullscreen: " + (fullscreen ? "YES" : "NO");
-			if (titleSafeEntry != null) titleSafeEntry.Text = "Safe zone: " + titleSafeModes[titleSafeIndex].ToString();
+			resolutionEntry.Text2 = resolutions[curResolution].ToString();
+			fullscreenEntry.Text2 = (fullscreen ? "ON" : "OFF");
+			titleSafeEntry.Text2 = (titleSafeModes[titleSafeIndex] * 10).ToString();
+		}
+
+		public override void Draw(GameTime gameTime) {
+			ScreenManager.BeginSpriteBatch();
+			ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, Resolution.Rectangle, Color.Black * TransitionAlphaSquared);
+			ScreenManager.SpriteBatch.End();
+			base.Draw(gameTime);
 		}
 
 		struct ScreenResolution {

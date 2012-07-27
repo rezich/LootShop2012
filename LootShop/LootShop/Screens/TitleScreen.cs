@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using LootSystem;
 
 namespace LootShop {
 	class TitleScreen : GameScreen {
+		SoundEffect sound;
+
 		public TitleScreen() {
 			TransitionOnTime = TimeSpan.FromSeconds(0.35);
 			TransitionOffTime = TimeSpan.FromSeconds(0.25);
 		}
-
 		public override void Draw(GameTime gameTime) {
 			ScreenManager.BeginSpriteBatch();
 			string title = "Loot Shop";
@@ -29,6 +31,7 @@ namespace LootShop {
 		public override void HandleInput(InputState input) {
 			PlayerIndex playerIndex;
 			if (input.IsInput(Inputs.PressStart, null, out playerIndex)) {
+				GameSession.Current.PressStart.Play();
 				ExitScreen();
 				ScreenManager.AddScreen(new MainMenu(), playerIndex);
 			}

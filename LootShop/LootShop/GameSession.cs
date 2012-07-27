@@ -26,6 +26,10 @@ namespace LootShop {
 		public Song ShopTheme;
 		public Song TownTheme;
 		public Song IntroTheme;
+		public SoundEffect MenuAccept;
+		public SoundEffect MenuCursor;
+		public SoundEffect MenuCancel;
+		public SoundEffect PressStart;
 		public Dictionary<Buttons, Texture2D> ButtonImages = new Dictionary<Buttons, Texture2D>();
 		public Dictionary<string, Texture2D> KeyImages = new Dictionary<string, Texture2D>();
 		public Campaign Campaign;
@@ -87,6 +91,11 @@ namespace LootShop {
 			ShopTheme = Content.Load<Song>(@"Music\lootshop 6a medieval bossa");
 			TownTheme = Content.Load<Song>(@"Music\Loot Shop 3a");
 			IntroTheme = Content.Load<Song>(@"Music\Loot Shop 2a");
+
+			MenuAccept = Content.Load<SoundEffect>(@"Sounds\menuAccept");
+			MenuCursor = Content.Load<SoundEffect>(@"Sounds\menuCursor");
+			MenuCancel = Content.Load<SoundEffect>(@"Sounds\menuCancel");
+			PressStart = Content.Load<SoundEffect>(@"Sounds\pressStart");
 
 			KeyImages.Add("X", Content.Load<Texture2D>(@"KeyImages\keyboardX"));
 			KeyImages.Add("Z", Content.Load<Texture2D>(@"KeyImages\keyboardZ"));
