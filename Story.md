@@ -44,3 +44,11 @@ After some negotiation over rates and accommodations, Bash agrees, and the two h
 
 __Day 3__
 
+
+Crazy Story Shit
+----------------
+
+Stebbins, once deseased, is followed up by (a perhaps seclusive) son, who in the reality of the game was actually telling the story (unknowinsk to the user). His story was demonstrated by the sound of the lute in the games music. The story was told to glorify his fathers tale, but the gameplay continues with the son in a non-story like fashion. The son is now the user controlled charactor, and can manage the shop (futuresk looking? mild changes to the look of the game?) and adventure on his own (he is still young and agile. 
+
+note: we don't yet have many adversaries or antagonists in the storyboard. 
+note: holy shit, we didn't even realize this whole time, but the main theme of the game features a lute. Get it? Lute-shop. (potentially after beating the game the title will change to "Lute-shop"
