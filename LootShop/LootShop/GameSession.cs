@@ -65,7 +65,7 @@ namespace LootShop {
 
 			//screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents"), new ScreenProxy(new SplashScreen("a game best played in 720p or higher"), new TitleScreen())), null);
 			//screenManager.AddScreen(new DungeonScreen(), null);
-			LoadingScreen.Load(screenManager, true, null, new DungeonScreen());
+			LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
 		}
 
 		protected override void Initialize() {
