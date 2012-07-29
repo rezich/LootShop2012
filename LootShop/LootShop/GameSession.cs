@@ -63,15 +63,16 @@ namespace LootShop {
 			Components.Add(screenManager);
 			//Components.Add(fpsCounter);
 
-
-			screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents"), new ScreenProxy(new SplashScreen("a game best played in 720p or higher"), new TitleScreen())), null);
+			//screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents"), new ScreenProxy(new SplashScreen("a game best played in 720p or higher"), new TitleScreen())), null);
+			//screenManager.AddScreen(new DungeonScreen(), null);
+			LoadingScreen.Load(screenManager, true, null, new DungeonScreen());
 		}
 
 		protected override void Initialize() {
 			base.Initialize();
 			MediaPlayer.Play(TitleTheme);
 			MediaPlayer.IsRepeating = true;
-			//MediaPlayer.Volume = 0;
+			MediaPlayer.Volume = 0;
 		}
 
 		protected override void LoadContent() {

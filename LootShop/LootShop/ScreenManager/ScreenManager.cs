@@ -50,6 +50,7 @@ namespace LootShop {
 		}
 
 		public void RemoveScreenAt(int index) {
+			screens[index].UnloadContent();
 			screens.RemoveAt(index);
 		}
 
