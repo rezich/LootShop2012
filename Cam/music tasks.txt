@@ -1,5 +1,6 @@
 Things to do composing-wise
 
+* Reinject all songs into garriton sounds for finale
 * the second part of the song can be modified to be slower for another part of the game
 * finish song # 3
 * finish song # 4
