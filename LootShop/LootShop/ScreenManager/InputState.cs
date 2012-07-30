@@ -206,5 +206,10 @@ namespace LootShop {
 			if (controllingPlayer == null) return Vector2.Zero;
 			return CurrentGamePadStates[(int)controllingPlayer].ThumbSticks.Left * new Vector2(1, -1);
 		}
+
+		public Vector2 RightThumbstick(PlayerIndex? controllingPlayer) {
+			if (controllingPlayer == null) return Vector2.Zero;
+			return CurrentGamePadStates[(int)controllingPlayer].ThumbSticks.Right * new Vector2(1, -1);
+		}
 	}
 }

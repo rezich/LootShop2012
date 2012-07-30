@@ -24,12 +24,10 @@ namespace LootShop {
 			}
 			stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 1 && x.TilePosition.Y == 1));
 			stage.Objects.Add(new Terrain(stage, new Vector2(1, 1), true));
-			/*stage.Objects.Add(new Terrain(stage, new Vector2(0, 0), false));
-			stage.Objects.Add(new Terrain(stage, new Vector2(1, 0), false));
-			stage.Objects.Add(new Terrain(stage, new Vector2(0, 1), false));
-			stage.Objects.Add(new Terrain(stage, new Vector2(3, 3), false));
-			stage.Objects.Add(new Terrain(stage, new Vector2(4, 4), false));
-			stage.Objects.Add(new Terrain(stage, new Vector2(3, 4), false));*/
+			stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 1 && x.TilePosition.Y == 2));
+			stage.Objects.Add(new Terrain(stage, new Vector2(1, 2), true));
+			stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 2 && x.TilePosition.Y == 1));
+			stage.Objects.Add(new Terrain(stage, new Vector2(2, 1), true));
 		}
 
 		public override void LoadContent() {
@@ -72,6 +70,7 @@ namespace LootShop {
 			if (input.IsInput(Inputs.MenuRight, ControllingPlayer)) player.IntendedPosition.X += 8;
 
 			player.IntendedPosition += input.LeftThumbstick(ControllingPlayer) * 4;
+			stage.IntendedViewOffset += input.RightThumbstick(ControllingPlayer) * new Vector2(-1, -1) * 4;
 
 			if (input.CurrentMouseState.LeftButton == ButtonState.Pressed) player.IntendedPosition = new Vector2(input.CurrentMouseState.X, input.CurrentMouseState.Y) - stage.ViewOffset;
 		}
@@ -96,7 +95,7 @@ namespace LootShop {
 		public Terrain(Stage stage, Vector2 position, bool isBox) {
 			Stage = stage;
 			//Position = position * TileSize - (TileSize / 2);
-			if (isBox) IsFlat = true;
+			if (!isBox) IsFlat = true;
 			TilePosition = position;
 			Position = TranslateCoordinates(position) - (TileSize / 2);
 			IsBox = isBox;
@@ -141,7 +140,7 @@ namespace LootShop {
 			pos.X = (float)Math.Round(pos.X);
 			pos.Y = (float)Math.Round(pos.Y);
 			spriteBatch.Draw(CurrentFrame, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 1f);
-			//spriteBatch.Draw(GameSession.Current.Pixel, offset + Position, Color.Red);
+			spriteBatch.Draw(GameSession.Current.Pixel, offset + Position, Color.Blue);
 		}
 		public abstract void Update(GameTime gameTime);
 		public static Vector2 TileSize = new Vector2(128, 64);
@@ -155,6 +154,7 @@ namespace LootShop {
 		public Dictionary<string, Texture2D> Textures = new Dictionary<string, Texture2D>();
 		public List<StageObject> Objects = new List<StageObject>();
 		public Vector2 ViewOffset = Vector2.Zero;
+		public Vector2 IntendedViewOffset = Vector2.Zero;
 		public void SortObjects() {
 			Objects.Sort((a, b) => (a.Position.Y + a.Priority - (a.IsFlat ? StageObject.TileSize.Y / 2 : 0)).CompareTo(b.Position.Y + b.Priority - (b.IsFlat ? StageObject.TileSize.Y / 2 : 0)));
 		}
@@ -164,6 +164,7 @@ namespace LootShop {
 			}
 		}
 		public void Update(GameTime gameTime) {
+			ViewOffset = Vector2.Lerp(ViewOffset, IntendedViewOffset, 0.5f);
 			foreach (StageObject o in Objects) {
 				o.Update(gameTime);
 			}

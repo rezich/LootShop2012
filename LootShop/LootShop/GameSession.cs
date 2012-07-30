@@ -66,15 +66,15 @@ namespace LootShop {
 			float totalTime = 8.45f;
 			float firstTime = 3.85f;
 			float secondTime = totalTime - firstTime;
-			screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents", TimeSpan.FromSeconds(firstTime)), new ScreenProxy(new SplashScreen("[second title card goes here]", TimeSpan.FromSeconds(secondTime)), new TitleScreen())), null);
-			//LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
+			//screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents", TimeSpan.FromSeconds(firstTime)), new ScreenProxy(new SplashScreen("[second title card goes here]", TimeSpan.FromSeconds(secondTime)), new TitleScreen())), null);
+			LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
 		}
 
 		protected override void Initialize() {
 			base.Initialize();
 			MediaPlayer.Play(TitleTheme);
 			MediaPlayer.IsRepeating = true;
-			//MediaPlayer.Volume = 0;
+			MediaPlayer.Volume = 0;
 		}
 
 		protected override void LoadContent() {
