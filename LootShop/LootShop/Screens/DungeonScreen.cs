@@ -141,7 +141,7 @@ namespace LootShop {
 			pos.X = (float)Math.Round(pos.X);
 			pos.Y = (float)Math.Round(pos.Y);
 			spriteBatch.Draw(CurrentFrame, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 1f);
-			spriteBatch.Draw(GameSession.Current.Pixel, offset + Position, Color.Red);
+			//spriteBatch.Draw(GameSession.Current.Pixel, offset + Position, Color.Red);
 		}
 		public abstract void Update(GameTime gameTime);
 		public static Vector2 TileSize = new Vector2(128, 64);
