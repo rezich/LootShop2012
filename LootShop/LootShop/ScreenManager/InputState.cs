@@ -23,6 +23,10 @@ namespace LootShop {
 		MenuAccept,
 
 		GamePause,
+		GameMoveNorth,
+		GameMoveSouth,
+		GameMoveEast,
+		GameMoveWest,
 
 		PressStart
 	}
@@ -196,6 +200,11 @@ namespace LootShop {
 				default:
 					goto case Inputs.MenuAccept;
 			}
+		}
+
+		public Vector2 LeftThumbstick(PlayerIndex? controllingPlayer) {
+			if (controllingPlayer == null) return Vector2.Zero;
+			return CurrentGamePadStates[(int)controllingPlayer].ThumbSticks.Left * new Vector2(1, -1);
 		}
 	}
 }

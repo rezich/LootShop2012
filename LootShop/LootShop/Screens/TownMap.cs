@@ -31,6 +31,7 @@ namespace LootShop {
 
 				Entry entryDungeon = new Entry("Dungeon");
 				entryDungeon.Content = new TextBlock("Delve into the dungeons in search of loot and more loot!");
+				entryDungeon.Selected += ToDungeon;
 				MenuEntries.Add(entryDungeon);
 		}
 
@@ -47,6 +48,11 @@ namespace LootShop {
 				new DialogueAction("There is nobody in the town square at the moment.")
 			}), ControllingPlayer);*/
 			ScreenManager.AddScreen(new CutsceneScreen("Opening"), ControllingPlayer);
+		}
+
+		void ToDungeon(object sender, PlayerIndexEventArgs e) {
+			ExitScreen();
+			ScreenManager.AddScreen(new DungeonScreen(), ControllingPlayer);
 		}
 
 		protected override void OnCancel(PlayerIndex playerIndex) {

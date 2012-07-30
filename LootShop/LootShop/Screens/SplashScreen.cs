@@ -8,10 +8,11 @@ using Microsoft.Xna.Framework.Graphics;
 namespace LootShop {	
 	class SplashScreen : GameScreen {
 		string text;
-		TimeSpan countdown = TimeSpan.FromSeconds(1.5);
+		TimeSpan countdown;
 
-		public SplashScreen(string text) {
+		public SplashScreen(string text, TimeSpan length) {
 			this.text = text;
+			countdown = length;
 			TransitionOnTime = TimeSpan.FromSeconds(0.35);
 			TransitionOffTime = TimeSpan.FromSeconds(0.25);
 		}

@@ -22,6 +22,7 @@ namespace LootShop {
 		public Texture2D Pixel;
 		public Texture2D TestBackground;
 		public Texture2D Border;
+		public Texture2D Cursor;
 		public Song TitleTheme;
 		public Song ShopTheme;
 		public Song TownTheme;
@@ -62,9 +63,10 @@ namespace LootShop {
 
 			Components.Add(screenManager);
 			//Components.Add(fpsCounter);
-
-			//screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents"), new ScreenProxy(new SplashScreen("a game best played in 720p or higher"), new TitleScreen())), null);
-			//screenManager.AddScreen(new DungeonScreen(), null);
+			float totalTime = 8.45f;
+			float firstTime = 3.85f;
+			float secondTime = totalTime - firstTime;
+			//screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents", TimeSpan.FromSeconds(firstTime)), new ScreenProxy(new SplashScreen("[second title card goes here]", TimeSpan.FromSeconds(secondTime)), new TitleScreen())), null);
 			LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
 		}
 
@@ -87,6 +89,7 @@ namespace LootShop {
 			Pixel = Content.Load<Texture2D>("blank");
 			TestBackground = Content.Load<Texture2D>("testbackground");
 			Border = Content.Load<Texture2D>("stonebackground");
+			Cursor = Content.Load<Texture2D>("cursor");
 
 			TitleTheme = Content.Load<Song>(@"Music\Loot Shop 1a");
 			ShopTheme = Content.Load<Song>(@"Music\lootshop 6a medieval bossa");

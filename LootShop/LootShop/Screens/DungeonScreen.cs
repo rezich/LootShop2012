@@ -10,85 +10,164 @@ using Microsoft.Xna.Framework.Input;
 namespace LootShop {
 	class DungeonScreen : GameScreen {
 		ContentManager content;
-		Texture2D tileTest;
-		Texture2D tileCube;
-		Texture2D man;
 		Actor player;
-		List<StageObject> stageObjects = new List<StageObject> {
-			new Terrain(new Vector2(0, 0), true),
-			new Terrain(new Vector2(1, 0), false),
-			new Terrain(new Vector2(3, 0), true)
-		};
+		Stage stage;
 
 		public DungeonScreen() {
-			player = new Actor(new Vector2(3, 0));
-			stageObjects.Add(player);
+			stage = new Stage();
+			player = new Actor(stage, new Vector2(25, 100));
+			stage.Objects.Add(player);
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					stage.Objects.Add(new Terrain(stage, new Vector2(j, i), false));
+				}
+			}
+			stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 1 && x.TilePosition.Y == 1));
+			stage.Objects.Add(new Terrain(stage, new Vector2(1, 1), true));
+			/*stage.Objects.Add(new Terrain(stage, new Vector2(0, 0), false));
+			stage.Objects.Add(new Terrain(stage, new Vector2(1, 0), false));
+			stage.Objects.Add(new Terrain(stage, new Vector2(0, 1), false));
+			stage.Objects.Add(new Terrain(stage, new Vector2(3, 3), false));
+			stage.Objects.Add(new Terrain(stage, new Vector2(4, 4), false));
+			stage.Objects.Add(new Terrain(stage, new Vector2(3, 4), false));*/
 		}
 
 		public override void LoadContent() {
 			if (content == null)
 				content = new ContentManager(ScreenManager.Game.Services, "Content");
-			tileTest = content.Load<Texture2D>(@"Tiles\tileTest");
-			tileCube = content.Load<Texture2D>(@"Tiles\tileCube");
-			man = content.Load<Texture2D>(@"Tiles\man");
+			stage.Textures.Add("tileTest", content.Load<Texture2D>(@"Tiles\tileTest"));
+			stage.Textures.Add("tileCube", content.Load<Texture2D>(@"Tiles\tileCube"));
+			stage.Textures.Add("man", content.Load<Texture2D>(@"Tiles\man"));
+			stage.ViewOffset = new Vector2(400, 400);
 			ScreenManager.Game.ResetElapsedTime();
 		}
 		public override void UnloadContent() {
 			content.Unload();
 		}
 
+		public override void Update(GameTime gameTime) {
+			base.Update(gameTime);
+			stage.Update(gameTime);
+		}
+
 		public override void Draw(GameTime gameTime) {
-			Vector2 offset = new Vector2(0, Resolution.Bottom / 2);
 			ScreenManager.BeginSpriteBatch();
 			ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, Resolution.Rectangle, Color.Gray);
-			stageObjects = stageObjects.OrderBy(t => (t.Position.Y * StageObject.TileHeight / 2) - (t.Position.X * StageObject.TileHeight / 2)).ToList();
-			foreach (StageObject o in stageObjects) {
-				/*if (o is Terrain) {
-					if (((Terrain)o).IsBox) ScreenManager.SpriteBatch.Draw(tileTest, offset + TranslateCoordinates(new Vector2(o.Position.X, o.Position.Y)), null, Color.White, 0f, new Vector2(0, tileTest.Height - TileHeight), 1f, SpriteEffects.None, 1f);
-					else ScreenManager.SpriteBatch.Draw(tileCube, offset + TranslateCoordinates(new Vector2(o.Position.X, o.Position.Y)), null, Color.White, 0f, new Vector2(0, tileCube.Height - TileHeight), 1f, SpriteEffects.None, 1f);
-				}
-				if (o is Actor) ScreenManager.SpriteBatch.Draw(man, offset + TranslateCoordinates(new Vector2(o.Position.X, o.Position.Y)), null, Color.White, 0f, new Vector2(0, man.Height - TileHeight), 1f, SpriteEffects.None, 1f);*/
+
+			stage.Draw(ScreenManager.SpriteBatch);
+
+			for (int i = 0; i < stage.Objects.Count; i++) {
+				ScreenManager.SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, stage.Objects[i].GetType().ToString(), new Vector2(0, i * GameSession.Current.UIFontSmall.LineSpacing), Color.White);
 			}
 
-			if (InputState.InputMethod == InputMethods.KeyboardMouse) ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 8, 32), Color.White);
+			if (InputState.InputMethod == InputMethods.KeyboardMouse) ScreenManager.SpriteBatch.Draw(GameSession.Current.Cursor, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
 
 			ScreenManager.SpriteBatch.End();
 		}
 
 		public override void HandleInput(InputState input) {
-			if (input.IsInput(Inputs.MenuUp, ControllingPlayer)) player.Position.Y -= 0.2f;
-			if (input.IsInput(Inputs.MenuDown, ControllingPlayer)) player.Position.Y += 0.2f;
-			if (input.IsInput(Inputs.MenuLeft, ControllingPlayer)) player.Position.X -= 0.2f;
-			if (input.IsInput(Inputs.MenuRight, ControllingPlayer)) player.Position.X += 0.2f;
+			if (input.IsInput(Inputs.MenuUp, ControllingPlayer)) player.IntendedPosition.Y -= 8;
+			if (input.IsInput(Inputs.MenuDown, ControllingPlayer)) player.IntendedPosition.Y += 8;
+			if (input.IsInput(Inputs.MenuLeft, ControllingPlayer)) player.IntendedPosition.X -= 8;
+			if (input.IsInput(Inputs.MenuRight, ControllingPlayer)) player.IntendedPosition.X += 8;
+
+			player.IntendedPosition += input.LeftThumbstick(ControllingPlayer) * 4;
+
+			if (input.CurrentMouseState.LeftButton == ButtonState.Pressed) player.IntendedPosition = new Vector2(input.CurrentMouseState.X, input.CurrentMouseState.Y) - stage.ViewOffset;
 		}
 	}
 
 	class Terrain : StageObject {
+		public override Texture2D CurrentFrame {
+			get {
+				return IsBox ? Stage.Textures["tileCube"] : Stage.Textures["tileTest"];
+			}
+		}
+		public override Vector2 Origin {
+			get {
+				return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height - TileSize.Y / 2);
+			}
+		}
 		public bool IsBox = false;
 
-		public Terrain(Vector2 position, bool isBox) {
-			Position = position;
-			IsBox = isBox;
+		public override void Update(GameTime gameTime) {
 		}
-		public override void Draw(SpriteBatch spriteBatch) {
+
+		public Terrain(Stage stage, Vector2 position, bool isBox) {
+			Stage = stage;
+			//Position = position * TileSize - (TileSize / 2);
+			if (isBox) IsFlat = true;
+			TilePosition = position;
+			Position = TranslateCoordinates(position) - (TileSize / 2);
+			IsBox = isBox;
+			Priority = IsFlat ? 1 : 0;
 		}
 	}
 
 	class Actor : StageObject {
-		public Actor(Vector2 position) {
-			Position = position;
+		public override Texture2D CurrentFrame {
+			get {
+				return Stage.Textures["man"];
+			}
 		}
-		public override void Draw(SpriteBatch spriteBatch) {
+		public override Vector2 Origin {
+			get {
+				return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height);
+			}
+		}
+		public Vector2 IntendedPosition;
+
+		public override void Update(GameTime gameTime) {
+			if (IntendedPosition != Position) Position = Vector2.Lerp(Position, IntendedPosition, 0.1f);
+		}
+
+		public Actor(Stage stage, Vector2 position) {
+			Stage = stage;
+			Position = position;
+			IntendedPosition = Position;
+			Priority = 2;
 		}
 	}
 
 	abstract class StageObject {
 		public Vector2 Position;
-		public abstract void Draw(SpriteBatch spriteBatch);
-		public static int TileWidth = 128;
-		public static int TileHeight = 64;
+		public Vector2 TilePosition;
+		public bool IsFlat = false;
+		public abstract Texture2D CurrentFrame { get; }
+		public abstract Vector2 Origin { get; }
+		public int Priority;
+		public void Draw(SpriteBatch spriteBatch, Vector2 offset) {
+			Vector2 pos = offset + Position;
+			pos.X = (float)Math.Round(pos.X);
+			pos.Y = (float)Math.Round(pos.Y);
+			spriteBatch.Draw(CurrentFrame, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 1f);
+			spriteBatch.Draw(GameSession.Current.Pixel, offset + Position, Color.Red);
+		}
+		public abstract void Update(GameTime gameTime);
+		public static Vector2 TileSize = new Vector2(128, 64);
+		protected Stage Stage;
 		protected Vector2 TranslateCoordinates(Vector2 coordinates) {
-			return new Vector2((coordinates.X * TileWidth / 2) + (coordinates.Y * TileWidth / 2), (coordinates.Y * TileHeight / 2) - (coordinates.X * TileHeight / 2));
+			return new Vector2((coordinates.X * TileSize.X / 2) + (coordinates.Y * TileSize.X / 2), (coordinates.Y * TileSize.Y / 2) - (coordinates.X * TileSize.Y / 2));
+		}
+	}
+
+	class Stage {
+		public Dictionary<string, Texture2D> Textures = new Dictionary<string, Texture2D>();
+		public List<StageObject> Objects = new List<StageObject>();
+		public Vector2 ViewOffset = Vector2.Zero;
+		public void SortObjects() {
+			Objects.Sort((a, b) => (a.Position.Y + a.Priority - (a.IsFlat ? StageObject.TileSize.Y / 2 : 0)).CompareTo(b.Position.Y + b.Priority - (b.IsFlat ? StageObject.TileSize.Y / 2 : 0)));
+		}
+		public void Draw(SpriteBatch spriteBatch) {
+			foreach (StageObject o in Objects) {
+				o.Draw(spriteBatch, ViewOffset);
+			}
+		}
+		public void Update(GameTime gameTime) {
+			foreach (StageObject o in Objects) {
+				o.Update(gameTime);
+			}
+			SortObjects();
 		}
 	}
 }

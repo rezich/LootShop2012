@@ -17,7 +17,7 @@ namespace LootShop {
 		}
 
 		public override void LoadContent() {
-			Thread.Sleep(5000);
+			Thread.Sleep(1000);
 		}
 
 		public override void Initialize() {
