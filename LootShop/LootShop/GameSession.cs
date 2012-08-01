@@ -12,7 +12,7 @@ using LootSystem;
 
 namespace LootShop {
 	public class GameSession : Microsoft.Xna.Framework.Game {
-
+		public static bool TESTING = true;
 		GraphicsDeviceManager graphics;
 		public SpriteFont UIFontSmall;
 		public SpriteFont UIFontMedium;
@@ -57,7 +57,8 @@ namespace LootShop {
 #if XBOX
 			Resolution.SetResolution(this.Window.ClientBounds.Width, this.Window.ClientBounds.Height, true);
 #else
-			Resolution.SetResolution(1280, 720, false);
+			Resolution.SetResolution(1920, 1080, true);
+			//Resolution.SetResolution(1280, 720, false);
 #endif
 			Resolution.SetVirtualResolution(1280, 720);
 
@@ -66,15 +67,17 @@ namespace LootShop {
 			float totalTime = 8.45f;
 			float firstTime = 3.85f;
 			float secondTime = totalTime - firstTime;
-			//screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents", TimeSpan.FromSeconds(firstTime)), new ScreenProxy(new SplashScreen("[second title card goes here]", TimeSpan.FromSeconds(secondTime)), new TitleScreen())), null);
-			LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
+			if (TESTING) {
+				MediaPlayer.Volume = 0;
+				LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
+			}
+			else screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents", TimeSpan.FromSeconds(firstTime)), new ScreenProxy(new SplashScreen("[second title card goes here]", TimeSpan.FromSeconds(secondTime)), new TitleScreen())), null);
 		}
 
 		protected override void Initialize() {
 			base.Initialize();
 			MediaPlayer.Play(TitleTheme);
 			MediaPlayer.IsRepeating = true;
-			MediaPlayer.Volume = 0;
 		}
 
 		protected override void LoadContent() {

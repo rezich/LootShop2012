@@ -136,6 +136,8 @@
     <Compile Include="Screens\TitleScreen.cs" />
     <Compile Include="Screens\TestScreen.cs" />
     <Compile Include="Screens\TownMap.cs" />
+    <Compile Include="Stage.cs" />
+    <Compile Include="StageObject.cs" />
     <Compile Include="StatBlock.cs" />
     <Compile Include="TextBlock.cs" />
   </ItemGroup>

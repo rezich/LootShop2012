@@ -22,12 +22,15 @@ namespace LootShop {
 					stage.Objects.Add(new Terrain(stage, new Vector2(j, i), false));
 				}
 			}
-			stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 1 && x.TilePosition.Y == 1));
+			//stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 1 && x.TilePosition.Y == 1));
 			stage.Objects.Add(new Terrain(stage, new Vector2(1, 1), true));
-			stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 1 && x.TilePosition.Y == 2));
+			//stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 1 && x.TilePosition.Y == 2));
 			stage.Objects.Add(new Terrain(stage, new Vector2(1, 2), true));
-			stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 2 && x.TilePosition.Y == 1));
+			//stage.Objects.Remove(stage.Objects.Find(x => x.TilePosition.X == 2 && x.TilePosition.Y == 1));
 			stage.Objects.Add(new Terrain(stage, new Vector2(2, 1), true));
+
+			stage.IntendedViewOffset = new Vector2(400, 400);
+			stage.ViewOffset = stage.IntendedViewOffset;
 		}
 
 		public override void LoadContent() {
@@ -36,7 +39,6 @@ namespace LootShop {
 			stage.Textures.Add("tileTest", content.Load<Texture2D>(@"Tiles\tileTest"));
 			stage.Textures.Add("tileCube", content.Load<Texture2D>(@"Tiles\tileCube"));
 			stage.Textures.Add("man", content.Load<Texture2D>(@"Tiles\man"));
-			stage.ViewOffset = new Vector2(400, 400);
 			ScreenManager.Game.ResetElapsedTime();
 		}
 		public override void UnloadContent() {
@@ -54,10 +56,6 @@ namespace LootShop {
 
 			stage.Draw(ScreenManager.SpriteBatch);
 
-			for (int i = 0; i < stage.Objects.Count; i++) {
-				ScreenManager.SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, stage.Objects[i].GetType().ToString(), new Vector2(0, i * GameSession.Current.UIFontSmall.LineSpacing), Color.White);
-			}
-
 			if (InputState.InputMethod == InputMethods.KeyboardMouse) ScreenManager.SpriteBatch.Draw(GameSession.Current.Cursor, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
 
 			ScreenManager.SpriteBatch.End();
@@ -70,105 +68,9 @@ namespace LootShop {
 			if (input.IsInput(Inputs.MenuRight, ControllingPlayer)) player.IntendedPosition.X += 8;
 
 			player.IntendedPosition += input.LeftThumbstick(ControllingPlayer) * 4;
-			stage.IntendedViewOffset += input.RightThumbstick(ControllingPlayer) * new Vector2(-1, -1) * 4;
+			stage.IntendedViewOffset += input.RightThumbstick(ControllingPlayer) * new Vector2(-1, -1) * 8;
 
 			if (input.CurrentMouseState.LeftButton == ButtonState.Pressed) player.IntendedPosition = new Vector2(input.CurrentMouseState.X, input.CurrentMouseState.Y) - stage.ViewOffset;
-		}
-	}
-
-	class Terrain : StageObject {
-		public override Texture2D CurrentFrame {
-			get {
-				return IsBox ? Stage.Textures["tileCube"] : Stage.Textures["tileTest"];
-			}
-		}
-		public override Vector2 Origin {
-			get {
-				return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height - TileSize.Y / 2);
-			}
-		}
-		public bool IsBox = false;
-
-		public override void Update(GameTime gameTime) {
-		}
-
-		public Terrain(Stage stage, Vector2 position, bool isBox) {
-			Stage = stage;
-			//Position = position * TileSize - (TileSize / 2);
-			if (!isBox) IsFlat = true;
-			TilePosition = position;
-			Position = TranslateCoordinates(position) - (TileSize / 2);
-			IsBox = isBox;
-			Priority = IsFlat ? 1 : 0;
-		}
-	}
-
-	class Actor : StageObject {
-		public override Texture2D CurrentFrame {
-			get {
-				return Stage.Textures["man"];
-			}
-		}
-		public override Vector2 Origin {
-			get {
-				return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height);
-			}
-		}
-		public Vector2 IntendedPosition;
-
-		public override void Update(GameTime gameTime) {
-			if (IntendedPosition != Position) Position = Vector2.Lerp(Position, IntendedPosition, 0.1f);
-		}
-
-		public Actor(Stage stage, Vector2 position) {
-			Stage = stage;
-			Position = position;
-			IntendedPosition = Position;
-			Priority = 2;
-		}
-	}
-
-	abstract class StageObject {
-		public Vector2 Position;
-		public Vector2 TilePosition;
-		public bool IsFlat = false;
-		public abstract Texture2D CurrentFrame { get; }
-		public abstract Vector2 Origin { get; }
-		public int Priority;
-		public void Draw(SpriteBatch spriteBatch, Vector2 offset) {
-			Vector2 pos = offset + Position;
-			pos.X = (float)Math.Round(pos.X);
-			pos.Y = (float)Math.Round(pos.Y);
-			spriteBatch.Draw(CurrentFrame, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 1f);
-			spriteBatch.Draw(GameSession.Current.Pixel, offset + Position, Color.Blue);
-		}
-		public abstract void Update(GameTime gameTime);
-		public static Vector2 TileSize = new Vector2(128, 64);
-		protected Stage Stage;
-		protected Vector2 TranslateCoordinates(Vector2 coordinates) {
-			return new Vector2((coordinates.X * TileSize.X / 2) + (coordinates.Y * TileSize.X / 2), (coordinates.Y * TileSize.Y / 2) - (coordinates.X * TileSize.Y / 2));
-		}
-	}
-
-	class Stage {
-		public Dictionary<string, Texture2D> Textures = new Dictionary<string, Texture2D>();
-		public List<StageObject> Objects = new List<StageObject>();
-		public Vector2 ViewOffset = Vector2.Zero;
-		public Vector2 IntendedViewOffset = Vector2.Zero;
-		public void SortObjects() {
-			Objects.Sort((a, b) => (a.Position.Y + a.Priority - (a.IsFlat ? StageObject.TileSize.Y / 2 : 0)).CompareTo(b.Position.Y + b.Priority - (b.IsFlat ? StageObject.TileSize.Y / 2 : 0)));
-		}
-		public void Draw(SpriteBatch spriteBatch) {
-			foreach (StageObject o in Objects) {
-				o.Draw(spriteBatch, ViewOffset);
-			}
-		}
-		public void Update(GameTime gameTime) {
-			ViewOffset = Vector2.Lerp(ViewOffset, IntendedViewOffset, 0.5f);
-			foreach (StageObject o in Objects) {
-				o.Update(gameTime);
-			}
-			SortObjects();
 		}
 	}
 }
