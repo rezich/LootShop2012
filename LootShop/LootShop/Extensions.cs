@@ -44,6 +44,7 @@ namespace LootShop {
 
 		}
 		public static void Save(this Campaign campaign, string fileName) {
+			File.Delete(fileName);
 			using (Stream stream = File.OpenWrite(fileName)) {
 				XmlSerializer serializer = new XmlSerializer(typeof(Campaign));
 				serializer.Serialize(stream, campaign);

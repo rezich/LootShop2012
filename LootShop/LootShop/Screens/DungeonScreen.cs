@@ -6,12 +6,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace LootShop {
 	class DungeonScreen : GameScreen {
 		ContentManager content;
 		Actor player;
 		Stage stage;
+		Song song;
 
 		public DungeonScreen() {
 			stage = new Stage();
@@ -39,10 +41,15 @@ namespace LootShop {
 			stage.Textures.Add("tileTest", content.Load<Texture2D>(@"Tiles\tileTest"));
 			stage.Textures.Add("tileCube", content.Load<Texture2D>(@"Tiles\tileCube"));
 			stage.Textures.Add("man", content.Load<Texture2D>(@"Tiles\man"));
+			song = content.Load<Song>(@"Music\Thrilling");
+			MediaPlayer.Play(song);
 			ScreenManager.Game.ResetElapsedTime();
 		}
 		public override void UnloadContent() {
 			content.Unload();
+		}
+
+		public override void Initialize() {
 		}
 
 		public override void Update(GameTime gameTime) {

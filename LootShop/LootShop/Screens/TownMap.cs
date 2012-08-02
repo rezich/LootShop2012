@@ -57,7 +57,8 @@ namespace LootShop {
 
 		void ToDungeon(object sender, PlayerIndexEventArgs e) {
 			ExitScreen();
-			ScreenManager.AddScreen(new DungeonScreen(), ControllingPlayer);
+			//ScreenManager.AddScreen(new DungeonScreen(), ControllingPlayer);
+			LoadingScreen.Load(ScreenManager, true, ControllingPlayer, new DungeonScreen());
 		}
 
 		/*protected override void OnCancel(PlayerIndex playerIndex) {

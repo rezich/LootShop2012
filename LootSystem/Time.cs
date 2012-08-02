@@ -72,7 +72,7 @@ namespace LootSystem {
 				}
 			}
 		}
-		public int timeOfDay;
+		private int timeOfDay;
 
 		public override string ToString() {
 			return (((TimeOfDayName)TimeOfDay).ToString() + " " + Day + " " + ((MonthName)Month).ToString() + " " + Year);
