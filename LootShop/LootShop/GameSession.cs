@@ -82,6 +82,18 @@ namespace LootShop {
 			if (TESTING) {
 				Campaign = new LootSystem.Campaign();
 				Campaign.PlayerCharacter.Inventory.Add(Item.Generate(1, Random));
+				Campaign.PlayerCharacter.Inventory.Add(Item.Generate(1, Random));
+				Campaign.PlayerCharacter.Inventory.Add(Item.Generate(1, Random));
+				Campaign.PlayerCharacter.Inventory.Add(Item.Generate(1, Random));
+				Hero hero = new Hero();
+				hero.Name = "Brunswick";
+				hero.Level = 4;
+				hero.XP = 8600;
+				hero.Items.Add(Item.Generate(4, Random));
+				hero.Items.Add(Item.Generate(4, Random));
+				hero.Items.Add(Item.Generate(4, Random));
+				hero.Items.Add(Item.Generate(4, Random));
+				Campaign.PlayerCharacter.Employees.Add(hero);
 				MediaPlayer.Volume = 0;
 				LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
 			}

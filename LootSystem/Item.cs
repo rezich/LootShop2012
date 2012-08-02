@@ -470,40 +470,7 @@ namespace LootSystem {
 			}
 		}
 
-		protected Attribute.Type[] AttributeKeys {
-			get {
-				return Attributes.Keys.ToArray();
-			}
-
-			set {
-				if (AttributeValues.Length == 0) return;
-				Dictionary<Attribute.Type, double> attrs = new Dictionary<Attribute.Type, double>();
-				double[] values = AttributeValues;
-				for (int i = 0; i < value.Length; i++) {
-					attrs.Add(value[i], values[i]);
-				}
-				Attributes = attrs;
-			}
-		}
-
-		protected double[] AttributeValues {
-			get {
-				return Attributes.Keys.Select(key => Attributes[key]).ToArray();
-			}
-
-			set {
-				if (AttributeKeys.Length == 0) return;
-				Dictionary<Attribute.Type, double> attrs = new Dictionary<Attribute.Type, double>();
-				Attribute.Type[] keys = AttributeKeys;
-				for (int i = 0; i < value.Length; i++) {
-					attrs.Add(keys[i], value[i]);
-				}
-				Attributes = attrs;
-			}
-		}
-
-		[XmlIgnore]
-		public Dictionary<Attribute.Type, double> Attributes = new Dictionary<Attribute.Type, double>();
+		public string Name = "!!OSHIT NO NAME GENERATED!!";
 
 		[XmlIgnore]
 		public RarityLevel Rarity {
@@ -528,6 +495,10 @@ namespace LootSystem {
 			}
 		}
 		public Type ItemType;
+
+		// TODO: CONVERT THIS INTO A LIST OF ATTRIBUTE PAIRS
+		[XmlIgnore]
+		public Dictionary<Attribute.Type, double> Attributes = new Dictionary<Attribute.Type, double>();
 
 		[XmlIgnore]
 		public Dictionary<Attribute.Type, double> StandardAttributes {
@@ -671,8 +642,5 @@ namespace LootSystem {
 			i.Name = name;
 			return i;
 		}
-
-		public string Name = "!!OSHIT NO NAME GENERATED!!";
-
 	}
 }

@@ -6,8 +6,8 @@ using System.Text;
 namespace LootSystem {
 	public class Hero {
 		public string Name;
-		public List<Item> Items;
 		public int Level;
 		public int XP;
+		public List<Item> Items = new List<Item>();
 	}
 }
