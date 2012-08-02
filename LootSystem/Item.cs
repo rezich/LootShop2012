@@ -470,6 +470,16 @@ namespace LootSystem {
 			}
 		}
 
+		public class AttributePair {
+			public Attribute.Type Key;
+			public double Value;
+			public AttributePair(Attribute.Type key, double value) {
+				Key = key;
+				Value = value;
+			}
+			public AttributePair() { }
+		}
+
 		public string Name = "!!OSHIT NO NAME GENERATED!!";
 
 		[XmlIgnore]
@@ -497,22 +507,22 @@ namespace LootSystem {
 		public Type ItemType;
 
 		// TODO: CONVERT THIS INTO A LIST OF ATTRIBUTE PAIRS
-		[XmlIgnore]
-		public Dictionary<Attribute.Type, double> Attributes = new Dictionary<Attribute.Type, double>();
+		//public Dictionary<Attribute.Type, double> Attributes = new Dictionary<Attribute.Type, double>();
+		public List<AttributePair> Attributes = new List<AttributePair>();
 
 		[XmlIgnore]
-		public Dictionary<Attribute.Type, double> StandardAttributes {
+		public List<AttributePair> StandardAttributes {
 			get {
-				var items = Attributes.Where(x => Attribute.Lookup(x.Key).NonstandardListing == null).ToDictionary(x => x.Key, x => x.Value);
-				return (Dictionary<Attribute.Type, double>)items;
+				var items = Attributes.Where(x => Attribute.Lookup(x.Key).NonstandardListing == null).ToList();
+				return (List<AttributePair>)items;
 			}
 		}
 
 		[XmlIgnore]
-		public Dictionary<Attribute.Type, double> NonstandardAttributes {
+		public List<AttributePair> NonstandardAttributes {
 			get {
-				var items = Attributes.Where(x => Attribute.Lookup(x.Key).NonstandardListing != null).ToDictionary(x => x.Key, x => x.Value);
-				return (Dictionary<Attribute.Type, double>)items;
+				var items = Attributes.Where(x => Attribute.Lookup(x.Key).NonstandardListing != null).ToList();
+				return (List<AttributePair>)items;
 			}
 		}
 
@@ -589,7 +599,8 @@ namespace LootSystem {
 				//attrVal += Math.Max((baseVal * Math.Max(i.Level - 1, 1)) + r.Next(baseVal * 2), 1);
 				//attrVal = Math.Max((int)((double)attrVal * i.Rarity.AttributeModifier.RandomDouble(r)), 1);*/
 
-				i.Attributes.Add(a.Name, a.Generate(i.Rarity, i.Level, r));
+				//i.Attributes.Add(a.Name, a.Generate(i.Rarity, i.Level, r));
+				i.Attributes.Add(new AttributePair(a.Name, a.Generate(i.Rarity, i.Level, r)));
 			}
 
 			// GENERATE THE NAME!!

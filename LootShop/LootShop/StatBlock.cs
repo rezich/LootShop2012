@@ -63,7 +63,7 @@ namespace LootShop {
 
 			// TODO: Condense this shit
 
-			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in item.StandardAttributes) {
+			foreach (Item.AttributePair kvp in item.StandardAttributes) {
 				string key = kvp.Key.ToString().DeCamelCase();
 				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
 				if (Item.Attribute.Lookup(kvp.Key).NonstandardListing == null) {
@@ -78,7 +78,7 @@ namespace LootShop {
 			}
 			line++;
 
-			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in item.NonstandardAttributes) {
+			foreach (Item.AttributePair kvp in item.NonstandardAttributes) {
 				string key = kvp.Key.ToString().DeCamelCase();
 				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
 				if (Item.Attribute.Lookup(kvp.Key).NonstandardListing == null) {
