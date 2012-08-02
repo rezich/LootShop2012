@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using LootSystem;
 
 namespace LootShop {
 	public static class RectangleHelper {
@@ -29,6 +33,12 @@ namespace LootShop {
 			spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, -1 * scale) + origin2 * scale, backColor, rotation, origin2 + origin, scale, SpriteEffects.None, 1f);
 			spriteBatch.DrawString(font, text, position + origin2 * scale, frontColor, rotation, origin + origin2, scale, SpriteEffects.None, 1f);
 
+		}
+		public static void Save(this Campaign campaign, string fileName) {
+			using (Stream stream = File.OpenWrite(fileName)) {
+				XmlSerializer serializer = new XmlSerializer(typeof(Campaign));
+				serializer.Serialize(stream, campaign);
+			}
 		}
 	}
 }

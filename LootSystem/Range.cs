@@ -12,6 +12,7 @@ namespace LootSystem {
 			Min = min;
 			Max = max;
 		}
+		public Range() { }
 
 		public double RandomDouble(Random r) {
 			return r.NextDouble() * (Max - Min) + Min;

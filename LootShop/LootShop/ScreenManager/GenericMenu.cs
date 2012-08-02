@@ -79,15 +79,16 @@ namespace LootShop {
 			PlayerIndex playerIndex;
 			if (input.IsInput(Inputs.MenuAccept, ControllingPlayer, out playerIndex)) {
 				if (entries[selectedIndex].IsCancel) GameSession.Current.MenuCancel.Play();
-				else GameSession.Current.MenuAccept.Play();
+				else if (entries[selectedIndex].HasSelected) GameSession.Current.MenuAccept.Play();
+				else GameSession.Current.MenuDeny.Play();
 				OnSelectEntry(selectedIndex, playerIndex);
 			}
 			if (input.IsInput(Inputs.MenuLeft, ControllingPlayer, out playerIndex)) {
-				if (MenuEntries[selectedIndex].HasSwipeLeft) GameSession.Current.MenuCursor.Play();
+				if (entries[selectedIndex].HasSwipeLeft) GameSession.Current.MenuCursor.Play();
 				OnSwipeLeftEntry(selectedIndex, playerIndex);
 			}
 			if (input.IsInput(Inputs.MenuRight, ControllingPlayer, out playerIndex)) {
-				if (MenuEntries[selectedIndex].HasSwipeRight) GameSession.Current.MenuCursor.Play();
+				if (entries[selectedIndex].HasSwipeRight) GameSession.Current.MenuCursor.Play();
 				OnSwipeRightEntry(selectedIndex, playerIndex);
 			}
 			if (input.IsInput(Inputs.MenuCancel, ControllingPlayer, out playerIndex) && Cancelable) {
@@ -227,6 +228,7 @@ namespace LootShop {
 					SwipeRight(this, new PlayerIndexEventArgs(playerIndex));
 			}
 
+			public bool HasSelected { get { return Selected != null; } }
 			public bool HasSwipeLeft { get { return SwipeLeft != null; } }
 			public bool HasSwipeRight { get { return SwipeRight != null; } }
 

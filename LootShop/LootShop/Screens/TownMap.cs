@@ -12,7 +12,7 @@ using LootSystem;
 namespace LootShop {
 	public class TownMap : GenericMenu {
 		public TownMap()
-			: base("Town Map", true, true) {
+			: base("Town Map", false, true) {
 				DimBackground = false;
 				Description = new TextBlock("Choose where you want to go around town.");
 				Entry entryShop = new Entry("My Shop");
@@ -39,6 +39,11 @@ namespace LootShop {
 			MediaPlayer.Play(GameSession.Current.TownTheme);
 		}
 
+		public override void HandleInput(InputState input) {
+			base.HandleInput(input);
+			if (input.IsInput(Inputs.GamePause, ControllingPlayer)) ScreenManager.AddScreen(new PauseScreen(), ControllingPlayer);
+		}
+
 		void ToMyShop(object sender, PlayerIndexEventArgs e) {
 			ScreenManager.ReplaceScreen(new MyShop(), ControllingPlayer); 
 		}
@@ -55,9 +60,9 @@ namespace LootShop {
 			ScreenManager.AddScreen(new DungeonScreen(), ControllingPlayer);
 		}
 
-		protected override void OnCancel(PlayerIndex playerIndex) {
+		/*protected override void OnCancel(PlayerIndex playerIndex) {
 			//ScreenManager.BackToTitle(ControllingPlayer);
 			GameSession.Current.StartFromSplashScreens();
-		}
+		}*/
 	}
 }

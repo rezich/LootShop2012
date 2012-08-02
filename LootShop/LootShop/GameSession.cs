@@ -30,6 +30,7 @@ namespace LootShop {
 		public SoundEffect MenuAccept;
 		public SoundEffect MenuCursor;
 		public SoundEffect MenuCancel;
+		public SoundEffect MenuDeny;
 		public SoundEffect PressStart;
 		public Dictionary<Buttons, Texture2D> ButtonImages = new Dictionary<Buttons, Texture2D>();
 		public Dictionary<string, Texture2D> KeyImages = new Dictionary<string, Texture2D>();
@@ -79,6 +80,8 @@ namespace LootShop {
 			base.Initialize();
 			MediaPlayer.IsRepeating = true;
 			if (TESTING) {
+				Campaign = new LootSystem.Campaign();
+				Campaign.PlayerCharacter.Inventory.Add(Item.Generate(0, Random));
 				MediaPlayer.Volume = 0;
 				LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
 			}
@@ -107,6 +110,7 @@ namespace LootShop {
 			MenuAccept = Content.Load<SoundEffect>(@"Sounds\menuAccept");
 			MenuCursor = Content.Load<SoundEffect>(@"Sounds\menuCursor");
 			MenuCancel = Content.Load<SoundEffect>(@"Sounds\menuCancel");
+			MenuDeny = Content.Load<SoundEffect>(@"Sounds\menuDeny");
 			PressStart = Content.Load<SoundEffect>(@"Sounds\pressStart");
 
 			KeyImages.Add("X", Content.Load<Texture2D>(@"KeyImages\keyboardX"));
