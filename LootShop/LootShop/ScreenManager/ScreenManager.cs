@@ -69,12 +69,6 @@ namespace LootShop {
 			ReplaceScreen(new ScreenProxy(now, after), controllingPlayer);
 		}
 
-		public void BackToTitle(PlayerIndex? controllingPlayer) {
-			ClearScreens();
-			AddScreen(new TitleScreen(), controllingPlayer);
-			MediaPlayer.Play(GameSession.Current.TitleTheme);
-		}
-
 		public void ClearScreens() {
 			screens.Clear();
 		}

@@ -57,27 +57,32 @@ namespace LootShop {
 #if XBOX
 			Resolution.SetResolution(this.Window.ClientBounds.Width, this.Window.ClientBounds.Height, true);
 #else
-			Resolution.SetResolution(1920, 1080, true);
-			//Resolution.SetResolution(1280, 720, false);
+			//Resolution.SetResolution(1920, 1080, true);
+			Resolution.SetResolution(1280, 720, false);
 #endif
 			Resolution.SetVirtualResolution(1280, 720);
 
 			Components.Add(screenManager);
 			//Components.Add(fpsCounter);
-			float totalTime = 8.45f;
-			float firstTime = 3.85f;
+		}
+
+		public void StartFromSplashScreens() {
+			MediaPlayer.Play(GameSession.Current.TitleTheme);
+			screenManager.ClearScreens();
+			float totalTime = 8.35f;
+			float firstTime = 3.75f;
 			float secondTime = totalTime - firstTime;
-			if (TESTING) {
-				MediaPlayer.Volume = 0;
-				LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
-			}
-			else screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents", TimeSpan.FromSeconds(firstTime)), new ScreenProxy(new SplashScreen("[second title card goes here]", TimeSpan.FromSeconds(secondTime)), new TitleScreen())), null);
+			screenManager.AddScreen(new ScreenProxy(new SplashScreen("108 Studios presents", TimeSpan.FromSeconds(firstTime)), new ScreenProxy(new SplashScreen("[second title card goes here]", TimeSpan.FromSeconds(secondTime)), new TitleScreen())), null);
 		}
 
 		protected override void Initialize() {
 			base.Initialize();
-			MediaPlayer.Play(TitleTheme);
 			MediaPlayer.IsRepeating = true;
+			if (TESTING) {
+				MediaPlayer.Volume = 0;
+				LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
+			}
+			else StartFromSplashScreens();
 		}
 
 		protected override void LoadContent() {
@@ -94,10 +99,10 @@ namespace LootShop {
 			Border = Content.Load<Texture2D>("stonebackground");
 			Cursor = Content.Load<Texture2D>("cursor");
 
-			TitleTheme = Content.Load<Song>(@"Music\Loot Shop 1a");
+			TitleTheme = Content.Load<Song>(@"Music\Main Theme");
 			ShopTheme = Content.Load<Song>(@"Music\lootshop 6a medieval bossa");
 			TownTheme = Content.Load<Song>(@"Music\Loot Shop 3a");
-			IntroTheme = Content.Load<Song>(@"Music\Loot Shop 2a");
+			IntroTheme = Content.Load<Song>(@"Music\Thrilling");
 
 			MenuAccept = Content.Load<SoundEffect>(@"Sounds\menuAccept");
 			MenuCursor = Content.Load<SoundEffect>(@"Sounds\menuCursor");

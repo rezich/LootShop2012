@@ -129,6 +129,7 @@
     <Compile Include="Screens\MyShopMenu.cs" />
     <Compile Include="Screens\MyShopOpen.cs" />
     <Compile Include="Screens\OptionsScreen.cs" />
+    <Compile Include="Screens\PauseScreen.cs" />
     <Compile Include="Screens\ScreenProxy.cs" />
     <Compile Include="Screens\SplashScreen.cs" />
     <Compile Include="Screens\TestCardScreen.cs" />

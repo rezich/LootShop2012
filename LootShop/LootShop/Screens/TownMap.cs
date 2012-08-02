@@ -56,7 +56,8 @@ namespace LootShop {
 		}
 
 		protected override void OnCancel(PlayerIndex playerIndex) {
-			ScreenManager.BackToTitle(ControllingPlayer);
+			//ScreenManager.BackToTitle(ControllingPlayer);
+			GameSession.Current.StartFromSplashScreens();
 		}
 	}
 }

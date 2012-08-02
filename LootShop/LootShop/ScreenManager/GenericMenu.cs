@@ -83,11 +83,11 @@ namespace LootShop {
 				OnSelectEntry(selectedIndex, playerIndex);
 			}
 			if (input.IsInput(Inputs.MenuLeft, ControllingPlayer, out playerIndex)) {
-				GameSession.Current.MenuCursor.Play();
+				if (MenuEntries[selectedIndex].HasSwipeLeft) GameSession.Current.MenuCursor.Play();
 				OnSwipeLeftEntry(selectedIndex, playerIndex);
 			}
 			if (input.IsInput(Inputs.MenuRight, ControllingPlayer, out playerIndex)) {
-				GameSession.Current.MenuCursor.Play();
+				if (MenuEntries[selectedIndex].HasSwipeRight) GameSession.Current.MenuCursor.Play();
 				OnSwipeRightEntry(selectedIndex, playerIndex);
 			}
 			if (input.IsInput(Inputs.MenuCancel, ControllingPlayer, out playerIndex) && Cancelable) {
@@ -226,6 +226,9 @@ namespace LootShop {
 				if (SwipeRight != null)
 					SwipeRight(this, new PlayerIndexEventArgs(playerIndex));
 			}
+
+			public bool HasSwipeLeft { get { return SwipeLeft != null; } }
+			public bool HasSwipeRight { get { return SwipeRight != null; } }
 
 			public virtual float Height {
 				get { return Font.LineSpacing; }

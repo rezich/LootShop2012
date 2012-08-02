@@ -66,6 +66,7 @@ namespace LootShop {
 			if (input.IsInput(Inputs.MenuDown, ControllingPlayer)) player.IntendedPosition.Y += 8;
 			if (input.IsInput(Inputs.MenuLeft, ControllingPlayer)) player.IntendedPosition.X -= 8;
 			if (input.IsInput(Inputs.MenuRight, ControllingPlayer)) player.IntendedPosition.X += 8;
+			if (input.IsInput(Inputs.GamePause, ControllingPlayer)) ScreenManager.AddScreen(new PauseScreen(), ControllingPlayer);
 
 			player.IntendedPosition += input.LeftThumbstick(ControllingPlayer) * 4;
 			stage.IntendedViewOffset += input.RightThumbstick(ControllingPlayer) * new Vector2(-1, -1) * 8;

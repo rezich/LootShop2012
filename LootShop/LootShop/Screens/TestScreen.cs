@@ -21,7 +21,7 @@ namespace LootShop {
 		public override void HandleInput(InputState input) {
 			if (input.IsInput(Inputs.MenuAccept, ControllingPlayer)) item = Item.Generate(GameSession.Random.Next(1, 50), GameSession.Random);
 			if (input.IsInput(Inputs.MenuCancel, ControllingPlayer)) {
-				ScreenManager.BackToTitle(ControllingPlayer);
+				GameSession.Current.StartFromSplashScreens();
 			}
 		}
 

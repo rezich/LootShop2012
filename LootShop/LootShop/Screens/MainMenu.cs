@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using LootSystem;
 
 namespace LootShop {
 	public class MainMenu : GenericMenu {
@@ -55,6 +56,7 @@ namespace LootShop {
 		void StartNewGame(object sender, PlayerIndexEventArgs e) {
 			ScreenManager.ClearScreens();
 			ScreenManager.ReplaceAllScreens(new TestScreen(), ControllingPlayer);
+			GameSession.Current.Campaign = new Campaign();
 		}
 
 		void Options(object sender, PlayerIndexEventArgs e) {
