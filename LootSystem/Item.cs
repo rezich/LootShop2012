@@ -504,9 +504,30 @@ namespace LootSystem {
 
 		[XmlIgnore]
 		public Dictionary<Attribute.Type, double> Attributes = new Dictionary<Attribute.Type, double>();
-		public RarityLevel Rarity;
+
+		[XmlIgnore]
+		public RarityLevel Rarity {
+			get {
+				return RarityLevel.Lookup(RarityType);
+			}
+			set {
+				RarityType = value.Name;
+			}
+		}
+		public RarityLevel.Type RarityType;
+
 		public int Level;
-		public Kind Variety;
+
+		[XmlIgnore]
+		public Kind Variety {
+			get {
+				return Kind.Lookup(ItemType);
+			}
+			set {
+				ItemType = value.Name;
+			}
+		}
+		public Type ItemType;
 
 		[XmlIgnore]
 		public Dictionary<Attribute.Type, double> StandardAttributes {

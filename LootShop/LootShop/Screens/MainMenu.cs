@@ -37,7 +37,8 @@ namespace LootShop {
 				Entry entryContinue = new Entry("Continue");
 				entryContinue.Enabled = false;
 				Entry entryLoadGame = new Entry("Load Game");
-				entryLoadGame.Enabled = false;
+				entryLoadGame.Selected += LoadGame;
+				//entryLoadGame.Enabled = false;
 				Entry entryOptions = new Entry("Options");
 				entryOptions.Selected += Options;
 				Entry entryLootTest = new Entry("Loot Test");
@@ -57,6 +58,11 @@ namespace LootShop {
 			ScreenManager.ClearScreens();
 			ScreenManager.ReplaceAllScreens(new TestScreen(), ControllingPlayer);
 			GameSession.Current.Campaign = new Campaign();
+		}
+
+		void LoadGame(object sender, PlayerIndexEventArgs e) {
+			LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen());
+			GameSession.Current.Campaign = CampaignHelper.Load("test.xml");
 		}
 
 		void Options(object sender, PlayerIndexEventArgs e) {

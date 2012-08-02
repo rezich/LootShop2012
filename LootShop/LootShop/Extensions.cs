@@ -16,6 +16,15 @@ namespace LootShop {
 		}
 	}
 
+	public static class CampaignHelper {
+		public static Campaign Load(string fileName) {
+			using (Stream stream = File.OpenRead(fileName)) {
+				XmlSerializer serializer = new XmlSerializer(typeof(Campaign));
+				return (Campaign)serializer.Deserialize(stream);
+			}
+		}
+	}
+
 	public static class Extensions {
 		public static void DrawStringOutlined(this SpriteBatch spriteBatch, SpriteFont font, string text, Vector2 position, Color frontColor) {
 			DrawStringOutlined(spriteBatch, font, text, position, frontColor, Color.Black, 0f, Vector2.Zero, 1f);

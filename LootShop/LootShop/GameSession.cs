@@ -81,7 +81,7 @@ namespace LootShop {
 			MediaPlayer.IsRepeating = true;
 			if (TESTING) {
 				Campaign = new LootSystem.Campaign();
-				Campaign.PlayerCharacter.Inventory.Add(Item.Generate(0, Random));
+				Campaign.PlayerCharacter.Inventory.Add(Item.Generate(1, Random));
 				MediaPlayer.Volume = 0;
 				LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());
 			}
