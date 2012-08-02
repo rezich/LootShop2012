@@ -12,7 +12,7 @@ using LootSystem;
 
 namespace LootShop {
 	public class GameSession : Microsoft.Xna.Framework.Game {
-		public static bool TESTING = true;
+		public static bool TESTING = false;
 		GraphicsDeviceManager graphics;
 		public SpriteFont UIFontSmall;
 		public SpriteFont UIFontMedium;
@@ -89,10 +89,10 @@ namespace LootShop {
 				hero.Name = "Brunswick";
 				hero.Level = 4;
 				hero.XP = 8600;
-				hero.Items.Add(Item.Generate(4, Random));
-				hero.Items.Add(Item.Generate(4, Random));
-				hero.Items.Add(Item.Generate(4, Random));
-				hero.Items.Add(Item.Generate(4, Random));
+				hero.Inventory.Add(Item.Generate(4, Random));
+				hero.Inventory.Add(Item.Generate(4, Random));
+				hero.Inventory.Add(Item.Generate(4, Random));
+				hero.Inventory.Add(Item.Generate(4, Random));
 				Campaign.PlayerCharacter.Employees.Add(hero);
 				MediaPlayer.Volume = 0;
 				LoadingScreen.Load(screenManager, true, PlayerIndex.One, new DungeonScreen());

@@ -506,8 +506,6 @@ namespace LootSystem {
 		}
 		public Type ItemType;
 
-		// TODO: CONVERT THIS INTO A LIST OF ATTRIBUTE PAIRS
-		//public Dictionary<Attribute.Type, double> Attributes = new Dictionary<Attribute.Type, double>();
 		public List<AttributePair> Attributes = new List<AttributePair>();
 
 		[XmlIgnore]
@@ -560,7 +558,7 @@ namespace LootSystem {
 			// Choose a random item kind
 			//Item.Type[] kindValues = (Item.Type[])Enum.GetValues(typeof(Item.Type));
 			
-			Item.Type[] kindValues =  (Item.Type[])EnumHelper.GetValues<Item.Type>();
+			Item.Type[] kindValues = (Item.Type[])EnumHelper.GetValues<Item.Type>();
 
 			Item.Type selectedKind = Type.Armor;
 			do {

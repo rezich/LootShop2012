@@ -9,5 +9,11 @@ namespace LootSystem {
 			StreetVendor,
 			NormalShop
 		}
+
+		public ShopType Type;
+		public int RegularSlots;
+		public int WindowSlots;
+
+		public Shop() { }
 	}
 }

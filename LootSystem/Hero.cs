@@ -8,6 +8,6 @@ namespace LootSystem {
 		public string Name;
 		public int Level;
 		public int XP;
-		public List<Item> Items = new List<Item>();
+		public List<Item> Inventory = new List<Item>();
 	}
 }

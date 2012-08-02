@@ -10,6 +10,7 @@ namespace LootSystem {
 	public class Campaign {
 		public PlayerCharacter PlayerCharacter = new PlayerCharacter();
 		public Time Time = new Time();
+		public Shop Shop = new Shop();
 
 		public Campaign() {
 			Time.Year = 1000;
