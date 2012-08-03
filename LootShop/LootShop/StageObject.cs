@@ -14,19 +14,28 @@ namespace LootShop {
 		public bool IsFlat = false;
 		public abstract Texture2D CurrentFrame { get; }
 		public abstract Vector2 Origin { get; }
-		public int Priority;
+		public float Priority;
+		public int Z;
+		public int Height;
 		public void Draw(SpriteBatch spriteBatch, Vector2 offset) {
 			Vector2 pos = offset + Position;
 			pos.X = (float)Math.Round(pos.X);
-			pos.Y = (float)Math.Round(pos.Y);
+			pos.Y = (float)Math.Round(pos.Y) - Z;
 			spriteBatch.Draw(CurrentFrame, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 1f);
-			spriteBatch.Draw(GameSession.Current.Pixel, offset + Position, Color.Blue);
+			spriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, DrawOrder.ToString(), offset + Position, Color.Blue);
+			//spriteBatch.Draw(GameSession.Current.Pixel, offset + Position, Color.Blue);
+			//spriteBatch.Draw(GameSession.Current.Pixel, offset + Position - new Vector2(0, Z), Color.Blue);
 		}
 		public abstract void Update(GameTime gameTime);
 		public static Vector2 TileSize = new Vector2(128, 64);
 		protected Stage Stage;
 		protected Vector2 TranslateCoordinates(Vector2 coordinates) {
 			return new Vector2((coordinates.X * TileSize.X / 2) + (coordinates.Y * TileSize.X / 2), (coordinates.Y * TileSize.Y / 2) - (coordinates.X * TileSize.Y / 2));
+		}
+		public float DrawOrder {
+			get {
+				return ((int)Position.Y - (IsFlat ? (int)StageObject.TileSize.Y / 2 : -Z)) + Priority;
+			}
 		}
 	}
 
@@ -53,7 +62,8 @@ namespace LootShop {
 			TilePosition = position;
 			Position = TranslateCoordinates(position) - (TileSize / 2);
 			IsBox = isBox;
-			Priority = IsFlat ? 1 : 0;
+			Priority = IsFlat ? 0.1f : 0;
+			Height = IsFlat ? 0 : 64;
 		}
 	}
 
@@ -78,7 +88,8 @@ namespace LootShop {
 			Stage = stage;
 			Position = position;
 			IntendedPosition = Position;
-			Priority = 2;
+			Priority = 0.2f;
+			Z = 0;
 		}
 	}
 }

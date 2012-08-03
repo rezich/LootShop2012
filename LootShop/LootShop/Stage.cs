@@ -14,7 +14,7 @@ namespace LootShop {
 		public Vector2 ViewOffset = Vector2.Zero;
 		public Vector2 IntendedViewOffset = Vector2.Zero;
 		public void SortObjects() {
-			Objects.Sort((a, b) => (a.Position.Y + a.Priority - (a.IsFlat ? StageObject.TileSize.Y / 2 : 0)).CompareTo(b.Position.Y + b.Priority - (b.IsFlat ? StageObject.TileSize.Y / 2 : 0)));
+			Objects.Sort((a, b) => (a.DrawOrder).CompareTo(b.DrawOrder));
 		}
 		public void Draw(SpriteBatch spriteBatch) {
 			foreach (StageObject o in Objects) {

@@ -67,7 +67,7 @@ namespace LootShop {
 
 			int itemOffset = 0;
 			foreach (LootSystem.Item i in GameSession.Current.Campaign.PlayerCharacter.Inventory) {
-				ScreenManager.SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, i.Name + " " + i.Variety.Slot.ToString(), new Vector2(0, itemOffset), Color.White);
+				ScreenManager.SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, i.Name, new Vector2(0, itemOffset), Color.White);
 				itemOffset += GameSession.Current.UIFontSmall.LineSpacing;
 			}
 
