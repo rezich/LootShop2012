@@ -11,7 +11,7 @@ namespace LootTester {
 	class Program {
 		static void Main(string[] args) {
 
-			Cutscene cutscene = new Cutscene("Opening", new List<CutsceneAction>() {
+			/*Cutscene cutscene = new Cutscene("Opening", new List<CutsceneAction>() {
 				new DialogueAction("Everything was good in the world of [Acquesitia]."),
 				new DialogueAction("Evil existed in this realm, to be sure, but the hordes of vile monsters were always kept at bay."),
 				new DialogueAction("Adventurers' endless appetites for acquiring new and better [loot] from killing monsters ensured that the forces of evil could never truly rise to power."),
@@ -28,13 +28,13 @@ namespace LootTester {
 			XmlSerializer writer = new XmlSerializer(typeof(List<Cutscene>), new Type[] { typeof(CutsceneAction) });
 			System.IO.StreamWriter file = new StreamWriter("../../../LootSystem/Cutscenes.xml");
 			writer.Serialize(file, Cutscene.List);
-			file.Close();
+			file.Close();*/
 
 			bool done = false;
 			Random r = new Random();
-			Time time = new Time();
+			/*Time time = new Time();
 			time.Month = 12;
-			time.Day = 29;
+			time.Day = 29;*/
 			ConsoleKeyInfo cki;
 			Item.Initialize();
 			do {
@@ -92,7 +92,7 @@ namespace LootTester {
 			Console.WriteLine(leftPadding + empty);
 			Console.ResetColor();
 
-			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in i.StandardAttributes) {
+			foreach (Item.AttributePair kvp in i.StandardAttributes) {
 				string key = new String(' ', padding) + kvp.Key.ToString().DeCamelCase();
 				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
 				Console.ForegroundColor = ConsoleColor.Gray;
@@ -106,7 +106,7 @@ namespace LootTester {
 
 			Console.WriteLine(leftPadding + empty);
 
-			foreach (KeyValuePair<Item.Attribute.Type, double> kvp in i.NonstandardAttributes) {
+			foreach (Item.AttributePair kvp in i.NonstandardAttributes) {
 				string num = ((Item.Attribute.Lookup(kvp.Key).Addition ? "+" : "") + kvp.Value.ToString() + (Item.Attribute.Lookup(kvp.Key).Percentage ? "%" : ""));
 				List<string> key = Item.Attribute.Lookup(kvp.Key).NonstandardListing.Replace("@", num).Wrap(width - 4);
 

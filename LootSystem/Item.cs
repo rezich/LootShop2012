@@ -560,12 +560,12 @@ namespace LootSystem {
 			
 			Item.Type[] kindValues = (Item.Type[])EnumHelper.GetValues<Item.Type>();
 
-			Item.Type selectedKind = Type.Armor;
-			do {
-				selectedKind = kindValues[r.Next(0, kindValues.Length)];
+			List<Item.Type> actualKindValues = kindValues.ToList();
+			if (!RarityLevel.Lookup(rarity).Magic) {
+				actualKindValues.RemoveAll(item => Item.Kind.Lookup(item).BaseAttributes.Count == 0);
 			}
-			while (Item.Kind.Lookup(selectedKind).BaseAttributes.Count == 0 && RarityLevel.Lookup(rarity).Magic);
-			i.Variety = Kind.Lookup(selectedKind);
+
+			i.Variety = Kind.Lookup(actualKindValues[r.Next(0, actualKindValues.Count)]);
 
 			i.Rarity = RarityLevel.Lookup(rarity);
 
@@ -591,13 +591,6 @@ namespace LootSystem {
 			}
 
 			foreach (Item.Attribute a in attrs) {
-				//*int attrVal = 1;
-				//int baseVal = 10;
-
-				//attrVal += Math.Max((baseVal * Math.Max(i.Level - 1, 1)) + r.Next(baseVal * 2), 1);
-				//attrVal = Math.Max((int)((double)attrVal * i.Rarity.AttributeModifier.RandomDouble(r)), 1);*/
-
-				//i.Attributes.Add(a.Name, a.Generate(i.Rarity, i.Level, r));
 				i.Attributes.Add(new AttributePair(a.Name, a.Generate(i.Rarity, i.Level, r)));
 			}
 
