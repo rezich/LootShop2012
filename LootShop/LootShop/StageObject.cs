@@ -10,11 +10,13 @@ using Microsoft.Xna.Framework.Input;
 namespace LootShop {
 	abstract class StageObject {
 		public Vector3 Position;
+		public Vector3 LastPosition;
 		public bool IsFlat = false;
 		public abstract Texture2D CurrentFrame { get; }
 		public abstract Vector3 Origin { get; }
 		public int Height = 0;
 		public float Angle = 0;
+		public float IntendedAngle = 0;
 		public void Draw(SpriteBatch spriteBatch, Vector2 offset) {
 			Vector3 pos = Position.Round();
 			spriteBatch.Draw(CurrentFrame, pos.ToVector2() - offset, null, Color.White, Angle, Origin.ToVector2(), 1f, SpriteEffects.None, 1f);
@@ -52,6 +54,7 @@ namespace LootShop {
 
 		public Terrain(Stage stage, Vector3 position, TerrainType type) {
 			Stage = stage;
+			Stage.Objects.Add(this);
 			Position = position * StageObject.TileSize.ToVector3();
 			Type = type;
 			if (Type == TerrainType.Grass) Height = 0;
@@ -60,6 +63,7 @@ namespace LootShop {
 	}
 
 	class Actor : StageObject {
+		public float MoveSpeed = 8;
 		public override Texture2D CurrentFrame {
 			get {
 				return Stage.Textures["creature"];
@@ -70,14 +74,28 @@ namespace LootShop {
 				return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height / 2).ToVector3();
 			}
 		}
-		//public Vector3 IntendedPosition;
+		public Vector3 IntendedPosition;
+
+		public void MoveTowardsIntended() {
+			if (Vector3.Distance(Position, IntendedPosition) > 4) {
+				Vector3 velocity = Vector3.Normalize(IntendedPosition - Position);
+				MoveInDirection(velocity, MoveSpeed);
+			}
+		}
+
+		public void MoveInDirection(Vector3 direction, float speed) {
+			Position += direction * speed;
+		}
 
 		public override void Update(GameTime gameTime) {
-			//if (IntendedPosition != Position) Position = Vector2.Lerp(Position, IntendedPosition, 0.1f);
+			MoveTowardsIntended();
+			if (Angle != IntendedAngle) Angle = Angle.LerpAngle(IntendedAngle, 0.3f);
+			LastPosition = Position;
 		}
 
 		public Actor(Stage stage, Vector3 position) {
 			Stage = stage;
+			Stage.Objects.Add(this);
 			Position = position;
 			Height = 32;
 			//IntendedPosition = Position;

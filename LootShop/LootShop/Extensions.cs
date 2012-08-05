@@ -59,5 +59,42 @@ namespace LootShop {
 		public static Vector2 ToVector2(this Vector3 vector) {
 			return new Vector2(vector.X, vector.Z);
 		}
+		public static float Wrap(this float value, float lower, float upper) {
+			float distance = upper - lower;
+			float times = (float)System.Math.Floor((value - lower) / distance);
+
+			return value - (times * distance);
+		}
+		public static float LerpAngle(this float from, float to, float step) {
+			// Ensure that 0 <= angle < 2pi for both "from" and "to" 
+			while (from < 0)
+				from += MathHelper.TwoPi;
+			while (from >= MathHelper.TwoPi)
+				from -= MathHelper.TwoPi;
+
+			while (to < 0)
+				to += MathHelper.TwoPi;
+			while (to >= MathHelper.TwoPi)
+				to -= MathHelper.TwoPi;
+
+			if (System.Math.Abs(from - to) < MathHelper.Pi) {
+				// The simple case - a straight lerp will do. 
+				return MathHelper.Lerp(from, to, step);
+			}
+
+			// If we get here we have the more complex case. 
+			// First, increment the lesser value to be greater. 
+			if (from < to)
+				from += MathHelper.TwoPi;
+			else
+				to += MathHelper.TwoPi;
+
+			float retVal = MathHelper.Lerp(from, to, step);
+
+			// Now ensure the return value is between 0 and 2pi 
+			if (retVal >= MathHelper.TwoPi)
+				retVal -= MathHelper.TwoPi;
+			return retVal;
+		} 
 	}
 }

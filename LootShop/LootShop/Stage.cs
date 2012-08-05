@@ -12,6 +12,8 @@ namespace LootShop {
 		public Dictionary<string, Texture2D> Textures = new Dictionary<string, Texture2D>();
 		public List<StageObject> Objects = new List<StageObject>();
 		public Vector2 ViewOffset = Vector2.Zero;
+		public Vector2 IntendedViewOffset = Vector2.Zero;
+		public StageObject FollowingObject = null;
 
 		public Stage() {
 		}
@@ -30,7 +32,8 @@ namespace LootShop {
 			}
 		}
 		public void Update(GameTime gameTime) {
-			//ViewOffset = Vector2.Lerp(ViewOffset, IntendedViewOffset, 0.1f);
+			if (FollowingObject != null) IntendedViewOffset = FollowingObject.Position.ToVector2() - new Vector2(Resolution.Right, Resolution.Bottom) / 2;
+			ViewOffset = Vector2.Lerp(ViewOffset, IntendedViewOffset, 0.1f);
 			foreach (StageObject o in Objects) {
 				o.Update(gameTime);
 			}

@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 namespace LootShop {
 	class DungeonScreen : GameScreen {
 		ContentManager content;
-		//Actor player;
+		Actor player;
 		Stage stage;
 		Song song;
 
@@ -34,8 +34,13 @@ namespace LootShop {
 		}
 
 		public override void Initialize() {
-			stage.Objects.Add(new Terrain(stage, new Vector2(0, 0).ToVector3(), TerrainType.Grass));
-			stage.Objects.Add(new Actor(stage, new Vector2(0, 0).ToVector3()));
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					new Terrain(stage, new Vector2(j, i).ToVector3(), TerrainType.Grass);
+				}
+			}
+			player = new Actor(stage, new Vector2(500, 500).ToVector3());
+			stage.FollowingObject = player;
 		}
 
 		public override void Update(GameTime gameTime) {
@@ -51,10 +56,25 @@ namespace LootShop {
 
 			if (InputState.InputMethod == InputMethods.KeyboardMouse) ScreenManager.SpriteBatch.Draw(GameSession.Current.Cursor, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
 
+			ScreenManager.SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, player.Position.Round().ToString(), new Vector2(0, GameSession.Current.UIFontSmall.LineSpacing * 0), Color.White);
+			ScreenManager.SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, (new Vector3(Mouse.GetState().X, 0, Mouse.GetState().Y) + stage.ViewOffset.ToVector3()).Round().ToString(), new Vector2(0, GameSession.Current.UIFontSmall.LineSpacing * 1), Color.White);
+
 			ScreenManager.SpriteBatch.End();
 		}
 
 		public override void HandleInput(InputState input) {
+			if (InputState.InputMethod == InputMethods.Gamepad) {
+				//player.Position += input.LeftThumbstick(ControllingPlayer).ToVector3() * 8;
+				player.MoveInDirection(input.LeftThumbstick(ControllingPlayer).ToVector3(), player.MoveSpeed);
+				player.IntendedPosition = player.Position;
+			}
+			else {
+				if (input.IsNewMousePress(MouseButtons.Left)) {
+					player.IntendedPosition = new Vector3(input.CurrentMouseState.X, 0, input.CurrentMouseState.Y) + stage.ViewOffset.ToVector3();
+					player.MoveTowardsIntended();
+				}
+			}
+			if (player.Position != player.LastPosition) player.IntendedAngle = (float)Math.Atan2(player.Position.Z - player.LastPosition.Z, player.Position.X - player.LastPosition.X);
 		}
 	}
 }
