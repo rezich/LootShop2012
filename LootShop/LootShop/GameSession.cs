@@ -12,7 +12,7 @@ using LootSystem;
 
 namespace LootShop {
 	public class GameSession : Microsoft.Xna.Framework.Game {
-		public static bool TESTING = true;
+		public static bool TESTING = false;
 		GraphicsDeviceManager graphics;
 		public SpriteFont UIFontSmall;
 		public SpriteFont UIFontMedium;
@@ -32,6 +32,7 @@ namespace LootShop {
 		public SoundEffect MenuCancel;
 		public SoundEffect MenuDeny;
 		public SoundEffect PressStart;
+		public SoundEffect GamePause;
 		public Dictionary<Buttons, Texture2D> ButtonImages = new Dictionary<Buttons, Texture2D>();
 		public Dictionary<string, Texture2D> KeyImages = new Dictionary<string, Texture2D>();
 		public Campaign Campaign;
@@ -124,6 +125,7 @@ namespace LootShop {
 			MenuCancel = Content.Load<SoundEffect>(@"Sounds\menuCancel");
 			MenuDeny = Content.Load<SoundEffect>(@"Sounds\menuDeny");
 			PressStart = Content.Load<SoundEffect>(@"Sounds\pressStart");
+			GamePause = Content.Load<SoundEffect>(@"Sounds\gamePause");
 
 			KeyImages.Add("X", Content.Load<Texture2D>(@"KeyImages\keyboardX"));
 			KeyImages.Add("Z", Content.Load<Texture2D>(@"KeyImages\keyboardZ"));

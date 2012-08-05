@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Media;
 
 namespace LootShop {
 	class PauseScreen : GenericMenu {
@@ -21,6 +22,17 @@ namespace LootShop {
 				Entry quitEntry = new Entry("Quit game");
 				quitEntry.Selected += OnQuit;
 				MenuEntries.Add(quitEntry);
+		}
+
+		public override void Initialize() {
+			base.Initialize();
+			GameSession.Current.GamePause.Play();
+			MediaPlayer.Pause();
+		}
+
+		protected override void OnCancel(Microsoft.Xna.Framework.PlayerIndex playerIndex) {
+			MediaPlayer.Resume();
+			base.OnCancel(playerIndex);
 		}
 
 		public void OnSave(object sender, PlayerIndexEventArgs e) {

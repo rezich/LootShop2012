@@ -47,6 +47,7 @@ namespace LootShop {
 
 		public override void Update(GameTime gameTime) {
 			base.Update(gameTime);
+			if (!TopActive) return;
 			stage.Update(gameTime);
 		}
 

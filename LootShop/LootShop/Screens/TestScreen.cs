@@ -13,22 +13,32 @@ namespace LootShop {
 		Item item;
 		TextBlock testBlock;
 
+		public TestScreen() {
+			TransitionOnTime = TimeSpan.FromSeconds(0.35);
+			TransitionOffTime = TimeSpan.FromSeconds(0.25);
+		}
+
 		public override void Initialize() {
-			item = Item.Generate(GameSession.Random.Next(1, 50), GameSession.Random);
+			//item = Item.Generate(GameSession.Random.Next(1, 50), GameSession.Random);
 			testBlock = new TextBlock("#MENU_ACCEPT# Generate loot #NL# #MENU_CANCEL# Return to main menu");
 		}
 
 		public override void HandleInput(InputState input) {
-			if (input.IsInput(Inputs.MenuAccept, ControllingPlayer)) item = Item.Generate(GameSession.Random.Next(1, 50), GameSession.Random);
+			if (input.IsInput(Inputs.MenuAccept, ControllingPlayer)) {
+				GameSession.Current.MenuAccept.Play();
+				item = Item.Generate(GameSession.Random.Next(1, 50), GameSession.Random);
+			}
 			if (input.IsInput(Inputs.MenuCancel, ControllingPlayer)) {
-				GameSession.Current.StartFromSplashScreens();
+				//GameSession.Current.StartFromSplashScreens();
+				ExitScreen();
 			}
 		}
 
 		public override void Draw(GameTime gameTime) {
 			ScreenManager.BeginSpriteBatch();
-			StatBlock.Draw(ScreenManager.SpriteBatch, item);
-			testBlock.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(Resolution.Left + 8, Resolution.Top + 8));
+			ScreenManager.SpriteBatch.Draw(GameSession.Current.Pixel, Resolution.Rectangle, Color.Black * TransitionAlphaSquared);
+			if (item != null) StatBlock.Draw(ScreenManager.SpriteBatch, item);
+			testBlock.Draw(ScreenManager.SpriteBatch, GameSession.Current.UIFontSmall, new Vector2(Resolution.Left + 8, Resolution.Top + 8), TextBlock.TextAlign.Left, null, TransitionAlphaSquared);
 			ScreenManager.SpriteBatch.End();
 		}
 	}
