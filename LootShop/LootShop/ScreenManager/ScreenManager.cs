@@ -89,6 +89,12 @@ namespace LootShop {
 			SpriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Resolution.getTransformationMatrix());
 		}
 
+		public void Begin3D() {
+		}
+
+		public void End3D() {
+		}
+
 		protected override void LoadContent() {
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 		}

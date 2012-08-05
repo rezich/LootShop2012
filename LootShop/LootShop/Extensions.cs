@@ -50,5 +50,14 @@ namespace LootShop {
 				serializer.Serialize(stream, campaign);
 			}
 		}
+		public static Vector3 Round(this Vector3 vector) {
+			return new Vector3((float)Math.Round(vector.X), (float)Math.Round(vector.Y), (float)Math.Round(vector.Z));
+		}
+		public static Vector3 ToVector3(this Vector2 vector) {
+			return new Vector3(vector.X, 0, vector.Y);
+		}
+		public static Vector2 ToVector2(this Vector3 vector) {
+			return new Vector2(vector.X, vector.Z);
+		}
 	}
 }

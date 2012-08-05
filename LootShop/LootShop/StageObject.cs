@@ -9,87 +9,78 @@ using Microsoft.Xna.Framework.Input;
 
 namespace LootShop {
 	abstract class StageObject {
-		public Vector2 Position;
-		public Vector2 TilePosition;
+		public Vector3 Position;
 		public bool IsFlat = false;
 		public abstract Texture2D CurrentFrame { get; }
-		public abstract Vector2 Origin { get; }
-		public float Priority;
-		public int Z;
-		public int Height;
+		public abstract Vector3 Origin { get; }
+		public int Height = 0;
+		public float Angle = 0;
 		public void Draw(SpriteBatch spriteBatch, Vector2 offset) {
-			Vector2 pos = offset + Position;
-			pos.X = (float)Math.Round(pos.X);
-			pos.Y = (float)Math.Round(pos.Y) - Z;
-			spriteBatch.Draw(CurrentFrame, pos, null, Color.White, 0f, Origin, 1f, SpriteEffects.None, 1f);
-			spriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, DrawOrder.ToString(), offset + Position, Color.Blue);
-			//spriteBatch.Draw(GameSession.Current.Pixel, offset + Position, Color.Blue);
-			//spriteBatch.Draw(GameSession.Current.Pixel, offset + Position - new Vector2(0, Z), Color.Blue);
+			Vector3 pos = Position.Round();
+			spriteBatch.Draw(CurrentFrame, pos.ToVector2() - offset, null, Color.White, Angle, Origin.ToVector2(), 1f, SpriteEffects.None, 1f);
 		}
 		public abstract void Update(GameTime gameTime);
-		public static Vector2 TileSize = new Vector2(128, 64);
+		public static Vector2 TileSize = new Vector2(128, 128);
 		protected Stage Stage;
-		protected Vector2 TranslateCoordinates(Vector2 coordinates) {
-			return new Vector2((coordinates.X * TileSize.X / 2) + (coordinates.Y * TileSize.X / 2), (coordinates.Y * TileSize.Y / 2) - (coordinates.X * TileSize.Y / 2));
-		}
-		public float DrawOrder {
+		public int DrawOrder {
 			get {
-				return ((int)Position.Y - (IsFlat ? (int)StageObject.TileSize.Y / 2 : -Z)) + Priority;
+				return (int)Position.Y + Height;
 			}
 		}
 	}
 
+	public enum TerrainType {
+		Grass,
+		Wall
+	}
+
 	class Terrain : StageObject {
+		public TerrainType Type;
 		public override Texture2D CurrentFrame {
 			get {
-				return IsBox ? Stage.Textures["tileCube"] : Stage.Textures["tileTest"];
+				return Type == TerrainType.Grass ? Stage.Textures["grass"] : Stage.Textures["wall"];
 			}
 		}
-		public override Vector2 Origin {
+		public override Vector3 Origin {
 			get {
-				return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height - TileSize.Y / 2);
+				return Vector3.Zero;
 			}
 		}
-		public bool IsBox = false;
 
 		public override void Update(GameTime gameTime) {
 		}
 
-		public Terrain(Stage stage, Vector2 position, bool isBox) {
+		public Terrain(Stage stage, Vector3 position, TerrainType type) {
 			Stage = stage;
-			//Position = position * TileSize - (TileSize / 2);
-			if (!isBox) IsFlat = true;
-			TilePosition = position;
-			Position = TranslateCoordinates(position) - (TileSize / 2);
-			IsBox = isBox;
-			Priority = IsFlat ? 0.1f : 0;
-			Height = IsFlat ? 0 : 64;
+			Position = position * StageObject.TileSize.ToVector3();
+			Type = type;
+			if (Type == TerrainType.Grass) Height = 0;
+			else Height = 128;
 		}
 	}
 
 	class Actor : StageObject {
 		public override Texture2D CurrentFrame {
 			get {
-				return Stage.Textures["man"];
+				return Stage.Textures["creature"];
 			}
 		}
-		public override Vector2 Origin {
+		public override Vector3 Origin {
 			get {
-				return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height);
+				return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height / 2).ToVector3();
 			}
 		}
-		public Vector2 IntendedPosition;
+		//public Vector3 IntendedPosition;
 
 		public override void Update(GameTime gameTime) {
-			if (IntendedPosition != Position) Position = Vector2.Lerp(Position, IntendedPosition, 0.1f);
+			//if (IntendedPosition != Position) Position = Vector2.Lerp(Position, IntendedPosition, 0.1f);
 		}
 
-		public Actor(Stage stage, Vector2 position) {
+		public Actor(Stage stage, Vector3 position) {
 			Stage = stage;
 			Position = position;
-			IntendedPosition = Position;
-			Priority = 0.2f;
-			Z = 0;
+			Height = 32;
+			//IntendedPosition = Position;
 		}
 	}
 }
