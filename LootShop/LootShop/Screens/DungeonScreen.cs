@@ -29,6 +29,7 @@ namespace LootShop {
 			MediaPlayer.Play(song);
 			ScreenManager.Game.ResetElapsedTime();
 		}
+
 		public override void UnloadContent() {
 			content.Unload();
 		}
@@ -57,9 +58,6 @@ namespace LootShop {
 
 			if (InputState.InputMethod == InputMethods.KeyboardMouse) ScreenManager.SpriteBatch.Draw(GameSession.Current.Cursor, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
 
-			ScreenManager.SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, player.Position.Round().ToString(), new Vector2(0, GameSession.Current.UIFontSmall.LineSpacing * 0), Color.White);
-			ScreenManager.SpriteBatch.DrawStringOutlined(GameSession.Current.UIFontSmall, (new Vector3(Mouse.GetState().X, 0, Mouse.GetState().Y) + stage.ViewOffset.ToVector3()).Round().ToString(), new Vector2(0, GameSession.Current.UIFontSmall.LineSpacing * 1), Color.White);
-
 			ScreenManager.SpriteBatch.End();
 		}
 
@@ -73,7 +71,7 @@ namespace LootShop {
 			}
 			else {
 				if (input.IsNewMousePress(MouseButtons.Left)) {
-					player.IntendedPosition = new Vector3(input.CurrentMouseState.X, 0, input.CurrentMouseState.Y) + stage.ViewOffset.ToVector3();
+					player.IntendedPosition = stage.MouseCoordinates;
 					//player.MoveTowardsIntended();
 				}
 			}

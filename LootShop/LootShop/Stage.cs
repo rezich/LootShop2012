@@ -22,9 +22,16 @@ namespace LootShop {
 		public void LoadContent() {
 		}
 
+		public Vector3 MouseCoordinates {
+			get {
+				return new Vector3(Mouse.GetState().X, 0, Mouse.GetState().Y) + ViewOffset.ToVector3();
+			}
+		}
+
 		public void SortObjects() {
 			Objects.Sort((a, b) => (a.DrawOrder).CompareTo(b.DrawOrder));
 		}
+
 		public void Draw(SpriteBatch spriteBatch) {
 			Vector3 cameraPosition = Vector3.Zero;
 			
@@ -32,6 +39,7 @@ namespace LootShop {
 				o.Draw(spriteBatch, ViewOffset);
 			}
 		}
+
 		public void Update(GameTime gameTime) {
 			if (FollowingObject != null) IntendedViewOffset = FollowingObject.Position.ToVector2() - new Vector2(Resolution.Right, Resolution.Bottom) / 2;
 			ViewOffset = Vector2.Lerp(ViewOffset, IntendedViewOffset, CameraSpeed);

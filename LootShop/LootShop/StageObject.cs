@@ -24,9 +24,12 @@ namespace LootShop {
 		public abstract void Update(GameTime gameTime);
 		public static Vector2 TileSize = new Vector2(128, 128);
 		protected Stage Stage;
-		public int DrawOrder {
+		public float DrawOrder {
 			get {
-				return (int)Position.Y + Height;
+				float bonus = 0;
+				if (this is Actor) bonus = 0.5f;
+				if (this is Terrain) bonus = 0.1f;
+				return Position.Y + Height + bonus;
 			}
 		}
 	}
@@ -67,7 +70,7 @@ namespace LootShop {
 	}
 
 	class Actor : StageObject {
-		public float MoveSpeed = 8;
+		public float MoveSpeed = 4;
 		public override Texture2D CurrentFrame {
 			get {
 				return Stage.Textures["creature"];
@@ -113,7 +116,7 @@ namespace LootShop {
 			Stage.Objects.Add(this);
 			Position = position;
 			IntendedPosition = position;
-			Height = 32;
+			Height = 48;
 			//IntendedPosition = Position;
 		}
 	}
