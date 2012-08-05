@@ -12,7 +12,7 @@ using LootSystem;
 
 namespace LootShop {
 	public class GameSession : Microsoft.Xna.Framework.Game {
-		public static bool TESTING = true;
+		public static bool TESTING = false;
 		GraphicsDeviceManager graphics;
 		public SpriteFont UIFontSmall;
 		public SpriteFont UIFontMedium;

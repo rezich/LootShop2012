@@ -139,8 +139,32 @@ namespace LootShop {
 		}
 
 		public bool IsGamepadInteracted() {
-			for (int i = 0; i < MaxInputs; i++) {
+			/*for (int i = 0; i < MaxInputs; i++) {
 				if (CurrentGamePadStates[i] != LastGamePadStates[i]) return true;
+			}
+			return false;*/
+			for (int i = 0; i < MaxInputs; i++) {
+				if (
+					CurrentGamePadStates[i].Buttons.A != LastGamePadStates[i].Buttons.A ||
+					CurrentGamePadStates[i].Buttons.B != LastGamePadStates[i].Buttons.B ||
+					CurrentGamePadStates[i].Buttons.X != LastGamePadStates[i].Buttons.X ||
+					CurrentGamePadStates[i].Buttons.Y != LastGamePadStates[i].Buttons.Y ||
+					CurrentGamePadStates[i].Buttons.Start != LastGamePadStates[i].Buttons.Start ||
+					CurrentGamePadStates[i].Buttons.Back != LastGamePadStates[i].Buttons.Back ||
+					CurrentGamePadStates[i].Buttons.BigButton != LastGamePadStates[i].Buttons.BigButton ||
+					CurrentGamePadStates[i].Buttons.LeftShoulder != LastGamePadStates[i].Buttons.LeftShoulder ||
+					CurrentGamePadStates[i].Buttons.RightShoulder != LastGamePadStates[i].Buttons.RightShoulder ||
+					CurrentGamePadStates[i].Buttons.LeftStick != LastGamePadStates[i].Buttons.LeftStick ||
+					CurrentGamePadStates[i].Buttons.RightStick != LastGamePadStates[i].Buttons.RightStick ||
+					CurrentGamePadStates[i].DPad.Up != CurrentGamePadStates[i].DPad.Up ||
+					CurrentGamePadStates[i].DPad.Left != CurrentGamePadStates[i].DPad.Left ||
+					CurrentGamePadStates[i].DPad.Right != CurrentGamePadStates[i].DPad.Right ||
+					CurrentGamePadStates[i].DPad.Down != CurrentGamePadStates[i].DPad.Down ||
+					CurrentGamePadStates[i].ThumbSticks.Left.Length() > 0.1 ||
+					CurrentGamePadStates[i].ThumbSticks.Right.Length() > 0.1 ||
+					CurrentGamePadStates[i].Triggers.Left > 0.1 ||
+					CurrentGamePadStates[i].Triggers.Right > 0.1
+					) return true;
 			}
 			return false;
 			//return !CurrentKeyboardStates.Equals(LastKeyboardStates);
