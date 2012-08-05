@@ -22,7 +22,7 @@ namespace LootShop {
 			spriteBatch.Draw(CurrentFrame, Position.Round().ToVector2() - offset.Round(), null, Color.White, Angle, Origin.ToVector2(), 1f, SpriteEffects.None, 1f);
 		}
 		public abstract void Update(GameTime gameTime);
-		public static Vector2 TileSize = new Vector2(128, 128);
+		public static Vector2 TileSize = new Vector2(64, 64);
 		protected Stage Stage;
 		public float DrawOrder {
 			get {
@@ -66,6 +66,43 @@ namespace LootShop {
 			Type = type;
 			if (Type == TerrainType.Grass) Height = 0;
 			else Height = 128;
+		}
+	}
+
+	public enum PropType {
+		Table,
+		Item
+	}
+
+	class Prop : StageObject {
+		public PropType Type;
+		public override Texture2D CurrentFrame {
+			get {
+				return Type == PropType.Table ? Stage.Textures["table"] : Stage.Textures["item"];
+			}
+		}
+		public override Color Color {
+			get { return Color.White; }
+		}
+		public override Vector3 Origin {
+			get { return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height / 2).ToVector3(); }
+		}
+
+		public override void Update(GameTime gameTime) {
+		}
+
+		public Prop(Stage stage, Vector3 position, PropType type) {
+			Stage = stage;
+			Stage.Objects.Add(this);
+			Position = position * TileSize.ToVector3() - TileSize.ToVector3() / 2;
+			Type = type;
+			if (Type == PropType.Table) {
+				Height = 32;
+			}
+			else {
+				Height = 4;
+				Position.Y = 33;
+			}
 		}
 	}
 
@@ -117,7 +154,6 @@ namespace LootShop {
 			Position = position;
 			IntendedPosition = position;
 			Height = 48;
-			//IntendedPosition = Position;
 		}
 	}
 }

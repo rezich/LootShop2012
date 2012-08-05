@@ -40,6 +40,7 @@ namespace LootShop {
 		public static Random Random = new Random();
 		ScreenManager screenManager;
 		FrameRateCounter fpsCounter;
+		public float SoundEffectVolume = 0.5f;
 
 		static readonly string[] preloadAssets = {
         };

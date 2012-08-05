@@ -29,7 +29,7 @@ namespace LootShop {
 		public override void HandleInput(InputState input) {
 			PlayerIndex playerIndex;
 			if (input.IsInput(Inputs.PressStart, null, out playerIndex)) {
-				GameSession.Current.PressStart.Play();
+				GameSession.Current.PressStart.Play(GameSession.Current.SoundEffectVolume, 0, 0);
 				ExitScreen();
 				ScreenManager.AddScreen(new MainMenu(), playerIndex);
 			}

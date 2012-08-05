@@ -25,7 +25,7 @@ namespace LootShop {
 
 		public override void HandleInput(InputState input) {
 			if (input.IsInput(Inputs.MenuAccept, ControllingPlayer)) {
-				GameSession.Current.MenuAccept.Play();
+				GameSession.Current.MenuAccept.Play(GameSession.Current.SoundEffectVolume, 0, 0);
 				item = Item.Generate(GameSession.Random.Next(1, 50), GameSession.Random);
 			}
 			if (input.IsInput(Inputs.MenuCancel, ControllingPlayer)) {

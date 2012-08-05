@@ -61,7 +61,7 @@ namespace LootShop {
 					if (selectedIndex >= entries.Count) selectedIndex -= entries.Count;
 				}
 				while (!entries[selectedIndex].Enabled);
-				GameSession.Current.MenuCursor.Play();
+				GameSession.Current.MenuCursor.Play(GameSession.Current.SoundEffectVolume, 0, 0);
 			}
 
 			if (input.IsInput(Inputs.MenuUp, ControllingPlayer)) {
@@ -70,7 +70,7 @@ namespace LootShop {
 					if (selectedIndex < 0) selectedIndex += entries.Count;
 				}
 				while (!entries[selectedIndex].Enabled);
-				GameSession.Current.MenuCursor.Play();
+				GameSession.Current.MenuCursor.Play(GameSession.Current.SoundEffectVolume, 0, 0);
 			}
 
 			if (entries[selectedIndex].Content != null) Content = entries[selectedIndex].Content;
@@ -78,21 +78,21 @@ namespace LootShop {
 
 			PlayerIndex playerIndex;
 			if (input.IsInput(Inputs.MenuAccept, ControllingPlayer, out playerIndex)) {
-				if (entries[selectedIndex].IsCancel) GameSession.Current.MenuCancel.Play();
-				else if (entries[selectedIndex].HasSelected) GameSession.Current.MenuAccept.Play();
-				else GameSession.Current.MenuDeny.Play();
+				if (entries[selectedIndex].IsCancel) GameSession.Current.MenuCancel.Play(GameSession.Current.SoundEffectVolume, 0, 0);
+				else if (entries[selectedIndex].HasSelected) GameSession.Current.MenuAccept.Play(GameSession.Current.SoundEffectVolume, 0, 0);
+				else GameSession.Current.MenuDeny.Play(GameSession.Current.SoundEffectVolume, 0, 0);
 				OnSelectEntry(selectedIndex, playerIndex);
 			}
 			if (input.IsInput(Inputs.MenuLeft, ControllingPlayer, out playerIndex)) {
-				if (entries[selectedIndex].HasSwipeLeft) GameSession.Current.MenuCursor.Play();
+				if (entries[selectedIndex].HasSwipeLeft) GameSession.Current.MenuCursor.Play(GameSession.Current.SoundEffectVolume, 0, 0);
 				OnSwipeLeftEntry(selectedIndex, playerIndex);
 			}
 			if (input.IsInput(Inputs.MenuRight, ControllingPlayer, out playerIndex)) {
-				if (entries[selectedIndex].HasSwipeRight) GameSession.Current.MenuCursor.Play();
+				if (entries[selectedIndex].HasSwipeRight) GameSession.Current.MenuCursor.Play(GameSession.Current.SoundEffectVolume, 0, 0);
 				OnSwipeRightEntry(selectedIndex, playerIndex);
 			}
 			if (input.IsInput(Inputs.MenuCancel, ControllingPlayer, out playerIndex) && Cancelable) {
-				GameSession.Current.MenuCancel.Play();
+				GameSession.Current.MenuCancel.Play(GameSession.Current.SoundEffectVolume, 0, 0);
 				OnCancel(playerIndex);
 			}
 		}
@@ -269,6 +269,13 @@ namespace LootShop {
 
 			public override float Height {
 				get { return (float)Font.LineSpacing * scale; }
+			}
+		}
+
+		public class SpacerEntry : Entry {
+			public SpacerEntry()
+				: base("") {
+					Enabled = false;
 			}
 		}
 	}

@@ -24,6 +24,8 @@ namespace LootShop {
 			stage.Textures.Add("grass", content.Load<Texture2D>(@"Textures\Test\grass"));
 			stage.Textures.Add("wall", content.Load<Texture2D>(@"Textures\Test\wall"));
 			stage.Textures.Add("creature", content.Load<Texture2D>(@"Textures\Test\creature"));
+			stage.Textures.Add("table", content.Load<Texture2D>(@"Textures\Test\table"));
+			stage.Textures.Add("item", content.Load<Texture2D>(@"Textures\Test\item"));
 			stage.LoadContent();
 			song = content.Load<Song>(@"Music\Thrilling");
 			MediaPlayer.Play(song);
@@ -42,6 +44,9 @@ namespace LootShop {
 			}
 			new Terrain(stage, new Vector2(0, 1).ToVector3(), TerrainType.Wall);
 			player = new Actor(stage, new Vector2(500, 500).ToVector3());
+			new Prop(stage, new Vector2(3, 3).ToVector3(), PropType.Table);
+			new Prop(stage, new Vector2(3, 4).ToVector3(), PropType.Table);
+			new Prop(stage, new Vector2(3, 3).ToVector3(), PropType.Item);
 			stage.FollowingObject = player;
 		}
 

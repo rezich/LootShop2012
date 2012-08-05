@@ -31,6 +31,8 @@ namespace LootShop {
 		Entry resolutionEntry;
 		Entry fullscreenEntry;
 		Entry titleSafeEntry;
+		Entry musicVolumeEntry;
+		Entry soundVolumeEntry;
 
 		public OptionsScreen()
 			: base("Options", true, false) {
@@ -45,7 +47,7 @@ namespace LootShop {
 			titleSafeIndex = titleSafeModes.IndexOf(Resolution.TitleSafeAreaScale);
 			fullscreen = Resolution.IsFullscreen;
 
-			MenuEntries.Add(new HeadingEntry("Graphics"));
+			MenuEntries.Add(new HeadingEntry("Video"));
 
 			resolutionEntry = new Entry("Resolution");
 			resolutionEntry.SwipeLeft += DecrementResolution;
@@ -67,6 +69,22 @@ namespace LootShop {
 			titleSafeEntry.SwipeRight += IncrementTitleSafeMode;
 			titleSafeEntry.Enabled = Resolution.HasTitleSafeArea;
 			MenuEntries.Add(titleSafeEntry);
+
+			MenuEntries.Add(new SpacerEntry());
+
+			MenuEntries.Add(new HeadingEntry("Audio"));
+
+			musicVolumeEntry = new Entry("Music Volume");
+			musicVolumeEntry.SwipeLeft += DecrementMusicVolume;
+			musicVolumeEntry.SwipeRight += IncrementMusicVolume;
+			MenuEntries.Add(musicVolumeEntry);
+
+			soundVolumeEntry = new Entry("Sound Volume");
+			soundVolumeEntry.SwipeLeft += DecrementSoundVolume;
+			soundVolumeEntry.SwipeRight += IncrementSoundVolume;
+			MenuEntries.Add(soundVolumeEntry);
+
+			MenuEntries.Add(new SpacerEntry());
 
 			Entry applySettingsEntry = new Entry("Apply settings");
 			applySettingsEntry.Selected += ApplySettings;
@@ -108,6 +126,30 @@ namespace LootShop {
 			UpdateEntryText();
 		}
 
+		void IncrementMusicVolume(object sender, PlayerIndexEventArgs e) {
+			MediaPlayer.Volume += 0.1f;
+			if (MediaPlayer.Volume > 1) MediaPlayer.Volume = 1;
+			UpdateEntryText();
+		}
+
+		void DecrementMusicVolume(object sender, PlayerIndexEventArgs e) {
+			MediaPlayer.Volume -= 0.1f;
+			if (MediaPlayer.Volume < 0) MediaPlayer.Volume = 0;
+			UpdateEntryText();
+		}
+
+		void IncrementSoundVolume(object sender, PlayerIndexEventArgs e) {
+			GameSession.Current.SoundEffectVolume += 0.1f;
+			if (GameSession.Current.SoundEffectVolume > 1) GameSession.Current.SoundEffectVolume = 1;
+			UpdateEntryText();
+		}
+
+		void DecrementSoundVolume(object sender, PlayerIndexEventArgs e) {
+			GameSession.Current.SoundEffectVolume -= 0.1f;
+			if (GameSession.Current.SoundEffectVolume < 0) GameSession.Current.SoundEffectVolume = 0;
+			UpdateEntryText();
+		}
+
 		void ApplySettings(object sender, PlayerIndexEventArgs e) {
 			Resolution.SetResolution(resolutions[curResolution].Width, resolutions[curResolution].Height, fullscreen);
 		}
@@ -116,6 +158,8 @@ namespace LootShop {
 			resolutionEntry.Text2 = resolutions[curResolution].ToString();
 			fullscreenEntry.Text2 = (fullscreen ? "ON" : "OFF");
 			titleSafeEntry.Text2 = (titleSafeModes[titleSafeIndex] * 10).ToString();
+			musicVolumeEntry.Text2 = Math.Round(MediaPlayer.Volume * 100).ToString() + "%";
+			soundVolumeEntry.Text2 = Math.Round(GameSession.Current.SoundEffectVolume * 100).ToString() + "%";
 		}
 
 		public override void Draw(GameTime gameTime) {

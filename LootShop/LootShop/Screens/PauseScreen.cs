@@ -26,7 +26,7 @@ namespace LootShop {
 
 		public override void Initialize() {
 			base.Initialize();
-			GameSession.Current.GamePause.Play();
+			GameSession.Current.GamePause.Play(GameSession.Current.SoundEffectVolume, 0, 0);
 			MediaPlayer.Pause();
 		}
 
