@@ -8,6 +8,10 @@ namespace LootShop {
 		public PauseScreen()
 			: base("Paused", true, false) {
 				Centered = true;
+				Entry resumeEntry = new Entry("Resume");
+				resumeEntry.Selected += OnCancel;
+				resumeEntry.IsCancel = true;
+				MenuEntries.Add(resumeEntry);
 				Entry saveEntry = new Entry("Save game");
 				saveEntry.Selected += OnSave;
 				MenuEntries.Add(saveEntry);
@@ -17,10 +21,6 @@ namespace LootShop {
 				Entry quitEntry = new Entry("Quit game");
 				quitEntry.Selected += OnQuit;
 				MenuEntries.Add(quitEntry);
-				Entry resumeEntry = new Entry("Resume");
-				resumeEntry.Selected += OnCancel;
-				resumeEntry.IsCancel = true;
-				MenuEntries.Add(resumeEntry);
 		}
 
 		public void OnSave(object sender, PlayerIndexEventArgs e) {

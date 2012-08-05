@@ -39,6 +39,7 @@ namespace LootShop {
 					new Terrain(stage, new Vector2(j, i).ToVector3(), TerrainType.Grass);
 				}
 			}
+			new Terrain(stage, new Vector2(0, 1).ToVector3(), TerrainType.Wall);
 			player = new Actor(stage, new Vector2(500, 500).ToVector3());
 			stage.FollowingObject = player;
 		}
@@ -63,18 +64,19 @@ namespace LootShop {
 		}
 
 		public override void HandleInput(InputState input) {
+			if (input.IsInput(Inputs.GamePause, ControllingPlayer)) ScreenManager.AddScreen(new PauseScreen(), ControllingPlayer);
 			if (InputState.InputMethod == InputMethods.Gamepad) {
 				//player.Position += input.LeftThumbstick(ControllingPlayer).ToVector3() * 8;
 				player.MoveInDirection(input.LeftThumbstick(ControllingPlayer).ToVector3(), player.MoveSpeed);
 				player.IntendedPosition = player.Position;
+				if (player.Position != player.LastPosition) player.TurnTowardsIntended();
 			}
 			else {
 				if (input.IsNewMousePress(MouseButtons.Left)) {
 					player.IntendedPosition = new Vector3(input.CurrentMouseState.X, 0, input.CurrentMouseState.Y) + stage.ViewOffset.ToVector3();
-					player.MoveTowardsIntended();
+					//player.MoveTowardsIntended();
 				}
 			}
-			if (player.Position != player.LastPosition) player.IntendedAngle = (float)Math.Atan2(player.Position.Z - player.LastPosition.Z, player.Position.X - player.LastPosition.X);
 		}
 	}
 }

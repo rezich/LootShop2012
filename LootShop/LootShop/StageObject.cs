@@ -14,12 +14,12 @@ namespace LootShop {
 		public bool IsFlat = false;
 		public abstract Texture2D CurrentFrame { get; }
 		public abstract Vector3 Origin { get; }
+		public abstract Color Color { get; }
 		public int Height = 0;
 		public float Angle = 0;
 		public float IntendedAngle = 0;
 		public void Draw(SpriteBatch spriteBatch, Vector2 offset) {
-			Vector3 pos = Position.Round();
-			spriteBatch.Draw(CurrentFrame, pos.ToVector2() - offset, null, Color.White, Angle, Origin.ToVector2(), 1f, SpriteEffects.None, 1f);
+			spriteBatch.Draw(CurrentFrame, Position.Round().ToVector2() - offset.Round(), null, Color.White, Angle, Origin.ToVector2(), 1f, SpriteEffects.None, 1f);
 		}
 		public abstract void Update(GameTime gameTime);
 		public static Vector2 TileSize = new Vector2(128, 128);
@@ -49,6 +49,10 @@ namespace LootShop {
 			}
 		}
 
+		public override Color Color {
+			get { return Color.White; }
+		}
+
 		public override void Update(GameTime gameTime) {
 		}
 
@@ -74,13 +78,24 @@ namespace LootShop {
 				return new Vector2(CurrentFrame.Width / 2, CurrentFrame.Height / 2).ToVector3();
 			}
 		}
+
+		protected Color color = Color.White;
+		public override Color Color {
+			get { return color; }
+		}
+
 		public Vector3 IntendedPosition;
 
 		public void MoveTowardsIntended() {
 			if (Vector3.Distance(Position, IntendedPosition) > 4) {
 				Vector3 velocity = Vector3.Normalize(IntendedPosition - Position);
 				MoveInDirection(velocity, MoveSpeed);
+				TurnTowardsIntended();
 			}
+		}
+
+		public void TurnTowardsIntended() {
+			IntendedAngle = (float)Math.Atan2(Position.Z - LastPosition.Z, Position.X - LastPosition.X);
 		}
 
 		public void MoveInDirection(Vector3 direction, float speed) {
@@ -97,6 +112,7 @@ namespace LootShop {
 			Stage = stage;
 			Stage.Objects.Add(this);
 			Position = position;
+			IntendedPosition = position;
 			Height = 32;
 			//IntendedPosition = Position;
 		}

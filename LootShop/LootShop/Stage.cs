@@ -14,6 +14,7 @@ namespace LootShop {
 		public Vector2 ViewOffset = Vector2.Zero;
 		public Vector2 IntendedViewOffset = Vector2.Zero;
 		public StageObject FollowingObject = null;
+		public float CameraSpeed = 0.2f;
 
 		public Stage() {
 		}
@@ -21,9 +22,9 @@ namespace LootShop {
 		public void LoadContent() {
 		}
 
-		/*public void SortObjects() {
+		public void SortObjects() {
 			Objects.Sort((a, b) => (a.DrawOrder).CompareTo(b.DrawOrder));
-		}*/
+		}
 		public void Draw(SpriteBatch spriteBatch) {
 			Vector3 cameraPosition = Vector3.Zero;
 			
@@ -33,11 +34,11 @@ namespace LootShop {
 		}
 		public void Update(GameTime gameTime) {
 			if (FollowingObject != null) IntendedViewOffset = FollowingObject.Position.ToVector2() - new Vector2(Resolution.Right, Resolution.Bottom) / 2;
-			ViewOffset = Vector2.Lerp(ViewOffset, IntendedViewOffset, 0.1f);
+			ViewOffset = Vector2.Lerp(ViewOffset, IntendedViewOffset, CameraSpeed);
 			foreach (StageObject o in Objects) {
 				o.Update(gameTime);
 			}
-			//SortObjects();
+			SortObjects();
 		}
 	}
 }
