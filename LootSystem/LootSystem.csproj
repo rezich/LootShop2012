@@ -35,7 +35,7 @@
   <ItemGroup>
     <Compile Include="Campaign.cs" />
     <Compile Include="Cutscene.cs" />
-    <Compile Include="Hero.cs" />
+    <Compile Include="Creature.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="PlayerCharacter.cs" />
     <Compile Include="Time.cs" />

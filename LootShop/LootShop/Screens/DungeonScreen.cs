@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using LootSystem;
 
 namespace LootShop {
 	class DungeonScreen : GameScreen {
@@ -26,6 +27,7 @@ namespace LootShop {
 			stage.Textures.Add("creature", content.Load<Texture2D>(@"Textures\Test\creature"));
 			stage.Textures.Add("table", content.Load<Texture2D>(@"Textures\Test\table"));
 			stage.Textures.Add("item", content.Load<Texture2D>(@"Textures\Test\item"));
+			stage.Textures.Add("bloodSplat", content.Load<Texture2D>(@"Textures\Test\bloodSplat"));
 			stage.LoadContent();
 			song = content.Load<Song>(@"Music\Thrilling");
 			MediaPlayer.Play(song);
@@ -39,14 +41,16 @@ namespace LootShop {
 		public override void Initialize() {
 			for (int i = 0; i < 10; i++) {
 				for (int j = 0; j < 10; j++) {
-					new Terrain(stage, new Vector2(j, i).ToVector3(), TerrainType.Grass);
+					new Terrain.Grass(stage, new Vector2(j, i).ToVector3());
 				}
 			}
-			new Terrain(stage, new Vector2(0, 1).ToVector3(), TerrainType.Wall);
-			player = new Actor(stage, new Vector2(500, 500).ToVector3());
+			Hero hero = new Hero();
+			new Terrain.Wall(stage, new Vector2(0, 1).ToVector3());
+			player = new Actor(stage, new Vector2(500, 500).ToVector3(), hero);
 			new Prop(stage, new Vector2(3, 3).ToVector3(), PropType.Table);
 			new Prop(stage, new Vector2(3, 4).ToVector3(), PropType.Table);
 			new Prop(stage, new Vector2(3, 3).ToVector3(), PropType.Item);
+			new Actor(stage, new Vector2(400, 400).ToVector3(), Creature.Create(CreatureType.Zombie));
 			stage.FollowingObject = player;
 		}
 
@@ -78,6 +82,13 @@ namespace LootShop {
 			else {
 				if (input.IsNewMousePress(MouseButtons.Left)) {
 					player.IntendedPosition = stage.MouseCoordinates;
+					for (int i = 0; i < stage.Objects.Count; i++) {
+						Rectangle bb = stage.Objects[i].BoundingBox;
+						Vector2 dest = stage.Objects[i].Position.Round().ToVector2();// - stage.ViewOffset.Round();
+						bb.X += (int)dest.X;
+						bb.Y += (int)dest.Y;
+						if (bb.Contains(new Point((int)stage.MouseCoordinates.X, (int)stage.MouseCoordinates.Z)) && stage.Objects[i] is Actor && stage.Objects[i] != player && Vector3.Distance(player.Position, stage.Objects[i].Position) < 128) ((Actor)stage.Objects[i]).Kill();
+					}
 					//player.MoveTowardsIntended();
 				}
 			}
