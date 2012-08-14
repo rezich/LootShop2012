@@ -146,6 +146,8 @@ namespace LootShop {
 			ButtonImages.Add(Buttons.RightShoulder, Content.Load<Texture2D>(@"ButtonImages\xboxControllerRightShoulder"));
 			ButtonImages.Add(Buttons.RightTrigger, Content.Load<Texture2D>(@"ButtonImages\xboxControllerRightTrigger"));
 			ButtonImages.Add(Buttons.Start, Content.Load<Texture2D>(@"ButtonImages\xboxControllerStart"));
+
+			SpriteBatchHelper.Initialize(GraphicsDevice);
 		}
 
 		protected override void UnloadContent() {

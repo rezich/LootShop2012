@@ -41,15 +41,15 @@ namespace LootShop {
 		public override void Initialize() {
 			for (int i = 0; i < 10; i++) {
 				for (int j = 0; j < 10; j++) {
-					new Terrain.Grass(stage, new Vector2(j, i).ToVector3());
+					new Terrain.Floor(stage, new Vector2(j, i).ToVector3());
 				}
 			}
 			Hero hero = new Hero();
 			new Terrain.Wall(stage, new Vector2(0, 1).ToVector3());
 			player = new Actor(stage, new Vector2(500, 500).ToVector3(), hero);
-			new Prop(stage, new Vector2(3, 3).ToVector3(), PropType.Table);
-			new Prop(stage, new Vector2(3, 4).ToVector3(), PropType.Table);
-			new Prop(stage, new Vector2(3, 3).ToVector3(), PropType.Item);
+			new Prop.Table(stage, new Vector2(3, 3).ToVector3());
+			new Prop.Table(stage, new Vector2(3, 4).ToVector3());
+			new Prop.Item(stage, new Vector2(3, 3).ToVector3());
 			new Actor(stage, new Vector2(400, 400).ToVector3(), Creature.Create(CreatureType.Zombie));
 			stage.FollowingObject = player;
 		}
@@ -65,6 +65,10 @@ namespace LootShop {
 			ScreenManager.BeginSpriteBatch();
 
 			stage.Draw(ScreenManager.SpriteBatch);
+
+			ScreenManager.SpriteBatch.DrawLine(new Vector2(100, 100), new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 1, Color.White);
+			ScreenManager.SpriteBatch.DrawNgon(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 100, 5, 3, Color.White, (float)Math.Sin(gameTime.TotalGameTime.TotalSeconds * 5));
+			ScreenManager.SpriteBatch.DrawCircle(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 300, 2, Color.White, 0);
 
 			if (InputState.InputMethod == InputMethods.KeyboardMouse) ScreenManager.SpriteBatch.Draw(GameSession.Current.Cursor, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
 

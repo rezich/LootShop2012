@@ -40,11 +40,6 @@ namespace LootShop {
 	}
 
 	abstract class Terrain : StageObject {
-		public override Texture2D CurrentFrame {
-			get {
-				return null;
-			}
-		}
 		public override Vector3 Origin {
 			get {
 				return Vector3.Zero;
@@ -60,13 +55,13 @@ namespace LootShop {
 		public override void Update(GameTime gameTime) {
 		}
 
-		public class Grass : Terrain {
+		public class Floor : Terrain {
 			public override Texture2D CurrentFrame {
 				get {
 					return Stage.Textures["grass"];
 				}
 			}
-			public Grass(Stage stage, Vector3 position) {
+			public Floor(Stage stage, Vector3 position) {
 				Stage = stage;
 				Stage.Objects.Add(this);
 				Position = position * StageObject.TileSize.ToVector3();
@@ -91,18 +86,7 @@ namespace LootShop {
 		}
 	}
 
-	public enum PropType {
-		Table,
-		Item
-	}
-
-	class Prop : StageObject {
-		public PropType Type;
-		public override Texture2D CurrentFrame {
-			get {
-				return Type == PropType.Table ? Stage.Textures["table"] : Stage.Textures["item"];
-			}
-		}
+	abstract class Prop : StageObject {
 		public override Color Color {
 			get { return Color.White; }
 		}
@@ -116,17 +100,31 @@ namespace LootShop {
 		public override void Update(GameTime gameTime) {
 		}
 
-		public Prop(Stage stage, Vector3 position, PropType type) {
-			Stage = stage;
-			Stage.Objects.Add(this);
-			Position = position * TileSize.ToVector3() - TileSize.ToVector3() / 2;
-			Type = type;
-			if (Type == PropType.Table) {
+		public class Table : Prop {
+			public override Texture2D CurrentFrame {
+				get {
+					return Stage.Textures["table"];
+				}
+			}
+			public Table(Stage stage, Vector3 position) {
+				Stage = stage;
+				Stage.Objects.Add(this);
+				Position = position * TileSize.ToVector3() - TileSize.ToVector3() / 2;
 				Height = 32;
 			}
-			else {
+		}
+
+		public class Item : Prop {
+			public override Texture2D CurrentFrame {
+				get {
+					return Stage.Textures["item"];
+				}
+			}
+			public Item(Stage stage, Vector3 position) {
+				Stage = stage;
+				Stage.Objects.Add(this);
+				Position = position * TileSize.ToVector3() - TileSize.ToVector3() / 2;
 				Height = 4;
-				Position.Y = 33;
 			}
 		}
 	}
