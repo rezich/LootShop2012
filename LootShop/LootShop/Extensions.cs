@@ -8,6 +8,7 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using LootSystem;
 
 namespace LootShop {
@@ -136,6 +137,9 @@ namespace LootShop {
 			//compute how many vertices we want so it looks circular
 			int N = (int)(Radius / 2);
 			batch.DrawNgon(Centre, Radius, N, width, color, offset);
+		}
+		public static Vector2 GetPosition(this MouseState mouse) {
+			return new Vector2(mouse.X, mouse.Y);
 		}
 	}
 }

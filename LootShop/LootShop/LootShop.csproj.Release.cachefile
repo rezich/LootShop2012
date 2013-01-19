@@ -16,30 +16,45 @@ Content\ButtonImages\xboxControllerSpriteFont.xnb
 Content\ButtonImages\xboxControllerStart.xnb
 Content\title.xnb
 Content\testbackground.xnb
-Content\border.xnb
 Content\stonebackground.xnb
 Content\KeyImages\keyboardEsc.xnb
 Content\KeyImages\keyboardX.xnb
 Content\KeyImages\keyboardZ.xnb
+Content\KeyImages\keyboardDown.xnb
+Content\KeyImages\keyboardLeft.xnb
+Content\KeyImages\keyboardRight.xnb
+Content\KeyImages\keyboardUp.xnb
+Content\Tiles\tileTest.xnb
+Content\Tiles\tileCube.xnb
+Content\Tiles\man.xnb
+Content\cursor.xnb
+Content\Tiles\tileCube2.xnb
+Content\Textures\Test\creature.xnb
+Content\Textures\Test\grass.xnb
+Content\Textures\Test\wall.xnb
+Content\Textures\grass.xnb
+Content\Textures\Test\table.xnb
+Content\Textures\Test\item.xnb
+Content\Textures\Test\bloodSplat.xnb
 Content\menufont.xnb
 Content\UIFontSmall.xnb
 Content\UIFontMedium.xnb
 Content\DialogueFont.xnb
 Content\UIFontLarge.xnb
 Content\KeyboardFont.xnb
-Content\Music\Loot Shop 1a.xnb
-Content\Music\Loot Shop 2a.xnb
 Content\Music\Loot Shop 3a.xnb
 Content\Music\lootshop 6a medieval bossa.xnb
-Content\KeyImages\keyboardDown.xnb
-Content\KeyImages\keyboardLeft.xnb
-Content\KeyImages\keyboardRight.xnb
-Content\KeyImages\keyboardUp.xnb
+Content\Music\Main Theme.xnb
+Content\Music\Thrilling (Short).xnb
+Content\Music\Thrilling.xnb
 Content\Sounds\menuAccept.xnb
 Content\Sounds\menuCancel.xnb
 Content\Sounds\menuCursor.xnb
 Content\Sounds\pressStart.xnb
-Content\Music\Loot Shop 1a.wma
-Content\Music\Loot Shop 2a.wma
+Content\Sounds\menuDeny.xnb
+Content\Sounds\gamePause.xnb
 Content\Music\Loot Shop 3a.wma
 Content\Music\lootshop 6a medieval bossa.wma
+Content\Music\Main Theme.wma
+Content\Music\Thrilling (Short).wma
+Content\Music\Thrilling.wma
