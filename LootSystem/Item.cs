@@ -83,7 +83,7 @@ namespace LootSystem {
 					"Staff", "Rod", "Wand", "Implement", "Quarterstaff", "Walking Stick", "Channeler", "Spellbinder", "Branch"
 				}));
 				List.Add(new Item.Kind(Type.Bow, Slot.TwoHands, meleeAttr, new List<string> {
-					"Bow", "Shortbow", "Longbow", "Composite Bow", "War Bow", "Siege Bow", "Great Bow", "Cross Bow", "Sniper Bow"
+					"Bow", "Shortbow", "Longbow", "Composite Bow", "War Bow", "Siege Bow", "Great Bow", "Crossbow", "Sniper Bow"
 				}));
 				List.Add(new Item.Kind(Type.Mace, Slot.OneHand, meleeAttr, new List<string> {
 					"Mace", "Club", "Morningstar", "Flail", "War Hammer", "Maul", "Cudgel", "Truncheon", "Mallet", "Hammer"
